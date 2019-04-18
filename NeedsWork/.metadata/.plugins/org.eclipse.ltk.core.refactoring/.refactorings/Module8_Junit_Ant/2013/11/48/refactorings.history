@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Module8_Junit_Ant/anotherBuild.file&apos; to &apos;anotherBuild.file.xml&apos;" description="Rename resource &apos;anotherBuild.file&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="anotherBuild.file" name="anotherBuild.file.xml" stamp="1385521402451" updateReferences="true"/>
+</session>
