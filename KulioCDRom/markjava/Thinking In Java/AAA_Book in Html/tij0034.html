@@ -1,0 +1,126 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0033.html">Prev</a> | <a href="tij0035.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+You
+never need to 
+<P>destroy
+an object
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+most programming languages, the concept of the lifetime of a variable occupies
+a significant portion of the programming effort. How long does the variable
+last? If you are supposed to destroy it, when should you? Confusion over
+variable lifetimes can lead to a lot of bugs, and this section shows how Java
+greatly simplifies the issue by doing all the cleanup work for you.
+</FONT><a name="_Toc375545223"></a><a name="_Toc408018424"></a><P></DIV>
+<A NAME="Heading69"></A><H3 ALIGN=LEFT>
+Scoping</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Most
+procedural languages have the concept of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>scope</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This determines both the visibility and lifetime of the names defined within
+that scope. In C, C++ and Java, scope is determined by the placement of curly
+braces 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>{}</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+So for example:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>{
+  <font color="#0000ff">int</font> x = 12;
+  <font color="#009900">/* only x available */</font>
+  {
+    <font color="#0000ff">int</font> q = 96;
+    <font color="#009900">/* both x &amp; q available */</font>
+  }
+  <font color="#009900">/* only x available */</font>
+  <font color="#009900">/* q &#8220;out of scope&#8221; */</font>
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+variable defined within a scope is available only to the end of that scope.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Indentation
+makes Java code easier to read. Since Java is a free form language, the extra
+spaces, tabs and carriage returns do not affect the resulting program.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Note
+that you 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>cannot</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+do the following, even though it is legal in C and C++:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>{
+  <font color="#0000ff">int</font> x = 12;
+  {
+    <font color="#0000ff">int</font> x = 96; <font color="#009900">/* illegal */</font>
+  }
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+compiler will announce that the variable 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>x
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">has
+already been defined. Thus the C and C++ ability to &#8220;hide&#8221; a
+variable in a larger scope is not allowed because the Java designers thought
+that it led to confusing programs.
+</FONT><a name="_Toc375545224"></a><a name="_Toc408018425"></a><P></DIV>
+<A NAME="Heading70"></A><H3 ALIGN=LEFT>
+Scope
+of objects
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+objects do not have the same lifetimes as primitives. When you create a Java
+object using 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it hangs around past the end of the scope. Thus if you use:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">{</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">
+ String s = new String("a string");
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">}
+/* end of scope */
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">the
+handle 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+vanishes at the end of the scope. However, the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+was pointing to is still occupying memory. In this bit of code, there is no way
+to access the object because the only handle to it is out of scope. In later
+chapters you&#8217;ll see how the handle to the object can be passed around and
+duplicated during the course of a program.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+turns out that because objects created with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+stay around for as long as you want them, a whole slew of programming problems
+simply vanish in C++ and Java. The hardest problems seem to occur in C++
+because you don&#8217;t get any help from the language in making sure that the
+objects are available when they&#8217;re needed. And more importantly, in C++
+you must make sure that you destroy the objects when you&#8217;re done with them.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">That
+brings up an interesting question. If Java leaves the objects lying around,
+what keeps them from filling up memory and halting your program? This is
+exactly the kind of problem that would occur in C++. This is where a bit of
+magic happens. Java has a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>garbage
+collector
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which looks at all the objects that were created with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and figures out which ones are not being referenced anymore. Then it releases
+the memory for those objects, so the memory can be used for new objects. This
+means that you never need to worry about reclaiming memory yourself. You simply
+create objects, and when you no longer need them they will go away by
+themselves. This eliminates a certain class of programming problem: the
+so-called &#8220;memory leak,&#8221; in which a programmer forgets to release
+memory.
+</FONT><a name="_Toc375545225"></a><a name="_Toc408018426"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0033.html">Prev</a> | <a href="tij0035.html">Next</a>
+</div>
+</body></html>
+

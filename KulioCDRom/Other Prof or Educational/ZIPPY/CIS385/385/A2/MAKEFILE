@@ -1,0 +1,22 @@
+#make  file
+
+#written by richard gordon
+#adjusted by M. H. Atkinson
+
+.KEEP_STATE:
+
+EXECUTABLE = primetest
+OBJECTS = set.o primetest.o
+
+primetest: $(OBJECTS)
+	g++ $(OBJECTS) -o $(EXECUTABLE)
+
+.cc.o:
+	g++ -g -c $< -o $@
+
+clean:
+	rm -f $(EXECUTABLE) $(OBJECTS)
+	rm -f *~
+
+run::
+	$(EXECUTABLE)

@@ -1,0 +1,140 @@
+		Starting at								
+		date 1/1/1999						2.93		
+			"1,165.00"					1167.93		
+
+                Transaction	Amount						Deposits	SUM
+
+		Trader Joes	109.27							
+		Lucky	25.87							
+		Kwei Bin	13.76							
+		Food ?????	100.00							
+		Mad 	240.00							
+		NTC	16.27							
+		Sonic.net	45.00							
+		Hermonsons	20.00							
+		city of Petaluma 	52.62							
+		 Pac Bell Da Phone	43.56							
+		Chevron	42.10							
+		TCI	33.36							
+		La Familigilia	11.71							
+		pge	140.61							
+		Shell	64.26							
+									State refund	44.61
+		UsAA	30.00							
+		Mail Boxes Notary	10.00							
+		Pac Bell Mark	19.11							
+									Deborah Deposit	690.00
+		La Fam	10.70							
+		Mary's	28.00							
+		callular One	126.19							
+		BarAale	40.83							
+		State farm Ins	63.00							
+		Kwei Bin	20.15							
+		Trader Joes	52.31							
+		La Fam	13.27							
+									Transfer From Savings	343.00
+		Car Ins Feb 99	343.00							
+		Lucky	13.06							
+		Who does your dog	85.00							
+									Mark's Salary	1165.00
+	        ????	
+                Madd Money	220.00							
+		withdrall from food account	100.00							
+									refund Catalina`	450.00
+		First Usa  Allen's Payment Yos	75.00							
+		Kwei Bin	13.75							
+									1/15/1999Deposit +100	100.00
+		cityBank MC	113.24							
+									Deposit Hermon Expences`	61.00
+		First Usa	147.00							
+									1/20/1999void 4794	75.00
+									Deposit towards Yos	405.00
+		First Usa D/M payment	405.00							
+									Deposit cc#pay	100.00
+		First Usa cc# pay	100.00							
+		1st Nationwide Feb Mort Pay	"1,184.24"							
+									Transfer From sav #1	200.00
+		Beneficial bank Costco Printing	200.00							
+		la familigilia	11.40							
+		T Joes	24.50							
+		Mary's	25.00							
+		Atm for Movie Tickest	15.00							
+		la familigilia	9.66							
+		FFt	5.20							
+									trans Laur??? DW	148.00
+		La Familigilia	8.60							
+		Cita Visa  Laura DW	148.00							
+									Mark Pay Salary	1165.00
+									Void 4798	405.00
+									void 4797	147.00
+									void 4799	100.00
+		1st USA Yosemite 	652.00							
+		Petaluma Shoe Rep	13.00							
+		La familigilia	10.00							
+		withdrall  MAD  1/31	240.00							
+		costco	73.50							
+									Dep Car Ins Refund	33.00
+		PGE	159.62							
+		Costco	24.57							
+		Chevron	21.22							
+		tCI	33.36							
+		NTC  Incomnet	38.47							
+		Humaaane society	15.00							
+		Kwei bin	13.75							
+									DEP	297.00
+		Trans To Savings  	32.00							
+		Am Dance Laaru7en Tuition	75.00							
+		Am Dance Laaru7en Costume	95.00							
+		Deb Adams sam Costume`	95.00							
+									Trans From Sav #1	123.00
+		ciutiBank visa	123.00							
+		La familigilia 2/15	11.35							
+		La familigilia 2/15	10.57							
+									dep From Anna Campbell	91.00
+		Da Costume AnnaC	40.00							
+		DA Ailey AnnaC	16.00							
+		AD Anna Campbell Tution 2nd	35.00							
+		Dog Bath  first Usa E-Trade	45.00							
+									DA Deposit	690.00
+		Bar Ale`	47.98							
+		FFT 2/15 f	7.19							
+		Rite Aid	26.04							
+		Pet food	32.52							
+		Costco f 2/15	73.46							
+		T Joes	42.70							
+		Lucky	8.09							
+		YardBird	20.77							
+		Holly Wood video	3.75							
+		La familigilia	13.08							
+		CityBank Lawer Club fees	113.24							
+									Dep Tahoe	175.00
+		Rehate Bohn  Cabin	190.00							
+									Trans for AD from sav#1	200.00
+		frist Usa AD Expence AAA CARd	200.00							
+		Pac Bell DA 	53.54							
+		Pac Bell MA	13.33							
+		Shell Oil	65.90							
+		Life Ins Feb 99	63.00							
+		Water  (? City of Petaluma ?)	38.58							
+		Cell Phone`	109.52							
+									Mark's 2/12 Salary	1165.00
+		Mort Pay March 99	"1,184.24"							
+		from Mad trans back sav repay	100.00							
+		MADD Remainder	140.00							
+		Kewi Bin 13.75	13.75							
+		Hair cut Mark	32.00							
+		La Familigilia	9.18							
+		Lm Cleaners	7.50							
+		Garbage	37.89							
+		F (ood)	43.40							
+		ATM Luckys	20.57							
+		Kwei Bin	12.45							
+		Us Post Master`	5.85							
+
+
+
+
+		TOTAL Checks and Debit	"9,220.53"						total DEPOSITS 	8372.61
+
+
+		Balance This Account	-847.92							

@@ -1,0 +1,53 @@
+// safearray.cc 10/21/92
+
+#include "safearray.h"
+
+typedef unsafearray inherited;
+
+void safearray::set( long i, void* e )
+{
+	if (i<0 || i>=cellcount)
+		error( "safearray::set subscript out of range" );
+	inherited::set( i, e );
+}
+
+void safearray::get( long i, void* e ) const
+{
+	if (i<0 || i>=cellcount)
+		error( "safearray::get subscript out of range" );
+	inherited::get( i, e );
+}
+
+void safearray::move( long i, long j )
+{
+	if (i<0 || i>=cellcount || j<0 || j>=cellcount)
+		error( "safearray::move subscript out of range" );
+	inherited::move( i, j );
+}
+void safearray::swap( long i, long j )
+{
+	if (i<0 || i>=cellcount || j<0 || j>=cellcount)
+		error( "safearray::swap subscript out of range" );
+	inherited::swap( i, j );
+}
+
+void safearray::insertcell( long i )
+{
+	if (i<0 || i>=cellcount)
+		error( "safearray::insertcell subscript out of range" );
+	inherited::insertcell( i );
+}
+
+void safearray::deletecell( long i )
+{
+	if (i<0 || i>=cellcount)
+		error( "safearray::deletecell subscript out of range" );
+	inherited::deletecell( i );
+}
+
+safearray& safearray::operator=( const safearray& a )
+{
+	inherited::operator=( a );
+	return *this;
+}
+

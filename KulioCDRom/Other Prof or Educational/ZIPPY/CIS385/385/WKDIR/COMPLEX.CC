@@ -1,0 +1,69 @@
+// complex.cc 10/24/92
+
+#include "mytypes.h"
+#include "complex.h"
+
+void complex::print_paren( ostream& s ) const
+{
+    s << '(' << re << ',' << im << ')';
+}
+
+void complex::print_math( ostream& s ) const
+{
+  if (im == 0)
+    cout << re;
+  else
+  {
+    if (re != 0)
+      cout << re;
+    double temp_im = im;
+    if (temp_im >0)
+    {
+      if (re != 0)
+	cout << '+';
+    }
+    else
+    {
+      cout << '-';
+      temp_im = -im;
+    }
+    if (temp_im !=1)
+      cout << temp_im;
+    cout << 'i';
+  }
+}
+
+complex complex::operator+( complex z )
+{
+	return complex( re+z.re, im+z.im );
+}
+
+complex complex::operator-( complex z )
+{
+	return complex( re-z.re, im-z.im );
+}
+
+complex complex::operator-()
+{
+	return complex( -re, -im );
+}
+
+complex complex::operator*( complex z )
+{
+	return complex( re*z.re-im*z.im, re*z.im+im*z.re );
+}
+
+complex complex::operator/( complex z )
+{
+	double denom = z.re*z.re+z.im*z.im;
+
+	return complex( (re*z.re+im*z.im)/denom, (-re*z.im+im*z.re)/denom );
+}
+
+ostream& operator<<( ostream& s, const complex& x )
+{
+	x.print( s );
+	return s;
+}
+
+

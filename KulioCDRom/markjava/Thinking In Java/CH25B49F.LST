@@ -1,0 +1,131 @@
+listing 1
+<applet codebase="/java/Classes" code="Navigation" width=87 height=131>
+<param name=color value="#ffffff">
+<param name=image value="http://www.suck.com/nav/waynewstrip.gif">
+<param name=zone_1_coord value="0 0 87 32">
+<param name=zone_1_url value="http://www.suck.com/">
+<param name=zone_2_coord value="0 33 87 53">
+<param name=zone_2_url value="http://www.suck.com/vacuum/">
+<param name=zone_3_coord value="0 54 87 72">
+<param name=zone_3_url value="http://www.suck.com/pitch/">
+<param name=zone_4_coord value="0 73 87 90">
+<param name=zone_4_url value="http://www.suck.com/filler/">
+<param name=zone_5_coord value="0 91 87 110">
+<param name=zone_5_url value="http://www.suck.com/zerobaud/">
+<param name=zone_6_coord value="0 109 87 131">
+<param name=zone_6_url value="http://www.suck.com/netmoguls/">
+</applet>
+
+listing 2
+<applet code="ImageMenu" width=140 height=180 hspace=0 vspace=0>
+    <param name="img" value="menu.jpg">
+    <param name="urlPrefix"
+           value="http://www.starwave.com/people/naughton/">
+    <param name="urlList"
+           value="book/index+book2/index+quotes+family/index+bio+press">
+    <param name="targetList"
+           value="_self+_self+_self+_self+_self+_self">
+    <param name="urlSuffix" value=".html">
+</applet>
+
+listing 3
+import java.awt.* ;
+import java.applet.*;
+import java.util.*;
+import java.net.*;
+
+public class ImageMenu extends Applet {
+  Dimension d;
+  Image img, off;
+  Graphics offg;
+  int MAXITEMS = 64;
+  String url[] = new String[MAXITEMS];
+  String target[] = new String[MAXITEMS];
+  String urlPrefix, urlSuffix;
+  int selectedCell = -1;
+  int oldCell = -1;
+  int cellH;
+  int cells;
+
+  public void init() {
+    d = size();
+    urlPrefix = getParameter("urlPrefix");
+    urlSuffix = getParameter("urlSuffix");
+    StringTokenizer st;
+    st = new StringTokenizer(getParameter("urlList"), "+");
+    int i=0;
+    while(st.hasMoreTokens() && i < MAXITEMS)
+        url[i++] = st.nextToken();
+    cells = i;
+    cellH = d.height/cells;
+    st = new StringTokenizer(getParameter("targetList"), "+");
+    i=0;
+    while(st.hasMoreTokens() && i < MAXITEMS)
+      target[i++] = st.nextToken();
+  }
+
+  private void lateInit() {
+    off = createImage(d.width, d.height);
+    try {
+      img = getImage(getDocumentBase(), getParameter("img"));
+      MediaTracker t = new MediaTracker(this);
+      t.addImage(img, 0);
+      t.waitForID(0);
+    } catch(Exception e) {
+      showStatus("error: " + e);
+    }
+  }
+
+  public void update(Graphics g) {}
+
+  public void paint(Graphics g) {
+    if(off == null)
+      lateInit();
+
+    offg = off.getGraphics();
+    offg.drawImage(img, 0, 0, this);
+    if (selectedCell >= 0) {
+      offg.clipRect(0, selectedCell * cellH, d.width, cellH);
+      offg.drawImage(img, -d.width, 0, this);
+    }
+    g.drawImage(off, 0, 0, this);
+  }
+
+  public boolean mouseExit(Event e, int x, int y) {
+    selectedCell = oldCell = -1;
+    paint(getGraphics());
+    showStatus("");
+    return true;
+  }
+
+  public boolean mouseDrag(Event e, int x, int y) {
+    return mouseMove(e, x, y);
+  }
+
+  public boolean mouseMove(Event e, int x, int y) {
+    selectedCell = (int)(y/(double)d.height*cells);
+    if (selectedCell != oldCell) {
+      paint(getGraphics());
+      showStatus(urlPrefix + url[selectedCell] + urlSuffix);
+      oldCell = selectedCell;
+    }
+    return true;
+  }
+
+  public boolean mouseUp(Event evt, int x, int y) {
+    mouseMove(evt, x, y);
+    URL u = null;
+    try {
+      u = new URL(urlPrefix + url[selectedCell] + urlSuffix);
+    } catch(Exception e) {
+      showStatus("error: " + e);
+      return false;
+    }
+    if (evt.shiftDown())
+      getAppletContext().showDocument(u, "_blank");
+    else
+      getAppletContext().showDocument(u, target[selectedCell]);
+    return true;
+  }
+}
+

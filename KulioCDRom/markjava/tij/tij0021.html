@@ -1,0 +1,62 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0020.html">Prev</a> | <a href="tij0022.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Reusing
+<P>the
+implementation
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Once
+a class has been created and tested, it should (ideally) represent a useful
+unit of code. It turns out that this reusability is not nearly so easy to
+achieve as many would hope; it takes experience and insight to achieve a good
+design. But once you have such a design, it begs to be reused. Code reuse is
+arguably the greatest leverage that object-oriented programming languages
+provide.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+simplest way to reuse a class is to just use an object of that class directly,
+but you can also place an object of that class inside a new class. We call this
+&#8220;creating a member object.&#8221; Your new class can be made up of any
+number and type of other objects, whatever is necessary to achieve the
+functionality desired in your new class. This concept is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>composition</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+since you are composing a new class from existing classes. Sometimes
+composition is referred to as a &#8220;has-a&#8221; relationship, as in
+&#8220;a car has a trunk.&#8221;
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Composition
+comes with a great deal of flexibility. The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>member
+objects
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+of your new class are usually private, making them inaccessible to client
+programmers using the class. This allows you to change those members without
+disturbing existing client code. You can also change the member objects 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>at
+run time
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which provides great flexibility. Inheritance, which is described next, does
+not have this flexibility since the compiler must place restrictions on classes
+created with inheritance.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Because
+inheritance is so important in object-oriented programming it is often highly
+emphasized, and the new programmer can get the idea that inheritance should be
+used everywhere. This can result in awkward and overcomplicated designs.
+Instead, you should first look to composition when creating new classes, since
+it is simpler and more flexible. If you take this approach, your designs will
+stay cleaner. It will be reasonably obvious when you need inheritance.
+</FONT><a name="_Toc375545192"></a><a name="_Toc408018389"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0020.html">Prev</a> | <a href="tij0022.html">Next</a>
+</div>
+</body></html>
+

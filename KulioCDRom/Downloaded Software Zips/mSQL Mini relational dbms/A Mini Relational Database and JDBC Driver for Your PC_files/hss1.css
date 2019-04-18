@@ -1,0 +1,159 @@
+BODY {
+	BACKGROUND-COLOR: white; COLOR: black
+}
+A.controlpanel {
+	COLOR: white; FONT-FAMILY: arial; FONT-SIZE: 9pt; FONT-WEIGHT: bold; HEIGHT: 20px; TEXT-DECORATION: none
+}
+A.infobar {
+	COLOR: #ffcc00; FONT-FAMILY: arial; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.mcnews {
+	COLOR: #000000; FONT-FAMILY: Tahoma; FONT-SIZE: 8pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.mcnews1 {
+	COLOR: #ff0000; FONT-FAMILY: Tahoma; FONT-SIZE: 8pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.helv8 {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.schelv {
+	COLOR: #ffffff; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A.schelv1 {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A.schelv8 {
+	COLOR: #ffffff; FONT-FAMILY: helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.schelv12 {
+	COLOR: #ff0000; FONT-FAMILY: helvetica; FONT-SIZE: 16pt; FONT-WEIGHT: bold
+}
+A.rh9 {
+	COLOR: #ff0000; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+B.helv8 {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+B.helv9 {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+TD.infobar {
+	COLOR: #000000; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+TD.helv {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+TD.helv1 {
+	COLOR: #000000; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none; Z-INDEX: 3
+}
+TD.schelv {
+	COLOR: #ffffff; FONT-FAMILY: helvetica; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+TD.pita {
+	BACKGROUND-COLOR: #0293c8; COLOR: white; FONT-FAMILY: Helvetica; FONT-SIZE: 8pt; HEIGHT: 93px; WIDTH: 295px
+}
+TD.m0 {
+	BACKGROUND-COLOR: #ffffff; COLOR: red; FONT-FAMILY: arial
+}
+TD.closer {
+	BACKGROUND-COLOR: #ffffff; COLOR: red; FONT-FAMILY: arial; FONT-SIZE: 8pt
+}
+TD.m1 {
+	BACKGROUND-COLOR: #ffffff; COLOR: blue; FONT-FAMILY: arial
+}
+TD.closer1 {
+	BACKGROUND-COLOR: #ffffff; COLOR: blue; FONT-FAMILY: arial
+}
+TD.m2 {
+	BACKGROUND-COLOR: #ffffff; COLOR: green; FONT-FAMILY: arial
+}
+TD.closer2 {
+	BACKGROUND-COLOR: #ffffff; COLOR: green; FONT-FAMILY: arial; FONT-SIZE: 8pt
+}
+TD.m3 {
+	BACKGROUND-COLOR: #ffffff; COLOR: black; FONT-FAMILY: arial
+}
+TD.closer3 {
+	BACKGROUND-COLOR: #ffffff; COLOR: black
+}
+TD.m0Title {
+	BACKGROUND-COLOR: black; COLOR: white; FONT-FAMILY: courier
+}
+A.m0 {
+	COLOR: red; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.closer {
+	COLOR: red; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.m1 {
+	COLOR: blue; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.closer1 {
+	COLOR: blue; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.m2 {
+	COLOR: green; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.closer2 {
+	COLOR: green; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.m3 {
+	COLOR: black; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.closer3 {
+	COLOR: black; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+#pubs {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#news {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#mmu {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#forums {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#solctr {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#store {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#mci {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#resources {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#compinfo {
+	CLIP: rect(0px 400px 600px 0px); OVERFLOW: visible; POSITION: absolute; VISIBILITY: hidden; WIDTH: 400px; Z-INDEX: 2
+}
+#controlpanel {
+	HEIGHT: 406px; POSITION: relative; VISIBILITY: visible; WIDTH: 745px
+}
+#navMenu {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+#pita2 {
+	HEIGHT: 104px; LEFT: 171px; POSITION: absolute; TOP: 180px; VISIBILITY: visible; WIDTH: 341px; Z-INDEX: 1
+}
+#mc1 {
+	LEFT: 5px; POSITION: absolute; VISIBILITY: visible; Z-INDEX: 2
+}
+A.headerLink {
+	COLOR: #990000; FONT-FAMILY: arial, helvetica; TEXT-DECORATION: none; font-height: 8pt
+}
+H2.head {
+	COLOR: #ff0000; FONT-FAMILY: tahoma
+}
+#nHead {
+	TEXT-DECORATION: underline; font-height: 10pt
+}
+#NODHTML {
+	POSITION: absolute; VISIBILITY: hidden
+}
+#products {
+	LEFT: 10px; POSITION: absolute; TOP: 450px; VISIBILITY: visible; Z-INDEX: 3
+}

@@ -1,0 +1,96 @@
+listing 1
+Color fillColor = new Color(red, green, blue);
+g.setColor(fillColor);
+g.fillRect(0, 0, size().width, size().height);
+
+listing 2
+<html>
+<head><title>VBScriptTest1</title></head>
+<SCRIPT language = "VBScript">
+<!--
+Sub Update_OnClick
+  Dim TheForm
+  Set TheForm = Document.ColorForm
+  Set document.VBScriptTest1.red = TheForm.Red.Value
+  Set document.VBScriptTest1.blue = TheForm.Blue.Value
+  Set document.VBScriptTest1.green = TheForm.Green.Value
+End Sub
+-->
+</SCRIPT>
+
+<body>
+<center>
+<table border=1>
+<tr>
+ <td>
+   <applet
+     code=VBScriptTest1.class
+     name=VBScriptTest1
+     width=120
+     height=120 >
+   </applet>
+ </td>
+ <td>
+   <FORM NAME="ColorForm">
+     Red <INPUT NAME="Red" TYPE="TEXT" SIZE="3" VALUE="0"><BR>
+     Green <INPUT NAME="Green" TYPE="TEXT" SIZE="3" VALUE="0"><BR>
+     Blue<INPUT NAME="Blue" TYPE="TEXT" SIZE="3" VALUE="0"><BR>
+     <INPUT TYPE=button VALUE="Update" NAME="Update">
+   </FORM>
+ </td>
+</tr>
+</table></center>
+</body>
+</html>
+
+listing 3
+import java.applet.*;
+import java.awt.*;
+import amovie.*;
+
+listing 4
+IActiveMovie movie;
+
+public void showMovie()
+{
+   movie = (IActiveMovie) new ActiveMovie ();
+   movie.putFileName ("C:\\tmp\\cup.avi");
+   movie.Run ();
+}
+
+listing 5
+ftp ftp.javasoft.com
+Name (ftp.javasoft.com): anonymous
+331 Guest login ok, send your complete e-mail address as password.
+Password: user@machine
+	<< informational messages >>
+ftp> binary
+200 Type set to I.
+ftp> cd pub
+	<< more informational messages >>
+250 CWD command successful.
+ftp> get JDK-1_0_2-win32-x86.exe
+200 PORT command successful.
+150 Opening BINARY mode data connection...
+	<< file is downloaded >>
+226 Transfer complete.
+ftp> quit
+
+listing 6
+PATH=c:\windows;c:\java\bin
+
+listing 7
+set path=c:\java\bin;%PATH%
+
+listing 8
+set CLASSPATH=c:\java\lib\classes.zip
+
+listing 9
+zcat JDK-1_0_2-solaris2-sparc.tar.Z | tar xf -
+
+listing 10
+setenv PATH /bin:/usr/local/bin:/java/bin
+
+listing 11
+setenv CLASSPATH /java/lib/classes.zip
+

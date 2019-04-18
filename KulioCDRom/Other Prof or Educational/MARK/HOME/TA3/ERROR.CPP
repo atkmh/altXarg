@@ -1,0 +1,15 @@
+// error.cc 10/20/92
+
+#include <iostream.h>
+
+//#include <stdlib.h>
+
+#include "error.h"
+
+#define newl '\n'
+
+void error( char* message )
+{
+	cerr << message << newl;
+//	exit( 1 );
+}

@@ -1,0 +1,548 @@
+listing 1
+// Reverse the signs of a coordinate - C++ version.
+#include <iostream.h>
+
+class Coord {
+public:
+  int x;
+  int y;
+};
+
+// Reverse the sign of the coordinates.
+void reverseSign(Coord *ob) {
+  ob->x = -ob->x;
+  ob->y = -ob->y;
+}
+
+int main()
+{
+  Coord ob;
+  
+  ob.x = 10;
+  ob.y = 20;
+
+  cout << "Original values for ob: ";
+  cout << ob.x << ", " << ob.y << "\n";
+
+  reverseSign(&ob);
+
+  cout << "Sign reversed values for ob: ";
+  cout << ob.x << ", " << ob.y << "\n";
+
+  return 0;
+}
+
+listing 2
+// Reverse the signs of a coordinate - Java version.
+class Coord {
+  int x;
+  int y;
+};
+
+class DropPointers {
+  // Reverse the sign of the coordinates.
+  static void reverseCoord(Coord ob) {
+    ob.x = -ob.x;
+    ob.y = -ob.y;
+  }
+
+  public static void main(String args[]) {
+    Coord ob = new Coord();
+  
+    ob.x = 10;
+    ob.y = 20;
+
+    System.out.println("Original values for ob: " +
+      ob.x + ", " + ob.y);
+
+    reverseCoord(ob);
+
+    System.out.println("Sign reversed values for ob: " +
+      ob.x + ", " + ob.y);
+  }
+}
+
+listing 3
+// Copy an array in C++ using pointers.
+#include <iostream.h>
+
+int main()
+{
+  int nums[] = {10, 12, 24, 45, 23, 19, 44,
+                88, 99, 65, 76, 12, 89, 0};
+  int copy[20];
+
+  int *p1, *p2; // integer pointers
+
+  // copy array
+  p1 = nums; // p1 points to start of nums array
+  p2 = copy;
+  while(*p1) *p2++ = *p1++;
+  *p2 = 0; // terminate copy with zero
+  
+  // Display contents of each array.
+  cout << "Here is the original array:\n";
+  p1 = nums;
+  while(*p1) cout << *p1++ << " ";
+  cout << endl;
+
+  cout << "Here is the copy:\n";
+  p1 = copy;
+  while(*p1) cout << *p1++ << " ";
+  cout << endl;
+
+  return 0;
+}
+
+listing 4
+while(*p1) *p2++ = *p1++;
+
+listing 5
+// Array copy without pointers using Java.
+class CopyArray {
+  public static void main(String args[]) {
+    int nums[] = {10, 12, 24, 45, 23, 19, 44,
+                  88, 99, 65, 76, 12, 89, 0};
+    int copy[] = new int[14];
+
+    int i;
+
+    // copy array
+    for(i=0; nums[i]!=0; i++)
+      copy[i] = nums[i];
+    nums[i] = 0; // terminate copy with zero
+  
+    // Display contents of each array.
+    System.out.println("Here is the original array:");
+    for(i=0; nums[i]!=0; i++) 
+      System.out.print(nums[i] + " ");
+    System.out.println();
+
+    System.out.println("Here is the copy:");
+    for(i=0; nums[i]!=0; i++) 
+      System.out.print(copy[i] + " ");
+    System.out.println();
+  }
+}
+
+listing 6
+// Swap coordinates -- C++ version.
+#include <iostream.h>
+
+class Coord {
+public:
+  int x;
+  int y;
+};
+
+// Swap contents of two Coord objects.
+void swap(Coord &a, Coord &b) {
+  Coord temp;
+
+  // swap contents of objects
+  temp = a;
+  a = b;
+  b = temp;
+}
+
+int main()
+{
+  Coord ob1, ob2;
+  
+  ob1.x = 10;
+  ob1.y = 20;
+
+  ob2.x = 88;
+  ob2.y = 99;
+
+  cout << "Original values:\n";
+  cout << "ob1: " << ob1.x << ", " << ob1.y << "\n";
+  cout << "ob2: " << ob2.x << ", " << ob2.y << "\n";
+  cout << "\n";
+
+  swap(ob1, ob2);
+
+  cout << "Swapped values:\n";
+  cout << "ob1: " << ob1.x << ", " << ob1.y << "\n";
+  cout << "ob2: " << ob2.x << ", " << ob2.y << "\n";
+
+  return 0;
+}
+
+listing 7
+// Swap program incorrectly converted to Java.
+class Coord {
+  int x;
+  int y;
+};
+
+class SwapDemo {
+  static void swap(Coord a, Coord b) {
+    Coord temp = new Coord();
+ 
+    // this won't swap contents of a and b!
+    temp = a;
+    a = b;
+    b = temp;
+  }
+
+  public static void main(String args[]) {
+    Coord ob1 = new Coord();
+    Coord ob2 = new Coord();
+  
+    ob1.x = 10;
+    ob1.y = 20;
+
+    ob2.x = 88;
+    ob2.y = 99;
+
+    System.out.println("Original values:");
+    System.out.println("ob1: " +
+           ob1.x + ", " + ob1.y);
+    System.out.println("ob2: " +
+           ob2.x + ", " + ob2.y + "\n");
+
+    swap(ob1, ob2);
+
+    System.out.println("Swapped values:");
+    System.out.println("ob1: " +
+           ob1.x + ", " + ob1.y);
+    System.out.println("ob2: " +
+           ob2.x + ", " + ob2.y + "\n");
+  }
+}
+
+listing 8
+// Corrected version of swap().
+static void swap(Coord a, Coord b) {
+  Coord temp = new Coord();
+ 
+  // swap contents of objects
+  temp.x = a.x;
+  temp.y = a.y;
+  a.x = b.x;
+  a.y = b.y;
+  b.x = temp.x;
+  b.y = temp.y;
+}
+
+listing 9
+// A C++-style abstract class and its implementation.
+#include <iostream.h>
+#include <stdlib.h>
+
+// An abstract class that defines the form of an integer list.
+class IntList {
+public:
+  virtual int getNext() = 0; // pure virtual functions
+  virtual void putOnList(int i) = 0; 
+};
+
+// Create an implementation of an integer list.
+class IntArray : public IntList {
+  int storage[100];
+  int putIndex, getIndex;
+public:
+  IntArray() {
+    putIndex = 0;
+    getIndex = 0;
+  }
+
+  // Return next integer in list.
+  int getNext() {
+    if(getIndex >= 100) {
+      cout << "List Underflow";
+      exit(1);
+    }
+    getIndex++;
+    return storage[getIndex-1];
+  }
+
+  // Put an integer on the list.
+  void putOnList(int i) {
+    if(putIndex < 100) {
+      storage[putIndex] = i;
+      putIndex++;
+    }
+    else {
+      cout << "List Overflow";
+      exit(1);
+    }
+  }
+};
+
+main()
+{
+  IntArray nums;
+  int i;
+
+  for(i=0; i<10; i++) nums.putOnList(i);
+
+  for(i=0; i<10; i++)
+    cout << nums.getNext() << endl;
+
+  return 0;
+}
+
+listing 10
+// Here, IntList is made into an interface which IntArray implements.
+
+// Define interface for an integer list.
+interface IntListIF {
+  int getNext(); 
+  void putOnList(int i); 
+}
+
+// Create an implementation of an integer list.
+class IntArray implements IntListIF {
+  private int storage[];
+  private int putIndex, getIndex;
+
+  IntArray() {
+    storage = new int[100];
+    putIndex = 0;
+    getIndex = 0;
+  }
+
+  // Create an implementation of an integer list.
+  public int getNext() {
+    if(getIndex >= 100) {
+      System.out.println("List Underflow");
+      System.exit(1);
+    }
+    getIndex++;
+    return storage[getIndex-1];
+  }
+
+  // Put an integer on the list.
+  public void putOnList(int i) {
+    if(putIndex < 100) {
+      storage[putIndex] = i;
+      putIndex++;
+    }
+    else {
+      System.out.println("List Overflow");
+      System.exit(1);
+    }
+  }
+}
+
+class ListDemo {
+  public static void main(String args[]) {
+    IntArray nums = new IntArray();
+    int i;
+
+    for(i=0; i<10; i++) nums.putOnList(i);
+
+    for(i=0; i<10; i++)
+      System.out.println(nums.getNext());
+  }
+}
+
+listing 11
+// An abstract C++ class.
+class SomeClass {
+  bool isOK;
+public:
+  virtual int f1() = 0; 
+  virtual void f2(int i) = 0; 
+  virtual double f3() = 0;
+  virtual int f4(int a, char ch) = 0;
+};
+
+listing 12
+interface SomeClass {
+  int f1();
+  void f2(int i);
+  double f3();
+  int f4(int a, char ch);
+  boolean isOK();
+}
+
+listing 13
+// C++ program that uses default arguments.
+#include <iostream.h>
+
+/* Compute area of a rectangle.  For a square
+   pass only one argument.
+*/
+double area(double l, double w=0) {
+  if(w==0)  return l * l;
+  else return l * w;
+}
+
+main()
+{
+  cout << "Area of 2.2 by 3.4 rectangle: ";
+  cout << area(2.2, 3.4) << endl;
+
+  cout << "Area of 3.0 by 3.0 square: ";
+  cout << area(3.0) << endl;
+
+  return 0;
+}
+
+listing 14
+// Java version of area program.
+class Area {
+  // Compute area of a rectangle.
+  static double area(double l, double w) {
+    if(w==0)  return l * l;
+    else return l * w;
+  }
+
+  // Overload area( ) for a square.
+  static double area(double l) {
+    return l * l;
+  }
+
+  public static void main(String args[]) {
+    System.out.println("Area of 2.2 by 3.4 rectangle: " +
+                        area(2.2, 3.4));
+
+    System.out.println("Area of 3.0 by 3.0 square: " +
+                       area(3.0));
+  }
+}
+
+listing 15
+class Foundation {
+  // ...
+};
+
+class Walls {
+  // ...
+};
+
+class Rooms {
+  // ...
+};
+
+class House : public Foundation, Walls, Rooms {
+  // ...
+};
+
+listing 16
+class Foundation {
+  // ...
+}
+
+class Walls extends Foundation {
+  // ...
+}
+
+class Rooms extends Walls {
+  // ...
+}
+
+class House extends Rooms {
+  // ...
+}
+
+listing 17
+class Foundation {
+  // ...
+}
+
+class Walls{
+  // ...
+}
+
+class Rooms {
+  // ...
+}
+
+/* Now, House includes Foundation, Walls, and Rooms,
+   as object members.
+*/
+class House {
+  Foundation f;
+  Walls w;
+  Rooms r;
+  // ...
+}
+
+listing 18
+// This C++ program can call f() indefinitely.
+#include <iostream.h>
+#include <stdlib.h>
+
+const int MAX = 5;
+int count = 0;
+
+class X {
+public:
+  // constructor
+  X() {
+   if(count<MAX) {
+     count++;
+    }
+    else  {
+      cout << "Error -- can't construct";
+      exit(1);
+    }
+  }
+
+  // destructor
+  ~X() {
+    count--;
+  }
+};
+
+void f()
+{
+  X ob; // allocate an object
+  // destruct on way out
+}
+
+main()
+{
+  int i;
+
+  for(i=0; i < (MAX*2); i++) {
+    f();
+    cout << "Current count is: " << count << endl;
+  }
+
+  return 0;
+}
+
+listing 19
+// This Java program will fail after 5 calls to f().
+
+class X {
+  static final int MAX = 5;
+  static int count = 0;
+
+  // constructor
+  X() {
+   if(count<MAX) {
+     count++;
+    }
+    else  {
+      System.out.println("Error -- can't construct");
+      System.exit(1);
+    }
+  }
+
+  // finalization
+  protected void finalize() {
+    count--;
+  }
+
+  static void f()
+  {
+    X ob = new X(); // allocate an object
+    // destruct on way out
+  }
+
+  public static void main(String args[]) {
+    int i;
+
+    for(i=0; i < (MAX*2); i++) {
+      f();
+      System.out.println("Current count is: " + count);
+    }
+  }
+}
+

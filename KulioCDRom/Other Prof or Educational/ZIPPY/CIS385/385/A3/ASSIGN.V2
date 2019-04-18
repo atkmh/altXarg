@@ -1,0 +1,23 @@
+CIS 385, Fall 92
+Object Oriented Programming in C++
+Programming Assignment 3: due Thursday, October 29
+
+The original assignment is too ambitious to be done as a single piece.
+Therefore I will break it into smaller parts.
+
+The first part, still due October 29, requires that you create three classes -
+a bunch class, an ordered bunch class, and a set class. The only elements
+that each of these classes will contain is a character, just like the set
+we already created. Ordered bunch will be derived from class bunch. Class set
+will be derived from class bunch.
+
+Class bunch will itself be derived from a class called unsafearray which I
+will provide. A working version is in this directory, but it is still missing
+documentation indicating what the functions do and how they are used. I
+will add those comments soon and update the copy that is available, and we
+will  be using and discussing unsafearray in class.
+
+
+
+
+

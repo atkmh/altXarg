@@ -1,0 +1,377 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0007.html">Prev</a> | <a href="tij0009.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Chapters</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+book was designed with one thing in mind: the way people learn the Java
+language. Seminar audience feedback helped me understand which parts were
+difficult and needed illumination. In the areas where I got ambitious and
+included too many features all at once, I came to know &#8211; through the
+process of presenting the material &#8211; that if you include a lot of new
+features, you need to explain them all, and this easily compounds the
+student&#8217;s confusion. As a result, I&#8217;ve taken a great deal of
+trouble to introduce the features as few at a time as possible.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+goal, then, is for each chapter to teach a single feature, or a small group of
+associated features, in such a way that no additional features are relied upon.
+That way you can digest each piece in the context of your current knowledge
+before moving on.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Here
+is a brief description of the chapters contained in the book, which correspond
+to lectures and exercise periods in my hands-on seminars.
+</FONT><a name="OLE_LINK10"></a><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+1:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Introduction
+to objects
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter is an overview of what object-oriented programming is all about,
+including the answer to the basic question &#8220;What&#8217;s an
+object?&#8221;, interface vs. implementation, abstraction and encapsulation,
+messages and functions, inheritance and composition, and the all-important
+polymorphism. You&#8217;ll also be introduced to issues of object creation such
+as constructors, where the objects live, where to put them once they&#8217;re
+created, and the magical garbage collector that cleans up the objects that are
+no longer needed. Other issues will be introduced, including error handling
+with exceptions, multithreading for responsive user interfaces, and networking
+and the Internet. You&#8217;ll also learn about what makes Java special, why
+it&#8217;s been so successful, and about object-oriented analysis and design. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+2:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>	Everything
+is an object
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter moves you to the point where you can write your first Java program, so
+it must give an overview of the essentials, including the concept of a
+&#8220;handle&#8221; to an object; how to create an object; an introduction to
+primitive types and arrays; scoping and the way objects are destroyed by the
+garbage collector; how everything in Java is a new data type (class) and how to
+create your own classes; functions, arguments, and return values; name
+visibility and using components from other libraries; the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword; comments and embedded documentation.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+3:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Controlling
+program flow
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter begins with all of the operators that come to Java from C and C++. In
+addition, you&#8217;ll discover common operator pitfalls, casting, promotion,
+and precedence. This is followed by the basic control-flow and selection
+operations that you get with virtually any programming language: choice with
+if-else; looping with for and while; quitting a loop with break and continue as
+well as Java&#8217;s labeled break and labeled continue (which account for the
+&#8220;missing goto&#8221; in Java); and selection using switch. Although much
+of this material has common threads with C and C++ code, there are some
+differences. In addition, all the examples will be full Java examples so
+you&#8217;ll get more comfortable with what Java looks like. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+4:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Initialization
+and cleanup
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter begins by introducing the constructor, which guarantees proper
+initialization. The definition of the constructor leads into the concept of
+function overloading (since you might want several constructors). This is
+followed by a discussion of the process of cleanup, which is not always as
+simple as it seems. Normally, you just drop an object when you&#8217;re done
+with it and the garbage collector eventually comes along and releases the
+memory. This portion explores the garbage collector and some of its
+idiosyncrasies. The chapter concludes with a closer look at how things are
+initialized: automatic member initialization, specifying member initialization,
+the order of initialization, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+initialization and array initialization. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+5:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Hiding
+the implementation
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter covers the way that code is packaged together, and why some parts of a
+library are exposed while other parts are hidden. It begins by looking at the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>package</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>import</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keywords, which perform file-level packaging and allow you to build libraries
+of classes. The subject of directory paths and file names is also examined. The
+remainder of the chapter looks at the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private,</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keywords, the concept of &#8220;friendly&#8221; access, and what the different
+levels of access control mean when used in various contexts. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+6:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Reusing
+classes 
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+concept of inheritance is standard in virtually all OOP languages. It&#8217;s a
+way to take an existing class and add to its functionality (as well as change
+it, the subject of Chapter 7). Inheritance is often a way to reuse code by
+leaving the &#8220;base class&#8221; the same, and just patching things here
+and there to produce what you want. However, inheritance isn&#8217;t the only
+way to make new classes from existing ones. You can also embed an object inside
+your new class with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>composition</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In this chapter you&#8217;ll learn about these two ways to reuse code in Java,
+and how to apply them. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+7:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Polymorphism</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">On
+your own, you might take nine months to discover and understand polymorphism, a
+cornerstone of OOP. Through small, simple examples you&#8217;ll see how to
+create a family of types with inheritance and manipulate objects in that family
+through their common base class. Java&#8217;s polymorphism allows you to treat
+all objects in this family generically, which means the bulk of your code
+doesn&#8217;t rely on specific type information. This makes your programs
+extensible, so building programs and code maintenance is easier and cheaper. In
+addition, Java provides a third way to set up a reuse relationship through the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>interface</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which is a pure abstraction of the interface of an object. Once you&#8217;ve
+seen polymorphism, the interface can be clearly understood. This chapter also
+introduces Java 1.1 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>inner
+classes
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+8:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Holding
+your objects 
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+a fairly simple program that has only a fixed quantity of objects with known
+lifetimes. In general, your programs will always be creating new objects at a
+variety of times that will be known only while the program is running. In
+addition, you won&#8217;t know until run-time the quantity or even the exact
+type of the objects you need. To solve the general programming problem, you
+need to create any number of objects, anytime, anywhere. This chapter explores
+in depth the tools that Java supplies to hold objects while you&#8217;re
+working with them: the simple arrays and more sophisticated collections (data
+structures) such as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Vector</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Hashtable</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Finally, the new and improved Java 1.2 collections library is explored in depth.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+9:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Error
+handling with exceptions
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+basic philosophy of Java is that badly-formed code will not be run. As much as
+possible, the compiler catches problems, but sometimes the problems &#8211;
+either programmer error or a natural error condition that occurs as part of the
+normal execution of the program &#8211; can be detected and dealt with only at
+run-time. Java has 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>exception
+handling
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+to deal with any problems that arise while the program is running. This chapter
+examines how the keywords 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>try</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>catch</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>throw</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>throws</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>finally</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+work in Java; when you should throw exceptions and what to do when you catch
+them. In addition, you&#8217;ll see Java&#8217;s standard exceptions, how to
+create your own, what happens with exceptions in constructors, and how
+exception handlers are located. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+10:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	The
+Java IO system 
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Theoretically,
+you can divide any program into three parts: input, process, and output. This
+implies that IO (input/output) is a pretty important part of the equation. In
+this chapter you&#8217;ll learn about the different classes that Java provides
+for reading and writing files, blocks of memory, and the console. The
+distinction between &#8220;old&#8221; IO and &#8220;new&#8221; Java 1.1<A NAME="Index5"></A>
+IO will be shown. In addition, this section examines the process of taking an
+object, &#8220;streaming&#8221; it (so that it can be placed on disk or sent
+across a network) and reconstructing it, which is handled for you in Java
+version 1.1. Also, Java 1.1&#8217;s compression libraries, which are used in
+the Java ARchive file format (JAR), are examined.
+</FONT><a name="OLE_LINK9"></a><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+11:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>
+	Run-time
+type identification
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+run-time type identification (RTTI) lets you find the exact type of an object
+when you have a handle to only the base type. Normally, you&#8217;ll want to
+intentionally ignore the exact type of an object and let Java&#8217;s dynamic
+binding mechanism (polymorphism) implement the correct behavior for that type.
+But occasionally it is very helpful to know the exact type of an object for
+which you have only a base handle. Often this information allows you to perform
+a special-case operation more efficiently. This chapter explains what RTTI is
+for, how to use it and how to get rid of it when it doesn&#8217;t belong there.
+In addition, the Java 1.1 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>reflection</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+feature is introduced.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+12:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>	Passing
+and returning objects
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Since
+the only way you talk to objects in Java is through &#8220;handles,&#8221; the
+concepts of passing an object into a function and returning an object from a
+function have some interesting consequences. This chapter explains what you
+need to know to manage objects when you&#8217;re moving in and out of
+functions, and also shows the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class, which uses a different approach to the problem.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+13:
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>	Creating
+windows and applets
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+comes with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Abstract</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Window
+Toolkit
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(AWT), which is a set of classes that handle windowing in a portable fashion;
+these windowing programs can either be applets or stand-alone applications.
+This chapter is an introduction to the AWT and the creation of World Wide Web
+applets. We&#8217;ll also look at pros and cons of the AWT and the GUI
+improvements introduced in Java 1.1. The important &#8220;Java Beans&#8221;
+technology is introduced. This is fundamental for the creation of
+Rapid-Application Development (RAD) program-building tools. Finally, the new
+Java 1.2 &#8220;Swing&#8221; library is introduced &#8211; this provides a
+dramatic improvement in UI components for Java.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+14
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>:
+	Multiple
+threads 
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+provides a built-in facility to support multiple concurrent subtasks, called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>threads</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+running within a single program. (Unless you have multiple processors on your
+machine, this is only the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>appearance</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+of multiple subtasks.) Although these can be used anywhere, threads are most
+powerful when trying to create a responsive user interface so, for example, a
+user isn&#8217;t prevented from pressing a button or entering data while some
+processing is going on. This chapter looks at the syntax and semantics of
+multithreading in Java. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+15: 
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Network
+programming 
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+the Java features and libraries seem to really come together when you start
+writing programs to work across networks. This chapter explores communication
+across the Internet, and the classes that Java provides to make this easier. It
+also shows you how to create a Java applet that talks to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>common
+gateway interface 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">(CGI)
+program, shows you how to write CGI programs in C++ and covers Java 1.1&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Java
+DataBase Connectivity
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(JDBC) and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Remote
+Method Invocation
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(RMI).
+</FONT><a name="OLE_LINK13"></a><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+16: 
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Design
+patterns
+<a name="OLE_LINK12"></a></I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter introduces the very important and yet non-traditional
+&#8220;patterns&#8221; approach to program design. An example of the design
+evolution process is studied, starting with an initial solution and moving
+through the logic and process of evolving the solution to more appropriate
+designs. You&#8217;ll see one way that a design can materialize over time.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Chapter
+17: 
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Projects
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+chapter includes a set of projects that build on the material presented in this
+book, or otherwise didn&#8217;t fit in earlier chapters. These projects are
+significantly more complex than the examples in the rest of the book, and they
+often demonstrate new techniques and uses of class libraries.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are subjects that didn&#8217;t seem to fit within the core of the book, and yet
+I find that I discuss them during seminars. These are placed in the appendices.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Appendix
+A: 
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Using
+non-Java code
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+totally portable Java program has serious drawbacks: speed and the inability to
+access platform-specific services. When you know the platform that you&#8217;re
+running on, it&#8217;s possible to dramatically speed up certain operations by
+making them 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>native
+methods
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which are functions that are written in another programming language
+(currently, only C/C++ is supported). There are other ways that Java supports
+non-Java code, including CORBA. This appendix gives you enough of an
+introduction to these features that you should be able to create simple
+examples that interface with non-Java code.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Appendix</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+B:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Comparing
+C++ and Java
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you&#8217;re a C++ programmer, you already have the basic idea of
+object-oriented programming, and the syntax of Java no doubt looks very
+familiar to you. This makes sense because Java was derived from C++. However,
+there are a surprising number of differences between C++ and Java. These
+differences are intended to be significant improvements, and if you understand
+the differences you&#8217;ll see why Java is such a beneficial programming
+language. This appendix takes you through the important features that make Java
+distinct from C++.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Appendix
+C:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Java
+programming guidelines
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+appendix contains suggestions to help guide you while performing low-level
+program design and writing code.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Appendix
+D:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Performance</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+will allow you to find bottlenecks and improve speed in your Java program.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Appendix
+E:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>A
+bit about garbage collection
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+appendix describes the operation and approaches that are used to implement
+garbage collection.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Appendix
+F:
+	</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B><I>Recommended
+reading
+</I></B></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+list of some of the Java books I&#8217;ve found particularly useful.
+</FONT><a name="_Toc312373773"></a><a name="_Toc375545181"></a><a name="_Toc408018375"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0007.html">Prev</a> | <a href="tij0009.html">Next</a>
+</div>
+</body></html>
+

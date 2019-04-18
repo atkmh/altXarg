@@ -1,0 +1,123 @@
+
+PKUNZIP (R)    FAST!    Extract Utility    Version 2.04g  02-01-93
+Copr. 1989-1993 PKWARE Inc. All Rights Reserved. Registered version
+PKUNZIP Reg. U.S. Pat. and Tm. Off.
+
+þ 80486 CPU detected.
+þ XMS version 2.00 detected.
+þ DPMI version 0.90 detected.
+
+Searching ZIP: CIS385.ZIP
+
+ Length  Method   Size  Ratio   Date    Time    CRC-32  Attr  Name
+ ------  ------   ----- -----   ----    ----   -------- ----  ----
+    365  Implode    191  48%  09-02-92  17:42  5256b4ac --w-  ./385/A1/MAKEFILE
+   1232  Implode    537  57%  09-03-92  14:09  c5b652b6 --w-  ./385/A1/COMPLEX.CC
+    448  Implode    283  37%  09-03-92  11:42  e7c5a59c --w-  ./385/A1/TESTCOMP.CC
+    723  Implode    377  48%  09-03-92  13:56  f8534cc5 --w-  ./385/A1/COMPLEX.H
+   1507  Implode   1424   6%  01-30-95  16:41  edce0ff3 --w-  ./385/A1/A1.ZIP
+   6516  Implode   1153  83%  09-27-92  22:48  9adb2f30 --w-  ./385/A2/BETATEST.CC
+   2744  Implode   1058  62%  10-26-92  11:24  b23ffe75 --w-  ./385/A2/PRIMETES.CC
+   3475  Implode   1138  68%  10-02-92  17:33  96de44f3 --w-  ./385/A2/SET.CC
+   3285  Implode   1232  63%  10-05-92  18:10  8bfb882a --w-  ./385/A2/SET.H
+    290  Shrunk     227  22%  09-27-92  21:19  d3cb4266 --w-  ./385/A2/MAKEFILE
+   4973  Stored    4973   0%  01-30-95  16:41  41ca42a0 --w-  ./385/A2/A2.ZIP
+    544  Implode    251  54%  10-26-92  11:24  6bc312be --w-  ./385/A2/.MAK
+     95  Shrunk      85  11%  10-02-92  17:05  3cf58285 --w-  ./385/A2/.NSE
+    661  Implode    352  47%  12-09-92  18:15  d85674c6 --w-  ./385/A3/AUTOARRY.CC
+    864  Implode    455  48%  12-03-92  22:22  03755b8c --w-  ./385/A3/AUTOARRY.H
+    920  Implode    441  53%  12-03-92  22:22  002ae42c --w-  ./385/A3/CHARARRY.CC
+   2175  Implode    970  56%  12-09-92  18:25  88d4b2f2 --w-  ./385/A3/BUNCH.CC
+   1027  Implode    579  44%  12-09-92  17:29  29426b06 --w-  ./385/A3/BUNCH.H
+    585  Implode    324  45%  12-03-92  22:22  6b554803 --w-  ./385/A3/CHARARRY.H
+     57  Shrunk      54   6%  12-03-92  22:22  755a04f3 --w-  ./385/A3/CHRARAST.CC
+    456  Implode    299  35%  12-03-92  22:22  7020d60f --w-  ./385/A3/CHRARAST.H
+   1139  Implode    369  68%  12-03-92  22:22  3f576799 --w-  ./385/A3/SAFARY.CC
+  13782  Implode  12923   7%  01-30-95  16:50  8602283b --w-  ./385/A3/A3.ZIP
+    173  Shrunk     151  13%  12-03-92  22:22  9f07d514 --w-  ./385/A3/ERROR.CC
+     91  Shrunk      86   6%  12-03-92  22:22  5e0c681e --w-  ./385/A3/ERROR.H
+    104  Shrunk      99   5%  12-03-92  22:22  773111df --w-  ./385/A3/MYTYPES.H
+   1117  Implode    569  50%  12-09-92  17:35  cfcaeac6 --w-  ./385/A3/ORDBUNCH.CC
+    964  Implode    471  52%  12-03-92  22:22  876cf248 --w-  ./385/A3/ORDBUNCH.H
+    329  Implode    199  40%  01-30-95  16:45  393469d9 --w-  ./385/A3/A3.DIR
+   1278  Implode    535  59%  12-03-92  22:22  70979ca7 --w-  ./385/A3/SAFARY.H
+   1780  Implode    567  69%  12-03-92  22:22  fbccc88b --w-  ./385/A3/UNSFARY.CC
+   1195  Implode    522  57%  12-03-92  22:22  8f4eef22 --w-  ./385/A3/SEQUENCE.CC
+    489  Implode    341  31%  12-03-92  22:22  606eb0f9 --w-  ./385/A3/SEQUENCE.H
+   2856  Implode   1065  63%  12-09-92  18:15  f6c0fdf3 --w-  ./385/A3/SET.CC
+   1538  Implode    660  58%  12-03-92  22:22  566ca415 --w-  ./385/A3/SET.H
+   1215  Implode    441  64%  12-03-92  22:22  0d01a427 --w-  ./385/A3/TEMPTEST.CC
+   1531  Implode    715  54%  12-03-92  22:22  1b646c80 --w-  ./385/A3/UNSFARY.H
+    324  Implode    243  25%  12-09-92  19:14  69f8e75c --w-  ./385/A3/MAKEFILE
+   5103  Implode   1899  63%  12-03-92  22:23  8b9ac609 --w-  ./385/A3/ASSN
+   3320  Implode    501  85%  12-09-92  19:23  0d6f53aa --w-  ./385/A3/.MAK
+    919  Implode    548  41%  12-03-92  22:22  0188ade6 --w-  ./385/A3/ASSIGN.V2
+   1779  Implode    596  67%  12-09-92  19:23  f1746182 --w-  ./385/A3/ASIGN3.CC
+    152  Implode     84  45%  12-09-92  19:17  f77a3c70 --w-  ./385/A3/.NSE
+    418  Implode    306  27%  12-23-92  07:30  ffb4de0d --w-  ./385/WKDIR/MAKEFILE
+   1846  Implode    734  61%  12-20-92  00:36  056e4c62 --w-  ./385/WKDIR/SEQ.CC
+    762  Implode    446  42%  12-04-92  11:30  81269663 --w-  ./385/WKDIR/ARRAY.H
+   1627  Implode    642  61%  12-04-92  11:45  e3303895 --w-  ./385/WKDIR/SET.CC
+    933  Implode    488  48%  12-04-92  11:31  07509072 --w-  ./385/WKDIR/AUTOARRA.H
+   6117  Implode    705  89%  03-25-93  19:27  a05b9026 --w-  ./385/WKDIR/.MAK
+   1787  Implode    572  68%  12-04-92  12:12  c655e5e8 --w-  ./385/WKDIR/UNSAFEAR.CC
+    502  Implode    272  46%  12-04-92  11:37  dd2a3b00 --w-  ./385/WKDIR/COMPTHIN.H
+    744  Implode    406  46%  12-04-92  11:29  7c6560bd --w-  ./385/WKDIR/ARRAY.CC
+    135  Shrunk     119  12%  12-04-92  11:33  219218d9 --w-  ./385/WKDIR/CHARACTE.CC
+    914  Implode    443  52%  12-04-92  11:36  e305440b --w-  ./385/WKDIR/COMPLEX.H
+    325  Shrunk     249  24%  12-04-92  11:37  d929d40f --w-  ./385/WKDIR/EQTHING.H
+    511  Implode    326  37%  12-04-92  11:42  eedf2899 --w-  ./385/WKDIR/ORDBUNCH.CC
+     45  Stored      45   0%  12-04-92  11:37  ec572d35 --w-  ./385/WKDIR/EQTHING.CC
+     91  Shrunk      86   6%  12-04-92  12:15  5e0c681e --w-  ./385/WKDIR/ERROR.H
+    104  Shrunk      99   5%  12-03-92  22:40  773111df --w-  ./385/WKDIR/MYTYPES.H
+    553  Implode    294  47%  12-04-92  11:30  391c525e --w-  ./385/WKDIR/AUTOARRA.CC
+   1298  Implode    546  58%  12-04-92  12:20  f242fe86 --w-  ./385/WKDIR/SAFEARRA.H
+    716  Implode    399  45%  12-04-92  11:45  edabb6f7 --w-  ./385/WKDIR/SEQ.H
+   2132  Implode    839  61%  12-23-92  07:21  bb1cb147 --w-  ./385/WKDIR/BUNCH.CC
+   3700  Implode    998  74%  12-21-92  09:26  a72ee452 --w-  ./385/WKDIR/TEST.CC
+   1063  Implode    437  59%  12-21-92  15:09  a9771a11 --w-  ./385/WKDIR/COMPLEX.CC
+    533  Implode    337  37%  12-04-92  12:21  a70a16e6 --w-  ./385/WKDIR/THING.H
+     49  Stored      49   0%  12-04-92  11:36  2f0e4be7 --w-  ./385/WKDIR/COMPTHIN.CC
+   1543  Implode    726  53%  12-04-92  12:12  3d397856 --w-  ./385/WKDIR/UNSAFEAR.H
+    173  Shrunk     151  13%  12-04-92  12:15  9f07d514 --w-  ./385/WKDIR/ERROR.CC
+   3032  Implode    959  69%  12-12-92  12:21  42f27f4c --w-  ./385/WKDIR/SET.H
+    777  Implode    407  48%  12-20-92  23:34  808481d6 --w-  ./385/WKDIR/BUNCH.H
+     41  Stored      41   0%  12-04-92  12:21  2f7fbd5e --w-  ./385/WKDIR/THING.CC
+    349  Shrunk     243  31%  12-04-92  11:43  add01f7e --w-  ./385/WKDIR/ORDBUNCH.H
+   1139  Implode    369  68%  12-04-92  12:20  3f576799 --w-  ./385/WKDIR/SAFEARRA.CC
+    872  Implode    434  51%  12-20-92  13:49  30b291f8 --w-  ./385/WKDIR/CHARACTE.H
+    361  Implode    263  28%  12-20-92  13:54  7c39aa30 --w-  ./385/WKDIR/MAKE.XX
+   1423  Implode    529  63%  12-23-92  07:24  e970d674 --w-  ./385/WKDIR/PP.CC
+    150  Implode     87  42%  03-25-93  19:27  060701c5 --w-  ./385/WKDIR/.NSE
+    744  Implode    406  46%  11-13-92  22:25  7c6560bd --w-  ./385/TEMP1/ARRAY.CC
+    553  Implode    294  47%  11-13-92  22:25  391c525e --w-  ./385/TEMP1/AUTOARRA.CC
+    135  Shrunk     119  12%  11-13-92  22:25  219218d9 --w-  ./385/TEMP1/CHARACTE.CC
+     61  Shrunk      59   4%  11-13-92  22:25  d9f8306a --w-  ./385/TEMP1/COMPARAB.CC
+   1063  Implode    437  59%  11-13-92  22:25  a9771a11 --w-  ./385/TEMP1/COMPLEX.CC
+     59  Shrunk      58   2%  11-13-92  22:25  75a185bd --w-  ./385/TEMP1/EQUATABL.CC
+    173  Shrunk     151  13%  11-13-92  22:25  9f07d514 --w-  ./385/TEMP1/ERROR.CC
+   1139  Implode    369  68%  11-13-92  22:25  3f576799 --w-  ./385/TEMP1/SAFEARRA.CC
+   1987  Implode    745  63%  11-13-92  22:25  4dcbb348 --w-  ./385/TEMP1/SEQUENCE.CC
+   8349  Implode   2049  76%  11-23-92  18:21  df448342 --w-  ./385/TEMP1/ALL.CC
+     41  Stored      41   0%  11-13-92  22:25  2f7fbd5e --w-  ./385/TEMP1/THING.CC
+   1787  Implode    572  68%  11-13-92  22:25  c655e5e8 --w-  ./385/TEMP1/UNSAFEAR.CC
+    762  Implode    446  42%  11-13-92  22:26  81269663 --w-  ./385/TEMP1/ARRAY.H
+    933  Implode    488  48%  11-13-92  22:26  07509072 --w-  ./385/TEMP1/AUTOARRA.H
+    908  Implode    461  50%  11-13-92  22:26  7c174eb9 --w-  ./385/TEMP1/CHARACTE.H
+    583  Implode    303  49%  11-13-92  22:26  a88a9db9 --w-  ./385/TEMP1/COMPARAB.H
+    956  Implode    449  54%  11-13-92  22:26  f71b35b7 --w-  ./385/TEMP1/COMPLEX.H
+    381  Implode    267  30%  11-13-92  22:26  4b005d9d --w-  ./385/TEMP1/EQUATABL.H
+     91  Shrunk      86   6%  11-13-92  22:26  5e0c681e --w-  ./385/TEMP1/ERROR.H
+    104  Shrunk      99   5%  11-13-92  22:26  773111df --w-  ./385/TEMP1/MYTYPES.H
+   1298  Implode    546  58%  11-13-92  22:26  f242fe86 --w-  ./385/TEMP1/SAFEARRA.H
+    830  Implode    421  50%  11-13-92  22:26  ab366955 --w-  ./385/TEMP1/SEQUENCE.H
+    533  Implode    337  37%  11-13-92  22:26  a70a16e6 --w-  ./385/TEMP1/THING.H
+   1543  Implode    726  53%  11-13-92  22:26  3d397856 --w-  ./385/TEMP1/UNSAFEAR.H
+   9856  Implode   2345  77%  11-23-92  18:01  ef28704b --w-  ./385/TEMP1/ALL.H
+   4411  Implode    590  87%  11-12-92  21:28  df3c8749 --w-  ./385/TEMP1/.MAK
+   3510  Implode    949  73%  11-13-92  22:25  0de087bf --w-  ./385/TEMP1/TEST.CCC
+     76  Shrunk      67  12%  11-12-92  21:28  51a29000 --w-  ./385/TEMP1/.NSE
+   1448  Implode    768  47%  11-24-92  17:50  f62d459d --w-  ./385/ASSIGNME.V2
+    888  Stored     888   0%  01-30-95  17:03  c8f3c7b1 --w-  ./385/CIS385.ZIP
+ ------          ------  ---                                  -------
+ 156087           69569  56%                                      108

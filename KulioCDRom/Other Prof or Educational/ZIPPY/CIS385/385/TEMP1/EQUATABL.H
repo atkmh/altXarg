@@ -1,0 +1,29 @@
+// equatablething.h 11/4/92
+
+#ifndef EQUATABLETHING_H
+#define EQUATABLETHING_H
+
+#include "thing.h"
+
+class equatablething: public thing
+{
+
+public:
+
+	equatablething( char* name ):thing( name )
+	{
+	}
+
+	~equatablething()
+	{
+	}
+
+	virtual boolean operator==( const equatablething& ) const = 0;
+	boolean operator!=( const equatablething& t ) const
+	{
+		return !(*this==t);
+	}
+
+};
+
+#endif

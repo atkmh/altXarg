@@ -1,0 +1,277 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0036.html">Prev</a> | <a href="tij0038.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Building
+a Java program
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are several other issues you must understand before seeing your first Java
+program.
+</FONT><a name="_Toc375545230"></a><a name="_Toc408018431"></a><P></DIV>
+<A NAME="Heading77"></A><H3 ALIGN=LEFT>
+Name
+visibility
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+problem in any programming language is the control of names. If you use a name
+in one module of the program, and another programmer uses the same name in
+another module, how do you distinguish one name from another and prevent the
+two names from &#8220;clashing&#8221;? In C this is a particular problem
+because a program is often an unmanageable sea of names. C++ classes (on which
+Java classes are based) nest functions within classes so they cannot clash with
+function names nested within other classes. However, C++ still allowed global
+data and global functions, so clashing was still possible. To solve this
+problem, C++ introduced 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>namespaces</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+using additional keywords.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+was able to avoid all of this by taking a fresh approach. To produce an
+unambiguous name for a library, the specifier used is not unlike an Internet
+domain name. In fact, the Java creators want you to use your Internet domain
+name in reverse since those are guaranteed to be unique. Since my domain name is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BruceEckel.com</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+my utility library of foibles would be named 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>com.bruceeckel.utility.foibles</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+After your reversed domain name, the dots are intended to represent
+subdirectories.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+<A NAME="Index76"></A>Java
+1.0 and Java 1.1<A NAME="Index77"></A>
+the domain extension 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>com</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>edu</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>org</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>net</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+etc., was <A NAME="Index78"></A><A NAME="Index79"></A>capitalized
+by convention, so the library would appear: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>COM.bruceeckel.utility.foibles</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Partway through the development of Java 1.2<A NAME="Index80"></A>,
+however, it was discovered that this caused problems and so now the entire
+package name is lowercase.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+mechanism in Java means that all of your files automatically live in their own
+namespaces, and each class within a file automatically has a unique identifier.
+(Class names within a file must be unique, of course.) So you do not need to
+learn special language features to solve this problem &#8211; the language
+takes care of it for you.
+</FONT><a name="_Toc375545231"></a><a name="_Toc408018432"></a><P></DIV>
+<A NAME="Heading78"></A><H3 ALIGN=LEFT>
+Using
+other components
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Whenever
+you want to use a predefined class in your program, the compiler must know how
+to locate it. Of course, the class might already exist in the same source code
+file that it&#8217;s being called from. In that case, you simply use the class
+&#8211; even if the class doesn&#8217;t get defined until later in the file.
+Java eliminates the &#8220;forward referencing&#8221; problem so you
+don&#8217;t need to think about it.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">What
+about a class that exists in some other file? You might think that the compiler
+should be smart enough to simply go and find it, but there is a problem.
+Imagine that you want to use a class of a particular name, but the definition
+for that class exists in more than one file. Or worse, imagine that
+you&#8217;re writing a program, and as you&#8217;re building it you add a new
+class to your library that conflicts with the name of an existing class.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+solve this problem, you must eliminate all potential ambiguities. This is
+accomplished by telling the Java compiler exactly what classes you want using
+the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>import</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword. 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>import
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">tells
+the compiler to bring in a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>package</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which is a library of classes. (In other languages, a library could consist of
+functions and data as well as classes, but remember that all code in Java must
+be written inside a class.) 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Most
+of the time you&#8217;ll be using components from the standard Java libraries
+that come with your compiler. With these, you don&#8217;t need to worry about
+long, reversed domain names; you just say, for example:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">import
+java.util.Vector;
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">to
+tell the compiler that you want to use Java&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Vector</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class. However, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>util</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+contains a number of classes and you might want to use several of them without
+declaring them all explicitly. This is easily accomplished by using &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+to indicate a wildcard:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">import
+java.util.*;
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+is more common to import a collection of classes in this manner than to import
+classes individually.
+</FONT><a name="_Toc375545232"></a><a name="_Toc408018433"></a><P></DIV>
+<A NAME="Heading79"></A><H3 ALIGN=LEFT>
+The
+static keyword
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Ordinarily,
+when you create a class you are describing how objects of that class look and
+how they will behave. You don&#8217;t actually get anything until you create an
+object of that class with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and at that point data storage is created and methods become available.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+there are two situations in which this approach is not sufficient. One is if
+you want to have only one piece of storage for a particular piece of data,
+regardless of how many objects are created, or even if no objects are created.
+The other is if you need a method that isn&#8217;t associated with any
+particular object of this class. That is, you need a method that you can call
+even if no objects are created. You can achieve both of these effects with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword. When you say something is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it means that data or method is not tied to any particular object instance of
+that class. So even if you&#8217;ve never created an object of that class you
+can call a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method or access a piece of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+data. With ordinary, non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+data and methods you must create an object and use that object to access the
+data or method, since non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+data and methods must know the particular object they are working with. Of
+course, since 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+methods don&#8217;t need any objects to be created before they are used, they
+cannot 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>directly
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">access
+non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members or methods by simply calling those other members without referring to a
+named object (since non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members and methods must be tied to a particular object).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Some
+object-oriented languages use the terms 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>class
+data
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>class
+methods
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+meaning that the data and methods exist only for the class as a whole, and not
+for any particular objects of the class. Sometimes the Java literature uses
+these terms too.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+make a data member or method 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+you simply place the keyword before the definition. For example, this produces a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+data member and initializes it:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#0000ff">class</font> StaticTest {
+    <font color="#0000ff">static</font> <font color="#0000ff">int</font> i = 47;
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Now
+even if you make two 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>StaticTest</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects, there will still be only one piece of storage for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>StaticTest.i.</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+Both objects will share the same 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>i.
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Consider:</FONT><P></DIV>
+
+<font color="#990000"><PRE>StaticTest st1 = <font color="#0000ff">new</font> StaticTest();
+StaticTest st2 = <font color="#0000ff">new</font> StaticTest(); </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">At
+this point, both 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>st1.i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>st2.i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+have the same value of 47 since they refer to the same piece of memory.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are two ways to refer to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+variable. As indicated above, you can name it via an object, by saying, for
+example, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>st2.i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+You can also refer to it directly through its class name, something you cannot
+do with a non-static member. (This is the preferred way to refer to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+variable since it emphasizes that variable&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+nature.)
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">StaticTest.i++;</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>++</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+operator increments the variable. At this point, both 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>st1.i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>st2.i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+will have the value 48.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Similar
+logic applies to static methods. You can refer to a static method either
+through an object as you can with any method, or with the special additional
+syntax 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>classname.method(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+You define a static method in a similar way:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#0000ff">class</font> StaticFun {
+  <font color="#0000ff">static</font> <font color="#0000ff">void</font> incr() { StaticTest.i++; }
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can see that the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>StaticFun</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>incr(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+increments the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+data 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>i</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+You can call 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>incr(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+in the typical way, through an object:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>StaticFun sf = <font color="#0000ff">new</font> StaticFun();
+sf.incr();</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Or,
+because 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>incr(&#160;)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+a static method, you can call it directly through its class:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">StaticFun.incr();</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">While
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+when applied to a data member, definitely changes the way the data is created
+(one for each class vs. the non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">one
+for each object), when applied to a method it&#8217;s not so dramatic. An
+important use of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for methods is to allow you to call that method without creating an object.
+This is essential, as we will see, in defining the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method that is the entry point for running an application.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Like
+any method, a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method can create or use named objects of its type, so a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method is often used as a &#8220;shepherd&#8221; for a flock of instances of
+its own type.
+</FONT><a name="_Toc375545233"></a><a name="_Toc408018434"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0036.html">Prev</a> | <a href="tij0038.html">Next</a>
+</div>
+</body></html>
+

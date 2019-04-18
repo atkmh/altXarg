@@ -1,0 +1,424 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0023.html">Prev</a> | <a href="tij0025.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Object
+landscapes 
+<P>and
+lifetimes
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Technically,
+OOP is just about abstract data typing, inheritance and polymorphism, but other
+issues can be at least as important. The remainder of this section will cover
+these issues.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the most important factors is the way objects are created and destroyed.
+Where is the data for an object and how is the lifetime of the object
+controlled? There are different philosophies at work here. C++ takes the
+approach that control of efficiency is the most important issue, so it gives
+the programmer a choice. For maximum run-time speed, the storage and lifetime
+can be determined while the program is being written, by placing the objects on
+the stack (these are sometimes called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>automatic
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">or
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>scoped</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+variables) or in the static storage area. This places a priority on the speed
+of storage allocation and release, and control of these can be very valuable in
+some situations. However, you sacrifice flexibility because you must know the
+exact quantity, lifetime and type of objects 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>while</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+you&#8217;re writing the program. If you are trying to solve a more general
+problem such as computer-aided design, warehouse management or air-traffic
+control, this is too restrictive.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+second approach is to create objects dynamically in a pool of memory called the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>heap</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In this approach you don&#8217;t know until run time how many objects you need,
+what their lifetime is or what their exact type is. Those are determined at the
+spur of the moment while the program is running. If you need a new object, you
+simply make it on the heap at the point that you need it. Because the storage
+is managed dynamically, at run time, the amount of time required to allocate
+storage on the heap is significantly longer than the time to create storage on
+the stack. (Creating storage on the stack is often a single assembly
+instruction to move the stack pointer down, and another to move it back up.)
+The dynamic approach makes the generally logical assumption that objects tend
+to be complicated, so the extra overhead of finding storage and releasing that
+storage will not have an important impact on the creation of an object. In
+addition, the greater flexibility is essential to solve the general programming
+problem.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">C++
+allows you to determine whether the objects are created while you write the
+program or at run time to allow the control of efficiency. You might think that
+since it&#8217;s more flexible, you&#8217;d always want to create objects on
+the heap rather than the stack. There&#8217;s another issue, however, and
+that&#8217;s the lifetime of an object. If you create an object on the stack or
+in static storage, the compiler determines how long the object lasts and can
+automatically destroy it. However, if you create it on the heap the compiler
+has no knowledge of its lifetime. A programmer has two options for destroying
+objects: you can determine programmatically when to destroy the object, or the
+environment can provide a feature called a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>garbage
+collector
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that automatically discovers when an object is no longer in use and destroys
+it. Of course, a garbage collector is much more convenient, but it requires
+that all applications must be able to tolerate the existence of the garbage
+collector and the other overhead for garbage collection. This does not meet the
+design requirements of the C++ language and so it was not included, but Java
+does have a garbage collector (as does Smalltalk; Delphi does not but one could
+be added. Third-party garbage collectors exist for C++).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+rest of this section looks at additional factors concerning object lifetimes
+and landscapes.
+</FONT><a name="_Toc375545199"></a><a name="_Toc408018396"></a><P></DIV>
+<A NAME="Heading30"></A><H3 ALIGN=LEFT>
+Collections
+and iterators
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you don&#8217;t know how many objects you&#8217;re going to need to solve a
+particular problem, or how long they will last, you also don&#8217;t know how
+to store those objects. How can you know how much space to create for those
+objects? You can&#8217;t, since that information isn&#8217;t known until run
+time.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+solution to most problems in object-oriented design seems flippant: you create
+another type of object. The new type of object that solves this particular
+problem holds handles to other objects. Of course, you can do the same thing
+with an array, which is available in most languages. But there&#8217;s more.
+This new object, generally called a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>collection</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(also called a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>container</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+but the AWT uses that term in a different sense so this book will use
+&#8220;collection&#8221;), will expand itself whenever necessary to accommodate
+everything you place inside it. So you don&#8217;t need to know how many
+objects you&#8217;re going to hold in a collection. Just create a collection
+object and let it take care of the details.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Fortunately,
+a good OOP language comes with a set of collections as part of the package. In
+C++, it&#8217;s the Standard Template Library (STL). Object Pascal has
+collections in its Visual Component Library (VCL). Smalltalk has a very
+complete set of collections. Java also has collections in its standard library.
+In some libraries, a generic collection is considered good enough for all
+needs, and in others (C++ in particular) the library has different types of
+collections for different needs: a vector for consistent access to all
+elements, and a linked list for consistent insertion at all elements, for
+example, so you can choose the particular type that fits your needs. These may
+include sets, queues, hash tables, trees, stacks, etc.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+collections have some way to put things in and get things out. The way that you
+place something into a collection is fairly obvious. There&#8217;s a function
+called &#8220;push&#8221; or &#8220;add&#8221; or a similar name. Fetching
+things out of a collection is not always as apparent; if it&#8217;s an
+array-like entity such as a vector, you might be able to use an indexing
+operator or function. But in many situations this doesn&#8217;t make sense.
+Also, a single-selection function is restrictive. What if you want to
+manipulate or compare a set of elements in the collection instead of just one?
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+solution is an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>iterator</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which is an object whose job is to select the elements within a collection and
+present them to the user of the iterator. As a class, it also provides a level
+of abstraction. This abstraction can be used to separate the details of the
+collection from the code that&#8217;s accessing that collection. The
+collection, via the iterator, is abstracted to be simply a sequence. The
+iterator allows you to traverse that sequence without worrying about the
+underlying structure &#8211; that is, whether it&#8217;s a vector, a linked
+list, a stack or something else. This gives you the flexibility to easily
+change the underlying data structure without disturbing the code in your
+program. Java began (in version 1.0 and 1.1) with a standard iterator, called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Enumeration</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+for all of its collection classes. Java 1.2 has added a much more complete
+collection library which contains an iterator called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Iterator</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that does more than the older 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Enumeration</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">From
+the design standpoint, all you really want is a sequence that can be
+manipulated to solve your problem. If a single type of sequence satisfied all
+of your needs, there&#8217;d be no reason to have different kinds. There are
+two reasons that you need a choice of collections. First, collections provide
+different types of interfaces and external behavior. A stack has a different
+interface and behavior than that of a queue, which is different than that of a
+set or a list. One of these might provide a more flexible solution to your
+problem than the other. Second, different collections have different
+efficiencies for certain operations. The best example is a vector and a list.
+Both are simple sequences that can have identical interfaces and external
+behaviors. But certain operations can have radically different costs. Randomly
+accessing elements in a vector is a constant-time operation; it takes the same
+amount of time regardless of the element you select. However, in a linked list
+it is expensive to move through the list to randomly select an element, and it
+takes longer to find an element if it is further down the list. On the other
+hand, if you want to insert an element in the middle of a sequence, it&#8217;s
+much cheaper in a list than in a vector. These and other operations have
+different efficiencies depending upon the underlying structure of the sequence.
+In the design phase, you might start with a list and, when tuning for
+performance, change to a vector. Because of the abstraction via iterators, you
+can change from one to the other with minimal impact on your code.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+the end, remember that a collection is only a storage cabinet to put objects
+in. If that cabinet solves all of your needs, it doesn&#8217;t really matter 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>how</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+it is implemented (a basic concept with most types of objects). If you&#8217;re
+working in a programming environment that has built-in overhead due to other
+factors (running under Windows, for example, or the cost of a garbage
+collector), then the cost difference between a vector and a linked list might
+not matter. You might need only one type of sequence. You can even imagine the
+&#8220;perfect&#8221; collection abstraction, which can automatically change
+its underlying implementation according to the way it is used.
+<a name="could"></a></FONT><a name="_Toc375545200"></a><a name="_Toc408018397"></a><P></DIV>
+<A NAME="Heading31"></A><H3 ALIGN=LEFT>
+The
+singly-rooted hierarchy
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the issues in OOP that has become especially prominent since the
+introduction of C++ is whether all classes should ultimately be inherited from
+a single base class. In Java (as with virtually all other OOP languages) the
+answer is &#8220;yes&#8221; and the name of this ultimate base class is simply 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+turns out that the benefits of the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>singly-rooted
+hierarchy
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+are many.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+objects in a singly-rooted hierarchy have an interface in common, so they are
+all ultimately the same type. The alternative (provided by C++) is that you
+don&#8217;t know that everything is the same fundamental type. From a
+backwards-compatibility standpoint this fits the model of C better and can be
+thought of as less restrictive, but when you want to do full-on object-oriented
+programming you must then build your own hierarchy to provide the same
+convenience that&#8217;s built into other OOP languages. And in any new class
+library you acquire, some other incompatible interface will be used. It
+requires effort (and possibly multiple inheritance) to work the new interface
+into your design. Is the extra &#8220;flexibility&#8221; of C++ worth it? If
+you need it &#8211; if you have a large investment in C &#8211; it&#8217;s
+quite valuable. If you&#8217;re starting from scratch, other alternatives such
+as Java can often be more productive.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+objects in a singly-rooted hierarchy (such as Java provides) can be guaranteed
+to have certain functionality. You know you can perform certain basic
+operations on every object in your system. A singly-rooted hierarchy, along
+with creating all objects on the heap, greatly simplifies argument passing (one
+of the more complex topics in C++).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+singly-rooted hierarchy makes it much easier to implement a garbage collector.
+The necessary support can be installed in the base class, and the garbage
+collector can thus send the appropriate messages to every object in the system.
+Without a singly-rooted hierarchy and a system to manipulate an object via a
+handle, it is difficult to implement a garbage collector.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Since
+run-time type information is guaranteed to be in all objects, you&#8217;ll
+never end up with an object whose type you cannot determine. This is especially
+important with system level operations, such as exception handling, and to
+allow greater flexibility in programming.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+may wonder why, if it&#8217;s so beneficial, a singly-rooted hierarchy
+isn&#8217;t it in C++. It&#8217;s the old bugaboo of efficiency and control. A
+singly-rooted hierarchy puts constraints on your program designs, and in
+particular it was perceived to put constraints on the use of existing C code.
+These constraints cause problems only in certain situations, but for maximum
+flexibility there is no requirement for a singly-rooted hierarchy in C++. In
+Java, which started from scratch and has no backward-compatibility issues with
+any existing language, it was a logical choice to use the singly-rooted
+hierarchy in common with most other object-oriented programming languages.
+</FONT><a name="_Toc375545201"></a><a name="_Toc408018398"></a><P></DIV>
+<A NAME="Heading32"></A><H3 ALIGN=LEFT>
+Collection
+libraries and support 
+<P>for
+easy collection use
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Because
+a collection is a tool that you&#8217;ll use frequently, it makes sense to have
+a library of collections that are built in a reusable fashion, so you can take
+one off the shelf and plug it into your program. Java provides such a library,
+although it is fairly limited in Java 1.0 and 1.1 (the Java 1.2 collections
+library, however, satisfies most needs).
+</FONT><P></DIV>
+<A NAME="Heading33"></A><H4 ALIGN=LEFT>
+Downcasting
+vs. templates/generics
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+make these collections reusable, they contain the one universal type in Java
+that was previously mentioned: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The singly-rooted hierarchy means that everything is an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+so a collection that holds 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s
+can hold anything. This makes it easy to reuse.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+use such a collection, you simply add object handles to it, and later ask for
+them back. But, since the collection holds only 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s,
+when you add your object handle into the collection it is upcast to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+thus losing its identity. When you fetch it back, you get an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle, and not a handle to the type that you put in. So how do you turn it
+back into something that has the useful interface of the object that you put
+into the collection?
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Here,
+the cast is used again, but this time you&#8217;re not casting 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>up</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the inheritance hierarchy to a more general type, you cast 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>down</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the hierarchy to a more specific type. This manner of casting is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>downcasting</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+With upcasting, you know, for example, that a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is a type of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+so it&#8217;s safe to upcast, but you don&#8217;t know that an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is necessarily a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+so it&#8217;s hardly safe to downcast unless you know that&#8217;s what
+you&#8217;re dealing with.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+not completely dangerous, however, because if you downcast to the wrong thing
+you&#8217;ll get a run-time error called an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>exception,</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+which will be described shortly. When you fetch object handles from a
+collection, though, you must have some way to remember exactly what they are so
+you can perform a proper downcast.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Downcasting
+and the run-time checks require extra time for the running program, and extra
+effort from the programmer. Wouldn&#8217;t it make sense to somehow create the
+collection so that it knows the types that it holds, eliminating the need for
+the downcast and possible mistake? The solution is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>parameterized
+types
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which are classes that the compiler can automatically customize to work with
+particular types. For example, with a parameterized collection, the compiler
+could customize that collection so that it would accept only 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s
+and fetch only 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Parameterized
+types are an important part of C++, partly because C++ has no singly-rooted
+hierarchy. In C++, the keyword that implements parameterized types is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>template</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Java currently has no parameterized types since it is possible for it to get by
+&#8211; however awkwardly &#8211; using the singly-rooted hierarchy. At one
+point the word 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>generic</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(the keyword used by Ada for its templates) was on a list of keywords that were
+&#8220;reserved for future implementation.&#8221; Some of these seemed to have
+mysteriously slipped into a kind of &#8220;keyword Bermuda Triangle&#8221; and
+it&#8217;s difficult to know what might eventually happen.
+</FONT><a name="_Toc375545202"></a><a name="_Toc408018399"></a><P></DIV>
+<A NAME="Heading34"></A><H3 ALIGN=LEFT>
+The
+housekeeping dilemma: 
+<P>who
+should clean up?
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Each
+object requires resources in order to exist, most notably memory. When an
+object is no longer needed it must be cleaned up so that these resources are
+released for reuse. In simple programming situations the question of how an
+object is cleaned up doesn&#8217;t seem too challenging: you create the object,
+use it for as long as it&#8217;s needed, and then it should be destroyed.
+It&#8217;s not too hard, however, to encounter situations in which the
+situation is more complex.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Suppose,
+for example, you are designing a system to manage air traffic for an airport.
+(The same model might also work for managing crates in a warehouse, or a video
+rental system, or a kennel for boarding pets.) At first it seems simple: make a
+collection to hold airplanes, then create a new airplane and place it in the
+collection for each airplane that enters the air-traffic-control zone. For
+cleanup, simply delete the appropriate airplane object when a plane leaves the
+zone.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+perhaps you have some other system to record data about the planes; perhaps
+data that doesn&#8217;t require such immediate attention as the main controller
+function. Maybe it&#8217;s a record of the flight plans of all the small planes
+that leave the airport. So you have a second collection of small planes, and
+whenever you create a plane object you also put it in this collection if
+it&#8217;s a small plane. Then some background process performs operations on
+the objects in this collection during idle moments.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Now
+the problem is more difficult: how can you possibly know when to destroy the
+objects? When you&#8217;re done with the object, some other part of the system
+might not be. This same problem can arise in a number of other situations, and
+in programming systems (such as C++) in which you must explicitly delete an
+object when you&#8217;re done with it this can become quite complex.
+</FONT><A NAME="fnB6" HREF="#fn6">[6]</A><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">With
+Java, the garbage collector is designed to take care of the problem of
+releasing the memory (although this doesn&#8217;t include other aspects of
+cleaning up an object). The garbage collector &#8220;knows&#8221; when an
+object is no longer in use, and it then automatically releases the memory for
+that object. This, combined with the fact that all objects are inherited from
+the single root class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Object</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and that you can create objects only one way, on the heap, makes the process of
+programming in Java much simpler than programming in C++. You have far fewer
+decisions to make and hurdles to overcome.
+</FONT><P></DIV>
+<A NAME="Heading35"></A><H4 ALIGN=LEFT>
+Garbage
+collectors 
+<P>vs.
+efficiency and flexibility
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+all this is such a good idea, why didn&#8217;t they do the same thing in C++?
+Well of course there&#8217;s a price you pay for all this programming
+convenience, and that price is run-time overhead. As mentioned before, in C++
+you can create objects on the stack, and in this case they&#8217;re
+automatically cleaned up (but you don&#8217;t have the flexibility of creating
+as many as you want at run-time). Creating objects on the stack is the most
+efficient way to allocate storage for objects and to free that storage.
+Creating objects on the heap can be much more expensive. Always inheriting from
+a base class and making all function calls polymorphic also exacts a small
+toll. But the garbage collector is a particular problem because you never quite
+know when it&#8217;s going to start up or how long it will take. This means
+that there&#8217;s an inconsistency in the rate of execution of a Java program,
+so you can&#8217;t use it in certain situations, such as when the rate of
+execution of a program is uniformly critical. (These are generally called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>real
+time 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">programs,
+although not all real-time programming problems are this stringent.)
+</FONT><A NAME="fnB7" HREF="#fn7">[7]</A><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+designers of the C++ language, trying to woo C programmers (and most
+successfully, at that), did not want to add any features to the language that
+would impact the speed or the use of C++ in any situation where C might be
+used. This goal was realized, but at the price of greater complexity when
+programming in C++. Java is simpler than C++, but the tradeoff is in efficiency
+and sometimes applicability. For a significant portion of programming problems,
+however, Java is often the superior choice.
+</FONT><a name="_Toc375545203"></a><a name="_Toc408018400"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn6" HREF="#fnB6">[6]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+Note that this is true only for objects that are created on the heap, with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+However, the problem described, and indeed any general programming problem,
+requires objects to be created on the heap.
+</FONT><P></DIV><DIV ALIGN=LEFT><A NAME="fn7" HREF="#fnB7">[7]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+According to a technical reader for this book, one existing real-time Java
+implementation (www.newmonics.com) has guarantees on garbage collector
+performance.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0023.html">Prev</a> | <a href="tij0025.html">Next</a>
+</div>
+</body></html>
+

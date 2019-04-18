@@ -1,0 +1,159 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0021.html">Prev</a> | <a href="tij0023.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Inheritance:
+<P>reusing
+the interface
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">By
+itself, the concept of an object is a convenient tool. It allows you to package
+data and functionality together by 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>concept</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+so you can represent an appropriate problem-space idea rather than being forced
+to use the idioms of the underlying machine. These concepts are expressed in
+the primary idea of the programming language as a data type (using the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+seems a pity, however, to go to all the trouble to create a data type and then
+be forced to create a brand new one that might have similar functionality.
+It&#8217;s nicer if we can take the existing data type, clone it and make
+additions and modifications to the clone. This is effectively what you get with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>inheritance</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+with the exception that if the original class (called the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>base</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>super</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>parent</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class) is changed, the modified &#8220;clone&#8221; (called the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>derived
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">or
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>inherited</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>sub</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>child</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">class)
+also reflects the appropriate changes. Inheritance is implemented in Java with
+the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>extends</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword. You make a new class and you say that it 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>extends</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+an existing class.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you inherit you create a new type, and the new type contains not only all the
+members of the existing type (although the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+ones are hidden away and inaccessible), but more importantly it duplicates the
+interface of the base class. That is, all the messages you can send to objects
+of the base class you can also send to objects of the derived class. Since we
+know the type of a class by the messages we can send to it, this means that the
+derived class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is
+the same type as the base class
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This type equivalence via inheritance is one of the fundamental gateways in
+understanding the meaning of object-oriented programming.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Since
+both the base class and derived class have the same interface, there must be
+some implementation to go along with that interface. That is, there must be a
+method to execute when an object receives a particular message. If you simply
+inherit a class and don&#8217;t do anything else, the methods from the
+base-class interface come right along into the derived class. That means
+objects of the derived class have not only the same type, they also have the
+same behavior, which doesn&#8217;t seem particularly interesting.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+have two ways to differentiate your new derived class from the original base
+class it inherits from. The first is quite straightforward: you simply add
+brand new functions to the derived class. These new functions are not part of
+the base class interface. This means that the base class simply didn&#8217;t do
+as much as you wanted it to, so you add more functions. This simple and
+primitive use for inheritance is, at times, the perfect solution to your
+problem. However, you should look closely for the possibility that your base
+class might need these additional functions.
+</FONT><a name="_Toc375545193"></a><a name="_Toc408018390"></a><P></DIV>
+<A NAME="Heading24"></A><H3 ALIGN=LEFT>
+Overriding
+base-class functionality
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Although
+the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>extends</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword implies that you are going to add new functions to the interface,
+that&#8217;s not necessarily true. The second way to differentiate your new
+class is to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>change</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the behavior of an existing base-class function. This is referred to as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>overriding</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that function.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+override a function, you simply create a new definition for the function in the
+derived class. You&#8217;re saying &#8220;I&#8217;m using the same interface
+function here, but I want it to do something different for my new type.&#8221;
+</FONT><a name="_Toc375545194"></a><a name="_Toc408018391"></a><P></DIV>
+<A NAME="Heading25"></A><H3 ALIGN=LEFT>
+Is-a
+vs. is-like-a relationships
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There&#8217;s
+a certain debate that can occur about inheritance: Should inheritance override 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>only</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+base-class functions? This means that the derived type is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>exactly</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the same type as the base class since it has exactly the same interface. As a
+result, you can exactly substitute an object of the derived class for an object
+of the base class. This can be thought of as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>pure
+substitution
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In a sense, this is the ideal way to treat inheritance. We often refer to the
+relationship between the base class and derived classes in this case as an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is-a</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+relationship, because you can say &#8220;a circle 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is
+a
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+shape.&#8221; A test for inheritance is whether you can state the is-a
+relationship about the classes and have it make sense.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are times when you must add new interface elements to a derived type, thus
+extending the interface and creating a new type. The new type can still be
+substituted for the base type, but the substitution isn&#8217;t perfect in a
+sense because your new functions are not accessible from the base type. This
+can be described as an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is-like-a</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+relationship; the new type has the interface of the old type but it also
+contains other functions, so you can&#8217;t really say it&#8217;s exactly the
+same. For example, consider an air conditioner. Suppose your house is wired
+with all the controls for cooling; that is, it has an interface that allows you
+to control cooling. Imagine that the air conditioner breaks down and you
+replace it with a heat pump, which can both heat and cool. The heat pump 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is-like-an</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+air conditioner, but it can do more. Because your house is wired only to
+control cooling, it is restricted to communication with the cooling part of the
+new object. The interface of the new object has been extended, and the existing
+system doesn&#8217;t know about anything except the original interface.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you see the substitution principle it&#8217;s easy to feel like that&#8217;s
+the only way to do things, and in fact it is nice if your design works out that
+way. But you&#8217;ll find that there are times when it&#8217;s equally clear
+that you must add new functions to the interface of a derived class. With
+inspection both cases should be reasonably obvious.
+</FONT><a name="_Toc375545195"></a><a name="_Toc408018392"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0021.html">Prev</a> | <a href="tij0023.html">Next</a>
+</div>
+</body></html>
+

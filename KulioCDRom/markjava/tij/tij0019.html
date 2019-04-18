@@ -1,0 +1,103 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0018.html">Prev</a> | <a href="tij0020.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+An
+object has an interface
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Aristotle
+was probably the first to begin a careful study of the concept of type. He was
+known to speak of &#8220;the class of fishes and the class of birds.&#8221; The
+concept that all objects, while being unique, are also part of a set of objects
+that have characteristics and behaviors in common was directly used in the
+first object-oriented language, Simula-67, with its fundamental keyword 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that introduces a new type into a program (thus 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>class</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>type</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+are often used synonymously
+</FONT><A NAME="fnB3" HREF="#fn3">[3]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Simula,
+as its name implies, was created for developing simulations such as the classic
+&#8220;bank teller problem.&#8221; In this, you have a bunch of tellers,
+customers, accounts, transactions, etc. The members (elements) of each class
+share some commonality: every account has a balance, every teller can accept a
+deposit, etc. At the same time, each member has its own state; each account has
+a different balance, each teller has a name. Thus the tellers, customers,
+accounts, transactions, etc. can each be represented with a unique entity in
+the computer program. This entity is the object, and each object belongs to a
+particular class that defines its characteristics and behaviors.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">So,
+although what we really do in object-oriented programming is create new data
+types, virtually all object-oriented programming languages use the
+&#8220;class&#8221; keyword. When you see the word &#8220;type&#8221; think
+&#8220;class&#8221; and vice versa.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Once
+a type is established, you can make as many objects of that type as you like,
+and then manipulate those objects as the elements that exist in the problem you
+are trying to solve. Indeed, one of the challenges of object-oriented
+programming is to create a one-to-one mapping between the elements in the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>problem
+space
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(the place where the problem actually exists) and the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>solution
+space
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(the place where you&#8217;re modeling that problem, such as a computer).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+how do you get an object to do useful work for you? There must be a way to make
+a request of that object so it will do something, such as complete a
+transaction, draw something on the screen or turn on a switch. And each object
+can satisfy only certain requests. The requests you can make of an object are
+defined by its 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>interface</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and the type is what determines the interface. The idea of type being
+equivalent to interface is fundamental in object-oriented programming.
+</FONT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><IMG HEIGHT=171 WIDTH=114 SRC="tij0004.gif"></FONT><P></DIV><DIV ALIGN=RIGHT><P></DIV><DIV ALIGN=RIGHT><P></DIV><DIV ALIGN=RIGHT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+simple example might be a representation of a light bulb:
+</FONT><P></DIV><DIV ALIGN=LEFT><P></DIV>
+
+<font color="#990000"><PRE>Light lt = <font color="#0000ff">new</font> Light();
+lt.on();</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+name of the type/class is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Light</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and the requests that you can make of a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Light</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object are to turn it on, turn it off, make it brighter or make it dimmer. You
+create a &#8220;handle&#8221; for a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Light
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">simply
+by declaring a name (
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>lt</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">)
+for that identifier, and you make an object of type 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Light</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword, assigning it to the handle with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>=</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+sign. To send a message to the object, you state the handle name and connect it
+to the message name with a period (dot). From the standpoint of the user of a
+pre-defined class, that&#8217;s pretty much all there is to programming with
+objects.
+</FONT><a name="_Toc375545190"></a><a name="_Toc408018387"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn3" HREF="#fnB3">[3]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+Some people make a distinction, stating that type determines the interface
+while class is a particular implementation of that interface.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0018.html">Prev</a> | <a href="tij0020.html">Next</a>
+</div>
+</body></html>
+

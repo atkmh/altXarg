@@ -1,0 +1,230 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0034.html">Prev</a> | <a href="tij0036.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Creating
+new 
+<P>data
+types: class
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+everything is an object, what determines how a particular class of object looks
+and behaves? Put another way, what establishes the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>type</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+of an object? You might expect there to be a keyword called &#8220;type&#8221;
+and that certainly would have made sense. Historically, however, most
+object-oriented languages have used the keyword 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+to mean &#8220;I&#8217;m about to tell you what a new type of object looks
+like.&#8221; The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword (which is so common that it will not be emboldened throughout the book)
+is followed by the name of the new type. For example:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">class
+ATypeName { /* class body goes here */ }
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+introduces a new type, so you can now create an object of this type using 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">:</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">ATypeName
+a = new ATypeName();
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>ATypeName</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+the class body consists only of a comment (the stars and slashes and what is
+inside, which will be discussed later in this chapter) so there is not too much
+that you can do with it. In fact, you cannot tell it to do much of anything
+(that is, you cannot send it any interesting messages) until you define some
+methods for it.
+</FONT><a name="_Toc375545226"></a><a name="_Toc408018427"></a><P></DIV>
+<A NAME="Heading72"></A><H3 ALIGN=LEFT>
+Fields
+and methods
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you define a class (and all you do in Java is define classes, make objects of
+those classes and send messages to those objects), you can put two types of
+elements in your class: data members (sometimes called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>fields</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">)
+and member functions (typically called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>methods</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).
+A data member is an object (that you communicate with via its handle) of any
+type. It can also be one of the primitive types (which isn&#8217;t a handle).
+If it is a handle to an object, you must initialize that handle to connect it
+to an actual object (using 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+as seen earlier) in a special function called a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>constructor</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(described fully in Chapter 4). If it is a primitive type you can initialize it
+directly at the point of definition in the class. (As you&#8217;ll see later,
+handles can also be initialized at the point of definition.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Each
+object keeps its own storage for its data members; the data members are not
+shared among objects. Here is an example of a class with some data members:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#0000ff">class</font> DataOnly {
+  <font color="#0000ff">int</font> i;
+  <font color="#0000ff">float</font> f;
+  <font color="#0000ff">boolean</font> b;
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+class doesn&#8217;t 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>do</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+anything, but you can create an object:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">DataOnly
+d = new DataOnly();
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can assign values to the data members, but you must first know how to refer to
+a member of an object. This is accomplished by stating the name of the object
+handle, followed by a period (dot), followed by the name of the member inside
+the object (
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>objectHandle.member</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).
+For example:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>d.i = 47;
+d.f = 1.1f;
+d.b = <font color="#0000ff">false</font>; </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+is also possible that your object might contain other objects that contain data
+you&#8217;d like to modify. For this, you just keep &#8220;connecting the
+dots.&#8221; For example:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">myPlane.leftTank.capacity
+= 100;
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>DataOnly
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">class
+cannot do much of anything except hold data, because it has no member functions
+(methods). To understand how those work, you must first understand 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>arguments</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>return
+values
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which will be described shortly.
+</FONT><P></DIV>
+<A NAME="Heading73"></A><H4 ALIGN=LEFT>
+Default
+values for primitive members
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+a primitive data type is a member of a class, it is guaranteed to get a default
+value if you do not initialize it:
+</FONT><P></DIV>
+<DIV ALIGN=LEFT><TABLE BORDER>
+<COLGROUP>
+      <COL width="81">
+      <COL width="84">
+</COLGROUP>
+<TR VALIGN="TOP">
+<TH WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Primitive
+type
+</FONT><P></DIV>
+</TH>
+<TH WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Default</FONT><P></DIV>
+</TH>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Boolean</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>false</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Char</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8216;\u0000&#8217;
+(
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>null</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">)</FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>byte</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>(byte)0</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>short</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>(short)0</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>int</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>0</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>long</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>0L</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>float</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>0.0f</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=81 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>double</B></FONT><P></DIV>
+</TD>
+<TD WIDTH=84 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>0.0d</B></FONT><P></DIV>
+</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Note
+carefully that the default values are what Java guarantees when the variable is
+used 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>as
+a member of a class
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This ensures that member variables of primitive types will always be
+initialized (something C++ doesn&#8217;t do), reducing a source of bugs. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">However,
+this guarantee doesn&#8217;t apply to &#8220;local&#8221; variables &#8211;
+those that are not fields of a class. Thus, if within a function definition you
+have:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">int
+x;
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Then
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>x</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+will get some random value (as in C and C++); it will not automatically be
+initialized to zero. You are responsible for assigning an appropriate value
+before you use 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>x</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+If you forget, Java definitely improves on C++: you get a compile-time error
+telling you the variable might not have been initialized. (Many C++ compilers
+will warn you about uninitialized variables, but in Java these are errors.)
+</FONT><a name="_Toc375545227"></a><a name="_Toc408018428"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0034.html">Prev</a> | <a href="tij0036.html">Next</a>
+</div>
+</body></html>
+

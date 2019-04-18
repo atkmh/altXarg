@@ -1,0 +1,3 @@
+// comparablething.cc 10/26/92
+
+#include "comparablething.h"

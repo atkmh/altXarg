@@ -1,0 +1,34 @@
+// sequence.h 10/27/92
+
+#ifndef SEQUENCE_H
+#define SEQUENCE_H
+
+#include "autoarray.h"
+#include "mytypes.h"
+#include <iostream.h>
+
+class sequence: public autoarray
+{
+
+protected:
+
+	long itemcount;
+
+public:
+
+	sequence();
+	~sequence();
+	sequence( const sequence& s ): ( s )
+	{
+		itemcount = s.itemcount;
+	}
+
+	sequence& operator=( const sequence& b );
+	void insert( long i, char c );
+	void remove( long i );
+	void removeall();
+	void print( ostream& os );
+	char geti( long i ) const;
+};
+
+#endif

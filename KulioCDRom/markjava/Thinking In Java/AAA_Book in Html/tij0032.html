@@ -1,0 +1,68 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0031.html">Prev</a> | <a href="tij0033.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+You
+manipulate objects 
+<P>with
+handles 
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Each
+programming language has its own means of manipulating data. Sometimes the
+programmer must constantly be aware of what type of manipulation is going on.
+Are you manipulating the object directly or are you dealing with some kind of
+indirect representation (a pointer in C or C++) that must be treated with a
+special syntax?
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+this is simplified in Java. You treat everything as an object, so there is a
+single consistent syntax that you use everywhere. Although you 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>treat
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">everything
+as an object, the identifier you manipulate is actually a &#8220;handle&#8221;
+to an object. (You might see this called a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>reference</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or even a pointer in other discussions of Java.) You might imagine this scene
+as a television (the object) with your remote control (the handle). As long as
+you&#8217;re holding this handle, you have a connection to the television, but
+when someone says &#8220;change the channel&#8221; or &#8220;lower the
+volume,&#8221; what you&#8217;re manipulating is the handle, which in turn
+modifies the object. If you want to move around the room and still control the
+television, you take the remote/handle with you, not the television.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Also,
+the remote control can stand on its own, with no television. That is, just
+because you have a handle doesn&#8217;t mean there&#8217;s necessarily an
+object connected to it. So if you want to hold a word or sentence, you create a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">String
+s;
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+here you&#8217;ve created 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>only</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the handle, not an object. If you decided to send a message to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+at this point, you&#8217;ll get an error (at run-time) because 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+isn&#8217;t actually attached to anything (there&#8217;s no television). A
+safer practice, then, is always to initialize a handle when you create it:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">String
+s = "asdf";
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">However,
+this uses a special case: strings can be initialized with quoted text.
+Normally, you must use a more general type of initialization for objects.
+</FONT><a name="_Toc375545218"></a><a name="_Toc408018419"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0031.html">Prev</a> | <a href="tij0033.html">Next</a>
+</div>
+</body></html>
+

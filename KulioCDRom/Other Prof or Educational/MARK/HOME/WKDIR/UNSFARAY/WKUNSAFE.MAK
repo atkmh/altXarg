@@ -1,0 +1,106 @@
+# Microsoft Visual C++ generated build script - Do not modify
+
+PROJ = WKUNSAFE
+DEBUG = 1
+PROGTYPE = 3
+CALLER = 
+ARGS = 
+DLLS = 
+D_RCDEFINES = -d_DEBUG
+R_RCDEFINES = -dNDEBUG
+ORIGIN = MSVC
+ORIGIN_VER = 1.00
+PROJPATH = G:\TEST\MHA\MARK\HOME\WKDIR\UNSFARAY\
+USEMFC = 0
+CC = cl
+CPP = cl
+CXX = cl
+CCREATEPCHFLAG = 
+CPPCREATEPCHFLAG = 
+CUSEPCHFLAG = 
+CPPUSEPCHFLAG = 
+FIRSTC =             
+FIRSTCPP = WKUNSAFE.CPP
+RC = rc
+CFLAGS_D_WTTY = /nologo /W3 /FR /G2 /Zi /D_DEBUG /Od /AM /Mq
+CFLAGS_R_WTTY = /nologo /W3 /FR /G2 /DNDEBUG /Gs /Ox /AM /Mq
+LFLAGS_D_WTTY = /NOLOGO /ONERROR:NOEXE /NOD /PACKC:57344 /CO /ALIGN:16
+LFLAGS_R_WTTY = /NOLOGO /ONERROR:NOEXE /NOD /PACKC:57344 /ALIGN:16
+LIBS_D_WTTY = oldnames libw mlibcewq
+LIBS_R_WTTY = oldnames libw mlibcewq
+RCFLAGS = /nologo
+RESFLAGS = /nologo
+RUNFLAGS = 
+DEFFILE = WKUNSAFE.DEF
+OBJS_EXT = 
+LIBS_EXT = 
+!if "$(DEBUG)" == "1"
+CFLAGS = $(CFLAGS_D_WTTY)
+LFLAGS = $(LFLAGS_D_WTTY)
+LIBS = $(LIBS_D_WTTY)
+MAPFILE = nul
+RCDEFINES = $(D_RCDEFINES)
+DEFFILE=G:\TEST\MHA\MARK\HOME\WKDIR\UNSFARAY\WKUNSAFE.DEF
+!else
+CFLAGS = $(CFLAGS_R_WTTY)
+LFLAGS = $(LFLAGS_R_WTTY)
+LIBS = $(LIBS_R_WTTY)
+MAPFILE = nul
+RCDEFINES = $(R_RCDEFINES)
+DEFFILE=G:\TEST\MHA\MARK\HOME\WKDIR\UNSFARAY\WKUNSAFE.DEF
+!endif
+!if [if exist MSVC.BND del MSVC.BND]
+!endif
+SBRS = WKUNSAFE.SBR \
+		UNSFARAY.SBR \
+		ERROR.SBR
+
+
+WKUNSAFE_DEP = g:\test\mha\mark\home\wkdir\unsfaray\error.h \
+	g:\test\mha\mark\home\wkdir\unsfaray\unsfaray.h
+
+
+UNSFARAY_DEP = g:\test\mha\mark\home\wkdir\unsfaray\unsfaray.h \
+	g:\test\mha\mark\home\wkdir\unsfaray\error.h
+
+
+ERROR_DEP = g:\test\mha\mark\home\wkdir\unsfaray\error.h
+
+
+all:	$(PROJ).EXE $(PROJ).BSC
+
+WKUNSAFE.OBJ:	WKUNSAFE.CPP $(WKUNSAFE_DEP)
+	$(CPP) $(CFLAGS) $(CPPCREATEPCHFLAG) /c WKUNSAFE.CPP
+
+UNSFARAY.OBJ:	UNSFARAY.CPP $(UNSFARAY_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c UNSFARAY.CPP
+
+ERROR.OBJ:	ERROR.CPP $(ERROR_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c ERROR.CPP
+
+
+$(PROJ).EXE::	WKUNSAFE.OBJ UNSFARAY.OBJ ERROR.OBJ $(OBJS_EXT) $(DEFFILE)
+	echo >NUL @<<$(PROJ).CRF
+WKUNSAFE.OBJ +
+UNSFARAY.OBJ +
+ERROR.OBJ +
+$(OBJS_EXT)
+$(PROJ).EXE
+$(MAPFILE)
+c:\msvc\lib\+
+c:\msvc\mfc\lib\+
+$(LIBS)
+$(DEFFILE);
+<<
+	link $(LFLAGS) @$(PROJ).CRF
+	$(RC) $(RESFLAGS) $@
+
+
+run: $(PROJ).EXE
+	$(PROJ) $(RUNFLAGS)
+
+
+$(PROJ).BSC: $(SBRS)
+	bscmake @<<
+/o$@ $(SBRS)
+<<

@@ -1,0 +1,30 @@
+CIS 385, Fall 92
+Object Oriented Programming in C++
+Programming Assignment 4: due Thursday, November 19
+
+In this directory are classes that implement things, equatablethings, and
+comparablethings as abstract classes. Built on those are complex (an
+equatablething descendant) and character (a comparablething descendant).
+There is a class sequence which can now contain equatablethings or their
+descendants, and which is itself an equatablething.
+
+Although, as I will point out in class, there is a good argument for 
+eliminating entirely the abstract class thing, making equatablething the
+lowest level of class for items contained in data structures, I chose to
+leave that class just in case.
+
+You have implemented classes bunch, orderedbunch and set for characters.
+You are to modify them so that they can contain pointers to equatablethings
+or pointers to comparablethings. You are also to modify them so that they
+themselves can be placed into other data structures. The model for this is
+sequence. When you are done you should be able to create a bunch into which
+you can place complex, character, sequences, etc.
+
+My solutions for bunch, orderedbunch, and set of character will be available
+if you want to start from them.
+
+Warning: some modifications in the array classes may have been made since
+I provided them for the previous assignment (e.g. they no longer contain
+virtual print member functions). Use the versions in this directory.
+
+

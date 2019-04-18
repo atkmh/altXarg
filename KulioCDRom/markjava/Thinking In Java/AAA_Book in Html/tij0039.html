@@ -1,0 +1,383 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0038.html">Prev</a> | <a href="tij0040.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Comments
+and embedded documentation
+<P><A NAME="Index81"></A><A NAME="Index82"></A></H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are two types of comments in Java. The first is the traditional C-style comment
+that was inherited by C++. These comments begin with a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>/*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and continue, possibly across many lines, until a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*/</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Note that many programmers will begin each line of a continued comment with a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+so you&#8217;ll often see:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">/*
+This is
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+ A comment that continues
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+ Across lines
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*/</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Remember,
+however, that everything inside the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>/*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*/</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is ignored so it&#8217;s no different to say:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">/*
+This is a comment that
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">continues
+across lines */
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+second form of comment comes from C++. It is the single-line comment, which
+starts at a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>//</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and continues until the end of the line. This type of comment is convenient and
+commonly used because it&#8217;s easy. You don&#8217;t need to hunt on the
+keyboard to find 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>/</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and then 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(you just press the same key twice), and you don&#8217;t need to close the
+comment. So you will often see:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">//
+this is a one-line comment
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><a name="_Toc375545235"></a><a name="_Toc408018436"></a><P></DIV>
+<A NAME="Heading82"></A><H3 ALIGN=LEFT>
+Comment
+documentation
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the thoughtful parts of the Java language is that the designers didn&#8217;t
+consider writing code to be the only important activity &#8211; they also
+thought about documenting it. Possibly the biggest problem with documenting
+code has been maintaining that documentation. If the documentation and the code
+are separate, it becomes a hassle to change the documentation every time you
+change the code. The solution seems simple: link the code to the documentation.
+The easiest way to do this is to put everything in the same file. To complete
+the picture, however, you need a special comment syntax to mark special
+documentation and a tool to extract those comments and put them in a useful
+form. This is what Java has done.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+tool to extract the comments is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>javadoc.</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+It uses some of the technology from the Java compiler to look for special
+comment tags you put in your programs. It not only extracts the information
+marked by these tags, but it also pulls out the class name or method name that
+adjoins the comment. This way you can get away with the minimal amount of work
+to generate decent program documentation.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+output of javadoc is an HTML file that you can view with your Web browser. This
+tool allows you to create and maintain a single source file and automatically
+generate useful documentation. Because of javadoc we have a standard for
+creating documentation, and it&#8217;s easy enough that we can expect or even
+demand documentation with all Java libraries.
+</FONT><a name="_Ref348399283"></a><a name="_Toc375545236"></a><a name="_Toc408018437"></a><P></DIV>
+<A NAME="Heading83"></A><H3 ALIGN=LEFT>
+Syntax</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+of the javadoc commands occur only within 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>/**</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+comments. The comments end with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*/
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">as
+usual. There are two primary ways to use javadoc: embed HTML, or use &#8220;doc
+tags.&#8221; Doc tags are commands that start with a &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+and are placed at the beginning of a comment line. (A leading &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>*</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;,
+however, is ignored.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are three &#8220;types&#8221; of comment documentation, which correspond to the
+element the comment precedes: class, variable, or method. That is, a class
+comment appears right before the definition of a class; a variable comment
+appears right in front of the definition of a variable and a method comment
+appears right in front of the definition of a method. As a simple example:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#009900">/** A class comment */</font>
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> docTest {
+  <font color="#009900">/** A variable comment */</font>
+  <font color="#0000ff">public</font> <font color="#0000ff">int</font> i;
+  <font color="#009900">/** A method comment */</font>
+  <font color="#0000ff">public</font> <font color="#0000ff">void</font> f() {}
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Note
+that javadoc will process comment documentation for only 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">and
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">members.
+Comments for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">and
+&#8220;friendly&#8221; (see Chapter 5) members are ignored and you&#8217;ll see
+no output. (You can use the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>-private
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">flag
+to include 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members as well.) This makes sense, since only 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members are available outside the file, which is the client programmer&#8217;s
+perspective. However, all 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+comments are included in the output.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+output for the above code is an HTML file that has the same standard format as
+all the rest of the Java documentation, so users will be comfortable with the
+format and can easily navigate your classes. It&#8217;s worth entering the
+above code, sending it through javadoc and viewing the resulting HTML file to
+see the results.
+</FONT><a name="_Toc375545237"></a><a name="_Toc408018438"></a><P></DIV>
+<A NAME="Heading84"></A><H3 ALIGN=LEFT>
+Embedded
+HTML
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Javadoc
+passes HTML commands through to the generated HTML document. This allows you
+full use of HTML; however, the primary motive is to let you format code, such as:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">/**</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;pre&gt;
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+System.out.println(new Date());
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;/pre&gt;
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*/</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can also use HTML just as you would in any other Web document to format the
+regular text in your descriptions:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">/**</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+You can &lt;em&gt;even&lt;/em&gt; insert a list:
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;ol&gt;
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;li&gt; Item one
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;li&gt; Item two
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;li&gt; Item three
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*
+&lt;/ol&gt;
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">*/</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Note
+that within the documentation comment, asterisks at the beginning of a line are
+thrown away by javadoc, along with leading spaces. Javadoc reformats everything
+so that it conforms to the standard documentation appearance. Don&#8217;t use
+headings such as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>&lt;h1&gt;</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>&lt;hr&gt;</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+as embedded HTML because javadoc inserts its own headings and yours will
+interfere with them.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+types of comment documentation &#8211; class, variable, and method &#8211; can
+support embedded HTML.
+</FONT><a name="_Toc375545238"></a><a name="_Toc408018439"></a><P></DIV>
+<A NAME="Heading85"></A><H3 ALIGN=LEFT>
+@see:
+referring to other classes
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+three types of comment documentation can contain 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@see</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+tags, which allow you to refer to the documentation in other classes. Javadoc
+will generate HTML with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@see</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+tags hyperlinked to the other documentation. The forms are:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>@see classname
+@see fully-qualified-classname
+@see fully-qualified-classname#method-name </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Each
+one adds a hyperlinked &#8220;See Also&#8221; entry to the generated
+documentation. Javadoc will not check the hyperlinks you give it to make sure
+they are valid.
+</FONT><a name="_Toc375545239"></a><a name="_Toc408018440"></a><P></DIV>
+<A NAME="Heading86"></A><H3 ALIGN=LEFT>
+Class
+documentation tags
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Along
+with embedded HTML and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@see
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">references,
+class documentation can include tags for version information and the
+author&#8217;s name. Class documentation can also be used for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>interfaces</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(described later in the book).
+</FONT><P></DIV>
+<A NAME="Heading87"></A><H4 ALIGN=LEFT>
+@version</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is of the form:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">@version
+version-information
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>version-information</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is any significant information you see fit to include. When the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>-version</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+flag is placed on the javadoc command line, the version information will be
+called out specially in the generated HTML documentation.
+</FONT><P></DIV>
+<A NAME="Heading88"></A><H4 ALIGN=LEFT>
+@author</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is of the form:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">@author
+author-information
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>author-information</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is, presumably, your name, but it could also include your email address or any
+other appropriate information. When the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>-author
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">flag
+is placed on the javadoc command line, the author information will be called
+out specially in the generated HTML documentation.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can have multiple author tags for a list of authors, but they must be placed
+consecutively. All the author information will be lumped together into a single
+paragraph in the generated HTML.
+</FONT><a name="_Toc375545240"></a><a name="_Toc408018441"></a><P></DIV>
+<A NAME="Heading89"></A><H3 ALIGN=LEFT>
+Variable
+documentation tags
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Variable
+documentation can include only embedded HTML and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@see</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+references.
+</FONT><a name="_Toc375545241"></a><a name="_Toc408018442"></a><P></DIV>
+<A NAME="Heading90"></A><H3 ALIGN=LEFT>
+Method
+documentation tags
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">As
+well as embedded documentation and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@see</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+references, methods allow documentation tags for parameters, return values, and
+exceptions.
+</FONT><P></DIV>
+<A NAME="Heading91"></A><H4 ALIGN=LEFT>
+@param</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is of the form:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">@param
+</FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black"><I>parameter</I></FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">-</FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black"><I>name</I></FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">
+</FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black"><I>description</I></FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>parameter-name
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+the identifier in the parameter list, and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>description
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+text that can continue on subsequent lines. The description is considered
+finished when a new documentation tag is encountered. You can have any number
+of these, presumably one for each parameter.
+</FONT><P></DIV>
+<A NAME="Heading92"></A><H4 ALIGN=LEFT>
+@return</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is of the form:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">@return
+</FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black"><I>description</I></FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>description</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+gives you the meaning of the return value. It can continue on subsequent lines.
+</FONT><P></DIV>
+<A NAME="Heading93"></A><H4 ALIGN=LEFT>
+@exception</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Exceptions
+will be described in Chapter 9, but briefly they are objects that can be
+&#8220;thrown&#8221; out of a method if that method fails. Although only one
+exception object can emerge when you call a method, a particular method might
+produce any number of different types of exceptions, all of which need
+descriptions. So the form for the exception tag is:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">@exception
+</FONT></TT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black"><I>fully-qualified-class-name
+description
+</I></FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>fully-qualified-class-name</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+gives an unambiguous name of an exception class that&#8217;s defined somewhere,
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>description</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(which can continue on subsequent lines) tells you why this particular type of
+exception can emerge from the method call.
+</FONT><P></DIV>
+<A NAME="Heading94"></A><H4 ALIGN=LEFT>
+@deprecated</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is new in Java 1.1<A NAME="Index83"></A>.
+It is used to tag features that were superseded by an improved feature. The
+deprecated tag is a suggestion that you no longer use this particular feature,
+since sometime in the future it is likely to be removed. Methods that are marked 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>@deprecated</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+cause the compiler to issue warnings if it is used.
+</FONT><a name="_Toc375545242"></a><a name="_Toc408018443"></a><P></DIV>
+<A NAME="Heading95"></A><H3 ALIGN=LEFT>
+Documentation
+example
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+Here is the first Java program again, this time with documentation comments
+added:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#009900">//: Property.java</font>
+<font color="#0000ff">import</font> java.util.*;
+
+<font color="#009900">/** The first Thinking in Java example program.
+ * Lists system information on current machine.
+ * @author Bruce Eckel
+ * @author http://www.BruceEckel.com
+ * @version 1.0 
+*/</font>
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> Property {
+  <font color="#009900">/** Sole entry point to class &amp; application
+   * @param args array of string arguments
+   * @return No return value
+   * @exception exceptions No exceptions thrown
+  */</font>
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    System.out.println(<font color="#0000ff">new</font> Date());
+    Properties p = System.getProperties();
+    p.list(System.out);
+    System.out.println("--- Memory Usage:");
+    Runtime rt = Runtime.getRuntime();
+    System.out.println("Total Memory = "
+                       + rt.totalMemory()
+                       + " Free Memory = "
+                       + rt.freeMemory());
+  }
+} <font color="#009900">///:~ </PRE></font></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+first line:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">
+  //: Property.java
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">uses
+my own technique of putting a &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>:</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+as a special marker for the comment line containing the source file name. The
+last line also finishes with a comment, and this one indicates the end of the
+source code listing, which allows it to be automatically extracted from the
+text of the book and checked with a compiler. This is described in detail in
+Chapter 17.
+</FONT><a name="_Toc375545243"></a><a name="_Toc408018444"></a><a name="_Toc312373851"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0038.html">Prev</a> | <a href="tij0040.html">Next</a>
+</div>
+</body></html>
+

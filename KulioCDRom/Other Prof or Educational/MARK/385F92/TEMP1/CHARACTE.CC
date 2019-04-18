@@ -1,0 +1,1 @@
+// character.cc 11/4/92#include "character.h"ostream& operator<<( ostream& os, const character& c ){	c.print( os );	return os;}

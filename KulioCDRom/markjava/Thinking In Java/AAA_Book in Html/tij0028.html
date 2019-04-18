@@ -1,0 +1,483 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0027.html">Prev</a> | <a href="tij0029.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Java
+and the Internet
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+Java is, in fact, yet another computer programming language, you may question
+why it is so important and why it is being promoted as a revolutionary step in
+computer programming. The answer isn&#8217;t immediately obvious if
+you&#8217;re coming from a traditional programming perspective. Although Java
+will solve traditional stand-alone programming problems, the reason it is
+important is that it will also solve programming problems on the World Wide Web.
+</FONT><a name="_Toc375545207"></a><a name="_Toc408018404"></a><P></DIV>
+<A NAME="Heading40"></A><H3 ALIGN=LEFT>
+What
+is the Web?
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Web can seem a bit of a mystery at first, with all this talk of
+&#8220;surfing,&#8221; &#8220;presence&#8221; and &#8220;home pages.&#8221;
+There has even been a growing reaction against &#8220;Internet-mania,&#8221;
+questioning the economic value and outcome of such a sweeping movement.
+It&#8217;s helpful to step back and see what it really is, but to do this you
+must understand client/server systems, another aspect of computing that&#8217;s
+full of confusing issues.
+</FONT><P></DIV>
+<A NAME="Heading41"></A><H4 ALIGN=LEFT>
+Client/Server
+computing
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+primary idea of a client/server system is that you have a central repository of
+information &#8211; some kind of data, typically in a database &#8211; that you
+want to distribute on demand to some set of people or machines. A key to the
+client/server concept is that the repository of information is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>centrally
+located 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">so
+that it can be changed and so that those changes will propagate out to the
+information consumers. Taken together, the information repository, the software
+that distributes the information and the machine(s) where the information and
+software reside is called the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>server</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The software that resides on the remote machine, and that communicates with the
+server, fetches the information, processes it, and displays it on the remote
+machine is called the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>client</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+basic concept of client/server computing, then, is not so complicated. The
+problems arise because you have a single server trying to serve many clients at
+once. Generally a database management system is involved so the designer
+&#8220;balances&#8221; the layout of data into tables for optimal use. In
+addition, systems often allow a client to insert new information into a server.
+This means you must ensure that one client&#8217;s new data doesn&#8217;t walk
+over another client&#8217;s new data, or that data isn&#8217;t lost in the
+process of adding it to the database. (This is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>transaction
+processing.
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">)
+As client software changes, it must be built, debugged and installed on the
+client machines, which turns out to be more complicated and expensive than you
+might think. It&#8217;s especially problematic to support multiple types of
+computers and operating systems. Finally, there&#8217;s the all-important
+performance issue: you might have hundreds of clients making requests of your
+server at any one time, and so any small delay is crucial. To minimize latency,
+programmers work hard to offload processing tasks, often to the client machine
+but sometimes to other machines at the server site using so-called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>middleware</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+(Middleware is also used to improve maintainability.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">So
+the simple idea of distributing information to people has so many layers of
+complexity in implementing it that the whole problem can seem hopelessly
+enigmatic. And yet it&#8217;s crucial: client/server computing accounts for
+roughly half of all programming activities. It&#8217;s responsible for
+everything from taking orders and credit-card transactions to the distribution
+of any kind of data &#8211; stock market, scientific, government &#8211; you
+name it. What we&#8217;ve come up with in the past is individual solutions to
+individual problems, inventing a new solution each time. These were hard to
+create and hard to use and the user had to learn a new interface for each one.
+The entire client/server problem needs to be solved in a big way.
+</FONT><P></DIV>
+<A NAME="Heading42"></A><H4 ALIGN=LEFT>
+The
+Web as a giant server
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Web is actually one giant client-server system. It&#8217;s a bit worse than
+that, since you have all the servers and clients coexisting on a single network
+at once. You don&#8217;t need to know that, since all you care about is
+connecting to and interacting with one server at a time (even though you might
+be hopping around the world in your search for the correct server).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Initially
+it was a simple one-way process. You made a request of a server and it handed
+you a file, which your machine&#8217;s browser software (i.e. the client) would
+interpret by formatting onto your local machine. But in short order people
+began wanting to do more than just deliver pages from a server. They wanted
+full client/server capability so that the client could feed information back to
+the server, for example, to do database lookups on the server, to add new
+information to the server or to place an order (which required more security
+than the original systems offered). These are the changes we&#8217;ve been
+seeing in the development of the Web.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Web browser was a big step forward: the concept that one piece of information
+could be displayed on any type of computer without change. However, browsers
+were still rather primitive and rapidly bogged down by the demands placed on
+them. They weren&#8217;t particularly interactive and tended to clog up both
+the server and the Internet because any time you needed to do something that
+required programming you had to send information back to the server to be
+processed. It could take many seconds or minutes to find out you had misspelled
+something in your request. Since the browser was just a viewer it
+couldn&#8217;t perform even the simplest computing tasks. (On the other hand,
+it was safe, since it couldn&#8217;t execute any programs on your local machine
+that contained bugs or viruses.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+solve this problem, different approaches have been taken. To begin with,
+graphics standards have been enhanced to allow better animation and video
+within browsers. The remainder of the problem can be solved only by
+incorporating the ability to run programs on the client end, under the browser.
+This is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>client-side
+programming
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><a name="_Toc408018405"></a><P></DIV>
+<A NAME="Heading43"></A><H3 ALIGN=LEFT>
+Client-side
+programming
+<A NAME="fnB8" HREF="#fn8">[8]</A></H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Web&#8217;s initial server-browser design provided for interactive content, but
+the interactivity was completely provided by the server. The server produced
+static pages for the client browser, which would simply interpret and display
+them. Basic HTML contains simple mechanisms for data gathering: text-entry
+boxes, check boxes, radio boxes, lists and drop-down lists, as well as a button
+that can only be programmed to reset the data on the form or
+&#8220;submit&#8221; the data on the form back to the server. This submission
+passes through the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Common
+Gateway Interface
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(CGI) provided on all Web servers. The text within the submission tells CGI
+what to do with it. The most common action is to run a program located on the
+server in a directory that&#8217;s typically called &#8220;cgi-bin.&#8221; (If
+you watch the address window at the top of your browser when you push a button
+on a Web page, you can sometimes see &#8220;cgi-bin&#8221; within all the
+gobbledygook there.) These programs can be written in most languages. Perl is a
+common choice because it is designed for text manipulation and is interpreted,
+so it can be installed on any server regardless of processor or operating system.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Many
+powerful Web sites today are built strictly on CGI, and you can in fact do
+nearly anything with it. The problem is response time. The response of a CGI
+program depends on how much data must be sent as well as the load on both the
+server and the Internet. (On top of this, starting a CGI program tends to be
+slow.) The initial designers of the Web did not foresee how rapidly this
+bandwidth would be exhausted for the kinds of applications people developed.
+For example, any sort of dynamic graphing is nearly impossible to perform with
+consistency because a GIF file must be created and moved from the server to the
+client for each version of the graph. And you&#8217;ve no doubt had direct
+experience with something as simple as validating the data on an input form.
+You press the submit button on a page; the data is shipped back to the server;
+the server starts a CGI program that discovers an error, formats an HTML page
+informing you of the error and sends the page back to you; you must then back
+up a page and try again. Not only is this slow, it&#8217;s not elegant.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+solution is client-side programming. Most machines that run Web browsers are
+powerful engines capable of doing vast work, and with the original static HTML
+approach they are sitting there, just idly waiting for the server to dish up
+the next page. Client-side programming means that the Web browser is harnessed
+to do whatever work it can, and the result for the user is a much speedier and
+more interactive experience at your Web site.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+problem with discussions of client-side programming is that they aren&#8217;t
+very different from discussions of programming in general. The parameters are
+almost the same, but the platform is different: a Web browser is like a limited
+operating system. In the end, it&#8217;s still programming and this accounts
+for the dizzying array of problems and solutions produced by client-side
+programming. The rest of this section provides an overview of the issues and
+approaches in client-side programming.
+</FONT><P></DIV>
+<A NAME="Heading44"></A><H4 ALIGN=LEFT>
+Plug-ins</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the most significant steps forward in client-side programming is the
+development of the plug-in. This is a way for a programmer to add new
+functionality to the browser by downloading a piece of code that plugs itself
+into the appropriate spot in the browser. It tells the browser &#8220;from now
+on you can perform this new activity.&#8221; (You need to download the plug-in
+only once.) Some fast and powerful behavior is added to browsers via plug-ins,
+but writing a plug-in is not a trivial task and isn&#8217;t something
+you&#8217;d want to do as part of the process of building a particular site.
+The value of the plug-in for client-side programming is that it allows an
+expert programmer to develop a new language and add that language to a browser 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>without
+the permission of the browser manufacturer
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Thus, plug-ins provide the back door that allows the creation of new
+client-side programming languages (although not all languages are implemented
+as plug-ins).
+</FONT><P></DIV>
+<A NAME="Heading45"></A><H4 ALIGN=LEFT>
+Scripting
+languages
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Plug-ins
+resulted in an explosion of scripting languages. With a scripting language you
+embed the source code for your client-side program directly into the HTML page
+and the plug-in that interprets that language is automatically activated while
+the HTML page is being displayed. Scripting languages tend to be reasonably
+simple to understand, and because they are simply text that is part of an HTML
+page they load very quickly as part of the single server hit required to
+procure that page. The trade-off is that your code is exposed for everyone to
+see (and steal) but generally you aren&#8217;t doing amazingly sophisticated
+things with scripting languages so it&#8217;s not too much of a hardship.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+points out that scripting languages are really intended to solve specific types
+of problems, primarily the creation of richer and more interactive graphical
+user interfaces (GUIs). However, a scripting language might solve 80 percent of
+the problems encountered in client-side programming. Your problems might very
+well fit completely within that 80 percent, and since scripting languages tend
+to be easier and faster to develop, you should probably consider a scripting
+language before looking at a more involved solution such as Java or ActiveX
+programming.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+most commonly-discussed scripting languages are JavaScript (which has nothing
+to do with Java; it&#8217;s named that way just to grab some of Java&#8217;s
+marketing momentum), VBScript (which looks like Visual Basic) and Tcl/Tk, which
+comes from the popular cross-platform GUI-building language. There are others
+out there and no doubt more in development.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">JavaScript
+is probably the most commonly supported. It comes built into both Netscape
+Navigator and the Microsoft Internet Explorer (IE). In addition, there are
+probably more JavaScript books out than for the other languages, and some tools
+automatically create pages using JavaScript. However, if you&#8217;re already
+fluent in Visual Basic or Tcl/Tk, you&#8217;ll be more productive using those
+scripting languages rather than learning a new one. (You&#8217;ll have your
+hands full dealing with the Web issues already.) 
+</FONT><P></DIV>
+<A NAME="Heading46"></A><H4 ALIGN=LEFT>
+Java</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+a scripting language can solve 80 percent of the client-side programming
+problems, what about the other 20 percent &#8211; the &#8220;really hard
+stuff?&#8221; The most popular solution today is Java. Not only is it a
+powerful programming language built to be secure, cross-platform and
+international, but Java is being continuously extended to provide language
+features and libraries that elegantly handle problems that are difficult in
+traditional programming languages, such as multithreading, database access,
+network programming and distributed computing. Java allows client-side
+programming via the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>applet</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">An
+applet is a mini-program that will run only under a Web browser. The applet is
+downloaded automatically as part of a Web page (just as, for example, a graphic
+is automatically downloaded). When the applet is activated it executes a
+program. This is part of its beauty &#8211; it provides you with a way to
+automatically distribute the client software from the server at the time the
+user needs the client software, and no sooner. They get the latest version of
+the client software without fail and without difficult re-installation. Because
+of the way Java is designed, the programmer needs to create only a single
+program, and that program automatically works with all computers that have
+browsers with built-in Java interpreters. (This safely includes the vast
+majority of machines.) Since Java is a full-fledged programming language, you
+can do as much work as possible on the client before and after making requests
+of the server. For example, you won&#8217;t need to send a request form across
+the Internet to discover that you&#8217;ve gotten a date or some other
+parameter wrong, and your client computer can quickly do the work of plotting
+data instead of waiting for the server to make a plot and ship a graphic image
+back to you. Not only do you get the immediate win of speed and responsiveness,
+but the general network traffic and load upon servers can be reduced,
+preventing the entire Internet from slowing down.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+advantage a Java applet has over a scripted program is that it&#8217;s in
+compiled form, so the source code isn&#8217;t available to the client. On the
+other hand, a Java applet can be decompiled without too much trouble, and
+hiding your code is often not an important issue anyway. Two other factors can
+be important. As you will see later in the book, a compiled Java applet can
+comprise many modules and take multiple server &#8220;hits&#8221; (accesses) to
+download. (In Java 1.1<A NAME="Index50"></A>
+this is minimized by Java archives, called JAR files, that allow all the
+required modules to be packaged together for a single download.) A scripted
+program will just be integrated into the Web page as part of its text (and will
+generally be smaller and reduce server hits). This could be important to the
+responsiveness of your Web site. Another factor is the all-important learning
+curve. Regardless of what you&#8217;ve heard, Java is not a trivial language to
+learn. If you&#8217;re a Visual Basic programmer, moving to VBScript will be
+your fastest solution and since it will probably solve most typical
+client/server problems you might be hard pressed to justify learning Java. If
+you&#8217;re experienced with a scripting language you will certainly benefit
+from looking at JavaScript or VBScript before committing to Java, since they
+might fit your needs handily and you&#8217;ll be more productive sooner.
+</FONT><P></DIV>
+<A NAME="Heading47"></A><H4 ALIGN=LEFT>
+ActiveX</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">To
+some degree, the competitor to Java is Microsoft&#8217;s ActiveX, although it
+takes a completely different approach. ActiveX is originally a Windows-only
+solution, although it is now being developed via an independent consortium to
+become cross-platform. Effectively, ActiveX says &#8220;if your program
+connects to its environment just so, it can be dropped into a Web page and run
+under a browser that supports ActiveX.&#8221; (IE directly supports ActiveX and
+Netscape does so using a plug-in.) Thus, ActiveX does not constrain you to a
+particular language. If, for example, you&#8217;re already an experienced
+Windows programmer using a language such as C++, Visual Basic, or
+Borland&#8217;s Delphi, you can create ActiveX components with almost no
+changes to your programming knowledge. ActiveX also provides a path for the use
+of legacy code in your Web pages.
+</FONT><P></DIV>
+<A NAME="Heading48"></A><H4 ALIGN=LEFT>
+Security</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Automatically
+downloading and running programs across the Internet can sound like a
+virus-builder&#8217;s dream. ActiveX especially brings up the thorny issue of
+security in client-side programming. If you click on a Web site, you might
+automatically download any number of things along with the HTML page: GIF
+files, script code, compiled Java code, and ActiveX components. Some of these
+are benign; GIF files can&#8217;t do any harm, and scripting languages are
+generally limited in what they can do. Java was also designed to run its
+applets within a &#8220;sandbox&#8221; of safety, which prevents it from
+writing to disk or accessing memory outside the sandbox. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">ActiveX
+is at the opposite end of the spectrum. Programming with ActiveX is like
+programming Windows &#8211; you can do anything you want. So if you click on a
+page that downloads an ActiveX component, that component might cause damage to
+the files on your disk. Of course, programs that you load onto your computer
+that are not restricted to running inside a Web browser can do the same thing.
+Viruses downloaded from Bulletin-Board Systems (BBSs) have long been a problem,
+but the speed of the Internet amplifies the difficulty.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+solution seems to be &#8220;digital signatures,&#8221; whereby code is verified
+to show who the author is. This is based on the idea that a virus works because
+its creator can be anonymous, so if you remove the anonymity individuals will
+be forced to be responsible for their actions. This seems like a good plan
+because it allows programs to be much more functional, and I suspect it will
+eliminate malicious mischief. If, however, a program has an unintentional bug
+that&#8217;s destructive it will still cause problems.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Java approach is to prevent these problems from occurring, via the sandbox. The
+Java interpreter that lives on your local Web browser examines the applet for
+any untoward instructions as the applet is being loaded. In particular, the
+applet cannot write files to disk or erase files (one of the mainstays of the
+virus). Applets are generally considered to be safe, and since this is
+essential for reliable client-server systems, any bugs that allow viruses are
+rapidly repaired. (It&#8217;s worth noting that the browser software actually
+enforces these security restrictions, and some browsers allow you to select
+different security levels to provide varying degrees of access to your system.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+might be skeptical of this rather draconian restriction against writing files
+to your local disk. For example, you may want to build a local database or save
+data for later use offline. The initial vision seemed to be that eventually
+everyone would be online to do anything important, but that was soon seen to be
+impractical (although low-cost &#8220;Internet appliances&#8221; might someday
+satisfy the needs of a significant segment of users). The solution is the
+&#8220;signed applet&#8221; that uses public-key encryption to verify that an
+applet does indeed come from where it claims it does. A signed applet can then
+go ahead and trash your disk, but the theory is that since you can now hold the
+applet creator accountable they won&#8217;t do vicious things. Java 1.1<A NAME="Index51"></A>
+provides a framework for digital signatures so that you will eventually be able
+to allow an applet to step outside the sandbox if necessary.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Digital
+signatures have missed an important issue, which is the speed that people move
+around on the Internet. If you download a buggy program and it does something
+untoward, how long will it be before you discover the damage? It could be days
+or even weeks. And by then, how will you track down the program that&#8217;s
+done it (and what good will it do at that point?).
+</FONT><P></DIV>
+<A NAME="Heading49"></A><H4 ALIGN=LEFT>
+Internet
+vs. Intranet
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+Web is the most general solution to the client/server problem, so it makes
+sense that you can use the same technology to solve a subset of the problem, in
+particular the classic client/server problem within a company. With traditional
+client/server approaches you have the problem of multiple different types of
+client computers, as well as the difficulty of installing new client software,
+both of which are handily solved with Web browsers and client-side programming.
+When Web technology is used for an information network that is restricted to a
+particular company, it is referred to as an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Intranet</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Intranets provide much greater security than the Internet, since you can
+physically control access to the servers within your company. In terms of
+training, it seems that once people understand the general concept of a browser
+it&#8217;s much easier for them to deal with differences in the way pages and
+applets look, so the learning curve for new kinds of systems seems to be reduced.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+security problem brings us to one of the divisions that seems to be
+automatically forming in the world of client-side programming. If your program
+is running on the Internet, you don&#8217;t know what platform it will be
+working under and you want to be extra careful that you don&#8217;t disseminate
+buggy code. You need something cross-platform and secure, like a scripting
+language or Java. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you&#8217;re running on an Intranet, you might have a different set of
+constraints. It&#8217;s not uncommon that your machines could all be
+Intel/Windows platforms. On an Intranet, you&#8217;re responsible for the
+quality of your own code and can repair bugs when they&#8217;re discovered. In
+addition, you might already have a body of legacy code that you&#8217;ve been
+using in a more traditional client/server approach, whereby you must physically
+install client programs every time you do an upgrade. The time wasted in
+installing upgrades is the most compelling reason to move to browsers because
+upgrades are invisible and automatic. If you are involved in such an Intranet,
+the most sensible approach to take is ActiveX rather than trying to recode your
+programs in a new language.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+faced with this bewildering array of solutions to the client-side programming
+problem, the best plan of attack is a cost-benefit analysis. Consider the
+constraints of your problem and what would be the fastest way to get to your
+solution. Since client-side programming is still programming, it&#8217;s always
+a good idea to take the fastest development approach for your particular
+situation. This is an aggressive stance to prepare for inevitable encounters
+with the problems of program development.
+</FONT><a name="_Toc408018406"></a><P></DIV>
+<A NAME="Heading50"></A><H3 ALIGN=LEFT>
+Server-side
+programming
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+whole discussion has ignored the issue of server-side programming. What happens
+when you make a request of a server? Most of the time the request is simply
+&#8220;send me this file.&#8221; Your browser then interprets the file in some
+appropriate fashion: as an HTML page, a graphic image, a Java applet, a script
+program, etc. A more complicated request to a server generally involves a
+database transaction. A common scenario involves a request for a complex
+database search, which the server then formats into an HTML page and sends to
+you as the result. (Of course, if the client has more intelligence via Java or
+a scripting language, the raw data can be sent and formatted at the client end,
+which will be faster and less load on the server.) Or you might want to
+register your name in a database when you join a group or place an order, which
+will involve changes to that database. These database requests must be
+processed via some code on the server side, which is generally referred to as <A NAME="Index52"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>server-side
+programming
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Traditionally, server-side programming has been performed using Perl and CGI
+scripts, but more sophisticated systems have been appearing. These include
+Java-based Web servers that allow you to perform all your server-side
+programming in Java by writing what are called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>servlets</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+<A NAME="Index53"></A>
+</FONT><a name="_Toc375545208"></a><a name="_Toc408018407"></a><P></DIV>
+<A NAME="Heading51"></A><H3 ALIGN=LEFT>
+A
+separate arena: applications
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Most
+of the brouhaha over Java has been about applets. Java is actually a
+general-purpose programming language that can solve any type of problem, at
+least in theory. And as pointed out previously, there might be more effective
+ways to solve most client/server problems. When you move out of the applet
+arena (and simultaneously release the restrictions, such as the one against
+writing to disk) you enter the world of general-purpose applications that run
+standalone, without a Web browser, just like any ordinary program does. Here,
+Java&#8217;s strength is not only in its portability, but also its
+programmability. As you&#8217;ll see throughout this book, Java has many
+features that allow you to create robust programs in a shorter period than with
+previous programming languages.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Be
+aware that this is a mixed blessing. You pay for the improvements through
+slower execution speed (although there is significant work going on in this
+area). Like any language, Java has built-in limitations that might make it
+inappropriate to solve certain types of programming problems. Java is a
+rapidly-evolving language, however, and as each new release comes out it
+becomes more and more attractive for solving larger sets of problems.
+</FONT><a name="AAA"></a><a name="_Toc408018408"></a><a name="_Toc375545209"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn8" HREF="#fnB8">[8]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+The material in this section is adapted from an article by the author that
+originally appeared on Mainspring, at 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>www.mainspring.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+Used with permission.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0027.html">Prev</a> | <a href="tij0029.html">Next</a>
+</div>
+</body></html>
+

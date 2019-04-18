@@ -1,0 +1,195 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0035.html">Prev</a> | <a href="tij0037.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Methods,
+arguments 
+<P>and
+return values
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Up
+until now, the term 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>function</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+has been used to describe a named subroutine. The term that is more commonly
+used in Java is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>method,</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+as in &#8220;a way to do something.&#8221; If you want, you can continue
+thinking in terms of functions. It&#8217;s really only a syntactic difference,
+but from now on &#8220;method&#8221; will be used in this book rather than
+&#8220;function.&#8221;
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Methods
+in Java determine the messages an object can receive. In this section you will
+learn how simple it is to define a method.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+fundamental parts of a method are the name, the arguments, the return type, and
+the body. Here is the basic form:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">returnType
+methodName( /* argument list */ ) {
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">
+ /* Method body */
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">}</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+return type is the type of the value that pops out of the method after you call
+it. The method name, as you might imagine, identifies the method. The argument
+list gives the types and names for the information you want to pass into the
+method.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Methods
+in Java can be created only as part of a class. A method can be called only for
+an object,
+</FONT><A NAME="fnB13" HREF="#fn13">[13]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and that object must be able to perform that method call. If you try to call
+the wrong method for an object, you&#8217;ll get an error message at compile
+time. You call a method for an object by naming the object followed by a period
+(dot), followed by the name of the method and its argument list, like this: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>objectName.methodName(arg1,
+arg2, arg3)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+For example, suppose you have a method 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>f(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that takes no arguments and returns a value of type 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>int</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Then, if you have an object called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>a</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for which 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>f(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+can be called, you can say this:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">int
+x = a.f();
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+type of the return value must be compatible with the type of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>x</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+act of calling a method is commonly referred to as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>sending
+a message to an object
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In the above example, the message is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>f(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and the object is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>a</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Object-oriented programming is often summarized as simply &#8220;sending
+messages to objects.&#8221;
+</FONT><a name="_Toc375545228"></a><a name="_Toc408018429"></a><P></DIV>
+<A NAME="Heading75"></A><H3 ALIGN=LEFT>
+The
+argument list
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+method argument list specifies what information you pass into the method. As
+you might guess, this information &#8211; like everything else in Java &#8211;
+takes the form of objects. So, what you must specify in the argument list are
+the types of the objects to pass in and the name to use for each one. As in any
+situation in Java where you seem to be handing objects around, you are actually
+passing handles.
+</FONT><A NAME="fnB14" HREF="#fn14">[14]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+The type of the handle must be correct, however. If the argument is supposed to
+be a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+what you pass in must be a string.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Consider
+a method that takes a string as its argument. Here is the definition, which
+must be placed within a class definition for it to compile:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">int
+storage(String s) {
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">
+ return s.length() * 2;
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">}</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+method tells you how many bytes are required to hold the information in a
+particular 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String.
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">(Each
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>char
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+16 bits, or two bytes, long, to support Unicode characters.) The argument is of
+type 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Once 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is passed into the method, you can treat it just like any other object. (You
+can send messages to it.) Here, the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>length(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method is called, which is one of the methods for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s;
+it returns the number of characters in a string.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can also see the use of the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>return</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword, which does two things. First, it means &#8220;leave the method,
+I&#8217;m done.&#8221; Second, if the method produces a value, that value is
+placed right after the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>return</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+statement. In this case, the return value is produced by evaluating the
+expression 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>s.length(&#160;)
+* 2
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can return any type you want, but if you don&#8217;t want to return anything at
+all, you do so by indicating that the method returns 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>void</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Here are some examples:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#0000ff">boolean</font> flag() { <font color="#0000ff">return</font> <font color="#0000ff">true</font>; }
+<font color="#0000ff">float</font> naturalLogBase() { <font color="#0000ff">return</font> 2.718; }
+<font color="#0000ff">void</font> nothing() { <font color="#0000ff">return</font>; }
+<font color="#0000ff">void</font> nothing2() {} </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+the return type is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>void</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+then the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>return</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword is used only to exit the method, and is therefore unnecessary when you
+reach the end of the method. You can return from a method at any point, but if
+you&#8217;ve given a non-
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>void
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">return
+type then the compiler will ensure that you return the appropriate type of
+value regardless of where you return.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">At
+this point, it can look like a program is just a bunch of objects with methods
+that take other objects as arguments and send messages to those other objects.
+That is indeed much of what goes on, but in the following chapter you&#8217;ll
+learn how to do the detailed low-level work by making decisions within a
+method. For this chapter, sending messages will suffice.
+</FONT><a name="_Toc375545229"></a><a name="_Toc408018430"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn13" HREF="#fnB13">[13]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+methods, which you&#8217;ll learn about soon, can be called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>for
+the class
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+without an object.
+</FONT><P></DIV><DIV ALIGN=LEFT><A NAME="fn14" HREF="#fnB14">[14]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+With the usual exception of the aforementioned &#8220;special&#8221; data types 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>boolean,
+char
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>byte</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>short</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>int</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>long</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>
+float,
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>double</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+In general, though, you pass objects, which really means you pass handles to
+objects.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0035.html">Prev</a> | <a href="tij0037.html">Next</a>
+</div>
+</body></html>
+

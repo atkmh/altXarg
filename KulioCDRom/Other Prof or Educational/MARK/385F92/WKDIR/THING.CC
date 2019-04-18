@@ -1,0 +1,1 @@
+// thing.cc 11/4/92#include "thing.h"

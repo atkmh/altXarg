@@ -1,0 +1,41 @@
+
+[GridPRProject]
+ColCnt=36
+
+
+Col1=PRProject.pr  ApprovedTime|AppTime|8.250
+Col15=PRProject.pr AsOf|As Of|10.000
+Col2=PRProject.pr  Budget|Budget|6.625
+Col6=PRProject.pr  CActFinish|CommActualsFini|6.375
+Col5=PRProject.pr  CActStart|CommiActStart|8.000
+Col3=PRProject.pr  ChargeCodeID|Charge Code|6.375
+Col4=PRProject.pr  ClosedTime|Closed Time|11.250
+Col7=PRProject.pr  CPMType|CPM |6.500
+Col8=PRProject.pr  Department|Deprt|4.875
+Col9=PRProject.pr  Description|Description|10.625
+Col10=PRProject.pr ExternalID|ExtID|8.000
+Col11=PRProject.pr Filename|File|8.000
+Col14=PRProject.pr Finish|Finish|8.375
+Col12=PRProject.pr FiscalStart|Fiscal Start|10.000
+Col18=PRProject.pr Format|Format|12.000
+Col19=PRProject.pr Guidelines|Guidelines|12.750
+Col17=PRProject.pr ID|ID|5.000
+Col20=PRProject.pr ID|ID|5.000
+Col21=PRProject.pr IsManager|Is Manager|13.000
+Col24=PRProject.pr IsOpen|Open|7.000
+Col23=PRProject.pr ManagerID|Mgr ID|10.000
+Col22=PRProject.pr Manager|Manager|11.125
+Col25=PRProject.pr PctComplete|Percent Complete At Start|12.000
+Col26=PRProject.pr Priority|Priority|8.000
+Col27=PRProject.pr Program|Program|12.000
+Col28=PRProject.pr RequestedBy|Requested By|13.625
+Col16=PRProject.pr RequestedTime|ReqTime|12.000
+Col29=PRProject.pr SponsoredBy|Sponsored By|12.000
+Col13=PRProject.pr Start|Start|10.000
+Col30=PRProject.pr TrackMode|TrackMode|8.000
+Col31=PRProject.pr UserName|UName|8.000
+Col32=PRProject.pr UserText1|UText 1|8.000
+Col33=PRProject.pr UserText2|UText 2|8.000
+Col34=PRProject.pr UserText3|UText 3|8.000
+Col35=PRProject.pr UserText4|UText 4|8.000
+Col36=PRProject.pr Version|Version|7.000

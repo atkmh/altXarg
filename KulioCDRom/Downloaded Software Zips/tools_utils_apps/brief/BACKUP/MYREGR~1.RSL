@@ -1,0 +1,225 @@
+Test Case Number	Feature
+34	Repository Admin
+43	Desktop Ed
+50	Desktop Ed
+54	Timesheet
+55	Timesheet
+59	Timesheet
+60	Timesheet
+61	Timesheet
+67	Timesheet
+71	Timesheet
+82	Desktop Ed
+87	Desktop Ed
+91	Type Code
+93	Charge Code
+100	Type Code
+101	Charge  Code
+108	Desktop Ed
+114	Protocol
+117	Browser
+120	Browser
+125	Timesheet
+128	Timesheet
+131	Timesheet
+138	Browser
+148	Browser
+153	Browser
+160	GUI
+162	GUI
+164	GUI
+166	GUI
+168	GUI
+173	Protocol
+175	Repository Admin
+177	GUI
+178	Print
+197	Print
+198	Desktop
+199	Print
+200	Print
+201	Desktop Ed
+205	Browser
+231	Upgrade
+234	Import/Export
+259	Import/Export
+261	Import/Export
+265	Import/Export
+270	Timesheet
+271	Timesheet
+272	Timesheet
+278	Timesheet
+280	Timesheet
+383	Import/Export
+387	Process & WKFlow
+409	Repository Admin
+425	Charge Code
+511	Import/Export
+512	System Users
+513	System Users
+514	Import/Export
+521	Import/Export
+532	Import/Export
+534	API
+536	Calendars
+537	Calendars
+538	Calendars
+539	Calendars
+540	Calendars
+541	Calendars
+542	User Rights
+543	Calendars
+544	Calendars
+546	User Rights
+548	User Rights
+549	User Rights
+551	User Rights
+552	User Rights
+553	User Rights
+554	User Rights
+556	Import/Export
+559	Import/Export
+561	Import/Export
+574	Import/Export
+579	Import/Export
+581	Import/Export
+588	Filter
+589	Fields
+590	Filter
+595	Filter
+599	Filter
+610	Filter
+616	Projects
+617	Projects
+618	Projects
+619	Projects
+620	Projects
+621	Projects
+623	Search
+627	Search
+636	View+Layouts
+637	View+Layouts
+638	View+Layouts
+641	View+Layouts
+643	Grouping of Views
+644	Grouping of View
+645	Grouping of View
+648	Grouping of View
+674	Fields
+675	Fields
+679	System Log
+684	Categories
+685	Categories
+690	Categories
+701	Task
+704	Task
+707	Views
+709	Views
+712	Views
+737	PRLINK
+741	Views
+745	Views
+748	Views
+753	Views
+760	Views
+764	Views
+767	Views
+769	Views
+795	Timer
+796	Timer
+797	Timer
+805	Reports
+821	Task
+829	Task
+831	Task
+844	Timesheet Sum.
+846	Timesheet Sum.
+849	Timesheet Sum.
+851	Timesheet Sum.
+855	Timesheet Sum.
+858	Timesheet Sum.
+859	Timesheet Sum.
+866	Timesheet Sum.
+875	Timesheet Sum.
+1021	Timesheet Sum.
+1023	Timesheet Sum.
+1135	PRLINK
+1145	Timer
+1152	Timer
+1179	PRLINK
+1182	Import/Export
+1183	Performance
+1193	Import/Export
+1198	Guidelines
+1246	Repository Admin
+1342	Localization
+1345	Charge Code
+1378	Upgrade
+1396	Localization
+1397	Localization
+1398	Localization
+1407	PRLINK
+1408	PRLINK
+1409	PRLINK
+1411	PRLINK
+1412	PRLINK
+1413	PRLINK
+1414	PRLINK
+1415	PRLINK
+1416	PRLINK
+1417	PRLINK
+1461	Upgrade
+1480	Timer
+1481	Localization
+1487	Protocol
+1490	Services
+1491	Services
+1492	Services
+1493	Protocol
+1494	Performance
+1495	Performance
+1496	Performance
+1500	Repository Admin
+1512	User Rights
+1514	User Rights
+1515	User Rights
+1534	Time Periods
+1535	Time Periods
+1547	Data Model Changes
+1562	User Rights
+1563	User Rights
+1564	User Rights
+1565	User Rights
+1566	User Rights
+1567	User Rights
+1568	User Rights
+1569	User Rights
+2448	Agent Timer
+2747	Data Model
+2748	Data Model
+2994	Fields
+3116	Timesheet
+3216	Utilities
+3227	Utilities
+3233	Utilities
+3238	Utilities
+3383	Import/Export
+3384	Import/Export
+3400	Utilities
+3562	Upgrade
+3687	User Rights
+3769	Time Periods
+3771	User Rights
+3910	Preferences
+4053	Timesheet
+4054	Localization
+4083	User Rights
+4189	Calendars
+4190	Locks
+4191	Locks
+4192	Locks
+4199	Res. Availability
+4232	Timesheet
+4233	Timesheet
+6550	Projects
+6552	Process & WKFlow

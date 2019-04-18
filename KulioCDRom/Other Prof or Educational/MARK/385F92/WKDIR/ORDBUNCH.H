@@ -1,0 +1,1 @@
+// ordbunch.h 10/21/92#ifndef ordbunch_H#define ordbunch_H#include "bunch.h"#include "mytypes.h"#include <iostream.h>class ordbunch: public bunch{public:	ordbunch();	~ordbunch();	ordbunch( const ordbunch& b ): bunch( b )	{		itemcount = b.itemcount;	}	ordbunch& operator=( const ordbunch& b );	void insert( char c );};#endif

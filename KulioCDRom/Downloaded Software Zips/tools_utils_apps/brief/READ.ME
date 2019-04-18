@@ -1,0 +1,89 @@
+
+
+			Welcome to BRIEF v2.1!
+
+This file contains information that was provided too late for the printed
+documentation.
+
+
+		       Extended keyboard support
+
+BRIEF now supports the IBM Extended Keyboard (and compatible
+keyboards).  To turn on extended keyboard support, add " -D101key"
+(without the double quotes) at the end of the "set bflags=" string in
+your autoexec.bat.
+
+When Extended Keyboard support is enabled, BRIEF distinguishes between
+the dedicated PgUp, PgDn, etc. keys and the equivalent functions on the
+numeric keypad.  By default, they take the same key assignments.  You
+can, however, assign different functions to each key by using "Keypad" as
+a modifier in an assign_to_key string, to specify the specific key on the
+numeric keypad.  For example,
+			
+	    (assign_to_key "<Keypad-Up>" "top_of_buffer")
+	    (assign_to_key "<Up>" "up")
+
+would assign "top_of_buffer" to the up arrow on the keypad, and "up" to
+the dedicated up arrow.  You can also assign commands to the F11 and F12
+keys, and to the unshifted 5 key in the center of the numeric keypad
+(called "<Center>"), which was not permitted in previous versions.
+
+If the Extended Keyboard driver is used, all of the shifted key
+sequences normally assigned on the keypad (Shift-Up, Shift-Down,
+etc.) are replaced by equivalent Alt sequences, using the dedicated
+keys.  For example, Shift-Up is replaced by Alt-Up (using the
+dedicated Up arrow).  This change leaves the numeric keypad free for
+entering numbers.
+
+
+			  Compiler Warnings
+
+You can now force BRIEF to display all messages issued by your compiler,
+even if there were only warnings, not actual errors.  There are two methods
+for using this feature.  To use it with one particular compiler, simply
+prepend an exclamation point (!) to the BCxxx environment variable setting
+in your autoexec.bat file, right after the opening double-quote.  To use
+it with all compilers, use the warnings_only function (press F10 and
+type warnings_only).  This function is a toggle that reverses the previous
+setting if it is called repeatedly.  The restore macro preserves the
+setting of the warnings_only toggle.
+
+
+			     Taming SETUP
+
+If you are upgrading from an earlier version of BRIEF, and you don't
+want SETUP to change some or all of the file extension macros in your
+initials macro file, simply delete the comment 
+
+		     ;** Overwritable by SETUP
+
+that is before any macros you want preserved.  If the comment is deleted,
+SETUP will not modify the following macro, even if changes were specified
+in the SETUP session.
+
+Note that SETUP always overwrites the _init macro, so it is not preceded
+by an "Overwritable by SETUP" comment.
+
+
+			Macro Primitive Update
+
+The swap_anchor primitive takes one optional integer parameter.  If
+the parameter is non-zero, the swap_anchor moves the anchor clockwise
+to the next corner if the current mark is a column mark.  If the
+parameter is zero or omitted, or if the current mark is not a column
+mark, swap_anchor works as documented.
+
+The goto_line primitive returns 0 if the cursor didn't move, 1 if the
+cursor moved, and less than 0 if no line number was entered at the prompt.
+
+The edit_file primitive returns 0 if an invalid name was specified,
+1 if the file specified was already in a buffer, 2 if the file specified
+had to be read into a buffer, and less than zero if no file name was
+entered at the prompt.
+
+The undo primitive takes one optional integer parameter.  If the parameter
+is zero or omitted, the last action is undone, regardless of whether it
+changed the file or just the cursor position.  If the parameter is non-zero,
+the last action that actually changed the file is undone -- all intermediate
+actions that just moved the cursor are undone in one step.
+

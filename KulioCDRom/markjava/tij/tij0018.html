@@ -1,0 +1,128 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0017.html">Prev</a> | <a href="tij0019.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+The
+progress of abstraction
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+programming languages provide abstractions. It can be argued that the
+complexity of the problems you can solve is directly related to the kind and
+quality of <A NAME="Index33"></A>abstraction.
+By &#8220;kind&#8221; I mean: what is it that you are abstracting? Assembly
+language is a small abstraction of the underlying machine. Many so-called
+&#8220;imperative&#8221; languages that followed (such as FORTRAN, BASIC, and
+C) were abstractions of assembly language. These languages are big improvements
+over assembly language, but their primary abstraction still requires you to
+think in terms of the structure of the computer rather than the structure of
+the problem you are trying to solve. The programmer must establish the
+association between the machine model (in the &#8220;solution space&#8221;) and
+the model of the problem that is actually being solved (in the &#8220;problem
+space&#8221;). The effort required to perform this mapping, and the fact that
+it is extrinsic to the programming language, produces programs that are
+difficult to write and expensive to maintain, and as a side effect created the
+entire &#8220;programming methods&#8221; industry.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+alternative to modeling the machine is to model the problem you&#8217;re trying
+to solve. Early languages such as LISP and APL chose particular views of the
+world (&#8220;all problems are ultimately lists&#8221; or &#8220;all problems
+are algorithmic&#8221;). PROLOG casts all problems into chains of decisions.
+Languages have been created for constraint-based programming and for
+programming exclusively by manipulating graphical symbols. (The latter proved
+to be too restrictive.) Each of these approaches is a good solution to the
+particular class of problem they&#8217;re designed to solve, but when you step
+outside of that domain they become awkward. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+object-oriented approach takes a step farther by providing tools for the
+programmer to represent elements in the <A NAME="Index34"></A>problem
+space. This representation is general enough that the programmer is not
+constrained to any particular type of problem. We refer to the elements in the
+problem space and their representations in the solution space as<A NAME="Index35"></A>
+&#8220;objects.&#8221; (Of course, you will also need other objects that
+don&#8217;t have problem-space analogs.) The idea is that the program is
+allowed to adapt itself to the lingo of the problem by adding new types of
+objects, so when you read the code describing the solution, you&#8217;re
+reading words that also express the problem. This is a more flexible and
+powerful language abstraction than what we&#8217;ve had before. Thus OOP allows
+you to describe the problem in terms of the problem, rather than in the terms
+of the solution. There&#8217;s still a connection back to the computer, though.
+Each object looks quite a bit like a little computer; it has a state, and it
+has operations you can ask it to perform. However, this doesn&#8217;t seem like
+such a bad analogy to objects in the real world; they all have characteristics
+and behaviors.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Alan
+Kay summarized five basic characteristics of <A NAME="Index36"></A>Smalltalk,
+the first successful object-oriented language and one of the languages upon
+which Java is based. These characteristics represent a pure approach to
+object-oriented programming:
+</FONT><P></DIV>
+<OL>
+<LI><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>	Everything
+is an object.
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+Think of an object as a fancy variable; it stores data, but you can also ask it
+to perform operations on itself by making requests. In theory, you can take any
+conceptual component in the problem you&#8217;re trying to solve (dogs,
+buildings, services, etc.) and represent it as an object in your program.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>	A
+program is a bunch of objects telling each other what to do by sending messages
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+To make a request of an object, you &#8220;send a message&#8221; to that
+object. More concretely, you can think of a message as a request to call a
+function that belongs to a particular object.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>	Each
+object has its own memory made up of other objects
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+Or, you make a new kind of object by making a package containing existing
+objects. Thus, you can build up complexity in a program while hiding it behind
+the simplicity of objects.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>	Every
+object has a type
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+Using the parlance, each object is an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>instance</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+of a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>class</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+where &#8220;class&#8221; is synonymous with &#8220;type.&#8221; The most
+important distinguishing characteristic of a class is &#8220;what messages can
+you send to it?&#8221;
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>	All
+objects of a particular type can receive the same messages
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">.
+This is actually a very loaded statement, as you will see later. Because an
+object of type circle is also an object of type shape, a circle is guaranteed
+to receive shape messages. This means you can write code that talks to shapes
+and automatically handle anything that fits the description of a shape. This 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>substitutability</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+is one of the most powerful concepts in OOP.
+</FONT></OL><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Some
+language designers have decided that object-oriented programming itself is not
+adequate to easily solve all programming problems, and advocate the combination
+of various approaches into 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>multiparadigm</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+programming languages.
+</FONT><A NAME="fnB2" HREF="#fn2">[2]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+</FONT><a name="_Toc375545189"></a><a name="_Toc408018386"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn2" HREF="#fnB2">[2]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+See 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>Multiparadigm
+Programming in Leda
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+by Timothy Budd (Addison-Wesley 1995).
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0017.html">Prev</a> | <a href="tij0019.html">Next</a>
+</div>
+</body></html>
+

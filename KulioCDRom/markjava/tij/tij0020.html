@@ -1,0 +1,121 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0019.html">Prev</a> | <a href="tij0021.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+The
+hidden implementation
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+is helpful to break up the playing field into 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>class
+creators
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(those who create new data types) and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>client
+programmers
+</I></FONT><A NAME="fnB4" HREF="#fn4">[4]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(the class consumers who use the data types in their applications). The goal of
+the client programmer is to collect a toolbox full of classes to use for rapid
+application development. The goal of the class creator is to build a class that
+exposes only what&#8217;s necessary to the client programmer and keeps
+everything else hidden. Why? If it&#8217;s hidden, the client programmer
+can&#8217;t use it, which means that the class creator can change the hidden
+portion at will without worrying about the impact to anyone else.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+interface establishes 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>what</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+requests you can make for a particular object. However, there must be code
+somewhere to satisfy that request. This, along with the hidden data, comprises
+the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>implementation</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+From a procedural programming standpoint, it&#8217;s not that complicated. A
+type has a function associated with each possible request, and when you make a
+particular request to an object, that function is called. This process is often
+summarized by saying that you &#8220;send a message&#8221; (make a request) to
+an object, and the object figures out what to do with that message (it executes
+code).
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+any relationship it&#8217;s important to have boundaries that are respected by
+all parties involved. When you create a library, you establish a relationship
+with the client
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">programmer<A NAME="Index37"></A><A NAME="Index38"></A>,
+who is another programmer, but one who is putting together an application or
+using your library to build a bigger library.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+all the members of a class are available to everyone, then the client
+programmer can do anything with that class and there&#8217;s no way to force
+any particular behaviors. Even though you might really prefer that the client
+programmer not directly manipulate some of the members of your class, without
+access control there&#8217;s no way to prevent it. Everything&#8217;s naked to
+the world.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+are two reasons for controlling access <A NAME="Index39"></A><A NAME="Index40"></A>to
+members. The first is to keep client programmers&#8217; hands off portions they
+shouldn&#8217;t touch &#8211; parts that are necessary for the internal
+machinations of the data type but not part of the interface that users need to
+solve their particular problems. This is actually a service to users because
+they can easily see what&#8217;s important to them and what they can ignore.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+second reason for access control is to allow the library designer to change the
+internal workings of the structure without worrying about how it will affect
+the client programmer. For example, you might implement a particular class in a
+simple fashion to ease development, and then later decide you need to rewrite
+it to make it run faster. If the interface and implementation are clearly
+separated and protected, you can accomplish this and require only a relink by
+the user.<A NAME="Index41"></A><A NAME="Index42"></A><A NAME="Index43"></A></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+uses three explicit keywords and one implied keyword to set the boundaries in a
+class: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and the implied &#8220;friendly,&#8221; which is what you get if you
+don&#8217;t specify one of the other keywords. Their use and meaning are
+remarkably straightforward. These 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>access
+specifiers
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+<A NAME="Index44"></A><A NAME="Index45"></A><A NAME="Index46"></A>determine
+who can use the definition that follows. 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+<A NAME="Index47"></A>means
+the following definition is available to everyone. The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+<A NAME="Index48"></A>keyword,
+on the other hand, means that no one can access that definition except you, the
+creator of the type, inside function members of that type. 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is a brick wall between you and the client programmer. If someone tries to
+access a private member, they&#8217;ll get a compile-time error.
+&#8220;Friendly&#8221; has to do with something called a &#8220;package,&#8221;
+which is Java&#8217;s way of making libraries. If something is
+&#8220;friendly&#8221; it&#8217;s available only within the package. (Thus this
+access level is sometimes referred to as &#8220;package access.&#8221;) 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+acts just like 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+with the exception that an inheriting class has access to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>protected</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members, but not 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>private</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+members. Inheritance will be covered shortly.
+</FONT><a name="_Toc375545191"></a><a name="_Toc408018388"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn4" HREF="#fnB4">[4]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+I&#8217;m indebted to my friend Scott Meyers for this term.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0019.html">Prev</a> | <a href="tij0021.html">Next</a>
+</div>
+</body></html>
+

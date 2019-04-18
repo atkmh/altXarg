@@ -1,0 +1,57 @@
+                                Mark H. Atkinson
+757 Elm Dr                                                Home (707) 765-4489
+Petaluma Ca, 94952                                        Work (415) 925 4510
+
+OBJECTIVE: Transition to a programming position in a production development
+enviroment using C, C++, or Java.
+
+EDUCATION:
+BS Computer Science.  Sonoma State University. June 1993.
+
+MAY 1995 - PRESENT Oacis Healthcare Systems.  Greenbrae California.
+Lead Software QA engineer,test lab manager on companies legacy product.
+Worked independently 80% of the time.  Responsible for configuring and
+implementing new product functionality, all regression testing administered
+over multiple server multiple NOS platforms, maintaining baseline data for
+test automation, reacting in a timely manner to all help desk issues,
+reviewing new documentation, submision of corrections, production of release
+media, shipment of product.  Member of defect resolution team responsible for
+analyzing system functionality and determining cause of malfunction.
+Met all operational goals with a quality product.
+
+SEPTEMBER 1994 - MAY 1995 Visual Property Guide Santa Rosa California.
+Developed proof of concept demonstration.  Provided analysis, project scoping
+and guidance for project lead on user issues, performance issues, architecture
+and design.  MS Visual C++ 1.5 and MS Access2.0
+
+Panttaja Consulting Group, Inc.  Healdsburg California.
+1992 - 1993    Internship as system administration.
+1993 - 1994    System/Network administrator, librarian, programmer.
+System administrator for small UNIX LAN, Microsoft LanManager network. 
+Worked independently and unsupervised 75% of my time or more.  Responsible for
+software, hardware installations, systems maintenance in two locations. 
+Developed classroom administration system, reducing impact of setup for change 
+in class curriculum.  Developed simple low cost WAN implemementation between 
+site mail systems.  Improved PC backup system with no budget. Reduced sofware
+inventory storage requirements 30%.  Maintained periodical and non periodical 
+library.  Reduced volume 50% with backup technique.  Projected and forecasted
+hardware system software needs.  Made purchase requests and installations.
+
+
+1990 - 1993 U. S. Naval Reserve, Alameda California. 
+Airframe/hydraulics technician, flight deck trouble-shooter, pre-launch final
+checker for squadron of 15 A6-F aircraft.
+
+1988 - 1993 Sonoma State University Computer Science student.
+Natural science dept. X-ray diffraction tech contracting with external labs.
+
+1984 - 1988  U. S. Navy 
+Electronic and non electronic test equipment and sqadron tool control manager.
+Managed 250 items from $15.00 $430,000.00 for 350 personel.  Received Letter
+of Commendation for accomplishments.  Corrosion paint shop crew leader leading
+team of 5. Honor student at AMS 'A' school.
+  
+1978 - 1984
+College of Marin(AS),  Indian Valley College.
+Machinist/Welder, Lab technician, Parts counter work.
+

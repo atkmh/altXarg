@@ -1,0 +1,74 @@
+<SCRIPT LANGUAGE="VBScript" RUNAT="Server">
+
+Sub Session_OnStart
+
+  ' Determine if we are using IE and set session variable to major version number
+  On Error Resume Next
+  Dim br
+  Set br = Server.CreateObject("MSWC.BrowserType") 
+  If Err.Number = 0 Then
+    If br.browser = "IE" Then
+      Session("IEVersion") = CInt(br.majorver)
+    End If
+  End If
+
+End Sub
+
+Sub Application_OnStart
+
+	' Can't have any failures
+	On Error Resume Next	
+
+	Application.Lock
+
+	' ODBC DSN
+	Application("DSN") = "SQLfreq.dsn"
+	
+	' Get some preferances
+	Call GetFontPrefs
+	Call GetAdminPrefs
+
+	Application.Unlock
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub GetFontPrefs
+	On Error Resume Next
+
+	' Use the Prefs.txt file to set Application Variables.	
+	Dim stTextLine, intEqualPosition, stVarName, stVarValue, fso, txtSettings
+	Set fso = Server.CreateObject("Scripting.FileSystemObject")
+	set txtSettings = fso.OpenTextFile(Server.MapPath("/IISSamples/ExAir/Prefs.txt"))
+	Do Until txtSettings.AtEndOfStream
+		stTextLine = txtSettings.ReadLine
+		intEqualPosition = Instr(1, stTextLine, "=")
+		If intEqualPosition <> 0 Then
+		  stVarName = Left(stTextLine, intEqualPosition - 1)
+		  stVarValue = Right(stTextLine, len(stTextLine) - intEqualPosition)
+		  Application(stVarName) = stVarValue
+		End If
+	Loop
+End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Sub GetAdminPrefs
+
+	On Error Resume Next
+
+	' Use the AdminPrefs.txt file to set Application Variables.	
+	Dim stTextLine, intEqualPosition, stVarName, stVarValue, fso, txtSettings
+	Set fso = Server.CreateObject("Scripting.FileSystemObject")
+	set txtSettings = fso.OpenTextFile(Server.MapPath("/IISSamples/ExAir/SiteAdmin/AdminPrefs.txt"))
+	Do Until txtSettings.AtEndOfStream
+		stTextLine = txtSettings.ReadLine
+		intEqualPosition = Instr(1, stTextLine, "=")
+		If intEqualPosition <> 0 Then
+		  stVarName = Left(stTextLine, intEqualPosition - 1)
+		  stVarValue = Right(stTextLine, len(stTextLine) - intEqualPosition)
+		  Application(stVarName) = CBool(stVarValue)
+		End If
+	Loop
+
+End Sub
+
+</SCRIPT>

@@ -1,0 +1,541 @@
+listing 1
+/*
+  <applet code="MyApplet" width=200 height=60>
+  </applet>
+*/
+
+listing 2
+// An Applet skeleton.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="AppletSkel" width=300 height=100>
+  </applet>
+*/
+
+public class AppletSkel extends Applet {
+  // Called first.
+  public void init() {
+    // initialization
+  }
+
+  /* Called second, after init().  Also called whenever
+     the applet is restarted. */
+  public void start() {
+    // start or resume execution
+  }
+
+  // Called when the applet is stopped.
+  public void stop() {
+    // suspends execution
+  }
+
+  /* Called when applet is terminated.  This is the last
+     method executed. */
+  public void destroy() {
+    // perform shutdown activities
+  }
+
+  // Called when an applet's window must be restored.
+  public void paint(Graphics g) {
+    // redisplay contents of window
+  }    
+}
+
+listing 3
+public void update(Graphics g) {
+  // redisplay your window, here.
+}
+
+public void paint(Graphics g) {
+  update(g);
+}    
+
+listing 4
+/* A simple applet that sets the foreground and
+   background colors and outputs a string. */
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="Sample" width=300 height=50>
+  </applet>
+*/
+
+public class Sample extends Applet{
+  String msg;
+
+  // set the foreground and background colors.
+  public void init() {
+    setBackground(Color.cyan);
+    setForeground(Color.red);
+    msg = "Inside init( ) --";
+  }
+
+  // Initialize the string to be displayed.
+  public void start() {
+    msg += " Inside start( ) --";
+  }
+
+  // Display msg in applet window.
+  public void paint(Graphics g) {
+    msg += " Inside paint( ).";
+    g.drawString(msg, 10, 30);
+  }    
+}
+
+listing 5
+/* A simple banner applet.  
+
+   This applet creates a thread that scrolls
+   the message contained in msg right to left
+   across the applet's window.
+*/
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="SimpleBanner" width=300 height=50>
+  </applet>
+*/
+
+public class SimpleBanner extends Applet implements Runnable{
+  String msg = " A Simple Moving Banner.";
+  Thread t = null;
+
+  // Set colors and initialize thread.
+  public void init() {
+    setBackground(Color.cyan);
+    setForeground(Color.red);
+    t = new Thread(this);
+    t.start(); // start thread running
+    t.suspend(); // Suspend until applet fully initialized
+  }
+
+  // Resume thread.
+  public void start() {
+    t.resume();
+  }
+
+  // Entry point for the thread that runs the banner.
+  public void run() {
+    char ch;
+
+    // display banner until stopped.
+    for( ; ; ) {
+      try {
+        repaint();
+        Thread.sleep(250);
+        ch = msg.charAt(0);
+        msg = msg.substring(1, msg.length());
+        msg += ch;
+      } catch(InterruptedException e) {}
+    } 
+  }
+
+  // Pause the banner.
+  public void stop() {
+    t.suspend();
+  }
+
+  // Stop thread when applet is terminted.
+  public void destroy() {
+    if(t != null) {
+      t.stop();
+      t = null;
+     }
+  }
+  
+  // Display the banner.
+  public void paint(Graphics g) {
+    g.drawString(msg, 50, 30);
+  }    
+}
+
+listing 6
+// Using the Status Window.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="StatusWindow" width=300 height=50>
+  </applet>
+*/
+
+public class StatusWindow extends Applet{
+  public void init() {
+    setBackground(Color.cyan);
+  }
+
+  // Display msg in applet window.
+  public void paint(Graphics g) {
+    g.drawString("This is in the applet window.", 10, 20);
+    showStatus("This is shown in the status window.");
+  }    
+}
+
+listing 7
+// Demonstrate the mouse event handlers.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="MouseEvents" width=300 height=100>
+  </applet>
+*/
+
+public class MouseEvents extends Applet{
+  String msg = "";
+  int mouseX = 0, mouseY = 0; // coordinates of mouse
+
+  // Handle button press.
+  public boolean mouseDown(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Down";
+    repaint();
+
+    return true;
+  }
+
+  // Handle button release.
+  public boolean mouseUp(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Up";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse move.
+  public boolean mouseMove(Event evtObj, int x, int y) {
+    // save coordinates
+    showStatus("Moving mouse at " + x + ", " + y);
+
+    return true;
+  }
+
+  // Handle mouse drag.
+  public boolean mouseDrag(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "*";
+    showStatus("Dragging mouse at " + x + ", " + y);
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse enter.
+  public boolean mouseEnter(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 10;
+    msg = "Mouse just entered.";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse exit.
+  public boolean mouseExit(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 10;
+    msg = "Mouse just left.";
+    repaint();
+
+    return true;
+  }
+
+  // Display msg in applet window at current X,Y location.
+  public void paint(Graphics g) {
+    g.drawString(msg, mouseX, mouseY);
+  }    
+}
+
+listing 8
+// Demonstrate a keyboard event handler.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="SimpleKey" width=300 height=100>
+  </applet>
+*/
+
+public class SimpleKey extends Applet{
+  String msg = "";
+
+  // Handle key press events.
+  public boolean keyDown(Event evtObj, int key) {
+    msg += (char) key;
+    repaint();
+    showStatus("Key Down");
+
+    return true;
+  }
+
+  // Handle key release events.
+  public boolean keyUp(Event evtObj, int key) {
+    showStatus("Key Up");
+
+    return true;
+  }
+
+  // Display keystrokes.
+  public void paint(Graphics g) {
+    g.drawString(msg, 10, 20);
+  }    
+}
+
+listing 9
+// Demonstrate key constants.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="KeyEvents" width=300 height=100>
+  </applet>
+*/
+
+public class KeyEvents extends Applet{
+  String msg = "";
+
+  // Handle key press events.
+  public boolean keyDown(Event evtObj, int key) {
+    switch(key) {
+      case Event.F1: 
+        msg += "<F1>";
+        break;
+      case Event.F2:
+        msg += "<F2>";
+        break;
+      case Event.F3:
+        msg += "<F3>";
+        break;
+      case Event.PGDN:
+        msg += "<PgDn>";
+        break;
+      case Event.PGUP:
+        msg += "<PgUp>";
+        break;
+      case Event.LEFT:
+        msg += "<Left Arrow>";
+        break;
+      case Event.RIGHT:
+        msg += "<Right Arrow>";
+        break;
+      default: 
+        msg += (char) key;
+    }
+
+    repaint();
+    showStatus("Key Down");
+
+    return true;
+  }
+
+  // Handle key release events.
+  public boolean keyUp(Event evtObj, int key) {
+    showStatus("Key Up");
+
+    return true;
+  }
+
+  // Display keystrokes.
+  public void paint(Graphics g) {
+    g.drawString(msg, 10, 20);
+  }    
+}
+
+listing 10
+// Use Parameters
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="ParamDemo" width=300 height=80>
+  <param name=fontName value=Courier>
+  <param name=fontSize value=14>
+  <param name=leading value=2>
+  <param name=accountEnabled value=true>
+  </applet>
+*/
+
+public class ParamDemo extends Applet{
+  String fontName;
+  int fontSize;
+  float leading;
+  boolean active;
+
+  // Initialize the string to be displayed.
+  public void start() {
+    String param;
+
+    fontName = getParameter("fontName");
+    if(fontName == null)
+      fontName = "Not Found";
+
+    param = getParameter("fontsize");
+    try {
+      if(param != null) // if not found
+        fontSize = Integer.parseInt(param);
+      else
+        fontSize = 0; 
+    } catch(NumberFormatException e) {
+      fontSize = -1;
+    }
+
+    param = getParameter("leading");
+    try {
+      if(param != null) // if not fount
+        leading = Float.valueOf(param).floatValue();
+      else
+        leading = 0;
+    } catch(NumberFormatException e) {
+      leading = -1;
+    }
+
+    param = getParameter("accountEnabled");
+    if(param != null)
+      active = Boolean.valueOf(param).booleanValue();
+  }
+
+  // Display parameters.
+  public void paint(Graphics g) {
+    g.drawString("Font name: " + fontName, 0, 10);
+    g.drawString("Font size: " + fontSize, 0, 26);
+    g.drawString("Leading: " + leading, 0, 42);
+    g.drawString("Account Active: " + active, 0, 58);
+  }    
+}
+
+listing 11
+// A parameterized banner.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="ParamBanner" width=300 height=50>
+  <param name=message value="Java makes the Web move!">
+  </applet>
+*/
+
+public class ParamBanner extends Applet implements Runnable{
+  String msg;
+  Thread t = null;
+
+  // Set colors and initialize thread.
+  public void init() {
+    setBackground(Color.cyan);
+    setForeground(Color.red);
+    t = new Thread(this);
+    t.start(); // start thread running
+    t.suspend(); // Suspend until applet fully initialized
+  }
+
+  // Resume thread.
+  public void start() {
+    msg = getParameter("message");
+    if(msg == null) msg = "Message not found.";
+    msg = " " + msg;
+    t.resume();
+  }
+
+  // Entry point for the thread that runs the banner.
+  public void run() {
+    char ch;
+
+    // display banner until stopped.
+    for( ; ; ) {
+      try {
+        repaint();
+        Thread.sleep(250);
+        ch = msg.charAt(0);
+        msg = msg.substring(1, msg.length());
+        msg += ch;
+      } catch(InterruptedException e) {}
+    } 
+  }
+
+  // Pause the banner.
+  public void stop() {
+    t.suspend();
+  }
+
+  // Stop thread when applet is terminted.
+  public void destroy() {
+    if(t != null) {
+      t.stop();
+      t = null;
+     }
+  }
+  
+  // Display the banner.
+  public void paint(Graphics g) {
+    g.drawString(msg, 50, 30);
+  }    
+}
+
+
+listing 12
+// Display code and document bases.
+import java.awt.*;
+import java.applet.*;
+import java.net.*;
+/*
+  <applet code="Bases" width=300 height=50>
+  </applet>
+*/
+
+public class Bases extends Applet{  
+  // Display code and document bases.
+  public void paint(Graphics g) {
+    String msg;
+
+    URL url = getCodeBase(); // get code base
+    msg = "Code base: " + url.toString();
+    g.drawString(msg, 10, 20);
+
+    url = getDocumentBase(); // get document base
+    msg = "Document base: " + url.toString();
+    g.drawString(msg, 10, 40);
+  }    
+}
+
+listing 13
+/* Using an applet context, getCodeBase(),
+   and showDocument() to display an HTML file.
+*/
+import java.awt.*;
+import java.applet.*;
+import java.net.*;
+/*
+  <applet code="ACDemo" width=300 height=50>
+  </applet>
+*/
+
+public class ACDemo extends Applet{
+  String msg;
+  
+  // Initialize the string to be displayed.
+  public void start() {
+    msg = "Click mouse to view Test.html.";
+  }
+
+  // Display Test.html when button is pressed.
+  public boolean mouseDown(Event evtobj, int x, int y) {
+    AppletContext ac = getAppletContext();
+    URL url = getCodeBase(); // get url of this applet
+
+    try { 
+      ac.showDocument(new URL(url+"Test.html"));
+    } catch(MalformedURLException e) {
+      showStatus("URL not found");
+    }
+    return true;
+  }
+
+  // Display msg in applet window.
+  public void paint(Graphics g) {
+    g.drawString(msg, 10, 20);
+  }    
+}
+

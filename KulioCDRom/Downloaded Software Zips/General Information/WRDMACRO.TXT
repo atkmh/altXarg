@@ -1,0 +1,104 @@
+
+anothshrtcut
+
+Sub MAIN
+DocClose
+End Sub
+
+
+insrtpgbrk
+
+Sub MAIN
+InsertBreak .Type = 0
+End Sub
+
+
+
+
+Macro1
+
+REM **********************************************************
+REM * Assumptions that make this macro work
+REM * Page Setup Marging top bottom left right .25 .25.25 .7
+REM * Paper size orientation Landscapt ( sideways )
+REM * Menu Format Tabs  Deffault Tab stops .3 inches
+REM * Style "check off must be available.  Copy it from
+REM * one of the other documents.
+REM **********************************************************
+Sub MAIN
+Style "Normal"
+Insert Chr$(9) + Chr$(9) + "Test Script" + Chr$(9) + Chr$(9) + "UBTCP" + Chr$(9) + Chr$(9) + "HLSTCP" + Chr$(9) + Chr$(9) + "LWD" + Chr$(9) + Chr$(9) + "TKN-RING" + Chr$(9) + "FTP-OnNet"
+WordLeft 21, 1
+Style "Check_off"
+EndOfLine
+InsertPara
+Style "Normal"
+Insert Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + Chr$(9) + "|" + Chr$(9) + Chr$(9) + "|"
+InsertPara
+TableInsertTable .ConvertFrom = "", .NumColumns = "1", .NumRows = "1", .InitialColWidth = "4.25" + Chr$(34), .Format = "0", .Apply = "167"
+
+
+
+End Sub
+
+
+
+
+Minimize
+
+Sub MAIN
+While CountWindows()
+DocClose
+Wend
+AppMinimize
+End Sub
+
+
+
+Paraleft
+
+Sub MAIN
+UnIndent
+UnIndent
+UnIndent
+UnIndent
+UnIndent
+End Sub
+
+
+
+
+remov1space
+Sub MAIN
+WordRight 1, 1
+EditClear
+LineDown 1
+End Sub
+
+
+smltbl
+
+Sub MAIN
+TableInsertTable .ConvertFrom = "", .NumColumns = "1", .NumRows = "1", .InitialColWidth = "4.25" + Chr$(34), .Format = "0", .Apply = "167"
+End Sub
+
+
+
+ToUpper
+
+Sub MAIN
+FormatChangeCase .Type = 2
+End Sub
+
+
+
+thinline
+
+Sub MAIN
+Insert "..."
+CharLeft 3, 1
+FontSize 2
+End Sub
+
+
+

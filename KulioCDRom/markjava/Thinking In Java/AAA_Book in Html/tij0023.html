@@ -1,0 +1,246 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0022.html">Prev</a> | <a href="tij0024.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Interchangeable
+objects 
+<P>with
+polymorphism
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Inheritance
+usually ends up creating a family of classes, all based on the same uniform
+interface. We express this with an inverted tree diagram:
+</FONT><A NAME="fnB5" HREF="#fn5">[5]</A><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the most important things you do with such a family of classes is to treat
+an object of a derived class as an object of the base class. This is important
+because it means you can write a single piece of code that ignores the specific
+details of type and talks just to the base class. That code is then 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>decoupled</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+from type-specific information, and thus is simpler to write and easier to
+understand. And, if a new type &#8211; a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Triangle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+for example &#8211;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+added through inheritance, the code you write will work just as well for the
+new type of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+as it did on the existing types. Thus the program is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>extensible</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Consider
+the above example. If you write a function in Java:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#0000ff">void</font> doStuff(Shape s) {
+  s.erase();
+  <font color="#009900">// ...</font>
+  s.draw();
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+function speaks to any 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+so it is independent of the specific type of object it&#8217;s drawing and
+erasing. If in some other program we use the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+function:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>Circle c = <font color="#0000ff">new</font> Circle();
+Triangle t = <font color="#0000ff">new</font> Triangle();
+Line l = <font color="#0000ff">new</font> Line();
+doStuff(c);
+doStuff(t);
+doStuff(l);</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+calls to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">automatically
+work right, regardless of the exact type of the object. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is actually a pretty amazing trick. Consider the line:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">doStuff(c);</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">What&#8217;s
+happening here is that a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle is being passed into a function that&#8217;s expecting a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle. Since a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+it can be treated as one by 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+That is, any message that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+can send to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+can accept. So it is a completely safe and logical thing to do.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">We
+call this process of treating a derived type as though it were its base type 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>upcasting</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The name 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>cast
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+used in the sense of casting into a mold and the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>up</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+comes from the way the inheritance diagram is typically arranged, with the base
+type at the top and the derived classes fanning out downward. Thus, casting to
+a base type is moving up the inheritance diagram: upcasting.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">An
+object-oriented program contains some upcasting somewhere, because that&#8217;s
+how you decouple yourself from knowing about the exact type you&#8217;re
+working with. Look at the code in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">:</FONT><P></DIV>
+
+<font color="#990000"><PRE>  s.erase();
+  <font color="#009900">// ...</font>
+  s.draw(); </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Notice
+that it doesn&#8217;t say &#8220;If you&#8217;re a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+do this, if you&#8217;re a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Square</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+do that, etc.&#8221; If you write that kind of code, which checks for all the
+possible types a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+can actually be, it&#8217;s messy and you need to change it every time you add
+a new kind of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Here, you just say &#8220;You&#8217;re a shape, I know you can 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>erase(&#160;)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">yourself,
+do it and take care of the details correctly.&#8221; 
+</FONT><a name="_Toc375545196"></a><a name="_Toc408018393"></a><P></DIV>
+<A NAME="Heading27"></A><H3 ALIGN=LEFT>
+Dynamic
+binding
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">What&#8217;s
+amazing about the code in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is that somehow the right thing happens. Calling 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>draw(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+causes different code to be executed than when calling 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>draw(&#160;)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">for
+a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Square</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Line</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+but when the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>draw(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+message is sent to an anonymous 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+the correct behavior occurs based on the actual type that the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle happens to be connected to. This is amazing because when the Java
+compiler is compiling the code for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>doStuff(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it cannot know exactly what types it is dealing with. So ordinarily,
+you&#8217;d expect it to end up calling the version of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>erase(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>draw(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Shape</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and not for the specific 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Circle</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Square</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Line</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+And yet the right thing happens. Here&#8217;s how it works.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you send a message to an object even though you don&#8217;t know what specific
+type it is, and the right thing happens, that&#8217;s called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>polymorphism</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The process used by object-oriented programming languages to implement
+polymorphism is called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>dynamic
+binding
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The compiler and run-time system handle the details; all you need to know is
+that it happens and more importantly how to design with it.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Some
+languages require you to use a special keyword to enable dynamic binding. In
+C++ this keyword is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>virtual</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In Java, you never need to remember to add a keyword because functions are
+automatically dynamically bound. So you can always expect that when you send a
+message to an object, the object will do the right thing, even when upcasting
+is involved.
+</FONT><a name="_Toc375545197"></a><a name="_Toc408018394"></a><P></DIV>
+<A NAME="Heading28"></A><H3 ALIGN=LEFT>
+Abstract
+base classes and interfaces
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Often
+in a design, you want the base class to present 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>only</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+an interface for its derived classes. That is, you don&#8217;t want anyone to
+actually create an object of the base class, only to upcast to it so that its
+interface can be used. This is accomplished by making that class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>abstract
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">using
+the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword. If anyone tries to make an object of an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class, the compiler prevents them. This is a tool to enforce a particular design.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can also use the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword to describe a method that hasn&#8217;t been implemented yet &#8211; as
+a stub indicating &#8220;here is an interface function for all types inherited
+from this class, but at this point I don&#8217;t have any implementation for
+it.&#8221; An 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">method
+may be created only inside an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">class.
+When the class is inherited, that method must be implemented, or the inherited
+class becomes 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+as well. Creating an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method allows you to put a method in an interface without being forced to
+provide a possibly meaningless body of code for that method.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>interface</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword takes the concept of an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class one step further by preventing any function definitions at all. The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>interface</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is a very useful and commonly-used tool, as it provides the perfect separation
+of interface and implementation. In addition, you can combine many interfaces
+together, if you wish. (You cannot inherit from more than one regular 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>class</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>abstract
+class
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.)</FONT><a name="_Toc375545198"></a><a name="_Toc408018395"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn5" HREF="#fnB5">[5]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+This uses the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>Unified
+Notation
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+which will primarily be used in this book.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0022.html">Prev</a> | <a href="tij0024.html">Next</a>
+</div>
+</body></html>
+

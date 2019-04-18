@@ -1,0 +1,457 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0032.html">Prev</a> | <a href="tij0034.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+You
+must create 
+<P>all
+the objects
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you create a handle, you want to connect it with a new object. You do so, in
+general, with the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword. 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+says, &#8220;Make me a new one of these objects.&#8221; So in the above
+example, you can say:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">String
+s = new String("asdf");
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Not
+only does this mean &#8220;Make me a new 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,&#8221;
+but it also gives information about 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>how</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+to make the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+by supplying an initial character string.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Of
+course, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is not the only type that exists. Java comes with a plethora of ready-made
+types. What&#8217;s more important is that you can create your own types. In
+fact, that&#8217;s the fundamental activity in Java programming, and it&#8217;s
+what you&#8217;ll be learning about in the rest of this book.
+</FONT><a name="_Toc375545219"></a><a name="_Toc408018420"></a><P></DIV>
+<A NAME="Heading64"></A><H3 ALIGN=LEFT>
+Where
+storage lives
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+useful to visualize some aspects of how things are laid out while the program
+is running, in particular how memory is arranged. There are six different
+places to store data:
+</FONT><P></DIV>
+<OL>
+<LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	Registers</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This is the fastest storage because it exists in a place different than that of
+other storage: inside the processor. However, the number of registers is
+severely limited, so registers are allocated by the compiler according to its
+needs. You don&#8217;t have direct control, nor do you see any evidence in your
+programs that registers even exist.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	The
+stack
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This lives in the general RAM (random-access memory) area, but has direct
+support from the processor via its 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>stack
+pointer
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The stack pointer is moved down to create new memory and moved up to release
+that memory. This is an extremely fast and efficient way to allocate storage,
+second only to registers. The Java compiler must know, while it is creating the
+program, the exact size and lifetime of all the data that is stored on the
+stack, because it must generate the code to move the stack pointer up and down.
+This constraint places limits on the flexibility of your programs, so while
+some Java storage exists on the stack &#8211; in particular, object handles
+&#8211; Java objects are not placed on the stack.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	The
+heap
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+This is a general-purpose pool of memory (also in the RAM area) where all Java
+objects live. The nice thing about the heap is that, unlike the stack, the
+compiler doesn&#8217;t need to know how much storage it needs to allocate from
+the heap or how long that storage must stay on the heap. Thus, there&#8217;s a
+great deal of flexibility in using storage on the heap. Whenever you need to
+create an object, you simply write the code to create it using 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">and
+the storage is allocated on the heap when that code is executed. And of course
+there&#8217;s a price you pay for this flexibility: it takes more time to
+allocate heap storage.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	Static
+storage
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+&#8220;Static&#8221; is used here in the sense of &#8220;in a fixed
+location&#8221; (although it&#8217;s also in RAM). Static storage contains data
+that is available for the entire time a program is running. You can use the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword to specify that a particular element of an object is static, but Java
+objects themselves are never placed in static storage.
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	Constant
+storage
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Constant values are often placed directly in the program code, which is safe
+since they can never change. Sometimes constants are cordoned off by themselves
+so that they can be optionally placed in read-only memory (ROM).
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>	Non-RAM
+storage
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+If data lives completely outside a program it can exist while the program is
+not running, outside the control of the program. The two primary examples of
+this are 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>streamed
+objects,
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+in which objects are turned into streams of bytes, generally to be sent to
+another machine, and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>persistent
+objects, 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">in
+which the objects are placed on disk so they will hold their state even when
+the program is terminated. The trick with these types of storage is turning the
+objects into something that can exist on the other medium, and yet can be
+resurrected into a regular RAM-based object when necessary. Java 1.1<A NAME="Index72"></A>
+provides support for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>lightweight
+persistence
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and future versions of Java might provide more complete solutions for
+persistence.
+</FONT><a name="_Toc375545220"></a><a name="_Toc408018421"></a></OL><A NAME="Heading65"></A><H3 ALIGN=LEFT>
+Special
+case: primitive types
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+is a group of types that gets special treatment; you can think of these as
+&#8220;primitive&#8221; types that you use quite often in your programming. The
+reason for the special treatment is that to create an object with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+especially a small, simple variable, isn&#8217;t very efficient because 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+places objects on the heap. For these types Java falls back on the approach
+taken by C and C++. That is, instead of creating the variable using 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+an &#8220;automatic&#8221; variable is created that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>is
+not a handle
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The variable holds the value, and it&#8217;s placed on the stack so it&#8217;s
+much more efficient.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+determines the size of each primitive type. These sizes don&#8217;t change from
+one machine architecture to another as they do in most languages. This size
+invariance is one reason Java programs are so portable.
+</FONT><P></DIV>
+<DIV ALIGN=LEFT><TABLE BORDER>
+<COLGROUP>
+      <COL width="76">
+      <COL width="45">
+      <COL width="67">
+      <COL width="77">
+      <COL width="64">
+</COLGROUP>
+<TR VALIGN="TOP">
+<TH WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Primitive
+type
+</FONT><P></DIV>
+</TH>
+<TH WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Size</FONT><P></DIV>
+</TH>
+<TH WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Minimum</FONT><P></DIV>
+</TH>
+<TH WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Maximum</FONT><P></DIV>
+</TH>
+<TH WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Wrapper
+type
+</FONT><P></DIV>
+</TH>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">boolean</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">1-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8211;</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8211;</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Boolean</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">char</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">16-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Unicode
+0
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Unicode
+2
+</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">16</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">-
+1
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Character</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">byte
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">8-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">-128</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">+127</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Byte</B></FONT><A NAME="fnB11" HREF="#fn11">[11]</A><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">short</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">16-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">-2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">15</FONT></SUP><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">+2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">15</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+&#8211; 1
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Short</B></FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>1</B></FONT></SUP><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">int</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">32-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">-2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">31</FONT></SUP><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">+2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">31</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+&#8211; 1
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Integer</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">long</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">64-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">-2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">63</FONT></SUP><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">+2</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">63</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+&#8211; 1
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Long</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">float</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">32-bit</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">IEEE754</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">IEEE754</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Float</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">double</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">64-bit
+</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">IEEE754</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">IEEE754</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Double</B></FONT><P></DIV>
+</TD>
+</TR>
+<TR VALIGN="TOP">
+<TD WIDTH=76 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">void</FONT><P></DIV>
+</TD>
+<TD WIDTH=45 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8211;</FONT><P></DIV>
+</TD>
+<TD WIDTH=67 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8211;</FONT><P></DIV>
+</TD>
+<TD WIDTH=77 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8211;</FONT><P></DIV>
+</TD>
+<TD WIDTH=64 COLSPAN=1 ROWSPAN=1 VALIGN=TOP>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Void</B></FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">1</FONT></SUP><P></DIV>
+</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+numeric types are signed, so don&#8217;t go looking for unsigned types.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+primitive data types also have &#8220;wrapper&#8221;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">classes
+for them. That means that if you want to make a non-primitive object on the
+heap to represent that primitive type, you use the associated wrapper. For
+example:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">char
+c = 'x';
+</FONT></TT><P><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">Character
+C = new Character(c);
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">or
+you could also use:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">Character
+C = new Character('x');
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+reasons for doing this will be shown in a later chapter.
+</FONT><P></DIV>
+<A NAME="Heading66"></A><H4 ALIGN=LEFT>
+High-precision
+numbers
+</H4>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java
+1.1<A NAME="Index73"></A>
+has added two classes for performing high-precision arithmetic: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigInteger</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigDecimal</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Although these approximately fit into the same category as the
+&#8220;wrapper&#8221; classes, neither one has a primitive analogue.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Both
+classes have methods that provide analogues for the operations that you perform
+on primitive types. That is, you can do anything with a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigInteger</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigDecimal
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">that
+you can with an 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>int</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>float</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it&#8217;s just that you must use method calls instead of operators. Also,
+since there&#8217;s more involved, the operations will be slower. You&#8217;re
+exchanging speed for accuracy.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigInteger</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+supports arbitrary-precision integers. This means that you can accurately
+represent integral values of any size without losing any information during
+operations.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>BigDecimal</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is for arbitrary-precision fixed-point numbers; you can use these for accurate
+monetary calculations, for example.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Consult
+your online documentation for details about the constructors and methods you
+can call for these two classes.
+</FONT><a name="_Toc375545221"></a><a name="_Toc408018422"></a><P></DIV>
+<A NAME="Heading67"></A><H3 ALIGN=LEFT>
+Arrays
+in Java
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Virtually
+all programming languages support arrays. Using arrays in C and C++ is perilous
+because those arrays are only blocks of memory. If a program accesses the array
+outside of its memory block or uses the memory before initialization (common
+programming errors) there will be unpredictable results.
+</FONT><A NAME="fnB12" HREF="#fn12">[12]</A><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the primary goals of Java is safety, so many of the problems that plague
+programmers in C and C++ are not repeated in Java. A Java array is guaranteed
+to be initialized and cannot be accessed outside of its range. The range
+checking comes at the price of having a small amount of memory overhead on each
+array as well as verifying the index at run time, but the assumption is that
+the safety and increased productivity is worth the expense.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you create an array of objects, you are really creating an array of handles,
+and each of those handles is automatically initialized to a special value with
+its own keyword: <A NAME="Index74"></A><A NAME="Index75"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>null</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+When Java sees 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>null</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it recognizes that the handle in question isn&#8217;t pointing to an object.
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+must assign an object to each handle before you use it, and if you try to use a
+handle that&#8217;s still 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>null,</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the problem will be reported at run-time. Thus, typical array errors are
+prevented in Java.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+can also create an array of primitives. Again, the compiler guarantees
+initialization because it zeroes the memory for that array.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Arrays
+will be covered in detail in later chapters.
+</FONT><a name="_Toc375545222"></a><a name="_Toc408018423"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn11" HREF="#fnB11">[11]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+In Java version 1.1 only, not in 1.0.
+</FONT><P></DIV><DIV ALIGN=LEFT><A NAME="fn12" HREF="#fnB12">[12]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+In C++ you should often use the safer containers in the Standard Template
+Library as an alternative to arrays.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0032.html">Prev</a> | <a href="tij0034.html">Next</a>
+</div>
+</body></html>
+

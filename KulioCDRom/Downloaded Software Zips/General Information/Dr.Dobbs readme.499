@@ -1,0 +1,196 @@
+April 1999
+Dr. Dobb's Journal 
+
+File: REGEXP.TXT
+Title: REGULAR EXPRESSIONS
+Author: Brian W. Kernighan and Rob Pike
+Keywords: APR99    TEXT PROCESSING    ALGORITHMS
+Description: Published source code accompanying the article by Brian W.
+Kernighan and Rob Pike in which they examine regular expressions, one of
+the most broadly applicable of programmer's tools. Regular expressions
+provide a compact and expressive notation for describing patterns of
+text. They are also algorithmically interesting, easy to implement, and
+highly useful. Also see REGEXP.ZIP.
+
+File: REGEXP.ZIP
+Title: REGULAR EXPRESSIONS
+Author: Brian W. Kernighan and Rob Pike
+Keywords: APR99    TEXT PROCESSING    ALGORITHMS
+Description: Unpublished source code accompanying the article by Brian
+W. Kernighan and Rob Pike in which they examine regular expressions, one
+of the most broadly applicable of programmer's tools. Regular
+expressions provide a compact and expressive notation for describing
+patterns of text. They are also algorithmically interesting, easy to
+implement, and highly useful. Requires UNZIP/PKUNZIP to extract.
+
+File:  SIMRECURS.TXT
+Title: SIMULATED RECURSION
+Author: Earl Augusta
+Keywords: APR99   SIMULATION   RECURSION  COBOL
+Description: Published source code accompanying the article by Earl
+Augusta in which he shows how to simulate recursion in languages (like
+COBOL) which don't support it.
+
+File: PARALLEL.TXT
+Title: THREAD COMMUNICATION & PARALLEL ALGORITHMS
+Author: Lalit Pant
+Keywords:  APR99   THREADS   PARALLEL   ALGORITHMS
+Description: Published source code accompanying the article by Lalit
+Pant in which he presents thread communication mechanisms for use within
+parallel algorithms. 
+
+File: HMAC.TXT
+Title: THE HMAC ALGORITHM 
+Author: William Stallings
+Keywords: APR99     SECURITY    ENCRYPITION    ALGORITHMS
+Description: Published source code accompanying the article by William
+Stallings in which he examines the message authentication code (MAC) is
+a widely-used technique for performing message authentication. HMAC
+(short for "Keyed-Hashing for Message Authentication"), a variation on
+the MAC algorithm, has emerged as an Internet standard for a variety of
+applications.
+
+File: BATLSHIP.TXT
+Title: THE PALMPILOT'S INFRARED PORT
+Author: A. J. Musgrove
+Keywords:  APR99    PALMPILOT     GAMES   COMMUNICATIONS
+Description: Published source code accompanying the article by A. J.
+Musgrove in which he examines the Palm III support of data exchange over
+infrared (IR) ports. A.J. explores programming the IR port by presenting
+both an IR test application and a version of the venerable game
+BattleShip that can be played between two players via the IR port. Also
+see BATLSHIP.ZIP and IRTEST.ZIP.
+
+File: BATLSHIP.ZIP
+Title: THE PALMPILOT'S INFRARED PORT
+Author: A. J. Musgrove
+Keywords:  APR99    PALMPILOT     GAMES   COMMUNICATIONS
+Description: Unpublished source code and related files accompanying the
+article by A. J. Musgrove in which he examines the Palm III support of
+data exchange over infrared (IR) ports. A.J. explores programming the IR
+port by presenting both an IR test application and a version of the
+venerable game BattleShip that can be played between two players via the
+IR port. Also see BATLSHIP.TXT and IRTEST.ZIP. Requires UNZIP/PKUNZIP to
+extract.
+
+File: IRTEST.ZIP
+Title: THE PALMPILOT'S INFRARED PORT
+Author: A. J. Musgrove
+Keywords:  APR99    PALMPILOT     GAMES   COMMUNICATIONS
+Description: Unpublished source code and related test files accompanying
+the article by A. J. Musgrove in which he examines the Palm III support
+of data exchange over infrared (IR) ports. A.J. explores programming the
+IR port by presenting both an IR test application and a version of the
+venerable game BattleShip that can be played between two players via the
+IR port. Also see BATLSHIP.TXT and BATLSHIP.ZIP. Requires UNZIP/PKUNZIP
+to extract.
+
+File: INSITU05.ZIP
+Title: PARALLEL FUNCTIONAL DECISION TREES
+Author: Rene Schaad
+Keywords:  APR99    C++     REAL-TIME    AGENTS
+Description: Unpublished source code of the InSitu C++ class library
+which accompanies Rene Schaad's article on programming reactive situated
+agents that's based on parallel functional decision trees. InSitu is a
+C++ class library and run-time system he's developed and tested on
+mobile robots. Requires UNZIP/PKUNZIP to extract.
+
+File: PERLDAP.TXT
+Title: EXAMINING PERLDAP
+Author: Troy Neeriemer
+Keywords: APR99    PERL   LDAP    INTERNET   NETWORKING
+Description: Published source code accompanying the article by Troy
+Neeriemer in which he examines Netscape's PerLDAP, a tool for both
+programmers and administrators because it provides a mechanism for
+accessing directory information from Perl. Troy presents a high-level
+overview of PerLDAP, along with details of how you can use it. Also see
+PERLDAP.ZIP.
+
+File: PERLDAP.ZIP
+Title: EXAMINING PERLDAP
+Author: Troy Neeriemer
+Keywords: APR99    PERL   LDAP    INTERNET   NETWORKING
+Description: Unpublished source code accompanying the article by Troy
+Neeriemer in which he examines Netscape's PerLDAP, a tool for both
+programmers and administrators because it provides a mechanism for
+accessing directory information from Perl. Troy presents a high-level
+overview of PerLDAP, along with details of how you can use it. Requires
+UNZIP/PKUNZIP to extract.
+
+File: JPYTHON.TXT
+Title: EXAMINING JPYTHON
+Author: Kirby W. Angell
+Keywords: APR99    JAVA  PYTHON    SCRIPTING
+Description: Published source code accompanying the article by JPython
+is a freely available version of Python implemented in 100% pure Java.
+Since JPython is written in Java, it is easy to include the JPython
+packages in a Java application and use JPython as your application's
+scripting engine. JPython also makes an excellent tool for prototyping
+Java applets that are embedded in web browsers. Also see JPYTHON.ZIP.
+
+File: JPYTHON.ZIP
+Title: EXAMINING JPYTHON
+Author: Kirby W. Angell
+Keywords: APR99    JAVA  PYTHON    SCRIPTING
+Description: Unpublished source code accompanying the article by JPython
+is a freely available version of Python implemented in 100% pure Java.
+Since JPython is written in Java, it is easy to include the JPython
+packages in a Java application and use JPython as your application's
+scripting engine. JPython also makes an excellent tool for prototyping
+Java applets that are embedded in web browsers. Requires UNZIP/PKUNZIP
+to extract.
+
+File: NT2UNIX.TXT
+Title: PORTING C++ CODE FROM NT TO UNIX
+Author: George F. Frazier
+Keywords: C++    PORTING   UNIX   NT
+Description: Published source code accompanying the article by George
+Frazier in which he uses MainSoft's MainWin XDE (eXtended Development
+Environment) 3.1 to port a major application from Windows NT to Solaris. 
+Also see NT2UNIX.ZIP.
+
+File: NT2UNIX.ZIP
+Title: PORTING C++ CODE FROM NT TO UNIX
+Author: George F. Frazier
+Keywords: C++    PORTING   UNIX   NT
+Description: Unpublished source code and related files accompanying the article
+by George Frazier in which he uses MainSoft's MainWin XDE (eXtended Development
+Environment) 3.1 to port a major application from Windows NT to Solaris.
+Requires UNZIP/PKUNZIP to extract.
+
+File: JQA499.TXT 
+Title: JAVA Q&A
+Author: Steve Ball and John Miller Crawford
+Keywords: APR99    JAVA     
+Description: Published source code accompanying the article by Steve
+Ball and John Miller Crawford in which they address the issue involving
+Java applets which may seem to be independent programs, but aren't if
+you change a static field of a class used within an applet, that change
+pervades all applets. Steve and John examine the ins-and-outs of dealing
+with this particularity. Also see WEBCAD.ZIP.
+
+File: WEBCAD.ZIP
+Title: JAVA Q&A
+Author: Steve Ball and John Miller Crawford
+Keywords: APR99    JAVA     APPLETS
+Description: Unpublished source code and related files accompanying the
+article by Steve Ball and John Miller Crawford in which they address the
+issue involving Java applets which may seem to be independent programs,
+but aren't if you change a static field of a class used within an
+applet, that change pervades all applets. Steve and John examine the
+ins-and-outs of dealing with this particularity. Requires UNZIP/PKUNZIP
+to extract.
+
+File: AA499.TXT
+Title: ALGORITHM ALLEY
+Author: Jon Bentley
+Keywords: APR99    ALGORITHMS  
+Description: Unpublished source code and related files accompanying the
+column by Jon Bentley in which presents tools and techniques for
+analyzing the performance of algorithms. 
+
+
+
+
+
+

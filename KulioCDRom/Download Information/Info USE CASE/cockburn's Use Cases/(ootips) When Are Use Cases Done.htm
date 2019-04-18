@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://www.kinetica.com/ootips/use-cases-done.html -->
+<HTML><HEAD><TITLE>(ootips) When Are Use Cases Done?</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=white link=#997711 vLink=#b99502>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD rowSpan=2><IMG alt="o+<" border=0 height=58 
+      src="(ootips) When Are Use Cases Done_files/logo.gif" width=128></TD>
+    <TD height=12></TD></TR>
+  <TR>
+    <TD>
+      <H1>When Are Use Cases Done?</H1></TD></TR></TBODY></TABLE>Source: <A 
+href="news:comp.object">comp.object</A> <BR>Date: 26-Jan-98 
+<P><A href="http://www.kinetica.com/ootips/use-cases-done.html#links">Related 
+Sites</A> 
+<P><BR>
+<CENTER><IMG alt=------------------------------ border=0 height=14 
+src="(ootips) When Are Use Cases Done_files/bar.gif" width=501></CENTER><BR><IMG 
+align=top alt="o-<" height=18 
+src="(ootips) When Are Use Cases Done_files/actor.gif" width=39> <U>Problem</U>: 
+When analyzing requirements and writing use cases, how can you know that you 
+have enough use cases?
+<P><BR>
+<CENTER><IMG alt=--------------- border=0 height=10 
+src="(ootips) When Are Use Cases Done_files/bars.gif" 
+width=280></CENTER><BR><IMG align=top alt="o-<" height=18 
+src="(ootips) When Are Use Cases Done_files/actor.gif" width=39> <A 
+href="mailto:mcbreenp@cadvision.com">Pete McBreen</A> wrote:
+<P>This is an interesting mix of questions. 
+<OL>
+  <LI>How do you know when you have them all? 
+  <LI>When can you start using them for Modeling? </LI></OL>The simplistic answer 
+to 1 is you have them all when the Users, Sponsor and Stakeholders cannot think 
+of any more Use Cases.
+<P>The equally simplistic answer to 2 is when you have your first Use Case.
+<P>The reasoning behind these answers is that if we are truly comfortable with 
+an iterative process, then we can work at a low level of *precision* initially 
+and expect to get feedback that we have to act on. In this context I am using 
+Alistair Cockburn's definition of precision as documented in <A 
+href="http://www.amazon.com/exec/obidos/ASIN/0201498340/ootips">Surviving Object 
+Oriented Projects - A Managers Guide<IMG align=middle alt="Buy at Amazon.com" 
+border=0 height=20 src="(ootips) When Are Use Cases Done_files/bk.gif" 
+width=40></A>.
+<P>Initially I capture the Use Cases just as simple Actor:Goal pairs with some 
+informal text specifying the context of the goal, and some formal text 
+specifying what Goal Success really means. This can be done fairly fast as a 
+brainstorming exercise with the Users etc.<BR>[see the More Info section for an 
+article on this technique -YS]
+<P>In parallel with this brainstorming you can sketch out candidate classes by 
+listening for the concepts expressed in these low precision Use Cases. Obviously 
+many will be in need of drastic revision, but these make for a great "burnt 
+pancake" (with thanks to Luke Hohmann for this metaphor). You have a very rough 
+sketch of the classes and responsibilities that users can use to assess your 
+understanding of the domain and provide relevant feedback.
+<P>When you sketch out a scenario within a Use Case, you can test to see if your 
+model supports it (a very, very low probability) and can make the necessary 
+adjustments. As you add the details of the scenarios to each Use Case, you can 
+continually test and revise the model.
+<P>The heuristic I use for moving to more precision on the model is that there 
+have been no changes to the responsibilities of the components of the model for 
+some number Use Cases (this number is very subjective and depends on the number 
+of Use Cases identified initially and how much iteration is liked by the team).
+<P>The next pass through the Use Cases takes longer, since now I am interested 
+in all of the weird and wonderful ways that the user can fail to achieve their 
+goal. The model is then revalidated to see that it can detect these failures 
+(again this takes longer than the previous iteration).
+<P>At this point I am ready to partition the use cases into Increments, and dive 
+into detail and more precision for the model from that increment.
+<P>Yes, this process results in many iterations, but that is what Whiteboards 
+are for. Formal capture will only occur later on when dealing with the Use Case 
+increments.
+<P>A caveat. This process requires a tolerance for uncertainty and a willingness 
+to scrap a model that does not work and to create another. In the initial stages 
+I typically create several models and test all of them through the first few 
+iterations, only then selecting the survivor that will proceed on to the more 
+detailed iterations.
+<P><BR>
+<CENTER><IMG alt=--------------- border=0 height=10 
+src="(ootips) When Are Use Cases Done_files/bars.gif" width=280></CENTER><BR>
+<P><IMG align=top alt="o-<" height=18 
+src="(ootips) When Are Use Cases Done_files/actor.gif" width=39> <A 
+href="mailto:tottinge@oma.com">Tim Ottinger</A> insisted:
+<P>Nice simplistic answers. You can start modeling with one, and you can go 
+until you exhaust the creativity and knowledge of the combined team. You've 
+given a nice set of outer bounds to the problem. I applaud that, and the way 
+you've done it. I'm impressed. Very elegant.
+<P>But at this case, at least three things can go wrong: 
+<OL>
+  <LI>You have too few use cases: You've described only a subsystem or a few 
+  duties of a few subsystems. You've missed the greater, essential application. 
+  <LI>You have gone too far: your use cases represent wishful thinking well 
+  outside of the needs of the project. Welcome to "creeping featurism". You have 
+  already "wasted" time (meaning you spent it on features you're not keeping), 
+  and you are going to have to spend more time to cull the list. 
+  <LI>You captured the wrong ones. You've got plenty, but you could do without 
+  some that you have, and you can't do without some you missed. </LI></OL>If use 
+cases were the earliest starting point, then this would be a very subjective and 
+error-prone process -- there's nothing to measure it against.
+<P>How do you assess your progress through the initial enumeration of use cases, 
+how do you decide what's to stay on the list and what's to be taken off?
+<P><BR>
+<CENTER><IMG alt=--------------- border=0 height=10 
+src="(ootips) When Are Use Cases Done_files/bars.gif" 
+width=280></CENTER><BR><IMG align=top alt="o-<" height=18 
+src="(ootips) When Are Use Cases Done_files/actor.gif" width=39> <A 
+href="mailto:mwhiten@v-wave.com">Mike Whiten</A> provided some guidelines:
+<P>Here are a couple of suggestions: 
+<OL>
+  <LI>Maintain a list of ways the system may be parameterized (vary the 
+  cardinality of the actors, the types of input, future modes of operation, 
+  situations when good actors do bad things, exceptional circumstances). Iterate 
+  through your use-cases to see if they cover all the situations. This might 
+  help refine your use-cases or discover new ones. 
+  <LI>Examine your non-functional requirements (constraints and such) to see if 
+  your use-cases can address them. You might be able to refine, add or drop 
+  use-cases based on this. 
+  <LI>Make a semantic network diagram (basically a quick brainstorm of all the 
+  concepts and interactions and relationships from the problem domain -- an 
+  informal notation). Decide which concepts fall within the system (will be part 
+  of the object model), which are on the boundaries (probably will become actors 
+  or usages) and which are beyond the scope of the system being modeled (do not 
+  affect the software system being built and don't show up in any of the 
+  modeling efforts). </LI></OL>Check out IBM's "Developing Object-Oriented 
+Software: An Experienced Based Approach" (ISBN 0-13-737248-5) which has a lot of 
+good advice on controlling the software development process.
+<P><A name=links></A><BR>
+<CENTER><IMG alt=------------------------------ border=0 height=14 
+src="(ootips) When Are Use Cases Done_files/bar.gif" width=501></CENTER><BR><IMG 
+align=top alt="o-<" height=18 
+src="(ootips) When Are Use Cases Done_files/actor.gif" width=39> <U>More 
+Info</U>:
+<P>Alistair Cockburn, <A 
+href="http://members.aol.com/acockburn/papers/usecases.htm">Structuring Use 
+Cases with Goals</A>
+<P><A href="http://www.to.utwente.nl/user/ism/lanzing/cm_home.htm">The Concept 
+Mapping Homepage</A>
+<P><BR>
+<CENTER><IMG alt=------------------------------ border=0 height=14 
+src="(ootips) When Are Use Cases Done_files/bar.gif" width=501></CENTER><BR>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://www.kinetica.com/ootips/books.html">Recommended OO Books</A> 
+    </TD>
+    <TD align=right><A href="http://www.kinetica.com/ootips/">Object 
+      Orientation Tips Home</A></TD></TR></TBODY></TABLE></BODY></HTML>

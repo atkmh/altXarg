@@ -1,0 +1,864 @@
+listing 1
+public boolean handleEvent(Event evtObj) {
+  if(evtObj.id == Event.WINDOW_DESTROY) {
+    // respond to event
+    return true;
+  }      
+  return super.handleEvent(evtObj);
+}
+
+listing 2
+/* Create a child frame window from within
+   an applet.  
+*/
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="AppletFrame" width=300 height=50>
+  </applet>
+*/
+
+// Create a subclass of Frame
+class SampleFrame extends Frame {
+  SampleFrame(String title) {
+    super(title);
+  }
+
+  // Hide window when terminated by user.
+  public boolean handleEvent(Event evtObj) {
+    if(evtObj.id == Event.WINDOW_DESTROY) {
+      hide();
+      return true;
+    }      
+    return super.handleEvent(evtObj);
+  }
+
+  public void paint(Graphics g) {
+    g.drawString("This is in frame window", 10, 20);
+  }    
+}
+
+// Create the applet window.
+public class AppletFrame extends Applet{
+  SampleFrame f;
+
+  // Create a frame window.
+  public void init() {
+    f = new SampleFrame("A Frame Window");
+    f.show();
+    f.resize(250, 100);
+  }
+
+  // Remove frame window when stopping applet.
+  public void stop() {
+    f.hide(); 
+  }
+
+  // Show frame window when starting applet.
+  public void start() {
+    f.show();
+  }
+
+  // Display msg in applet window.
+  public void paint(Graphics g) {
+    g.drawString("This is in applet window.", 10, 20);
+  }    
+}
+
+listing 3
+// Handle mouse events in both child and applet windows.
+
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="WindowEvents" width=300 height=50>
+  </applet>
+*/
+
+// Create a subclass of Frame.
+class SampleFrame extends Frame {
+  String msg = "";
+  int mouseX=0, mouseY=10;
+  int movX=0, movY=0;
+
+  SampleFrame(String title) {
+    super(title);
+  }
+
+  // Hide window when terminated by user.
+  public boolean handleEvent(Event evtObj) {
+    if(evtObj.id == Event.WINDOW_DESTROY) {
+      hide();
+      return true;
+    }      
+    return super.handleEvent(evtObj);
+  }
+
+  // Handle button press.
+  public boolean mouseDown(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Down";
+    repaint();
+
+    return true;
+  }
+
+  // Handle button release.
+  public boolean mouseUp(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Up";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse move.
+  public boolean mouseMove(Event evtObj, int x, int y) {
+    // save coordinates
+    movX = x;
+    movY = y;
+    repaint(0, 0, 100, 20);
+    return true;
+  }
+
+  // Handle mouse drag.
+  public boolean mouseDrag(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    movX = x;
+    movY = y;
+    msg = "*";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse enter.
+  public boolean mouseEnter(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 24;
+    msg = "Mouse just entered child.";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse exit.
+  public boolean mouseExit(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 24;
+    msg = "Mouse just left child window.";
+    repaint();
+
+    return true;
+  }
+
+  public void paint(Graphics g) {
+    g.drawString(msg, mouseX, mouseY);
+    g.drawString("Mouse at " + movX + ", " + movY, 0, 10);
+  }    
+}
+
+// Applet window.
+public class WindowEvents extends Applet{
+  SampleFrame f;
+  String msg = "";
+  int mouseX=0, mouseY=10;
+  int movX=0, movY=0;
+  
+  // Create a frame window.
+  public void init() {
+    f = new SampleFrame("Handle Mouse Events");
+    f.show();
+    f.resize(300, 200);
+  }
+
+  // Remove frame window when stopping applet.
+  public void stop() {
+    f.hide(); 
+  }
+
+  // Show frame window when starting applet.
+  public void start() {
+    f.show();
+  }
+
+  // Handle button press.
+  public boolean mouseDown(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Down";
+    repaint();
+
+    return true;
+  }
+
+  // Handle button release.
+  public boolean mouseUp(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    msg = "Up";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse move.
+  public boolean mouseMove(Event evtObj, int x, int y) {
+    // save coordinates
+    movX = x;
+    movY = y;
+    repaint(0, 0, 100, 20);
+    return true;
+  }
+
+  // Handle mouse drag.
+  public boolean mouseDrag(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = x;
+    mouseY = y;
+    movX = x;
+    movY = y;
+    msg = "*";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse enter.
+  public boolean mouseEnter(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 24;
+    msg = "Mouse just entered applet window.";
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse exit.
+  public boolean mouseExit(Event evtObj, int x, int y) {
+    // save coordinates
+    mouseX = 0;
+    mouseY = 24;
+    msg = "Mouse just left applet window.";
+    repaint();
+
+    return true;
+  }
+
+  // Display msg in applet window.
+  public void paint(Graphics g) {
+    g.drawString(msg, mouseX, mouseY);
+    g.drawString("Mouse at " + movX + ", " + movY, 0, 10);
+ }    
+}
+
+listing 4
+// Create an AWT-based application.
+import java.awt.*;
+import java.applet.*;
+
+// Create a frame window.
+public class AppWindow extends Frame {
+  String keymsg = "";
+  String mousemsg = "";
+  int mouseX=0, mouseY=0;
+
+  // Handle key press events.
+  public boolean keyDown(Event evtObj, int key) {
+    keymsg += (char) key;
+    repaint();
+
+    return true;
+  }
+
+  // Handle mouse down events.
+  public boolean mouseDown(Event evtObj, int x, int y) {
+    mouseX = x;
+    mouseY = y;
+    mousemsg = "Mouse Down at " + x + ", " + y;
+    repaint();
+
+    return true;
+  }
+
+  // Close window.
+  public boolean handleEvent(Event evtObj) {
+    if(evtObj.id == Event.WINDOW_DESTROY)
+      System.exit(0);
+    return super.handleEvent(evtObj);
+  }
+
+  // Display keystrokes and mouse messages.
+  public void paint(Graphics g) {
+    g.drawString(keymsg, 0, 10);
+    g.drawString(mousemsg, mouseX, mouseY);
+  }    
+
+  // Create the window.
+  public static void main(String args[]) {
+    AppWindow appwin = new AppWindow();
+
+    appwin.resize(300, 200);
+    appwin.setTitle("An AWT-Based Application");
+    appwin.show();
+  }
+}
+
+listing 5
+// Draw lines
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="Lines" width=300 height=200>
+  </applet>
+*/
+
+public class Lines extends Applet {
+  public void paint(Graphics g) {
+    g.drawLine(0, 0, 100, 100);
+    g.drawLine(0, 100, 100, 0);
+    g.drawLine(40, 25, 250, 180);
+    g.drawLine(75, 90, 400, 400);
+    g.drawLine(20, 150, 400, 40);
+    g.drawLine(5, 290, 80, 19);
+  }    
+}
+
+listing 6
+// Draw rectangles
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="Rectangles" width=300 height=200>
+  </applet>
+*/
+
+public class Rectangles extends Applet {
+  public void paint(Graphics g) {
+    g.drawRect(10, 10, 60, 50);
+    g.fillRect(100, 10, 60, 50);
+    g.drawRoundRect(190, 10, 60, 50, 15, 15);
+    g.fillRoundRect(70, 90, 140, 100, 30, 40);
+  }    
+}
+
+listing 7
+// Draw Ellipses
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="Ellipses" width=300 height=200>
+  </applet>
+*/
+
+public class Ellipses extends Applet {
+  public void paint(Graphics g) {
+    g.drawOval(10, 10, 50, 50);
+    g.fillOval(100, 10, 75, 50);
+    g.drawOval(190, 10, 90, 30);
+    g.fillOval(70, 90, 140, 100);
+  }    
+}
+
+listing 8
+// Draw Arcs
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="Arcs" width=300 height=200>
+  </applet>
+*/
+
+public class Arcs extends Applet {
+  public void paint(Graphics g) {
+    g.drawArc(10, 40, 70, 70, 0, 75);
+    g.fillArc(100, 40, 70, 70, 0, 75);
+    g.drawArc(10, 100, 70, 80, 0, 175);
+    g.fillArc(100, 100, 70, 90, 0, 270);
+
+    g.drawArc(200, 80, 80, 80, 0, 180);
+
+  }    
+}
+
+listing 9
+// Draw Polygon
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="HourGlass" width=230 height=210>
+  </applet>
+*/
+
+public class HourGlass extends Applet {
+  public void paint(Graphics g) {
+    int xpoints[] = {30, 200, 30, 200, 30};
+    int ypoints[] = {30, 30, 200, 200, 30}; 
+    int num = 5;
+    
+    g.drawPolygon(xpoints, ypoints, num);
+  }    
+}
+
+listing 10
+// Resizing output to fit the current size of a window.
+import java.applet.*;
+import java.awt.*;
+/*
+  <applet code="ResizeMe" width=200 height=200>
+  </applet>
+ */
+ 
+public class ResizeMe extends Applet {
+  final int inc = 25;
+  int max = 500;
+  int min = 200;
+  Dimension d;
+
+  public void paint(Graphics g) {
+    d = size();
+
+    g.drawLine(0, 0, d.width-1, d.height-1);
+    g.drawLine(0, d.height-1, d.width-1, 0);
+    g.drawRect(0, 0, d.width-1, d.height-1);
+  }
+
+  public boolean mouseUp(java.awt.Event evt, int x, int y) {
+    int w = (d.width + inc) > max?min :(d.width + inc);
+    int h = (d.height + inc) > max?min :(d.height + inc);
+
+    resize(w, h);
+    return true;
+  }
+}
+
+listing 11
+new Color(255, 100, 100) // light red.
+
+listing 12
+int newRed = (0xff000000 | (0xc0 << 16) | (0x00 << 8) | 0x00)
+Color darkRed = new Color(newRed);
+
+listing 13
+// Demonstrate color.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="ColorDemo" width=300 height=200>
+  </applet>
+*/
+
+public class ColorDemo extends Applet {
+  // draw lines
+  public void paint(Graphics g) {
+    Color c1 = new Color(255, 100, 100);
+    Color c2 = new Color(100, 255, 100);
+    Color c3 = new Color(100, 100, 255);
+
+    g.setColor(c1);
+    g.drawLine(0, 0, 100, 100);
+    g.drawLine(0, 100, 100, 0);
+
+    g.setColor(c2);
+    g.drawLine(40, 25, 250, 180);
+    g.drawLine(75, 90, 400, 400);
+
+    g.setColor(c3);
+    g.drawLine(20, 150, 400, 40);
+    g.drawLine(5, 290, 80, 19);
+
+    g.setColor(Color.red);
+    g.drawOval(10, 10, 50, 50);
+    g.fillOval(70, 90, 140, 100);
+
+    g.setColor(Color.blue);
+    g.drawOval(190, 10, 90, 30);
+    g.drawRect(10, 10, 60, 50);
+  
+    g.setColor(Color.cyan);
+    g.fillRect(100, 10, 60, 50);
+    g.drawRoundRect(190, 10, 60, 50, 15, 15);
+  }    
+}
+
+listing 14
+// Demonstrate XOR mode.
+import java.awt.*;
+import java.applet.*;
+/*
+  <applet code="XOR" width=300 height=200>
+  </applet>
+*/
+
+public class XOR extends Applet {
+  int chsX=100, chsY=100;
+
+  // have crosshairs track mouse
+  public boolean mouseMove(Event evtObj, int x, int y) {
+    chsX = x-10;
+    chsY = y-10;
+    repaint();
+    return true;
+  }
+   
+  public void paint(Graphics g) {
+    g.drawLine(0, 0, 100, 100);
+    g.drawLine(0, 100, 100, 0);
+    g.setColor(Color.blue);
+    g.drawLine(40, 25, 250, 180);
+    g.drawLine(75, 90, 400, 400);
+    g.setColor(Color.green);
+    g.drawRect(10, 10, 60, 50);
+    g.fillRect(100, 10, 60, 50);
+    g.setColor(Color.red);
+    g.drawRoundRect(190, 10, 60, 50, 15, 15);
+    g.fillRoundRect(70, 90, 140, 100, 30, 40);
+    g.setColor(Color.cyan);
+    g.drawLine(20, 150, 400, 40);
+    g.drawLine(5, 290, 80, 19);
+
+    // xor cross hairs
+    g.setXORMode(Color.black);
+    g.drawLine(chsX-10, chsY, chsX+10, chsY);
+    g.drawLine(chsX, chsY-10, chsX, chsY+10);
+    g.setPaintMode();  
+  }    
+}
+
+listing 15
+// Display Fonts
+/*
+  <applet code="ShowFonts" width=350 height=60>
+  </applet>
+*/
+import java.applet.*;
+import java.awt.*;
+
+public class ShowFonts extends Applet {
+  public void paint(Graphics g) {
+    String msg = "";
+    String FontList[];
+
+    FontList = getToolkit().getFontList();
+
+    for(int i = 0; i<FontList.length; i++) 
+      msg += FontList[i] + " ";
+
+    g.drawString(msg, 4, 16);
+  }
+}
+
+listing 16
+// Show fonts.
+import java.applet.*;
+import java.awt.*;
+/*
+  <applet code="SampleFonts" width=200 height=100>
+  </applet>
+ 
+*/
+ 
+public class SampleFonts extends Applet {
+  int next = 0;
+  Font f;
+  String msg;
+
+  public void init() {
+    f = new Font("Dialog", Font.PLAIN, 12);
+    msg = "Dialog";
+    setFont(f);
+  }
+
+  // Switch fonts with each mouse click.
+  public boolean mouseDown(Event evtObj, int x, int y) {
+    next++;
+    switch(next) {
+      case 0:
+        f = new Font("Dialog", Font.PLAIN, 12);
+        msg = "Dialog";
+        break;
+      case 1:
+        f = new Font("Helvetica", Font.PLAIN, 12);
+        msg = "Helvetica";
+        break;
+      case 2:
+        f = new Font("TimesRoman", Font.PLAIN, 12);
+        msg = "TimesRoman";
+        break;
+      case 3:
+        f = new Font("Courier", Font.PLAIN, 12);
+        msg = "Courier";
+        break;
+   }
+   if(next == 3) next = -1;
+   setFont(f);
+   repaint();
+   return true;
+ }
+
+  public void paint(Graphics g) {
+    g.drawString(msg, 4, 20);
+  }
+}
+
+listing 17
+// Display font info.
+import java.applet.*;
+import java.awt.*;
+/*
+  <applet code="FontInfo" width=350 height=60>
+  </applet>
+*/
+ 
+public class FontInfo extends Applet {
+  public void paint(Graphics g) {
+    Font f = g.getFont();
+    String fontName = f.getName();
+    String fontFamily = f.getFamily();
+    int fontSize = f.getSize();
+    int fontStyle = f.getStyle();
+
+    String msg = "Family: " + fontName;
+    msg += ", Font: " + fontFamily;
+    msg += ", Size: " + fontSize + ", Style: ";
+    if((fontStyle & Font.BOLD) == Font.BOLD)
+      msg += "Bold ";
+    if((fontStyle & Font.ITALIC) == Font.ITALIC)
+      msg += "Italic ";
+    if((fontStyle & Font.PLAIN) == Font.PLAIN)
+      msg += "Plain ";
+
+    g.drawString(msg, 4, 16);
+  }
+}
+
+listing 18
+// Demonstrate multi-line output.
+import java.applet.*;
+import java.awt.*;
+/*
+ <applet code="MultiLine" width=300 height=100>
+ </applet>
+*/
+ 
+public class MultiLine extends Applet {
+  int curX=0, curY=0; // current position
+
+  public void init() {
+    Font f = new Font("Helvetica", Font.PLAIN, 12);
+    setFont(f);
+  }
+
+  public void paint(Graphics g) {
+    FontMetrics fm = g.getFontMetrics();
+
+    nextLine("This is on line one.", g);
+    nextLine("This is on line two.", g);
+    sameLine(" This is on same line.", g);
+    sameLine(" This, too.", g);
+    nextLine("This is on line three.", g);
+  }
+
+  // Advance to next line.
+  void nextLine(String s, Graphics g) {
+    FontMetrics fm = g.getFontMetrics();
+
+    curY += fm.getHeight(); // advance to next line
+    curX = 0;
+
+    g.drawString(s, curX, curY);
+    curX = fm.stringWidth(s); // advance to end of line
+  }
+
+  // Display on same line.
+  void sameLine(String s, Graphics g) {
+    FontMetrics fm = g.getFontMetrics();
+
+    g.drawString(s, curX, curY);
+    curX += fm.stringWidth(s); // advance to end of line
+  }
+}
+
+listing 19
+// Center text.
+import java.applet.*;
+import java.awt.*;
+/*
+  <applet code="CenterText" width=200 height=100>
+  </applet> 
+*/
+ 
+public class CenterText extends Applet {
+  final Font f = new Font("Helvetica", Font.BOLD, 18);
+
+  public void paint(Graphics g) {
+    Dimension d = this.size();
+
+    g.setColor(Color.white);
+    g.fillRect(0, 0, d.width,d.height);
+    g.setColor(Color.black);
+    g.setFont(f);
+    drawCenteredString("This is centered.", d.width, d.height, g);
+    g.drawRect(0, 0, d.width-1, d.height-1);
+  }
+
+  public void drawCenteredString(String s, int w, int h,
+                                 Graphics g) {
+    FontMetrics fm = g.getFontMetrics();
+    int x = (w - fm.stringWidth(s)) / 2;
+    int y = (fm.getAscent() + (h - (fm.getAscent()
+             + fm.getDescent()))/2);
+    g.drawString(s, x, y);
+  }
+}
+
+listing 20
+// Demonstrate text alignment.
+import java.applet.*;
+import java.awt.*;
+import java.util.*;
+/* <title>Text Layout</title>
+   <applet code="TextLayout" width=200 height=200>
+   <param name="text" value="Output to a Java window is actually quite easy. 
+      As you have seen, the AWT provides support for
+      fonts, colors, text, and graphics. <P>  Of course,
+      you must effectively utilize these items
+      if you are to achieve professional results.">
+    <param name="fontname" value="TimesRoman">
+    <param name="fontSize" value="14">
+   </applet>
+ */
+
+ public class TextLayout extends Applet {
+  final int LEFT = 0;
+  final int RIGHT = 1;
+  final int CENTER = 2;
+  final int LEFTRIGHT =3;
+  int align;
+  Dimension d;
+  Font f;
+  FontMetrics fm;
+  int fontSize;
+  int fh, bl;
+  int space;
+  String text;
+
+  public void init() {
+    setBackground(Color.white);
+    text = getParameter("text");
+    try {
+      fontSize = Integer.parseInt(getParameter("fontSize"));}
+    catch (NumberFormatException e) {
+      fontSize=14;
+    }
+    align = LEFT;
+  }
+
+  public void paint(Graphics g) {
+    update(g);
+  }
+
+  public void update(Graphics g) {
+    d = size();
+    g.setColor(getBackground());
+    g.fillRect(0,0,d.width, d.height);
+    if(f==null) f = new Font(getParameter("fontname"),
+                              Font.PLAIN, fontSize);
+    g.setFont(f);
+    if(fm == null) {
+        fm = g.getFontMetrics();
+        bl = fm.getAscent();
+        fh = bl + fm.getDescent();
+        space = fm.stringWidth(" ");
+    }
+    g.setColor(Color.black);
+    StringTokenizer st = new StringTokenizer(text);
+    int x = 0;
+    int nextx;
+    int y = 0;
+    String word, sp;
+    int wordCount = 0;
+    String line = "";
+    while (st.hasMoreTokens()) {
+      word = st.nextToken();
+      if(word.equals("<P>")) {
+        drawString(g, line, wordCount,
+                   fm.stringWidth(line), y+bl);
+        line = "";
+        wordCount = 0;
+        x = 0;
+        y = y + (fh * 2);
+      }
+      else {
+        int w = fm.stringWidth(word);
+        if(( nextx = (x+space+w)) > d.width ) {
+          drawString(g, line, wordCount,
+                     fm.stringWidth(line), y+bl);
+          line = "";
+          wordCount = 0;
+          x = 0;
+          y = y + fh;
+        }
+        if(x!=0) {sp = " ";} else {sp = "";}
+        line = line + sp + word;
+        x = x + space + w;
+        wordCount++;
+      }
+    }
+    drawString(g, line, wordCount, fm.stringWidth(line), y+bl);
+  }
+
+  public void drawString(Graphics g, String line,
+                         int wc, int lineW, int y) {
+    switch(align) {
+      case LEFT: g.drawString(line, 0, y);
+        break;
+      case RIGHT: g.drawString(line, d.width-lineW ,y);
+        break;
+      case CENTER: g.drawString(line, (d.width-lineW)/2, y);
+        break;
+      case LEFTRIGHT:
+        if(lineW < (int)(d.width*.75)) {
+          g.drawString(line, 0, y);
+        }
+        else {
+          int toFill = (int)((d.width - lineW)/wc);
+          int nudge = d.width - lineW - (toFill*wc);
+          int s = fm.stringWidth(" ");
+          StringTokenizer st = new StringTokenizer(line);
+          int x = 0;
+          while(st.hasMoreTokens()) {
+            String word = st.nextToken();
+            g.drawString(word, x, y);
+            if(nudge>0) {
+              x = x + fm.stringWidth(word) + space + toFill + 1;
+              nudge--;
+            } else {
+              x = x + fm.stringWidth(word) + space + toFill;
+            }
+          }
+        }
+        break;
+      }
+
+  }
+
+  // Change layout each time mouse is clicked.
+  public boolean mouseUp(java.awt.Event evt, int x, int y) {
+    align = (align + 1) % 4;
+    repaint();
+    return true;
+  }
+}
+

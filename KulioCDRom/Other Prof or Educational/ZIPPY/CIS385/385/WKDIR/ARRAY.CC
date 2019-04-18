@@ -1,0 +1,49 @@
+// array.cc
+
+#include "array.h"
+#include "error.h"
+
+typedef unsafearray inherited;
+/*
+template <class T>
+void array<T>:: set( unsigned long i, const T& const c )
+{
+	inherited::set( i, &c );
+}
+
+template <class T>
+void array<T>::get( unsigned long i, T& c ) const
+{
+	T dummy;
+
+	inherited::get( i, &dummy );
+	c = dummy;
+}
+
+template <class T>
+T& array<T>::operator[] (unsigned long i)
+{
+	return *(T*)(data + i * cellsize);
+}
+
+template <class T>
+void array<T>::print( ostream& os ) const
+{
+	T c;
+
+	os << "[ ";
+	for ( unsigned long int i = 0; i<cellcount; i++ )
+	{
+		c = (*(array<T>*)this)[ i ];
+		os << c;
+		if (i < cellcount-1)
+		  os << " ";
+	os << " ]";
+}
+
+ostream& operator<<( ostream& os, const array<T>& a )
+{
+	a.print( os );
+	return os;
+}
+*/

@@ -1,0 +1,24 @@
+#makefile
+#written by richard gordon
+
+.KEEP_STATE:
+
+EXECUTABLE = test
+OBJECTS = autoarray.o safearray.o unsafearray.o \
+	error.o test.o \
+	thing.o character.o complex.o \
+	eqthing.o compthing.o seq.o
+
+
+$(EXECUTABLE): $(OBJECTS)
+	g++ $(OBJECTS) -o $(EXECUTABLE)
+
+.cc.o:
+	g++ -g -c $< -o $@
+
+clean:
+	rm -f $(EXECUTABLE) $(OBJECTS)
+	rm -f *~
+
+run::
+	$(EXECUTABLE)

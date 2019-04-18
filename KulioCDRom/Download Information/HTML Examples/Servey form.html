@@ -1,0 +1,383 @@
+<HTML>
+<HEAD>
+<TITLE>
+
+Survey of Satisfaction with Tools for Web Site Visitors Tracking and Measurement of Advertising Results
+
+</TITLE>
+<body><script language="JavaScript"><!--
+var category = "EDUCATION";
+// -->
+</script>
+
+<script language="JavaScript">
+<!--
+
+function stopError() {
+	return true;
+}
+
+window.onerror = stopError;
+
+// -->
+</script>
+
+<script language="JavaScript">
+<!--
+var popupURL = "/doc/pop_468m.html";
+var adname = "Ad";	
+var cookie_name = "Popup";
+var expire = 5; 
+var factor = 1;	
+var popup = null;
+var view_count = 0; 
+var expdate = new Date();
+
+ShowPopup();
+
+function ShowPopup() {
+	if(GetCookie(cookie_name) == null) {
+		expdate.setTime (expdate.getTime() + expire * (60 * 1000));
+		SetCookie(cookie_name, 1, expdate,'/');
+		openWin();	
+	}
+	else {
+		view_count = GetCookie(cookie_name);	
+		view_count++;	
+		if(view_count % factor == 0) {
+			view_count = 1;	
+			openWin();	
+		}
+		expdate.setTime (expdate.getTime() + expire * (60 * 1000));
+		SetCookie(cookie_name, view_count, expdate,'/');
+	}
+}
+
+function openWin () {
+	if( category != "" ) {
+		popupURL += "?&CATEGORY=" + category;
+	}
+
+	popup = window.open(popupURL,adname,'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=0,width=488,height=111');
+    if(popup != null) {
+    	popup.location = popupURL;
+        if( navigator.appName.substring(0,8) == "Netscape" ) {
+			popup.location = popupURL;	
+			popup.opener = self;
+        }   
+        if( navigator.appName == "Netscape" ) {
+       		popup.window.focus(); 
+		}	
+		self.name = "main";
+	}   
+}
+
+function getCookieVal (offset) {
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1) {
+		endstr = document.cookie.length;
+	}	
+	return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+	var arg = name + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	var i = 0;
+	while (i < clen) {
+		var j = i + alen;
+		if (document.cookie.substring(i, j) == arg) {
+      		return getCookieVal (j);
+		}
+    	i = document.cookie.indexOf(" ", i) + 1;
+    	if (i == 0)  {
+			break;
+  		}
+ 	} 
+	return null;
+}
+
+function SetCookie (name, value) {
+	var argv = SetCookie.arguments;
+	var argc = SetCookie.arguments.length;
+	var expires = (argc > 2) ? argv[2] : null;
+	var path = (argc > 3) ? argv[3] : null;
+	var domain = (argc > 4) ? argv[4] : null;
+	var secure = (argc > 5) ? argv[5] : false;
+	document.cookie = name + "=" + escape (value) +
+	((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+    ((path == null) ? "" : ("; path=" + path)) +
+    ((domain == null) ? "" : ("; domain=" + domain)) +
+    ((secure == true) ? "; secure" : "");
+}
+// -->
+</script>
+
+
+</HEAD>
+<TEXT="#000000" BGCOLOR="#FFFFFF">
+<img src = "http://www.watch-n-wise.com/cgi-watch-n-wise/monitor.cgi?http://www.watch-n-wise.com/survey:survey4_at_hotbot" height=1 width=1> 
+<font face="verdana, arial, helvetica, san-serif">
+<center>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#CC00FF">
+<h2>
+
+Survey of Satisfaction with Tools for Web Site Visitors Tracking and Measurement of Advertising Results
+
+</h2>
+</font>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#0000FF">
+<h3>
+
+Ten Questions
+
+</h3>
+</center>
+</font>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<br>
+<center>
+
+Please answer each item by clicking on the part of the scale that best describes your
+judgement. Leave unanswered any item that does not apply or that is beyond your experience.
+
+</font>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#0000FF" size=-1>
+
+We greatly appreciate your answers to this survey.
+
+</font>
+</center>
+<FORM NAME="survey" METHOD="POST"  ACTION="http://www.watch-n-wise.com/cgi-watch-n-wise/survey.pl">
+<center>
+<table cellpadding=3 cellspacing=20 border=0>
+<tr>
+<td BGCOLOR="#B3D6B8" width=90% align=center>
+<font size=-1 face="verdana, arial, helvetica, san-serif"> 
+
+First, some questions about the background to setting up your site 
+
+</td>
+</tr>
+<TR>
+<TD valign=top>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<h5>
+Q1. How long have you had your Web site ?
+</h5>
+<INPUT TYPE="RADIO" NAME="q1" VALUE="1-6 months">1-6 months
+<br><INPUT TYPE="RADIO" NAME="q1" VALUE="7-12 months">7-12 months
+<br><INPUT TYPE="RADIO" NAME="q1" VALUE="1-2 years">1-2 years
+<br><INPUT TYPE="RADIO" NAME="q1" VALUE="more than 2 years">more than 2 years
+<h5>
+Q2. What was the primary aim in setting up a Web site ?
+</h5>
+(Multiple items may be chosen)
+<br>
+<br>
+<INPUT TYPE="checkbox" NAME="q2" VALUE="Internet selling">Internet selling
+<br><INPUT TYPE="checkbox" NAME="q2" VALUE="Extended marketing exposure">Extended marketing exposure
+<br><INPUT TYPE="checkbox" NAME="q2" VALUE="Advertising without Internet-based selling">Advertising without Internet-based selling
+<br><INPUT TYPE="checkbox" NAME="q2" VALUE="Testing the value of Web marketing">Testing the value of Web marketing
+<br><INPUT TYPE="checkbox" NAME="q2" VALUE="An information site">An information site
+<br><INPUT TYPE="checkbox" NAME="q2" VALUE="Other">Other
+</td>
+</tr>
+</font>
+<tr>
+<td BGCOLOR="#B3D6B8" width=90% align=center>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+
+We would now like you to answer some questions about how your Web site is functioning. 
+
+</td>
+</tr>
+</font>
+<tr>
+<TD valign=top>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<h5>
+
+Q3. The number of visitors to your Web site
+
+</h5>
+<INPUT TYPE="RADIO" NAME="q3" VALUE="below expectations">Below expectations
+<br><INPUT TYPE="RADIO" NAME="q3" VALUE="about as expected">About as expected
+<br><INPUT TYPE="RADIO" NAME="q3" VALUE="above expectations">Above expectations
+<br><INPUT TYPE="RADIO" NAME="q3" VALUE="dont know">Dont know
+<h5>
+Q4. The actual cost of running the Web site
+</h5>
+<INPUT TYPE="RADIO" NAME="q4" VALUE="below expectations">Below expectations
+<br><INPUT TYPE="RADIO" NAME="q4" VALUE="about as expected">About as expected
+<br><INPUT TYPE="RADIO" NAME="q4" VALUE="above expectations">Above expectations
+<br><INPUT TYPE="RADIO" NAME="q4" VALUE="free of charge">Free of charge
+<h5>
+Q5. The ease with which people can find your site through the search engines 
+</h5>
+<INPUT TYPE="RADIO" NAME="q5" VALUE="very difficult">Very difficult
+<br><INPUT TYPE="RADIO" NAME="q5" VALUE="very easy">Very easy
+<br><INPUT TYPE="RADIO" NAME="q5" VALUE="dont know">Dont know
+<h5>
+Q6. The level of service from your Web site provider
+</h5>
+<INPUT TYPE="RADIO" NAME="q6" VALUE="Poor">Poor
+<br><INPUT TYPE="RADIO" NAME="q6" VALUE="Satisfactory">Satisfactory
+<br><INPUT TYPE="RADIO" NAME="q6" VALUE="Excellent">Excellent
+<br><INPUT TYPE="RADIO" NAME="q6" VALUE="not applicable">Not applicable
+<br> 
+</td> 
+</tr>
+</font>
+
+<tr>
+<td BGCOLOR="#B3D6B8" width=90% align=center>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+
+Could you now think about your general evaluations of the Web site 
+
+</td>
+</tr>
+</font>
+<TR>
+<TD valign=top>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<h5>
+
+Q7. The extent to which the Web site has met the expectations you had in setting up
+
+</h5>
+<INPUT TYPE="RADIO" NAME="q7" VALUE="Not met expectations">Not met expectations
+<br><INPUT TYPE="RADIO" NAME="q7" VALUE="Met all expectations">Met all expectations
+<br><INPUT TYPE="RADIO" NAME="q7" VALUE="dont know">Dont know
+<h5>
+Q8. Which kind of tool you use to track visitors to your Web site and/or measure advertising results 
+</h5>
+(Multiple items may be chosen)
+<br>
+<br>
+<INPUT TYPE="checkbox" NAME="q8" VALUE="Server Log File based">Server Log File based
+
+<br><INPUT TYPE="checkbox" NAME="q8" VALUE="Counter">Counter
+
+<br><INPUT TYPE="checkbox" NAME="q8" VALUE="Tracker">Tracker
+
+<br><INPUT TYPE="checkbox" NAME="q8" VALUE="Other tool">Other tool
+
+<br><INPUT TYPE="checkbox" NAME="q8" VALUE="Dont Use">Dont Use
+
+<br>
+<br>
+
+Enter the name(s) of the tool(s) that you use: <INPUT TYPE="text" NAME="Name of the tool" size=40>
+
+<h5>
+
+Q9. Overall satisfaction with this tool 
+
+</h5>
+<INPUT TYPE="RADIO" NAME="q9" VALUE="very dissatisfied">Dissatisfied
+<br><INPUT TYPE="RADIO" NAME="q9" VALUE="satisfied">Satisfied
+<br><INPUT TYPE="RADIO" NAME="q9" VALUE="very satisfied">Very satisfied
+<h5>
+
+Q10. The likelihood you will continue to use a tool
+
+</h5>
+<INPUT TYPE="RADIO" NAME="q10" VALUE="very unlikely">Very unlikely
+<br><INPUT TYPE="RADIO" NAME="q10" VALUE="very likely">Very likely
+<br><INPUT TYPE="RADIO" NAME="q10" VALUE="dont know">Dont know
+</td> 
+</tr>
+</font>
+<tr>
+<td BGCOLOR="#B3D6B8" width=90% align=center>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+
+Final question 
+
+</td>
+</tr>
+<tr>
+</font>
+<TD valign=top>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<h5>
+
+Q11. If you would like to be informed about accessing the summary report, 
+fill out the details below - your information will not be placed in any mailing 
+database.
+
+</h5>
+<br>Name: <INPUT TYPE="text" NAME="Name" SIZE=30>
+<br>E-mail address: <INPUT TYPE="text" NAME="E-Mail_address" SIZE=30>
+</font>
+</td> 
+</tr>
+</table>
+
+<hr>
+
+<font face="verdana, arial, helvetica, san-serif" COLOR="#0000FF" size=-1>
+
+<h5>
+
+Are there any comments or suggestions you would like to make about this survey ?
+
+</h5>
+
+</font>
+
+<center>
+
+<textarea name="comments" rows=4 cols=60>
+
+</textarea>
+
+</center>
+
+<hr>
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-1>
+<center><INPUT TYPE="SUBMIT" VALUE="Submit">
+</font>
+</center>
+
+</FORM>
+
+<br>
+
+<center>
+
+<font face="verdana, arial, helvetica, san-serif" COLOR="#0000FF">
+
+<h3>
+
+Thank you for completing this survey.
+
+</h3>
+
+</font>
+
+<hr>
+
+</center>
+
+<font face="verdana, arial, helvetica, san-serif" COLOR="#000000" size=-2>
+
+<center>
+
+Contact: <A HREF="mailto:wise2@netvision.net.il">wise2@internet-zahav.net</A> if you have any questions about this survey 
+
+</center>
+
+</font>
+
+<br>
+
+</font>
+</body>
+</html>
+
+
+

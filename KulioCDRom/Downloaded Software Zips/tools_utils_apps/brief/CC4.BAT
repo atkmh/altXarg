@@ -1,0 +1,1 @@
+cl -c -nologo -W4 -Oegcsl -Zp -Gs -AL -Fo..\obj_k\ %1.c

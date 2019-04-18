@@ -1,0 +1,1409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://news400.com/resources/WhitePapers/0298-5250/ -->
+<HTML><HEAD><TITLE>5250 Emulation and Connectivity</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=_top http-equiv=Window-target><LINK 
+href="5250 Emulation and Connectivity_files/headerstylesheet.css" rel=stylesheet 
+type=text/css>
+<SCRIPT language=javascript>
+<!--
+//this sets some defaults for pre-4 browsers
+var IE4=0;
+var Nav4=0;
+function showMenu(){
+	return;
+}
+
+function hideMenus(){
+	return;
+}
+
+//these define the ticker layers
+
+var TBlinks = new Array(
+		"http://www.news400store.com/str/magazine/news400.html?storeid=304&TCK=1",
+		"http://www.news400store.com/str/seminars/cities.cfm?TCK=1",
+		"http://www.news400store.com/str/techtraining/SpkrSearch.cfm?Pass=Topic&TopicID=6&TCK=1",
+		"http://www.news400store.com/str/books/Uniquebook2.cfm?NextBook=166&TCK=1",
+		"http://www.news400store.com/str/seminars/bldSem.cfm?StoreID=319&TCK=1"
+	);
+
+var TBlurbs = new Array(
+		"Subscribe to NEWS/400 - The #1 AS/400 Magazine Worldwide!",
+		"Come to a NEWS/400 Seminar-Click Here for the Full Schedule!",
+		"Java Programming Lab - at the NEWS/400 Technical Training Center!",
+		"Implementing NT on the AS/400 - a new book from NEWS/400 . . .",
+		"Learn RPG IV from Bryan Meyers at a NEWS/400 seminar . . . "
+	);
+
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+<!--
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='/newscfincludes/header.js'><\/SCRIPT>");
+menuOnOff = "OFF";
+//-->
+</SCRIPT>
+
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<SCRIPT language=javascript>
+<!--
+var noDHTML = (IE4==0&&Nav4==0) ? 1 : 0;
+//-->
+</SCRIPT>
+
+<DIV id=NODHTML></DIV>
+<P>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><IFRAME frameBorder=0 height=60 marginHeight=0 
+      marginWidth=0 noResize scrolling=no 
+      src="5250 Emulation and Connectivity_files/adforce.ads.imgis.htm" 
+      width=468>
+<script language=javascript src="http://adforce.ads.imgis.com/?addyn|2.0|208|48068|263082841|1|GRP=1;loc=700;">
+</script>
+<noscript>
+<a href="http://adforce.ads.imgis.com/?adlink|2.0|208|48068|26308284|1|GRP=1;loc=300;" target=_top>
+<img src="http://adforce.ads.imgis.com/?adserv|2.0|208|48068|26308284|1|GRP=1;loc=300;" border=0 width=468 height=60></a>
+</noscript>
+</IFRAME></TD>
+    <TD vAlign=top><A 
+      href="http://www.news400.com/images/web-banner-index.htm"><IMG border=0 
+      src="5250 Emulation and Connectivity_files/adinfo.gif"></A></TD></TR></TBODY></TABLE></P>
+<SCRIPT language=javascript1.2>
+<!--
+//this just tests for NODHTML...this way if style sheets are off, it'll still work
+if(Nav4){
+	noDHTML=(document.NODHTML) ? 0 : 1;
+}else if(IE4){
+	noDHTML=(document.all.NODHTML) ? 0 : 1;
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+if(noDHTML==1){
+document.writeln('<form method="get" action="/samples/search/allsite.cfm" name="QuickSearch">');
+document.writeln('<table border="0" cellpadding="0" cellspacing="5">');
+document.writeln('<tr>');
+document.writeln('<td width="297" height="89" rowspan="2">');
+document.writeln('<a href="http://www.news400.com" target="_top"><img src="/newscfincludes/headerimages/news400.GIF" width=297 height=55 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.writeln('<a href="http://www.source400.com"><img src="/newscfincludes/headerimages/source400.GIF" width=297 height=16 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.writeln('<a href="http://www.sellingas400.com"><img src="/newscfincludes/headerimages/sellingas4002.GIF" width=297 height=18 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.write('<a href="/navbar/glance-forums.html"><img src="/newscfincludes/headerimages/forums.gif" width="54" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-features.html"><img src="/newscfincludes/headerimages/features.gif" width="55" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/products400/index.htm"><img src="/newscfincludes/headerimages/products.gif" width="57" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-resources.html"><img src="/newscfincludes/headerimages/resources.gif" width="65" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-news400.html"><img src="/newscfincludes/headerimages/aboutus.gif" width="66" height="18" alt="" border="0" hspace="0" vspace="0"></a></td>');
+document.writeln('<td colspan="2" valign="bottom" height="31">');
+document.writeln('<table border="0" cellpadding="0" cellspacing="0"><tr><td valign="bottom"><nobr><font size="1" face="arial, helvetica"><a href="http://www.news400.com/" class="headerLink"  target="_top"><font color="#990000">Home</font></a> | <a href="/search/sitecontents/sitecontents.html" class="headerLink"><font color="#990000">Map</font></a> | <a href="/samples/search/queryhit.htm" class="headerLink"><font color="#990000">More Search</font></a>&nbsp;&nbsp;</font></nobr></td><td><img src="/newscfincludes/headerimages/QuickSearch.GIF" width=85 height=7 alt="Quick Search" border="0"><br><input type="text" size="10" name="word1" maxlength="100" value=""></td><td><input type="image" src="/newscfincludes/headerimages/go.GIF" width="24" height="24" alt="" border="0" align="absmiddle"></td></tr></table>');
+document.writeln('</td>');
+document.writeln('</tr>');
+document.writeln('<tr>');
+document.writeln('<td valign="bottom">');
+document.writeln('<table border="0" cellpadding="0" cellspacing="0" width="200">');
+document.writeln('<tr>');
+document.writeln('<td width="200" height="14" bgcolor="#000000" align="center"><img src="/newscfincludes/headerimages/onsaleRND.GIF" width=200 height=14 alt="" border="0"></td>');
+document.writeln('</tr>');
+document.writeln('<tr>');
+document.writeln('<td width="200" height="40" bgcolor="#000000">');
+document.writeln('<a href="' +
+		"http://www.news400store.com/str/books/Uniquebook2.cfm?NextBook=166&TCK=1"+ '" class="Tick3"><font face="arial" size="1" color="#ffffff">' +
+		"Implementing NT on the AS/400 - a new book from NEWS/400 . . ."+ '</font></a>');
+document.writeln('</td>');
+document.writeln('</tr>');
+document.writeln('<tr>');
+document.writeln('<td width="200" height="12" bgcolor="#000000" align="center"><img src="/newscfincludes/headerimages/clickhereRND.gif" width=200 height=12 alt="" border="0"></td>');
+document.writeln('</tr>');
+document.writeln('</table>');
+document.writeln('</td>');
+document.writeln('<td valign="top">');
+document.writeln('<font size="1" face="arial, helvetica"><span id="nHead">NEWS/400</span><br>');
+document.writeln('<a href="http://www.news400store.com/str/magazine/news400.html?storeid=304" class="headerLink"><font color="#990000">Subscribe</font></a><br>');
+document.writeln('<a href="/contact-us/mediakit/" class="headerLink"><font color="#990000">Advertise</font></a><br>');
+document.writeln('<a href="http://www.news400store.com/str/magazine/news400.html?storeid=304" class="headerLink"><font color="#990000">Free Sample</font></a><br>');
+document.writeln('<a href="/contact-us/" class="headerLink"><font color="#990000">Contact Us</font></a>');
+document.writeln('</font>');
+document.writeln('</td>');
+document.writeln('</tr>');
+document.writeln('</table>');
+document.writeln('</form>');
+}else{
+
+document.writeln('<div id="mainMenu"><table border="0" cellpadding="0" cellspacing="0" width="297">');
+document.writeln('<tr><td height="89" width="297" id="navMenu"><a href="http://www.news400.com" target="_top"><img src="/newscfincludes/headerimages/news400.GIF" width=297 height=55 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.writeln('<a href="http://www.source400.com"><img src="/newscfincludes/headerimages/source400.GIF" width=297 height=16 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.writeln('<a href="http://www.sellingas400.com"><img src="/newscfincludes/headerimages/sellingas4002.GIF" width=297 height=18 alt="" border="0" hspace="0" vspace="0"></a><br>');
+document.write('<a href="/navbar/glance-forums.html" onClick="if(Nav4||IE4)showMenu(\'forumsSub\'); return false;" onMouseOver="if((Nav4||IE4)&&(menuOnOff==\'ON\'))showMenu(\'forumsSub\');"><img src="/newscfincludes/headerimages/forums.gif" width="54" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-features.html" onClick="if(Nav4||IE4)showMenu(\'featuresSub\'); return false;" onMouseOver="if((Nav4||IE4)&&(menuOnOff==\'ON\'))showMenu(\'featuresSub\');"><img src="/newscfincludes/headerimages/features.gif" width="55" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/products400/index.htm" onClick="if(Nav4||IE4)showMenu(\'productsSub\'); return false;" onMouseOver="if((Nav4||IE4)&&(menuOnOff==\'ON\'))showMenu(\'productsSub\');"><img src="/newscfincludes/headerimages/products.gif" width="57" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-resources.html" onClick="if(Nav4||IE4)showMenu(\'resourcesSub\'); return false;" onMouseOver="if((Nav4||IE4)&&(menuOnOff==\'ON\'))showMenu(\'resourcesSub\');"><img src="/newscfincludes/headerimages/resources.gif" width="65" height="18" alt="" border="0" hspace="0" vspace="0"></a>');
+document.write('<a href="/navbar/glance-news400.html" onClick="if(Nav4||IE4)showMenu(\'aboutusSub\'); return false;" onMouseOver="if((Nav4||IE4)&&(menuOnOff==\'ON\'))showMenu(\'aboutusSub\');"><img src="/newscfincludes/headerimages/aboutus.gif" width="66" height="18" alt="" border="0" hspace="0" vspace="0"></a></td></tr></table>');
+
+document.writeln('<div id="topRow"><form method="get" action="/samples/search/allsite.cfm" name="QuickSearch"><table border="0" cellpadding="0" cellspacing="0">');
+document.writeln('<tr><td valign="bottom"><font size="1"><a href="http://www.news400.com/" class="headerLink" target="_top">Home</a> | <a href="/search/sitecontents/sitecontents.html" class="headerLink">Map</a> | <a href="/samples/search/queryhit.htm" class="headerLink">More Search</a>&nbsp;&nbsp;</font></td>');
+document.write('<td><img src="/newscfincludes/headerimages/QuickSearch.GIF" width="85" height="7" alt="Quick Search" border="0"><br><input type="text" name="word1" size="10" maxlength="100" value="                                 " height="20" onFocus="QSon(this.value);" onBlur="QSoff(this.value);">');
+document.write('</td><td><input type="image" src="/newscfincludes/headerimages/go.GIF" width="24" height="24" alt="" border="0" align="absmiddle"></td></tr></table></form>');
+document.writeln('</div>');
+
+document.writeln('<div  id="theTicker"><table border="0" cellpadding="0" cellspacing="0" width="200">');
+document.writeln('<tr><td width="200" height="14" bgcolor="#000000" align="center"><img src="/newscfincludes/headerimages/onsaleRND.GIF" width=200 height=14 alt="" border="0"></td></tr>');
+document.writeln('<tr><td width="200" height="40" bgcolor="#000000">');
+document.writeln('&nbsp;<div id="theTickerText">');
+for(t=1; t<TB.length; t++){
+	document.write(TB[t]);
+}
+document.writeln('</div></td></tr>');
+document.writeln('<tr><td width="200" height="12" bgcolor="#000000" align="center"><img src="/newscfincludes/headerimages/clickhereRND.gif" width=200 height=12 alt="" border="0"></td></tr></table>');
+document.writeln('</div>');
+document.writeln('');
+
+document.writeln('<div id="rightCell"><table border="0" cellpadding="0" cellspacing="0">');
+document.writeln('<tr><td height="70"><font size="1"><span id="nHead">NEWS/400</span><br><a href="http://www.news400store.com/str/magazine/news400.html?storeid=304" class="headerLink">Subscribe</a><br><a href="/contact-us/mediakit/" class="headerLink">Advertise</a><br><a href="http://www.news400store.com/str/magazine/news400.html?storeid=304" class="headerLink">Free Sample</a><br><a href="/contact-us" class="headerLink">Contact Us</a></font></td></tr></table>');
+document.writeln('</div>');
+document.writeln('');
+
+document.write(forums);
+document.write(features);
+document.write(products);
+document.write(resources);
+document.write(aboutus);
+document.writeln('</div>');
+}
+//-->
+</SCRIPT>
+<NOSCRIPT>
+<FORM action=/samples/search/allsite.cfm method=get name=QuickSearch>
+<TABLE border=0 cellPadding=0 cellSpacing=5>
+  <TBODY>
+  <TR>
+    <TD height=89 rowSpan=2 width=297><A href="http://www.news400.com/" 
+      target=_top><IMG alt="" border=0 height=55 hspace=0 
+      src="5250 Emulation and Connectivity_files/news400.gif" 
+      width=297></A><BR><A href="http://www.source400.com/"><IMG alt="" border=0 
+      height=16 hspace=0 
+      src="5250 Emulation and Connectivity_files/source400.gif" 
+      width=297></A><BR><A href="http://www.sellingas400.com/"><IMG alt="" 
+      border=0 height=18 hspace=0 
+      src="5250 Emulation and Connectivity_files/sellingas4002.gif" 
+      width=297></A><BR><A href="http://news400.com/navbar/glance-forums.html" 
+      onclick="hideMenus(); if(Nav4 || IE4){return false};" 
+      onmouseover="showMenu('forumsSub');"><IMG alt="" border=0 height=18 
+      hspace=0 src="5250 Emulation and Connectivity_files/forums.gif" 
+      width=54></A><A href="http://news400.com/navbar/glance-features.html" 
+      onclick="hideMenus(); if(Nav4 || IE4){return false};" 
+      onmouseover="showMenu('featuresSub');"><IMG alt="" border=0 height=18 
+      hspace=0 src="5250 Emulation and Connectivity_files/features.gif" 
+      width=55></A><A href="http://news400.com/products400/index.htm" 
+      onclick="hideMenus(); if(Nav4 || IE4){return false};" 
+      onmouseover="showMenu('productsSub');"><IMG alt="" border=0 height=18 
+      hspace=0 src="5250 Emulation and Connectivity_files/products.gif" 
+      width=57></A><A href="http://news400.com/navbar/glance-resources.html" 
+      onclick="hideMenus(); if(Nav4 || IE4){return false};" 
+      onmouseover="showMenu('resourcesSub');"><IMG alt="" border=0 height=18 
+      hspace=0 src="5250 Emulation and Connectivity_files/resources.gif" 
+      width=65></A><A href="http://news400.com/navbar/glance-news400.html" 
+      onclick="hideMenus(); if(Nav4 || IE4){return false};" 
+      onmouseover="showMenu('aboutusSub');"><IMG alt="" border=0 height=18 
+      hspace=0 src="5250 Emulation and Connectivity_files/aboutus.gif" 
+      width=66></A></TD></TD>
+    <TD colSpan=2 height=31 vAlign=bottom>
+      <TABLE border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=bottom><NOBR><FONT face="arial, helvetica" size=1><A 
+            class=headerLink href="http://www.news400.com/" target=_top><FONT 
+            color=#990000>Home</FONT></A> | <A class=headerLink 
+            href="http://news400.com/search/sitecontents/sitecontents.html"><FONT 
+            color=#990000>Map</FONT></A> | <A class=headerLink 
+            href="http://news400.com/samples/search/queryhit.htm"><FONT 
+            color=#990000>More Search</FONT></A>&nbsp;&nbsp;</FONT></NOBR></TD>
+          <TD><IMG alt="Quick Search" border=0 height=7 
+            src="5250 Emulation and Connectivity_files/QuickSearch.gif" 
+            width=85><BR><INPUT maxLength=100 name=word1 size=10></TD>
+          <TD><INPUT align=absMiddle alt="" border=0 height=24 
+            src="5250 Emulation and Connectivity_files/go.gif" type=image 
+            width=24></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=bottom>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width=200>
+        <TBODY>
+        <TR>
+          <TD align=middle bgColor=#000000 height=14 width=200><IMG alt="" 
+            border=0 height=14 
+            src="5250 Emulation and Connectivity_files/onsaleRND.gif" 
+          width=200></TD></TR>
+        <TR>
+          <TD bgColor=#000000 height=40 width=200><A 
+            href="http://www.news400store.com/str/books/Uniquebook2.cfm?NextBook=166&amp;TCK=1"><FONT 
+            color=#ffffff face=arial size=1>Implementing NT on the AS/400 - a 
+            new book from NEWS/400 . . .</FONT></A> </TD></TR>
+        <TR>
+          <TD align=middle bgColor=#000000 height=12 width=200><IMG alt="" 
+            border=0 height=12 
+            src="5250 Emulation and Connectivity_files/clickhereRND.gif" 
+            width=200></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top><FONT face="arial, helvetica" size=1><SPAN 
+      id=nHead>NEWS/400</SPAN><BR><A class=headerLink 
+      href="http://www.news400store.com/str/magazine/news400.html?storeid=304"><FONT 
+      color=#990000>Subscribe</FONT></A><BR><A class=headerLink 
+      href="http://news400.com/contact-us/mediakit/"><FONT 
+      color=#990000>Advertise</FONT></A><BR><A class=headerLink 
+      href="http://www.news400store.com/str/magazine/news400.html?storeid=304"><FONT 
+      color=#990000>Free Sample</FONT></A><BR><A class=headerLink 
+      href="http://news400.com/contact-us/"><FONT 
+      color=#990000>Contact-Us</FONT></A> 
+</FONT></TD></TR></TBODY></TABLE></FORM></NOSCRIPT><BR><ILAYER above="mainMenu" 
+visibility="show">
+<P align=center><FONT color=#7a4702 size=+5><B>5250 EMULATION &amp; 
+CONNECTIVITY</B></FONT></P>
+<P>There was a time when all IBM midrange devices attached directly to their 
+hosts, using twinax cable. Back then, 5250/SDLC protocol and the EBCDIC 
+character set were the order of the day. </P>
+<P>Then along came PCs -- with asynchronous communications and the ASCII 
+character set -- and everything changed. PCs, of course, don't natively speak 
+5250/SDLC/EBCDIC, just like AS/400's don't natively speak ASCII/async. So in 
+answer to this dilemma came 5250 emulation for PCs. </P>
+<P>These days, nearly every AS/400 shop has to address the 5250 question, and 
+the once-simple answers have been complicated by some powerful factors -- 
+notably the Internet and the success of Microsoft's Windows family of operating 
+systems. Today's 5250 emulation and connectivity solutions offer much in the way 
+of choice and functionality, from low-end PC connectivity to advanced 
+browser-based access. Here's a look at how the their features match up with your 
+shop's needs. </P>
+<H3><FONT color=#7a4702>FROM PAST TO PRESENT</FONT> </H3>
+<P>Let's start with a little review. Several different solutions have been 
+developed in support of 5250 emulation and communications -- first was the 5250 
+emulation card. Installed in a PC, the 5250 emulation card tricks the AS/400 
+into thinking the PC is a 5250-capable device by providing basic translation 
+between the PC's ASCII/async world and the AS/400's 5250/SDLC/EBCDIC 
+environment. </P>
+<P>The next evolution of 5250 connectivity was IBM's PC Support, now Client 
+Access/400. Beyond mere 5250 emulation, PC Support added features such as file 
+transfer between the AS/400 and the PC, the ability to use PC printers as AS/400 
+printers, and shared folders that let you store PC data on the AS/400. </P>
+<TABLE align=left cellPadding=5 width=50>
+  <TBODY>
+  <TR>
+    <TD align=middle vAlign=center>
+      <H2>................................ </H2>
+      <H2 align=right><FONT color=#7a4702>"The once-simple answers have been 
+      complicated by some powerful factors."</FONT> </H2>
+      <H2>................................ </H2></TD></TR></TBODY></TABLE>
+<P>As IS Managers struggled with the world of PC Support, however, vendors were 
+introducing other 5250 solutions, such as protocol converters, a purely hardware 
+solution that translates the protocol of one computing device into the protocol 
+of another. Whereas a 5250 emulation card can accommodate only one PC at a time, 
+protocol converters can simultaneously accommodate multiple PCs or dumb 
+terminals. Adding to their flexibility, protocol converters can be employed 
+locally or remotely, and they can operate in a network. </P>
+<P>The next step in the 5250 connectivity timeline is LANs. Ethernet and 
+Token-Ring serve as the two most widely used LAN solutions in AS/400 
+installations, but these protocols are, of course, entirely different from 
+either async or 5250/SDLC communications. Although we won't get into it in depth 
+here, encapsulation is the technique that's used to handle this discrepancy. 
+</P>
+<P>LANs also brought network operating systems (NOSs), such as Novell's NetWare 
+and Microsoft's Windows NT, to the AS/400 world. NOSs can add a lot of "chatter" 
+to a LAN, so NOS vendors also created gateway products, such as NetWare for SAA 
+and SNA Server, to perform the necessary translation between "LAN-speak" and 
+5250/SDLC. In addition, the gateways act as filters, routing only AS/400-related 
+activity to the AS/400 (and leaving the chatter on the LAN). </P>
+<P>The Internet has further complicated the world of 5250 emulation, as the 
+Internet's native protocol is TCP/IP. Many of today's AS/400 installations run 
+TCP/IP -- even in combination with Ethernet or Token-Ring. And many TCP/IP 
+packages on the market actually simplify 5250 communications through a utility 
+commonly known as TN5250. The TN refers to Telnet, a TCP/IP utility that lets 
+one computer sign on to another -- so TN5250 allows, for example, a PC to sign 
+on to an AS/400 and appear to the AS/400 as a 5250 terminal. </P>
+<TABLE align=right bgColor=#c1bcbc border=2 cellPadding=10 width=250>
+  <TBODY>
+  <TR>
+    <TD vAlign=center>
+      <H3 align=center><FONT color=#7a4702>THE HARD(WARE) FACTS</FONT> </H3>
+      <P>Java and Windows technology are decidedly changing the face of 
+      PC-to-AS/400 5250 connectivity. But what about the hardware? After all, it 
+      was the introduction of PCs that started this whole process. There are, in 
+      fact, some exciting developments in client-to-AS/400 hardware. Of 
+      particular interest is the area of Network Computers (NCs, sometimes 
+      called network stations or thin clients). NCs have many benefits. Key 
+      among them: </P>
+      <UL>
+        <LI>Many NCs have only one moving part -- the On/Off switch. No moving 
+        parts means less hardware (e.g., disk drives) to break. 
+        <LI>Because software is installed on a server and propagated 
+        automatically to the NCs as users sign on, software and user-profile 
+        administrative tasks all take place at a central site -- making admin 
+        itself less tasking. 
+        <LI>NCs take up much less desktop space than PC cabinets. Many NCs are 
+        the size (and weight) of a hardback novel. 
+        <LI>NCs are much less expensive to buy and administrate than PCs. 
+        <LI>NCs (typically) are based on open architectures -- not dependent on 
+        any specific vendor's CPU chip or operating system. </LI></UL>
+      <P>NCs are not a flash in the pan. As time goes on, they'll find homes in 
+      more and more AS/400 installations. They can accomplish all of the 5250 
+      and applications connectivity that PCs can, but at lower costs. And when 
+      combined with the power and openness of Java, NCs spell the future of 
+      AS/400 5250 connectivity. </P></TD></TR></TBODY></TABLE>
+<P>But the Internet has even more 5250-related tricks up its sleeve in the form 
+of browsers and Java. </P>
+<P>Clearly browsers, such as Microsoft's Internet Explorer or Netscape's 
+Navigator, have become the standard interface to the Internet, including access 
+through network computers (NCs). Browsers can also use applications such as 
+TN5250 to access AS/400 data and applications. </P>
+<P>And in the latest developments, Java programmers have responded to the needs 
+of 5250 emulation: Several vendors now have Java-based 5250 emulation products. 
+In fact, Java 5250 emulation could be the final word on 5250 emulation, because 
+every device in the world capable of supporting the Java Virtual Machine (JVM) 
+can run Java-based 5250 emulation. </P>
+<H3><FONT color=#7a4702>BUT WHAT DO YOU NEED?</FONT> </H3>
+<P>The world of 5250 emulation has seen many twists and turns, and today, all of 
+these solutions are still in use to one degree or another. In fact, 5250 
+connectivity -- in any form or by any means -- may be more important now than at 
+any time in the past, as the several flavors of Windows and the growth of the 
+Internet have added complexity to selecting a 5250 solution. Today's AS/400 
+managers must -- in most cases -- factor in Windows operability and browser 
+compatibility along with "simple" 5250 networking. </P>
+<P>For illustration's sake, We'll presume that you fall into one of two 
+categories: </P>
+<UL>
+  <LI>Basic 5250 users -- AS/400 shops that simply want to eliminate their 
+  in-place 5250 terminals and use PCs to connect to the AS/400, or are using PCs 
+  and a 5250 connectivity solution but want to update or replace their current 
+  5250 technology with one of the more robust solutions available today. As a 
+  rule-of-thumb, the AS/400 installations that fall into this category are not 
+  much interested in deploying advanced 5250 solutions such as Java-based 5250 
+  emulation, or the Internet -- at least not today. 
+  <LI>Advanced 5250 users -- AS/400 installations that may have an existing 5250 
+  connectivity installation in place or are still using dumb terminals, but want 
+  to replace them with a leading-edge solution. The focus is on the very latest 
+  technology in AS/400-to-PC connectivity. Furthermore, these installations may 
+  have an interest in intranets or the Internet. In short, this group has the 
+  same 5250 connectivity needs as the basic users, and then some.</LI></UL>
+<P>Of course, both groups share certain underlying requirements regarding 5250 
+connectivity: </P>
+<UL>
+  <LI>PC-to-AS/400 5250 emulation 
+  <LI>File and database serving 
+  <LI>Printer-emulation capability 
+  <LI>Windows 3.x, 95, and/or NT connectivity</LI></UL>
+<P>We'll discuss more-advanced 5250 requirements shortly. </P>
+<H3><FONT color=#7a4702>HOW A 5250 EMULATION SOLUTION IS BUILT TODAY</FONT> 
+</H3>
+<P>Let's look at several functions of today's 5250 emulation products and see 
+how they relate to your shop's needs. </P>
+<H4><U>PC-to-AS/400 5250 Emulation</U> </H4>
+<P><B>Function:</B> Lets PCs emulate 5250 terminals </P>
+<P><B>Minimum Requirements:</B> Single-session emulation of a 5250 screen with 
+attendant functionality (e.g., command keys, attention keys, keyboard mapping). 
+</P>
+<P><B>What to Look For:</B> The session capabilities of today's 5250 emulators 
+have come a long way from the days of simple green-screen mirroring. Today, a 
+good 5250 emulator should have the capability for: </P>
+<UL>
+  <LI>Color screens -- the ability to use colors beyond "IBM green" on 5250 
+  panels, menus, and so on. Industry research has shown that color not only 
+  enhances the experience of working with a PC display, it also improves user 
+  productivity. 
+  <LI>A graphical environment for working with existing AS/400 applications 
+  <LI>Display and printer sessions 
+  <LI>Cut and paste operations 
+  <LI>Support for 5250 emulation on PCs running only DOS 
+  <LI>Ability to give authorized users access to the AS/400 through OS/400 
+  security 
+  <LI>Support for multiple, simultaneous AS/400 sessions 
+  <LI>Remote configuration and troubleshooting capabilities</LI></UL>
+<P>Especially important to advanced installations is the ability to install a 
+5250 solution only once and have that solution available to all users as soon as 
+they sign on. Most 5250 emulators in this classification are Java based (more 
+details below). </P>
+<H4><U>PC-to-AS/400 5250 File and Database Serving</U> </H4>
+<P><B>Function:</B> File serving lets you store PC files on the AS/400 and 
+access them from any PC in an attached network. Database serving provides access 
+to all AS/400 database information (similar to Structured Query Language, or 
+SQL). </P>
+<P><B>Minimum Requirements:</B> Ability to store PC data and applications on an 
+AS/400 system and access these files as if they were on a PC hard disk or a PC 
+server </P>
+<P><B>What to Look For:</B></P>
+<UL>
+  <LI>Concurrent access (for multiple users) to the same data, using byte-level 
+  locking 
+  <LI>Ability to use OS/400 security to give authorized users access to the 
+  AS/400 data 
+  <LI>Bi-directional file transfer 
+  <LI>File Transfer Protocol (FTP) support (for advanced users) 
+  <LI>Binary file transfer capability (binary file transfers are much faster 
+  than other, traditional file transfers) 
+  <LI>Window-oriented drag-and-drop file transfer 
+  <LI>ODBC (Open Database Connectivity)</LI></UL>
+<TABLE align=left cellPadding=5 width=50>
+  <TBODY>
+  <TR>
+    <TD align=middle vAlign=center>
+      <H2>................................</H2>
+      <H2 align=right><FONT color=#7a4702>"The session <BR>capabilities of 
+      today's 5250 emulators have come a long way from the days of green-screen 
+      mirroring."</FONT> </H2>
+      <H2>................................ </H2></TD></TR></TBODY></TABLE>
+<H4><U>Printer Emulation</U> </H4>
+<P><B>Function:</B> Lets a PC access and use an attached PC printer as if it 
+were an AS/400 locally attached printer. </P>
+<P><B>Minimum Requirements:</B> Some 5250 emulators, although labeled as 
+plug-and-play, actually require quite a bit of configuration and offer little or 
+no help. Real plug-and-play emulation cards (and associated software) make it 
+easy to install them -- using, for example, Wizards to help guide you through 
+the installation and set-up process. </P>
+<P><B>What to Look For:</B> Basic installations require emulation of common 
+AS/400 printers such as IBM's 3812, 5219, 4214, 4210, 5225, 5224, and 5256 
+offerings. Advanced installations will want to make sure that, in addition to 
+IBM printer emulation, their 5250 product contains full LPR/LPD support. </P>
+<P>As for additional features, some of today's 5250 printer emulation offerings 
+include "smart printing," which means the printer emulator has complete 
+Windows-like control of printing functions such as landscape/portrait printing 
+or number of copies to be printed. Consider it a major "plus" if the 
+printer/emulator uses "transmit one, print many" technology. This technique lets 
+you transmit the actual file across your network only once and then print 
+multiple copies from that file. </P>
+<TABLE align=right bgColor=#c1bcbc border=2 cellPadding=10 width=250>
+  <TBODY>
+  <TR>
+    <TD>
+      <H3 align=center><FONT color=#7a4702>A FEW WORDS ABOUT CLIENT 
+      ACCESS</FONT> </H3>
+      <P>For many AS/400 professionals, the lightning rod around which all 
+      discussion of 5250-related technology occurs is IBM's Client Access/400. 
+      But with the advancements occurring all over the 5250 market, most shops 
+      -- especially advanced ones -- are hard-put to find a good reason to 
+      deploy a new installation of IBM's Client Access/400 product. </P>
+      <P>Why? Because there are other packages available in the marketplace 
+      that, for all intents and purposes, perform the tasks of Client Access, 
+      but at less cost and, in many cases, with better <BR>(or simpler, or more 
+      robust) functionality. </P>
+      <P>How can this be true? The answer is, simply, market dynamics. The 
+      dynamics of the computing landscape have conspired to relegate Client 
+      Access to the "remember when" category of AS/400 products. </P>
+      <P>When IBM decided to put full TCP/IP support onto the AS/400 (as of 
+      V3R1), it did so knowing that TCP/IP (and its associated utilities, such 
+      as Telnet 5250) might well ring the death knell for Client Access. </P>
+      <P>First, TCP/IP is a more mature technology than Client Access, having 
+      been in constant use since the 1960s. Also, the longevity of TCP/IP means 
+      that there are scores -- if not hundreds -- of companies in the world 
+      producing innovations in TCP/IP utilities, add-ons, and so on. Few 
+      technology vendors, on the other hand, spend precious R&amp;D dollars on 
+      Client Access add-ons. In addition, there are tens of thousands of TCP/IP 
+      experts -- far more than Client Access yields. In fact, to the thousands 
+      of TCP/IP experts in the world (think about the sheer numbers of 
+      professionals involved in TCP/IP-related activities on the Internet alone) 
+      the AS/400 is just another node on a TCP/IP network. </P>
+      <P>The wide body of available TCP/IP expertise means that its support 
+      costs can be -- and often are -- lower than Client Access. The Internet, 
+      itself based on TCP/IP, is chock-full of Web sites and other repositories 
+      of knowledge about TCP/IP-related tools, tips, and techniques for getting 
+      the most out of the protocol. And even mainstream book stores such as 
+      Borders, Barnes and Nobel -- and of course Amazon.com -- have hundreds of 
+      books on understanding, installing, and tweaking TCP/IP. Obviously, Client 
+      Access doesn't enjoy nearly as much fame and widespread appeal. </P>
+      <P>Oh &shy; and there's one more detail in favor of TCP/IP over Client 
+      Access: IBM includes TCP/IP at no cost with OS/400. </P>
+      <P>So who <I>should</I> be using Client Access? There are two classes of 
+      AS/400 installations that can be advised to go the Client Access route: 
+      those that have a huge (and expensive) investment in Client Access and 
+      can't currently afford or justify the move off of Client Access and onto 
+      other solutions; and installations that have relatively basic 5250 
+      emulation needs (those defined as "basic 5250 users" in the accompanying 
+      article). </P></TD></TR></TBODY></TABLE>
+<H4><U>Microsoft/Windows Support</U> </H4>
+<P><B>Function:</B> Allows for the use of Microsoft products, such as Windows 
+and SNA Server, in conjunction with 5250 emulation sessions. Also supports 
+Windows programming techniques, as detailed below. </P>
+<P><B>Minimum Requirements:</B> A 5250 client for basic installations should at 
+least support Windows 3.x, Windows for Workgroups, or Windows 95. Advanced 
+installations should look for emulation products that support Windows 95, 
+Windows NT, and Microsoft's SNA Server. NT support is especially important due 
+to that system's increasing deployment in AS/400 installations and its 
+availability on the AS/400 as of OS/400 V4R2. SNA Server support is also 
+mandatory for advanced installations because -- to oversimplify things -- SNA 
+Server reduces the configuration complexity for Windows-AS/400 networks, and it 
+reduces nodal overhead. </P>
+<P><B>What to Look For:</B> Both basic and advanced 5250 shops should make sure 
+that the emulation solution they choose supports the version of Windows (16- or 
+32-bit) in use at their AS/400 installations. Also, Windows-oriented programming 
+techniques -- such as hot spots, list boxes, and so on -- are important 
+considerations for advanced installations. </P>
+<H4><U>PC-to-AS/400 Network Connectivity</U> </H4>
+<P><B>Function:</B> Lets PCs use a variety of means to physically or logically 
+attach to the AS/400. </P>
+<P><B>Minimum Requirements:</B> Because of the widespread popularity and 
+acceptance of Windows and Windows applications that need to logically connect to 
+the AS/400 for data, all emulation solutions, for either basic or advanced 
+installations, must have support for ODBC. </P>
+<P><B>What to Look For:</B> With the complex nature of today's AS/400 
+environments, connectivity is a tricky thing. However, when shopping for a 5250 
+emulation solution, basic users should look for a 5250 emulation solution vendor 
+whose products can attach to, or access, an AS/400 via twinax, async, 
+Token-Ring, or Ethernet. Advanced users will also want connectivity via TCP/IP. 
+</P>
+<P>Both groups should also look for products that include a Windows-capable APPC 
+router. Although there are some leading-edge products on the market today that 
+have dispensed with the need for a separate router, routing itself will continue 
+to be an issue in almost all basic 5250 installations as well as many (if not 
+most) advanced shops. Only the most progressive, leading-edge AS/400 shops -- 
+those committed, for example, to advanced thin-client technology -- should 
+consider a 5250 solution that does not use a router. </P>
+<P>On another front, any installation that's considering a move to TCP/IP as a 
+local networking alternative -- or an advanced shop that's looking to deploy an 
+intranet or extranet, or to use the Internet -- must ensure that its 5250 
+product includes support not only for basic TCP/IP and FTP, but also LPR/LPD, 
+e-mail, VB scripting, and a Web browser (preferably Netscape's Navigator or 
+Microsoft's Internet Explorer, which cover most of the browser market). </P>
+<P>Advanced installations that use either Microsoft Windows or Novell NetWare 
+will need emulation solutions that support NetWare for SAA and/or SNA Server, 
+respectively. </P>
+<H4><U>Plug-and-Play Capability</U> </H4>
+<P><B>Function:</B> Simplifies the installation process. </P>
+<P><B>Minimum Requirements:</B> The phrase "plug and play" is often thrown about 
+loosely, and you can't rely on it to mean what it should. When it comes to 5250 
+emulation, however, it's important to know that you'll be able to install and 
+set up the product smoothly. </P>
+<P><B>What to Look For:</B> In a word, Wizards -- or at least a well-documented 
+installation process and on-line Help guides. </P>
+<P>Many 5250 emulation vendors offer demo versions of their hardware (and 
+software) for evaluation purposes. Be sure to take advantage of these 
+demonstration copies -- but be sure to install the demo on a PC exactly like 
+those your users are employing. Many IS professionals install demo products on 
+their own souped-up PCs and are later surprised to find the products don't 
+perform the same way when deployed on less powerful machines. </P>
+<H4><U>Tech Support</U> </H4>
+<P><B>Function:</B> Allows for quick answers to 5250 emulation-related questions 
+and problems </P>
+<P><B>Minimum Requirements:</B> Although this "feature" may seem obvious, tech 
+support and help support have become critical issues in today's (primarily 
+networked) AS/400 environments. This is especially true in advanced 
+installations, which may be using 5250 emulation solutions that haven't been 
+subjected to years of day-in, day-out use by thousands of AS/400 shops. Any 
+vendor whose products you are considering should have a toll-free phone number 
+that connects you directly to its customer support department. </P>
+<P><B>What to Look For</B>: Beyond toll-free support, consider a well-documented 
+Web site with e-mail access, FAQs, and a message board to be a plus. Make sure, 
+however, that a vendor's Web site contains technical documentation and not just 
+marketing-oriented information. In today's world, there is no excuse for a 
+vendor to not have every scrap of technical and anecdotal data (read: real-world 
+problems from actual users) about its products on the Web. </P>
+<H3><FONT color=#7a4702>THE NEXT GENERATION</FONT> </H3>
+<P>Now let's move away from the basics and imagine a world in which: </P>
+<UL>
+  <LI>You can distribute OS/400 spool files automatically, without using SNADS 
+  or other so-called "native" AS/400 tools -- and make sure that the right spool 
+  file gets to the right user and only that user. 
+  <LI>Installing client software requires only one installation, which will 
+  automatically propagate to every desktop in your network -- without any human 
+  involvement beyond users signing on to their desktop PCs or NCs. 
+  <LI>Remote users can connect to your AS/400 without needing any pre-installed 
+  software on their PCs and can execute AS/400 tasks with amazingly fast (in 
+  some cases, sub-second) response times -- over the Internet. 
+  <LI>File transfers from your AS/400 to a desktop PC require only a 
+  drag-and-drop action on a fully GUI'd view of both your AS/400 and PC files. 
+  </LI></UL>
+<P>Those functions, and other sophisticated solutions like them, are available 
+today through leading-edge 5250 emulation products that work over the Web. </P>
+<P>The enormously important explosion of Internet technology into everyday life 
+has heralded many of the technologies detailed above. Key among these 
+Internet-related technologies are Java, push technology, and the thin client or 
+NC. </P>
+<P>In fact, the future of 5250 connectivity might be summed up in one word: 
+Java. Companies such as ADVANCED BusinessLink, Better On-line Solutions, Core 
+Technology Corporation, Farabi Technology, OpenConnect Systems, and others, are 
+using Java to deliver new functions and new performance levels in 5250 clients 
+on the Web. Some of these features include: </P>
+<UL>
+  <LI>Java-based compression routines that reduce response times across the 
+  Internet 
+  <LI>Enhanced security with Java-written SSL (and other) encryption routines 
+  <LI>Push technology, using the AS/400 as a server 
+  <LI>Easier maintenance and implementation through centralized Internet-server- 
+  or LAN-server-accessed Java applets instead of installations on every 
+  desktop</LI></UL>
+<P>In the earliest stages of 5250 emulation, having a 5250 session on your 
+screen was the best you could hope for. But now we have technologies to bring 
+LAN access, remote access, and even Internet access -- from anywhere in the 
+world -- to deliver highly sophisticated functions such as database queries, 
+spool management and distribution, graphical interfaces with cut-and-paste 
+capabilities, secure access to multiple servers, and the many advanced features 
+that are made available through Java. </P>
+<P>Early 5250 emulation products led the way for the AS/400 to become connected 
+to the departmental desktop world. Today, you have a world of choices to meet 
+your 5250 emulation and connectivity needs. </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H2 align=center><FONT color=#7a4702>THE VENDOR PERSPECTIVE</FONT> </H2>
+<H3 align=center>On the following pages we present our sponsoring vendors' 5250 
+solutions. We have gathered the product information from the vendors themselves 
+and have not extensively tested or critically reviewed the software. As with any 
+important business decision, we recommend that you perform a thorough course of 
+research to determine the solution that's best for your site. We hope that the 
+information presented here serves as a useful starting point. </H3>
+<TABLE align=center cellSpacing=15>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=200><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#ABLJAVA">ADVANCED 
+      BusinessLink (JAVA)</A></TD>
+    <TD vAlign=top><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#LogNet">LogNet 
+      Systems</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#ABLREMOTE">ADVANCED 
+      BusinessLink (REMOTE)</A></TD>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#NLynx">NLynx 
+      Corporation</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#BOS">Better 
+      On-line Solutions </A></TD>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#NetManage">Netmanage 
+      Corporation</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#CORE">Core 
+      Technology Corporation</A></TD>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#WALLDATA">Wall 
+      Data </A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#IBM">IBM</A></TD>
+    <TD><A 
+      href="http://news400.com/resources/WhitePapers/0298-5250/#WRQ">WRQ</A></TD></TR></TBODY></TABLE>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=ABLJAVA>ADVANCED BusinessLink 
+Corporation</A></FONT> </H1>
+<H2 align=center><FONT color=#7a4702>BusinessLink for JAVA</FONT> </H2>
+<P>ADVANCED BusinessLink Corporation produces some of the fastest, most robust 
+AS/400 communication solutions offered today. BusinessLink for JAVA was the 
+world's first Java 5250 client applet, and it still provides unique 5250 client 
+capabilities. </P>
+<P>BusinessLink for JAVA eliminates the need for distributing, installing, or 
+configuring client software and lets firms provide users 5250 access by simply 
+installing the product on the AS/400. The user needs only a browser to have the 
+BusinessLink for JAVA applet downloaded so that an AS/400 session can be 
+initiated. </P>
+<P>The download speed and response times are astonishingly fast, even when 
+connecting a client to an AS/400 across the Internet. According to competitive 
+evaluations ABL clients have performed, BusinessLink for JAVA is up to seven 
+times faster than other Java applet solutions, and it can provide sub-second 
+response times even over the Internet -- no matter how far away the AS/400 
+server is from the client. ABL's unique performance enhancement technology makes 
+BusinessLink for JAVA ideal for heavy-usage 5250 applications over the Web as it 
+maintains impressive scalability and performance. </P>
+<P>BusinessLink for Java incorporates an on-the-fly "GUI-izing" capability to 
+enhance 5250 applications with a graphical interface, in real time, without any 
+modification of the original program. Users get point-and-click capabilities and 
+a GUI look and feel even when deploying legacy applications over the Internet. 
+</P>
+<P>Even more impressive is the fact that BusinessLink for JAVA uses push 
+technology to push AS/400 spool files to users. Users need know nothing about 
+spool file operations or print management -- they simply click on the icon of 
+the spool file they wish to view and it's presented to them automatically, on 
+their browser. Spool files can also be HTML enhanced and can utilize full 
+graphics, forms, and so on. With this capability, incorporating images in legacy 
+5250 applications is a simple task: No longer are expensive, cumbersome imaging 
+solutions needed to display images an AS/400 installation might need. </P>
+<P>Extending this concept, spool files can even be used interactively, letting 
+users take immediate action while reading report output that interacts with 
+underlying AS/400 applications. For example, a brokerage firm can create an 
+interactive portfolio report that lets the user perform AS/400-based "what ifs" 
+while reading the previous month's investment results. </P>
+<P>Although Java applets themselves are unable to access files on the client PC, 
+BusinessLink for JAVA contains a push-based file-delivery mechanism that can 
+deliver specific AS/400 database files directly into PC applications such as 
+Excel or Access. The user simply selects a standard AS/400 menu option, and in a 
+few seconds Excel (for example) launches, containing the data generated by that 
+menu option, formatted in rows and columns, and all generated on the fly by the 
+BusinessLink/400 software. This function goes beyond static publishing to push 
+the specific data file to its intended recipient securely, without the 
+possibility of its being accessed by any other user. </P>
+<P>BusinessLink for JAVA's File Transfer and Report Printing capabilities let 
+AS/400 sites go beyond basic emulation. And BusinessLink for JAVA's impressive 
+security features eliminate the risk of having the wrong user gain access to a 
+confidential report. Altogether, BusinessLink for JAVA contains 
+industrial-strength security with an SSL 3.0 key exchange and an RSA RC4 crypto 
+engine that encrypts all data sent and received. (Many other Java-based 
+emulators secure only the browser, not the transmissions between the browser and 
+the AS/400.) </P>
+<P>BusinessLink for JAVA also lets you "mailbox" files to be delivered at a 
+future date. This feature lets AS/400 administrators generate reports at night 
+and reduce load on the AS/400 during the day. </P>
+<P>Pricing for BusinessLink for JAVA is concurrency based and volume concurrency 
+discounts are available. </P>
+<P>Finally, ABL provides help assistance -- as well as extensive demos and 
+documentation of its products -- through its own Web page, and all BusinessLink 
+for JAVA customers receive unlimited toll-free help calls to ABL's technical 
+support center. </P>
+<H3 align=center><FONT color=#7a4702>ADVANCED BusinessLink</FONT><BR><FONT 
+color=#7a4702 size=-1>BusinessLink for JAVA</FONT><BR>.......................... 
+</H3>
+<P align=center><FONT color=#7a4702>5808 LAKE WASHINGTON BLVD. SUITE 
+100<BR>KIRKLAND, WA 98033<BR>(800) 675-1855 or (425) 602-4777<BR>FAX (425) 
+602-4789<BR><A href="http://www.businesslink.com/" 
+target=_top>http://www.businesslink.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=ABLREMOTE>ADVANCED BusinessLink 
+Corporation </A></FONT></H1>
+<H2 align=center><FONT color=#7a4702>BusinessLink/REMOTE</FONT> </H2>
+<P>ABL's BusinessLink/REMOTE incorporates an Artificial Intelligence (AI) -based 
+shell in conjunction with a knowledge base to bring excellent performance over 
+lower-bandwidth (read: slow) AS/400 communication connections. </P>
+<P>Just how fast is this product? Imagine transferring data files to and from an 
+AS/400 at an average of 1 MB per minute over a 14.4 Kbps connection -- that's up 
+to 15 times faster than other router-based solutions. Yet BusinessLink/REMOTE 
+has no special requirements -- only OS/400 V3R1 or better, a LAN or Twinax 
+connection on the AS/400 side, and a generic DOS/Windows PC (or a Windows 
+95-equipped PC if you're connecting via TCP/IP). </P>
+<P>While ABL provides astounding speed, throughput remains reliable: 
+BusinessLink/REMOTE has automatic crash recovery of both file transfers and 
+sessions. The crash recovery feature lets users resume sending a file from the 
+point of interruption, ensuring complete delivery and eliminating the need to 
+retransmit data. BusinessLink/REMOTE's session recovery automatically and 
+securely returns a failed session to the point in transmission where a failure 
+occurred, without losing any information. </P>
+<P>Moreover, BusinessLink/REMOTE lets a user choose different types of 
+connections in the event of a failure. For example, suppose you're using the 
+Internet as your primary connection. Should your ISP be unavailable, you'd be 
+out of luck with most AS/400 connectivity solutions. But with BusinessLink/ 
+REMOTE, a single mouse click can switch your communication session from the 
+Internet to a direct dial-up connection and establish a link to your AS/400. 
+Despite the use of a different connection mechanism, users won't notice any 
+difference in interaction with the BusinessLink application. </P>
+<P>In addition to 5250-based applications, BusinessLink/REMOTE supports the 
+development of thin GUI clients (e.g., VB, Delphi, C), which communicate with 
+AS/400-based DTAQ receivers in a structured, BusinessLink-managed environment 
+call HSM (High Speed Messaging). The benefits of this architecture are 
+reusability as well as greater performance and scalability than could be 
+achieved in GUI 5250-based applications (such as screen scrapers), because HSM 
+servers can service many different types of clients (including HTML). HSM is a 
+sessionless, stateless architecture: It does not require an AS/400 session per 
+client nor a server per client. And one HSM server program on a small AS/400 can 
+serve hundreds or thousands of thin GUI clients with astonishing response time. 
+</P>
+<P>ABL has made its reputation through effective, fast AS/400 connectivity, but 
+it hasn't neglected security in the face of performance. BusinessLink/REMOTE -- 
+and BusinessLink for JAVA -- are the only AS/400 clients on the market with 
+industry-standard SSL (128-bit) encryption to ensure there is no eavesdropping 
+on file transfers over the Internet. </P>
+<P>BusinessLink/REMOTE's AS/400-centric administration means that setup and 
+ongoing management is performed centrally on the AS/400 rather than at each 
+client. The real benefit here becomes more apparent as the number of clients 
+increases and the management, support, and training required to operate and 
+administrate BusinessLink/REMOTE remain minimal. For example, printouts (spool 
+files) are pushed to the user once generated, obviating the burden of educating 
+users on AS/400 spool file operations and print management. Also, with 
+BusinessLink/REMOTE, there is no need to use overhead-intensive router-based 
+architectures, such as Client Access. </P>
+<P>BusinessLink/REMOTE is similar to ABL's BusinessLink for JAVA, but it is a 
+thin client as opposed to a Java applet. It offers more to AS/400 installations 
+that have applications requiring maximum performance, intensive bi-directional 
+file transfer, high-volume remote printing, or redundant connections for 
+additional back-up security. According to ABL, about 85 percent of its AS/400 
+users choose BusinessLink for JAVA, and 15 percent need the unique attributes 
+and extra power of BusinessLink/REMOTE. </P>
+<P>As with BusinessLink for JAVA, pricing for BusinessLink/REMOTE is concurrency 
+based with volume discounts. Advanced BusinessLink provides product and 
+technical assistance -- as well as demos of its products -- through its Web 
+page, and ABL customers can make unlimited toll-free help calls to ABL's 
+technical support center. </P>
+<H3 align=center><FONT color=#7a4702>ADVANCED BusinessLink</FONT><BR><FONT 
+color=#7a4702 size=-1>BusinessLink/REMOTE</FONT><BR>.......................... 
+</H3>
+<P align=center><FONT color=#7a4702>5808 LAKE WASHINGTON BLVD. SUITE 
+100<BR>KIRKLAND, WA 98033<BR>800) 675-1855 or (425) 602-4777<BR>FAX (425) 
+602-4789<BR><A href="http://www.businesslink.com/" 
+target=_top>http://www.businesslink.com/</A></FONT> </P>
+<HR>
+
+<H1 align=center><FONT color=#7a4702><A name=BOS>Better On-line Solutions</A> 
+</FONT></H1>
+<H2 align=center><FONT color=#7a4702>Javantage</FONT> </H2>
+<P>Better On-line Solution's (BOS) Javantage is an all-Java-based application 
+that provides AS/400 users with TN5250 emulation and printing -- as well as 
+secure access to AS/400 host applications -- on PCs or network computers via an 
+Internet browser. Javantage has, as the name implies, several advantages over 
+traditional 5250 emulation/connectivity software. </P>
+<P>One of the biggest jobs a system administrator has in any AS/400 organization 
+is installing and maintaining the client software that each user's machine 
+requires to access the host. With Javantage, however, the client software is 
+deployed transparently when the user accesses a designated Web page. In 
+addition, once software updates are made on the server, they are immediately 
+available to client machines with no human intervention other than signing on. 
+In this way, Javantage eliminates the need to install and upgrade emulation 
+software on each of the attached clients, reducing maintenance and overhead. 
+</P>
+<P>Unlike other Java-based 5250 products, Javantage gives you a choice as to 
+where you want to deploy it. There is no need to install a dedicated Web server 
+or application server to use this solution: You can install it on, for example, 
+a dedicated Windows 95 or NT PC if you choose, but Javantage may also be 
+installed on any AS/400 -- or other computer -- that contains the Java Virtual 
+Machine (JVM). </P>
+<P>Javantage provides a further advantage that allows it to be used in 
+organizations that will not allow the use of other Java-based AS/400 access 
+solutions. Because Java applets are served from a Web server, AS/400 
+organizations that have a TCP/IP network but no Web server cannot use 
+traditional Web-oriented Java solutions. Javantage eliminates this concern by 
+providing an integrated thin Web server that provides all of the functionality 
+required to serve Web pages and Java applets, right on the same AS/400 or 
+Windows 95/NT PC where it is installed. </P>
+<P>Javantage is particularly well suited for AS/400 environments that support a 
+mix of client computers such as Wintel PCs, Macs, Unix, and NCs. By using the 
+Java-capable Web browsers available on these platforms (and others), the 
+organization can implement a truly platform-independent 5250 emulation solution. 
+</P>
+<P>To address the security concerns associated with communications over 
+traditionally non-secure TCP/IP networks, Javantage provides triple-level 
+protection that secures TCP/IP-based host connectivity through: </P>
+<UL>
+  <LI>Dynamic long-bit encryption-key generation to secure network traffic 
+  <LI>Access may be restricted to a predefined client IP address 
+  <LI>Javantage-specific login and password </LI></UL>
+<P>Javantage also solves the TCP/IP-based printing problem through printing 
+support for AS/400 print jobs on local and networked PC printers. And Javantage 
+uses the Unicode character set so that emulation can support all languages. This 
+support includes full keyboard control as well as keys from the client keyboard 
+(such as diacritics) and support for various EBCDIC code pages. </P>
+<P>Installation and use of the system is surprisingly easy. Automatic 
+installation is accomplished by running one of two simple setup programs on a 
+Windows 95 or NT PC: One installs the software on the PC itself, and the other 
+installs the software to the AS/400 via FTP. </P>
+<P>Such a powerful product raises the question of what hardware and software is 
+required for its deployment, but Javantage's needs are quite reasonable: </P>
+<UL>
+  <LI>Hardware: An AS/400 or Windows 95/NT PC on which to install the product 
+  <LI>Host Software: JVM 1.02 (or higher) and TCP/IP connectivity (the AS/400 
+  supports this from V3R6 with installation of the JVM) 
+  <LI>Client Software: Any Java 1.1-compliant Web browser </LI></UL>
+<P>Help support from BOS includes free, unlimited, all-day (East Coast to West 
+Coast) toll-free technical support. In addition, free online software upgrades 
+and an on-line troubleshooting FAQ repository are available at BOS's Web site, 
+www.bosusa.com. </P>
+<H3 align=center><FONT color=#7a4702>Better On-line Solutions (BOS), 
+Inc.</FONT><BR><FONT color=#7a4702 
+size=-1>Javantage</FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>7762 EAST GRAY ROAD <BR>SUITE 
+300<BR>SCOTTSDALE, AZ 85260<BR>(800) 866-6267 or (602) 596-8332<BR>FAX (602) 
+951-1792<BR><A href="mailto:sales@bosusa.com">sales@bosusa.com</A><BR><A 
+href="http://www.bosusa.com/" target=_top>http://www.bosusa.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><A name=CORE><FONT color=#7a4702>Core Technology<SUP><FONT 
+size=-2>TM</FONT></SUP>Corporation </FONT></A></H1>
+<H2 align=center><FONT color=#7a4702>CTCBridge</FONT> </H2>
+<P>Core Technology<SUP>TM</SUP> Corporation is delivering on the promise of Java 
+with its 5250 emulation solution written in the Java language. CTCBridge 5250 
+for the Java platform implements 5250 emulation as a Java applet, providing 
+AS/400 access via Core's MultiBridge<SUP>®</SUP>-32 product, over an intranet or 
+the Internet. </P>
+<P>Unlike proprietary 5250 solutions that operate only on PCs, this Java-based 
+5250 emulator can run on any hardware or software architecture that supports the 
+Java Virtual Machine (JVM), including PCs (the platform for this product's 
+deployment in most of today's AS/400 installations), Macs, Unix boxes, and 
+network computers. </P>
+<P>Because CTCBridge is Java- and server-based, the latest version of the 
+CTCBridge 5250 applet will be delivered to a user's browser whenever a user 
+signs on to the server. For example, let's say you've just downloaded the newest 
+PTF for CTCBridge 5250. Rather than having to hike from PC to PC to install the 
+PTF, you simply install the PTF once, on the MultiBridge server, and every user 
+will immediately "see" the new code. </P>
+<P>This central-site capability also means that anyone connected to the server 
+that runs Multibridge -- via LAN or WAN -- can automatically have access to that 
+server and the AS/400 at the same time. Moreover, because CTCBridge 5250 is 
+deployed on an intermediate server, its operation creates no additional workload 
+on the AS/400 and requires no changes to existing AS/400 application or OS/400 
+software. </P>
+<P>CTCBridge 5250's configuration options are also maintained at the server -- 
+such as the button bar and function keys. Some configurations, such as 
+CTCBridge's desktop background color, font size, and so on, can be modified from 
+a user's desktop. </P>
+<P>From an operational point of view, CTCBridge 5250 appears in a browser 
+window. For additional flexibility, however, users can open up to four 
+additional, resizeable CTCBridge windows. In addition, CTCBridge 5250 supports 
+all standard 5250 emulation features, plus menu items for common keyboard 
+functions, a button bar, and extensive online help. </P>
+<P>CTCBridge uses password and usercode security at the NT server before 
+delivering the CTCBridge applet to a user's browser, enhancing operational 
+security. And CTCBridge can operate with or without a firewall. </P>
+<P>As mentioned, CTCBridge employs Core Technology's MultiBridge-32, a modular 
+system installed on a Windows NT server that comprises a communications server 
+program, Station Interface Modules (SIM), and Host transport. MultiBridge-32's 
+purpose is to provide TCP/IP communication from a CTCBridge desktop to an 
+AS/400. Easy to install -- and transparent to users -- MultiBridge-32 supports 
+up to 254 workstations and acts as a front-end to give users access to one or 
+more AS/400s. MultiBridge-32 operates using Web servers such as Netscape's 
+FastTrack or Microsoft's IIS. </P>
+<P>In addition, CTCBridge now offers three printing options. Printer passthrough 
+on Windows PCs lets users open a printer environment and print host-generated 
+reports on any printer -- whether the printer is physically attached to the PC 
+or is on a network; HTML screen print (available to all Java implementations) 
+opens an extra browser window to display the terminal screen information and 
+then lets you print from the browser; and JPrint screen printing provides a 
+direct method of printing to any configured Windows printer. </P>
+<P>Core Technology's help desk support is available from 8 a.m. to 8 p.m. 
+Eastern time, five days a week. In addition, on-line help support is available 
+for CTCBridge via a browser/ Web link. Support is also available via FTP, CTC's 
+own BBS, and e-mail. </P>
+<P>Core Technology supplies enhancements and upgrades to MultiBridge-32 at no 
+cost for those covered under annual support. And in conjunction with Unisys 
+Corp., Core Technology has developed FTRapid<SUP>TM</SUP>, a file transfer 
+utility for CTCBridge 5250. This add-on product is due on the market soon; 
+consult Core Technology's Web site for the latest update on this product. </P>
+<H3 align=center><FONT color=#7a4702>Core Technology Corporation 
+</FONT><BR><FONT color=#7a4702 
+size=-1>CTCBridge</FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>7435 WESTSHIRE DRIVE<BR>LANSING, MI 
+48917<BR>(800) 338-2117 or (517) 627-1521<BR>FAX (517) 627-8944<BR><A 
+href="http://as400.ctc-core.com/" 
+target=_top>http://as400.ctc-core.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=IBM>IBM</A></FONT> </H1>
+<H2 align=center><FONT color=#7a4702>5250 Express</FONT> </H2>
+<P>It should come as no surprise that IBM has new offerings in the realm of 5250 
+connectivity. But what might surprise one is the depth of IBM's newest 
+5250-related offerings. Rather than simply introducing a replacement 5250 
+emulation card or other component for an in-place product solution, IBM's new 
+5250 Express Family includes adapter cards, hubs, and software that solve 
+real-world problems in 5250 connectivity at up to 2 MBPS -- twice the rated 
+speed of traditional twinax/5250 communications. </P>
+<P>IBM's new 5250 Express Adapter and 7299 Express Hub address the need for high 
+performance in 5250 environments by supporting the AS/400's new 5250 Express 
+Data Stream -- which increases data throughput between PCs and the AS/400 by 
+nearly 400 percent over conventional 5250 emulation devices. The 5250 Express 
+Adapter is available in three models: 5250 Express ISA, 5250 Express PCI, and 
+5250 Express PC Card (PCMCIA). The 7299 Express Hub is available in both passive 
+and active configurations supporting either seven or 14 devices per hub via 
+RJ-11 or RJ-45 connector. </P>
+<P>Installing any of IBM's 5250 Express Adapters is a simple task because all 
+three models support plug-and-play. Of special interest to many AS/400 or S/36 
+shops -- particularly those that need multiple sessions but don't have access to 
+an SNA router -- is the fact that a single installed 5250 Express Adapter has 
+support for seven physical links (station addresses), allowing one PC to access 
+up to seven display stations (or six display stations and one printer station) 
+at the same time. </P>
+<P>In addition, the new 5250 Express Family will help midrange shops access 
+Internet and intranet applications via TCP/IP over twinax -- something unheard 
+of in previous 5250/twinax environments. And for IS Managers who worry that 
+every time a new product comes in the door, an existing solution (such as Client 
+Access/400 or Personal Communications/400) gets trashed, the 5250 Express 
+Adapters will operate and support users in the same manner as the older 5250 
+emulation cards -- only potentially faster. </P>
+<P>The 5250 Express Data Stream -- the key to these products' faster throughput 
+-- requires that you have a supported model of AS/400 and run one of the 
+following 5250 emulation programs: </P>
+<UL>
+  <LI>IBM Client Access Windows 95 Client V3R1M2 
+  <LI>IBM Client Access Windows NT 4.0 Workstation Client V3R1M2 
+  <LI>IBM Client Access Windows 3.1 Client V3R1M1 or V3R1M2 
+  <LI>IBM Personal Communications AS/400 Version 4.2 for Windows 95 
+  <LI>IBM Personal Communications AS/400 Version 4.2 for Windows NT 4.0 
+  <LI>IBM Personal Communications AS/400 Version 4.1 for Windows 3.1 
+  <LI>IBM 5250 Express Program Version 4.0 </LI></UL>
+<P>Pricing for IBM's 5250 Express Adapters starts at $325, and IBM's 7299 
+Express Hubs start at $425. Although these prices are higher than other 5250 
+emulation solutions, remember that IBM's 5250 Express product family offers a 
+four-fold increase in throughput and prepares you for the future with TCP/IP 
+over twinax. In addition, these products function in S/36, S/38, and both 
+white-box and black-box AS/400 environments, and they support twisted-pair 
+cabling as well as twinax. And all 5250 Express Adapters offer a lifetime 
+limited warranty. </P>
+<P>IBM has beefed-up its support offerings of late, and help support for the 
+5250 Express family of products is available through IBM's Support center at 
+(800) 237-5511 (response is guaranteed within 8 business hours); the Technical 
+Support Center BBS at (704) 594-3799, (14.4K, 8N1); and a Web page at <A 
+href="http://www.networking.ibm.com/525/525supt.html" 
+target=_top>http://www.networking.ibm.com/525/525supt.html</A>. (When calling 
+the support center about a 5250 Express product, have the customer service 
+representative route your call to queue 36WSEM, location 153.) </P>
+<H3 align=center><FONT color=#7a4702>IBM </FONT><BR><FONT color=#7a4702 
+size=-1>5250 Express</FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>CONTACT YOUR LOCAL IBM REPRESENTATIVE <BR>OR 
+IBM BUSINESS PARTNER<BR>800-CALL-IBM (426-2255)<BR><A 
+href="http://www.networking.ibm.com/5250" 
+target=_top>http://www.networking.ibm.com/5250</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=LogNet>LogNet Systems</A></FONT> 
+</H1>
+<H2 align=center><FONT color=#7a4702>LogNet 5250 for Windows</FONT> </H2>
+<P>Lognet 5250 for Windows just feels right -- it's simple to use, well 
+thought-out, and has truly useful (as opposed to whiz-bang) features. In fact, 
+Lognet 5250 for Windows is such a well-crafted 5250 emulator that it's easy to 
+overlook its elegance. Take installation, for example: Lognet 5250 for Windows 
+has a straightforward installation process that takes two minutes and three 
+mouse clicks to complete. </P>
+<P>LogNet 5250 is available in 16- and 32-bit versions, and it offers the 
+connectivity options most widely used in AS/400 installations, including twinax, 
+APPC, NetWare for SAA, SNA Server, and TCP/IP (TN5250), as well as clients for 
+TN5250 file transfer and LPD/LPR host-to-LAN printing. Lognet 5250 is also 100 
+percent register-level IBM-compatible. This product can also run up to 32 
+simultaneous host sessions. And for ease of use, you can open several sessions 
+with a single mouse click. Lognet also includes a toolkit for customizing the 
+Toolbar, ScriptPad, Hot Spots, Keyboard, and display colors. </P>
+<P>LogNet 5250 fully supports 5224-2, 5219D, and 3812 host printers. With LogNet 
+5250 Printer Emulation, you can assign printer attributes to your local printer 
+so that it can accurately emulate a remote host printer. And another nice 
+feature: The Windows Printer Setup dialog box is directly accessible from LogNet 
+5250's Display Menu Bar. </P>
+<P>LogNet has created several help venues for LogNet 5250, including 
+comprehensive help support within the product itself, a toll-free support line, 
+a specific e-mail address for LogNet 5250 support issues, a problem-report 
+support area on the Web, and an additional Web-based support area for 
+downloading patches, PTFs, updates, and so on. </P>
+<P>Despite its comprehensive features, LogNet 5250 requires only 10 to 11 MB of 
+DASD for installation -- a figure much lower than many other emulators'. In 
+addition, LogNet 5250's prices are up to 50 percent lower than competitive 
+products'. </P>
+<H3 align=center><FONT color=#7a4702>Lognet Systems, Inc.<BR><FONT color=#7a4702 
+size=-1>Lognet 5250 for Windows</FONT><BR></FONT>.......................... 
+</H3>
+<P align=center><FONT color=#7a4702>927 TEMPLE STREET, SUITE 2<BR>WHITMAN, MA 
+02382<BR>(888) 856-4638 or (781) 857-1200<BR>FAX (781) 857-1294<BR><A 
+href="mailto:lognet@lognetusa.com">lognet@lognetusa.com</A><BR><A 
+href="http://www.lognet-systems.com/" 
+target=_top>http://www.lognet-systems.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=NLynx>NLynx Systems, Inc. 
+</A></FONT></H1>
+<H2 align=center><FONT color=#7a4702>Emerald Series for Windows</FONT> </H2>
+<P>In case you haven't heard, Andrew Network Products is now NLynx Systems. The 
+name may have changed, but the company's Windows-to-IBM-midrange offerings 
+remain as impressive and full-featured as ever. The Emerald Series for Windows 
+provides AS/400 managers robust, cost-effective terminal and printer emulation 
+that supports any Windows platform. </P>
+<P>The Emerald Series consists of ES/95 client software for Windows 95 and NT, 
+versions for Microsoft SNA Server and APPC, and the IBM Enhanced Adapter 
+Edition. Remote connectivity is accomplished using the NLynx Axcess/400 with 
+RoadLynx software. Collectively, these products support multiple connectivity 
+methods: twinax using the NLynx Tec-2 card, 3XTwin® with AnyWindow software 
+(which requires no IRQs or memory segment) or IBM-compatible cards; Token-Ring; 
+APPC; Ethernet; Microsoft's SNA Server; Novell's NetWare for SAA gateway; and 
+the new NLynx ES/Server gateway solution. </P>
+<P>Installing Emerald Series is intuitive and takes only a few moments. Emerald 
+Series provides multiple display and printer session support, macro tools, host 
+command toolbox, hot spots, and choice of display colors and fonts. Moreover, 
+users can customize the user interface, increasing productivity. Simple-to-use 
+printer configurations and choice of printer fonts provide flexibility and allow 
+easy customization of print jobs, such as checks, forms, and financial reports. 
+The product's auto-rotation capability automatically recognizes and prints 
+132-column reports in landscape mode. Print support for TCP/IP is also 
+available. </P>
+<P>For bidirectional file transfer, ETU -- an industry standard --simplifies the 
+PC-to-AS/400 file upload and download process. ETU is fully compatible with all 
+Emerald Series Solutions. </P>
+<P>NLynx Systems further protects your network investment through the efforts of 
+a dynamic research and development team, providing a migration path to new and 
+enhanced solutions. ES/Server, the gateway solution, will support Windows 3.1, 
+95, NT, and Windows for Workgroups. The upcoming 4XTwin has a built-in balun to 
+simplify installation. Technical support for all products is available through a 
+telephone help desk, a Web site, and trained Business Partners worldwide. A 
+competitive pricing structure and quantity discounts are available. </P>
+<H3 align=center><FONT color=#7a4702>NLynx Systems, Inc. </FONT><BR><FONT 
+color=#7a4702 size=-1>Emerald Series for 
+Windows</FONT><BR>..........................</H3>
+<P align=center><FONT color=#7a4702>8313 HIGHWAY 71 WEST<BR>AUSTIN, TX 
+78735<BR>(800) 328-2696 or (512) 301-8000<BR>INTERNATIONAL SALES:<BR>+44 181 759 
+7307<BR><A href="http://www.nlynx.com/" 
+target=_top>http://www.nlynx.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=NetManage>NetManage, Inc. 
+</A></FONT></H1>
+<H2 align=center><FONT color=#7a4702>Chameleon HostLink 97 and NS/Portfolio 3.1 
+for AS/400</FONT> </H2>
+<P>NetManage has several products that address the 5250 world. Key among these 
+are Chameleon HostLink™ 97 and the NS/Portfolio™ family of products. </P>
+<P>Chameleon HostLink 97 gives PC users traditional Windows and Web-browser 
+access to the AS/400. With this product, an AS/400 administrator sets up a 
+host-access Web page with links to the desired applications (a typical page 
+might include links to applications such as "Order Entry," "Accounts Payable" 
+and "Inventory Control"). Users can then start a browser, go to the host-access 
+page, and simply click the desired link to gain access to the host application. 
+Because the host-access ActiveX controls and configurations are contained on the 
+Web, an AS/400 administrator needs to make changes in only one place to have 
+those changes immediately available to all users. </P>
+<P>This full-featured package from NetManage offers 5250, 3270, and Telnet 
+emulation, SNA and TCP/IP connections, FTP client and server, LPR/LPD printing, 
+a Web browser, support for all Windows platforms, and more. HostLink 97's AS/400 
+SQL Transfer allows for selective movement of data between the AS/400 and PC. 
+Chameleon HostLink 97 supports the EHLLAPI and WinHLLAPI industry standards, OLE 
+2.0 Automation, and ActiveX controls. Connection to the AS/400 can be performed 
+through native IBM protocols, TCP/IP, and/or dial-up or LAN connection. </P>
+<P>HostLink 97's 5250 terminal emulation supports monochrome or color display 
+modes. Advanced 5250 terminal features include support for OfficeVision/400 in 
+the emulation window, hotspots, graphical drag-and-drop keyboard mapping, 
+auto-resizable fonts, and a button pad. Chameleon HostLink 97 includes 
+NS/Router, and its transparent 5250-printer emulation lets your PC printer 
+appear as an IBM 5256, 5224, or 3812 printer. </P>
+<P>NetManage's NS/Portfolio family of products continues the company's line of 
+robust AS/400 connectivity solutions. NS/Portfolio comprises these key AS/400 
+solutions: </P>
+<UL>
+  <LI>NS/Portfolio 3.1 for AS/400: <BR>&shy;NS/Portfolio Select for AS/400 
+  <BR>&shy;NS/Office Partner (includes OpenWizard, OpenWrite, R/O ODBC, 
+  NS/Router) <BR>&shy;NS/Router Portfolio (16- &amp; 32-bit NS/Router) 
+  <BR>&shy;NS/Portfolio Toolbox (ActiveX sample applications, tutorials) 
+  <LI>NS/Portfolio Enterprise (includes NS/Portfolio for AS/400 &amp; 
+  NS/Portfolio for Mainframe -- 16- &amp; 32-bit versions) </LI></UL>
+<P>NS/Portfolio for AS/400 combines a complete set of client services for AS/400 
+installations employing Windows 3.x, 95, or NT. Included are 5250 display and 
+print emulation and file transfer, ODBC, shared folders, OpenWizard, OpenWrite, 
+and more. NS/Portfolio Enterprise adds mainframe 3270 capability to the client 
+offering for AS/400 sites using Windows 3.x, 95, or NT. This solution lets 
+AS/400 managers deploy and manage multigeneration Windows environments to both 
+3270 and 5250 hosts from a single source. </P>
+<P>NS/Portfolio Select for AS/400 provides 5250 display/print emulation and data 
+transfer in an integrated, single-license package for Windows 3.x, 95, and NT. 
+This offering greatly simplifies a conversion from 3.x to 95 or NT, as it is an 
+all-on-one-box solution. </P>
+<P>All NS/Portfolio packages include NetManage's NS/ Portfolio Manager, which 
+supplies simple-to-use pre-/post-installation management, and day-to-day 
+management of NS/Portfolio solutions. </P>
+<P>On the Help front, NetManage has a highly informative Web site containing 
+product information, helpful hints, and more. And speaking of help, Chameleon 
+HostLink 97 includes an online Support Wizard that assists in automatically 
+recording a problem-causing procedure and then e-mailing it either to your 
+AS/400 help desk or to NetManage's technical support. Tech support is also 
+available via telephone. </P>
+<P>Considering their impressive, full-featured nature, pricing on all of 
+NetManage's products is surprisingly low. Pricing is usually on a per-seat basis 
+with a discount structure for multiple seats. Processor pricing, based on your 
+AS/400 model group, is also available. </P>
+<H3 align=center><FONT color=#7a4702>NetManage, Inc.<BR></FONT><FONT 
+color=#7a4702 size=-1>Chameleon HostLink 97 and<BR>NS/Portfolio 3.1 for 
+AS/400</FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>10725 NORTH DE ANZA BLVD.<BR>CUPERTINO, CA 
+95014-2430<BR>(408) 973-7171<BR>IN ISRAEL: +972 4 855 0234<BR><A 
+href="http://www.netmanage.com/" 
+target=_top>http://www.netmanage.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><A name=WALLDATA><FONT color=#7a4702>Wall Data<FONT 
+color=#7a4702 size=-3><SUP>® </SUP></FONT></FONT></A></H1>
+<H2 align=center><FONT color=#7a4702>Cyberprise Host, RUMBA Access/400 95/NT 
+(V5.2)</FONT> </H2>
+<P>Wall Data's focus has always been to help companies transition their 
+enterprise systems to new platforms -- from terminals to PCs, Windows 3.x to 
+Windows 95/NT, and now from LAN/WAN to the Web. The company's latest offerings, 
+Cyberprise™ Host and RUMBA® Access400 95/NT V5.2, continue this tradition. </P>
+<P>Cyberprise Host, Wall Data's new Cyberprise strategy, offers organizations a 
+complete solution for using existing enterprise information systems as the 
+foundation of their Web-extended enterprise. One of the first of this new 
+product group, Cyberprise Host provides an integrated enterprise solution for 
+users who need secure, direct, persistent access to mission-critical information 
+and applications on host systems as well as information from enterprise 
+applications, internal corporate sources, and the Internet -- all easily viewed 
+and managed within a browser desktop. </P>
+<P>Installed on the Cyberprise server, Cyberprise Host employs -- and leverages 
+-- the concept of integrated centralized server functionality. Cyberprise Host 
+components are downloaded to the desktop one time and managed by the Cyberprise 
+server. No other application downloads are required until the application itself 
+is updated. Cyberprise Host is highly scalable and can support 1,000 concurrent 
+users accessing multiple hosts. The server manages applications to guarantee 
+authentication, version control, encryption, and so on. </P>
+<P>Cyberprise Host includes multiple technology types, including downloaded 
+ActiveX controls for a familiar character-based interface, and server-managed 
+host-to-HTML conversion for a graphical interface. </P>
+<P>Cyberprise Host integrates with the Cyberprise server's Channel Manager, 
+allowing administrators (and others) to easily create information and 
+application channels. Each channel provides easy access to host sessions and 
+corporate and public information through a simple browser interface. Cyberprise 
+Channels offer a simple menu-driven, point-and-click method for creating, 
+managing, and updating channels. And for ease of management, AS/400 system 
+administrators can create user profiles to manage individuals, groups, or an 
+entire organization. </P>
+<P>RUMBA® Access/400 95/NT V5.2 RUMBA 95/NT helps AS/400 sites migrate to 
+Windows 95/NT desktops smoothly and with minimal disruption of mission-critical 
+operations, as its object-based architecture ensures a tight fit with the 
+Windows 95/NT architecture: RUMBA 95/NT's integration results in easier 
+configuration and more stable operation than solutions that are simply ports of 
+old 16-bit technology. </P>
+<P>Moreover, AS/400 shops migrating to Windows 95/NT desktops can save time and 
+development costs because legacy applications that were written for 16-bit 
+Client Access APIs don't have to be rewritten: They will run without 
+modification on RUMBA 95/NT Altogether, Wall Data's RUMBA product line continues 
+its focus on critical AS/400 connectivity and productivity. </P>
+<UL>
+  <LI>End-user productivity is enhanced by a new ODBC driver that is, on 
+  average, 1,173 percent faster than Wall Data's previous driver over TCP/IP and 
+  16 percent faster than a competitive ODBC driver frequently used by AS/400 
+  sites. 
+  <LI>Companies can move to TCP/IP without the usual sacrifices. RUMBA now 
+  provides a full range of capabilities over native TCP/IP such as shared 
+  folders and display and file transfer 
+  <LI>RUMBA now includes a tightly integrated set of Internet applications, 
+  including the ability to open a TN5250 session from within the browser. 
+</LI></UL>
+<P>To help customers implement these solutions, Wall Data offers a wide range of 
+support and consulting services. The Comprehensive support programs for desktop 
+and Cyberprise products, for example, provide unlimited incident calls per year, 
+no charge for updates and upgrades, toll-free phone support, and 7x24 access to 
+Wall Data's extensive electronic support center. To provide an easy migration 
+path to the Cyberprise platform, Comprehensive support customers currently 
+participate in the Customer Assurance Plan (CAP), which allows an even exchange 
+of desktop RUMBA licenses for Cyberprise Host licenses. </P>
+<P>The suggested list price for RUMBA Access/400 95/NT is $300 per seat; 
+upgrades are $75. Volume pricing is also available. The suggested list price for 
+processor-based licensing ranges between $2,000 and $60,000 depending on AS/400 
+processor size. Cyberprise Host pricing was unavailable at press time. </P>
+<H3 align=center><FONT color=#7a4702>Wall Data</FONT><FONT color=#7a4702 
+size=-3><SUP>® </SUP>-- </FONT><BR><FONT color=#7a4702 size=-1>The Power of the 
+Cyberprise<SUP><FONT 
+size=-3>TM</FONT></SUP></FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>11332 NE 122ND WAY<BR>KIRKLAND, WA 
+98034<BR>800-81-RUMBA EXT. 5734 or <BR>(650) 812-1600 EXT. 5734<BR>FAX (650) 
+856-9265<BR><A href="http://www.walldata.com/" 
+target=_top>http://www.walldata.com/</A></FONT> </P>
+<P></P><IMG height=6 
+src="5250 Emulation and Connectivity_files/Horizontalrule.gif" width=500> 
+<P></P>
+<H1 align=center><FONT color=#7a4702><A name=WRQ>WRQ, Inc.</A></FONT> </H1>
+<H2 align=center><FONT color=#7a4702>Reflection for the AS/400</FONT> </H2>
+<P>The TCP/IP protocol, corporate intranets, and 32-bit Windows platforms have 
+caused a major evolution in the IT landscape. In the face of these new 
+technologies, many IT managers wonder how they can continue to provide reliable 
+LAN-to-AS/400 connectivity while keeping their budgets in check. WRQ's 
+Reflection for the AS/400 is an affordable answer to these concerns -- designed 
+to simplify host access even as the enterprise gets more complex. </P>
+<P>Terminal emulation, or host access, is the workhorse of the enterprise. It 
+affects more employees and business-critical functions than perhaps any other 
+application, so reliability is essential. In the 16-bit world, most AS/400 
+managers have depended on one vendor to provide that reliability. </P>
+<P>But now 32-bit platforms are becoming the industry standard. Applications 
+built for the 32-bit world require entirely new code bases and an expertise in 
+the new, distributed network environments. Software created without this 
+expertise can prove undependable when it matters most. </P>
+<P>WRQ specializes in providing reliable host access products for Windows NT and 
+Windows 95. Reflection for the AS/400 features full support for multitasking, 
+the Windows registry, and other advanced Windows 95 and NT features. And while 
+ensuring dependability in 32-bit host access, Reflection also turns in 
+impressive performance scores. InfoWorld called Reflection a "speed demon" and 
+gave it the Top Score award for LAN-to-AS/400 connectivity. </P>
+<P>With the growing popularity of corporate intranets, IT managers need to 
+provide host access over a wider variety of protocols than ever before. SNA 
+connectivity is vital, but so is TCP/IP access. </P>
+<P>WRQ was an early innovator in TCP/IP technology and remains committed to 
+helping customers integrate SNA networks with TCP/IP. The company's Reflection 
+for the AS/400 provides connections over the wide variety of network protocols 
+in today's intranet. </P>
+<P>For Web-to-host access, Reflection now includes Active Document support, 
+which lets users run Reflection terminal sessions in Internet Explorer or 
+Netscape Navigator, use the "forward" and "back" buttons to move between 
+sessions and other Web pages, and use links on Web pages to start Reflection 
+sessions. </P>
+<P>No IT manager likes to make endless trips to users' PCs to address minor 
+problems. It's aggravating, and it represents significant costs in time and 
+money. Reflection addresses this issue two ways. First, WRQ puts its products 
+through a rigorous testing cycle so that its software will stand up to demanding 
+business uses. Second, Reflection for the AS/400 is designed with the IT manager 
+in mind, offering a wealth of management tools to simplify deployment, 
+standardization and support, all from one central location. These tools include: 
+</P>
+<UL>
+  <LI>The Reflection Profiler, which saves time and reduces help desk calls by 
+  letting IT managers create standard settings files for user groups and control 
+  which settings and commands users can change 
+  <LI>Point-and-click icon linking to let users connect to hosts -- and load 
+  their standard settings files -- with a click of the mouse 
+  <LI>View Settings Dialog, which shows the IT manager what settings a user has 
+  modified and displays all settings in one place for troubleshooting. A single 
+  button click returns settings to customer corporate defaults </LI></UL>
+<P>In addition, Reflection for the AS/400 comes with Reflection Basic, a 
+Visual-Basic-like scripting language with built-in dialog editor, object 
+browser, and debugging tools to let you create custom front-ends to AS/400 
+applications and/or automate repetitive tasks. </P>
+<P>WRQ won InfoWorld's Product of the Year award for technical support in 
+January of 1996. Technical support options include telephone and online support, 
+comprehensive built-in help files, and specialized support and training 
+programs. A free Reflection Evaluator CD-ROM can be downloaded from WRQ's 
+extensive Web site, which also contains detailed product and technical 
+information on all WRQ products. </P>
+<P>The price of Reflection for the AS/400 is $199, with quantity discounts 
+available. </P>
+<H3 align=center><FONT color=#7a4702>WRQ, Inc.<BR></FONT><FONT color=#7a4702 
+size=-1>Reflection for the AS/400</FONT><BR>.......................... </H3>
+<P align=center><FONT color=#7a4702>1500 DEXTER AVENUE NORTH<BR>SEATTLE, WA 
+98109<BR>(800) 872-2829 OR (206) 217-7500<BR>FAX (206) 217-0293<BR><A 
+href="http://www.wrq.com/" target=_top>http://www.wrq.com/</A></FONT> 
+</P></ILAYER><!-- footer -->
+<CENTER>
+<P>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><IFRAME frameBorder=0 height=60 marginHeight=0 
+      marginWidth=0 noResize scrolling=no 
+      src="C:\DownLoad New\5250 Emulation and Connectivity_files\adforce.ads.imgis(1).htm" 
+      width=468>
+<script language=javascript src="http://adforce.ads.imgis.com/?addyn|2.0|208|48068|26308284|1|GRP=2;loc=700;">
+</script>
+<noscript>
+<a href="http://adforce.ads.imgis.com/?adlink|2.0|208|48068|26308284|1|GRP=2;loc=300;" target=_top>
+<img src="http://adforce.ads.imgis.com/?adserv|2.0|208|48068|26308284|1|GRP=2;loc=300;" border=0 width=468 height=60></a>
+</noscript>
+</IFRAME></TD>
+    <TD vAlign=top><A 
+      href="http://www.news400.com/images/web-banner-index.htm"><IMG border=0 
+      src="5250 Emulation and Connectivity_files/adinfo.gif"></A></TD></TR></TBODY></TABLE></P>
+<P>
+<HR width="70%">
+<FONT face=arial,helvetica size=2>You are at a <A href="http://www.news400.com/" 
+target=_top><B>news400.com</B></A> site.</FONT><BR><FONT face=arial,helvetica 
+size=1><A href="http://news400.com/contact-us/">Contact Us |</A> <A 
+href="mailto:webmaster@news400.com">Report Bugs | Submit 
+Comments/Suggestions</A> <A 
+href="http://news400.com/generalinfo/agreement.html">| Read Site Use 
+Agreement</A> <A href="http://news400.com/generalinfo/privacypolicy.htm">| Read 
+Privacy Policy</A></FONT><BR><FONT face=Arial,Helvetica size=1><A 
+href="http://news400.com/news400/generalinfo/copyright.html">Copyright © 1999 
+Duke Communications International.</A></FONT><BR><FONT color=#dd0000 
+face=Arial,Helvetica size=1>This site is best viewed with the latest versions of 
+Netscape or Internet Explorer, 800 x 600 resolution (or higher), and at least 
+256 colors.</FONT> 
+<P></P>
+<TABLE bgColor=black border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><A href="http://www.duke.com/" target=_top><FONT 
+      color=#ffffff face=Arial,Helvetica size=2><B>Duke 
+      Communications</B></FONT></A> &nbsp; <A href="http://www.news400.com/" 
+      target=_top><FONT color=#ffffff face=Arial,Helvetica size=1><B>NEWS/400 
+      |</B></FONT></A> <A href="http://www.29thstreetpress.com/" 
+      target=_top><FONT color=#ffffff face=Arial,Helvetica size=1><B>29th Street 
+      Press |</B></FONT></A> <A href="http://www.businessfinancemag.com/" 
+      target=_top><FONT color=#ffffff face=Arial,Helvetica size=1><B>Business 
+      Finance |</B></FONT></A> <A href="http://www.dominopro.com/" 
+      target=_top><FONT color=#ffffff face=Arial,Helvetica size=1><B>DominoPro 
+      |</B></FONT></A> <A href="http://www.sellingas400.com/" target=_top><FONT 
+      color=#ffffff face=Arial,Helvetica size=1><B>Selling AS/400 Solutions 
+      |</B></FONT></A> <A href="http://www.sqlmag.com/" target=_top><FONT 
+      color=#ffffff face=Arial,Helvetica size=1><B>SQL Server Magazine 
+      |</B></FONT></A> <A href="http://www.winntmag.com/" target=_top><FONT 
+      color=#ffffff face=Arial,Helvetica size=1><B>Windows NT 
+      Magazine</B></FONT></A> 
+</TD></TR></TBODY></TABLE></CENTER><!-- end footer --></BODY></HTML>

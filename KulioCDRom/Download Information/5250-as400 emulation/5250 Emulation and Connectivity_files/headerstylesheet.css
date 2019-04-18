@@ -1,0 +1,138 @@
+BODY {
+	BACKGROUND-COLOR: white; COLOR: black
+}
+A.mainMenu {
+	COLOR: white; FONT-FAMILY: arial; FONT-SIZE: 9pt; FONT-WEIGHT: bold; HEIGHT: 20px; TEXT-DECORATION: none
+}
+TD.subMenu {
+	BACKGROUND-COLOR: #cccc99
+}
+TD.subMenuClose {
+	BACKGROUND-COLOR: #cccc99
+}
+TD.subMenuTitle {
+	BACKGROUND-COLOR: black; COLOR: white; FONT-FAMILY: courier
+}
+A.subMenu {
+	COLOR: black; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.subMenuClose {
+	COLOR: black; FONT-FAMILY: arial; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+#forumsSub {
+	CLIP: rect(0px 200px 600px 0px); POSITION: absolute; VISIBILITY: hidden; WIDTH: 200px; Z-INDEX: 9999999
+}
+#featuresSub {
+	CLIP: rect(0px 200px 600px 0px); POSITION: absolute; VISIBILITY: hidden; WIDTH: 200px; Z-INDEX: 9999999
+}
+#productsSub {
+	CLIP: rect(0px 200px 600px 0px); POSITION: absolute; VISIBILITY: hidden; WIDTH: 200px; Z-INDEX: 9999999
+}
+#resourcesSub {
+	CLIP: rect(0px 200px 600px 0px); POSITION: absolute; VISIBILITY: hidden; WIDTH: 200px; Z-INDEX: 9999999
+}
+#aboutusSub {
+	CLIP: rect(0px 200px 600px 0px); POSITION: absolute; VISIBILITY: hidden; WIDTH: 200px; Z-INDEX: 9999999
+}
+#mainMenu {
+	HEIGHT: 100px; POSITION: relative; VISIBILITY: visible; WIDTH: 590px
+}
+#navMenu {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+A.headerLink {
+	COLOR: #990000; FONT-FAMILY: arial, helvetica; TEXT-DECORATION: none; font-height: 8pt
+}
+#nHead {
+	TEXT-DECORATION: underline; font-height: 10pt
+}
+#topRow {
+	LEFT: 305px; POSITION: absolute; TOP: 5px
+}
+#rightCell {
+	LEFT: 510px; POSITION: absolute; TOP: 35px
+}
+#theTicker {
+	LEFT: 305px; POSITION: absolute; TOP: 41px
+}
+#theTickerText {
+	CLIP: rect(0px 200px 40px 0px); LEFT: 3px; POSITION: absolute; TOP: 18px
+}
+#tick1 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick2 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick3 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick4 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick5 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick6 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick7 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick8 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick9 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick10 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick11 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick12 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick13 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick14 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick15 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick16 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick17 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick18 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick19 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick20 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+#tick21 {
+	LEFT: 0px; POSITION: absolute; TOP: 0px; VISIBILITY: hidden; WIDTH: 200px
+}
+A.tick1 {
+	COLOR: #333333; FONT-FAMILY: arial,helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.tick2 {
+	COLOR: #999999; FONT-FAMILY: arial,helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+A.tick3 {
+	COLOR: #ffffff; FONT-FAMILY: arial,helvetica; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+#NODHTML {
+	POSITION: absolute; VISIBILITY: hidden
+}
+A.AdBanner {
+	COLOR: #000000
+}

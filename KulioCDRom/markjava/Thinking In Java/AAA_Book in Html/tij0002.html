@@ -1,0 +1,145 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0001.html">Prev</a> | <a href="tij0003.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H1 ALIGN=LEFT>
+Foreword</H1>
+<DIV ALIGN=LEFT><FONT FACE="Calligraph421 BT" SIZE=4 COLOR="Black">I
+suggested to my brother Todd, who is making the leap from hardware into
+programming, that the next big revolution will be in genetic engineering.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">We&#8217;ll
+have microbes designed to make food, fuel and plastic; they&#8217;ll clean up
+pollution and in general allow us to master the manipulation of the physical
+world for a fraction of what it costs now. I claimed that it would make the
+computer revolution look small in comparison. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Then
+I realized I was making a mistake common to science fiction writers: getting
+lost in the technology (which is of course easy to do in science fiction). An
+experienced writer knows that the story is never about the things; it&#8217;s
+about the people. Genetics will have a very large impact on our lives, but
+I&#8217;m not so sure it will dwarf the computer revolution &#8211; or at least
+the information revolution. Information is about talking to each other: yes,
+cars and shoes and especially genetic cures are important, but in the end those
+are just trappings. What truly matters is how we relate to the world. And so
+much of that is about communication.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+book is a case in point. A majority of folks thought I was very bold or a
+little crazy to put the entire thing up on the Web. &#8220;Why would anyone buy
+it?&#8221; they asked. If I had been of a more conservative nature I
+wouldn&#8217;t have done it, but I really didn&#8217;t want to write another
+computer book in the same old way. I didn&#8217;t know what would happen but it
+turned out to be the smartest thing I&#8217;ve ever done with a book.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">For
+one thing, people started sending in corrections. This has been an amazing
+process, because folks have looked into every nook and cranny and caught both
+technical and grammatical errors, and I&#8217;ve been able to eliminate bugs of
+all sorts that I know would have otherwise slipped through. People have been
+simply terrific about this, very often saying &#8220;Now, I don&#8217;t mean
+this in a critical way&#8221; and then giving me a collection of errors
+I&#8217;m sure I never would have found. I feel like this has been a kind of
+group process and it has really made the book into something special.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+then I started hearing &#8220;OK, fine, it&#8217;s nice you&#8217;ve put up an
+electronic version, but I want a printed and bound copy from a real
+publisher.&#8221; I tried very hard to make it easy for everyone to print it
+out in a nice looking format but it didn&#8217;t stem the demand for the
+published book. Most people don&#8217;t want to read the entire book on screen,
+and hauling around a sheaf of papers, no matter how nicely printed,
+didn&#8217;t appeal to them either (plus I think it&#8217;s not so cheap in
+terms of laser printer toner). It seems that the computer revolution
+won&#8217;t put publishers out of business, after all. However, one student
+suggested this may become a model for future publishing: books will be
+published on the Web first, and only if sufficient interest warrants it will
+the book be put on paper. Currently, the great majority of books of all kinds
+are financial failures, and perhaps this new approach could make the publishing
+industry more profitable.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+book became an enlightening experience for me in another way. I originally
+approached Java as &#8220;just another programming language,&#8221; which in
+many senses it is. But as time passed and I studied it more deeply, I began to
+see that the fundamental intention of the language is different than in all the
+other languages I have seen.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Programming
+is about managing complexity: the complexity of the problem you want to solve
+laid upon the complexity of the machine in which it is solved. Because of this
+complexity, most of our programming projects fail. And yet of all the
+programming languages that I am aware, none of them have gone all out and
+decided that their main design goal would be to conquer the complexity of
+developing and maintaining programs. Of course, many language design decisions
+were made with complexity in mind, but at some point there were always some
+other issues that were considered essential to be added into the mix.
+Inevitably, those other issues are what causes programmers to eventually
+&#8220;hit the wall&#8221; with that language. For example, C++ had to be
+backwards-compatible with C (to allow easy migration for C programmers), as
+well as efficient. Those are both very useful goals and account for much of the
+success of C++, but they also expose extra complexity that prevents some
+projects from being finished (certainly, you can blame programmers and
+management, but if a language can help by catching your mistakes, why
+shouldn&#8217;t it?). As another example, Visual Basic (VB) was tied to BASIC,
+which wasn&#8217;t really designed to be an extensible language, so all the
+extensions piled upon VB have produced some truly horrible and un-maintainable
+syntax. On the other hand, C++, VB and other languages like Smalltalk had some
+of their design efforts focused on the issue of complexity and as a result are
+remarkably successful in solving certain types of problems.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">What
+has impressed me most as I have come to understand Java is what seems like an
+unflinching goal of reducing complexity 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>for
+the programmer
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+As if to say &#8220;we don&#8217;t care about anything except reducing the time
+and difficulty of producing robust code.&#8221; In the early days, this goal
+has resulted in code that doesn&#8217;t run very fast (although there have been
+many promises made about how quickly Java will someday run) but it has indeed
+produced amazing reductions in development time; half or less of the time that
+it takes to create an equivalent C++ program. This result alone can save
+incredible amounts of time and money, but Java doesn&#8217;t stop there. It
+goes on to wrap all the complex tasks that have become important, such as
+multithreading and network programming, in language features or libraries that
+can at times make those tasks trivial. And finally, it tackles some really big
+complexity problems: cross-platform programs, dynamic code changes, and even
+security, each of which can fit on your complexity spectrum anywhere from
+&#8220;impediment&#8221; to &#8220;show-stopper.&#8221; So despite the
+performance problems we&#8217;ve seen, the promise of Java is tremendous: it
+can make us significantly more productive programmers.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">One
+of the places I see the greatest impact for this is on the Web. Network
+programming has always been hard, and Java makes it easy (and they&#8217;re
+working on making it easier all the time). Network programming is how we talk
+to each other more effectively and cheaply than we ever have with telephones
+(email alone has revolutionized many businesses). As we talk to each other
+more, amazing things begin to happen, possibly more amazing even than the
+promise of genetic engineering.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+all ways: creating the programs, working in teams to create the programs,
+building user interfaces so the programs can communicate with the user, running
+the programs on different types of machines, and easily writing programs that
+communicate across the Internet &#8211; Java increases the communication
+bandwidth 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>between
+people
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+And I think that perhaps the results of the communication revolution will not
+be seen from the effects of moving large quantities of bits around. We shall
+see the true revolution because we will all be able to talk to each other more
+easily &#8211; one-on-one, but also in groups and as a planet. I've heard it
+suggested that the next revolution is the formation of a kind of global mind
+which results from enough people and enough interconnectedness. Java may or may
+not be the tool that foments that revolution, but at least the possibility has
+made me feel like I'm doing something meaningful here by attempting to teach
+the language.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Da Vinci Extras" SIZE=47 COLOR="Black">(</FONT><a name="_Toc407441444"></a><a name="_Toc408018369"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0001.html">Prev</a> | <a href="tij0003.html">Next</a>
+</div>
+</body></html>
+

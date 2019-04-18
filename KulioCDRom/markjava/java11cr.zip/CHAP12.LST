@@ -1,0 +1,523 @@
+listing 1
+// Demonstrate read().
+import java.io.*;
+
+class UseRead {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    char c;
+
+    System.out.println("Enter characters, 'q' to quit.");
+
+    // read characters
+    do {
+      c = (char) System.in.read();
+      System.out.println(c);
+    } while(c != 'q');
+  }
+}
+
+listing 2
+/* Display a text file.
+
+   To use this program, redirect input to the
+   file that you want to see.  For example, to
+   display a file called TEST.TXT, use the following
+   command line.
+
+   java ShowFile < TEST.TXT
+*/
+
+import java.io.*;
+
+class ShowFile {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    int i;
+
+    // read characters until end-of-file (EOF) is encountered
+    do {
+      i = System.in.read();
+      System.out.print((char) i);
+    } while(i != -1);
+  }
+}
+
+listing 3
+// Demonstrate readLine().
+import java.io.*;
+
+class ReadLines {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    // create a DataInputStream using System.in
+    DataInputStream inData = new DataInputStream(System.in);
+    String str;
+
+    System.out.println("Enter lines of text.");
+    System.out.println("Enter 'stop' to quit.");
+    do {
+      str = inData.readLine();
+      System.out.println(str);
+    } while(!str.equals("stop"));
+  }
+}
+
+listing 4
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+listing 5
+// Use a BufferedReader to read characters from the console.
+import java.io.*;
+
+class BRRead {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    char c;
+    BufferedReader br = new
+            BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Enter characters, 'q' to quit.");
+
+    // read characters
+    do {
+      c = (char) br.read();
+      System.out.println(c);
+    } while(c != 'q');
+  }
+}
+
+listing 6
+// Read a string from console using a BufferedReader.
+import java.io.*;
+
+class BRReadLines {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    // create a BufferedReader using System.in
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str;
+
+    System.out.println("Enter lines of text.");
+    System.out.println("Enter 'stop' to quit.");
+    do {
+      str = br.readLine();
+      System.out.println(str);
+    } while(!str.equals("stop"));
+  }
+}
+
+
+listing 7
+// A tiny editor.
+import java.io.*;
+
+class TinyEdit {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    // create a BufferedReader using System.in
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str[] = new String[100];
+
+    System.out.println("Enter lines of text.");
+    System.out.println("Enter 'stop' to quit.");
+    for(int i=0; i<100; i++) {
+      str[i] = br.readLine();
+      if(str[i].equals("stop")) break;
+    }
+
+    System.out.println("\nHere is your file:");
+
+    // display the lines 
+    for(int i=0; i<100; i++) {
+      if(str[i].equals("stop")) break;
+      System.out.println(str[i]);
+    }
+  }
+}
+
+listing 8
+// Demonstrate System.out.write().
+class WriteDemo {
+  public static void main(String args[]) {
+    int b;
+
+    b = 'A';
+    System.out.write(b);
+    System.out.write('\n');
+  }
+}
+
+listing 9
+PrintWriter pw = new PrintWriter(System.out, true);
+
+listing 10
+// Demonstrate PrintWriter
+import java.io.*;
+
+public class PrintWriterDemo {
+  public static void main(String args[]) {
+    PrintWriter pw = new PrintWriter(System.out, true);
+    pw.println("This is a string");
+    int i = -7;
+    pw.println(i);
+    double d = 4.5e-7;
+    pw.println(d);
+  }
+}
+
+listing 11
+/* Display a text file.
+
+   To use this program, specify the name 
+   of the file that you want to see.  
+   For example, to see a file called TEST.TXT,
+   use the following command line.
+
+   java ShowFile TEST.TXT
+*/
+
+import java.io.*;
+
+class ShowFile {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    int i;
+    FileInputStream fin;
+
+    try {
+      fin = new FileInputStream(args[0]);
+    } catch(FileNotFoundException e) {
+      System.out.println("File Not Found");
+      return;
+    } catch(ArrayIndexOutOfBoundsException e) {
+      System.out.println("Usage: ShowFile File");
+      return;
+    }
+
+    // read characters until EOF is encountered
+    do {
+      i = fin.read();
+      if(i != -1) System.out.print((char) i);
+    } while(i != -1);
+
+    fin.close();
+  }
+}
+
+listing 12
+/* Copy a text file.
+
+   To use this program, specify the name 
+   of the source file and the destination file.
+   For example, to copy a file called FIRST.TXT
+   to a file called SECOND.TXT, use the following
+   command line.
+   java CopyFile FIRST.TXT SECOND.TXT
+*/
+
+import java.io.*;
+
+class CopyFile {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    int i;
+    FileInputStream fin;
+    FileOutputStream fout;
+
+    try {
+      fin = new FileInputStream(args[0]);
+      fout = new FileOutputStream(args[1]);
+    } catch(FileNotFoundException e) {
+      System.out.println("File Not Found");
+      return;
+    } catch(IOException e) {
+      System.out.println("Error Opening Output File");
+      return;
+    } catch(ArrayIndexOutOfBoundsException e) {
+      System.out.println("Usage: CopyFile From To");
+      return;
+    }
+
+    // Copy File
+    try {
+      do {
+        i = fin.read();
+        if(i != -1) fout.write(i);
+      } while(i != -1);
+    } catch(IOException e) {
+      System.out.println("File Error");
+    }
+
+    fin.close();
+    fout.close();
+  }
+}
+
+listing 13
+import java.awt.*;
+import java.applet.*;
+
+public class SimpleApplet extends Applet {
+  public void paint(Graphics g) {
+    g.drawString("A Simple Applet", 20, 20);
+  }
+}
+
+listing 14
+<applet code="SimpleApplet" width=200 height=60>
+</applet>
+
+listing 15
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="SimpleApplet" width=200 height=60>
+</applet>
+*/
+
+public class SimpleApplet extends Applet {
+  public void paint(Graphics g) {
+    g.drawString("A Simple Applet", 20, 20);
+  }
+}
+
+listing 16
+class T {
+  transient int a; // will not persist
+  int b; // will persist
+}
+
+listing 17
+// Demonstrate instanceof operator.
+class A {
+  int i, j;
+}
+
+class B {
+  int i, j;
+}
+
+class C extends A {
+  int k;
+}
+
+class D extends A {
+  int k;
+}
+
+class InstanceOf {
+  public static void main(String args[]) {
+    A a = new A();
+    B b = new B();
+    C c = new C();
+    D d = new D();
+
+    if(a instanceof A) 
+      System.out.println("a is instance of A");
+    if(b instanceof B) 
+      System.out.println("b is instance of B");
+    if(c instanceof C) 
+      System.out.println("c is instance of C");
+    if(c instanceof A) 
+      System.out.println("c can be cast to A");
+
+    if(a instanceof C) 
+      System.out.println("a can be cast to C");
+
+    System.out.println();
+
+    // compare types of derived types
+    A ob;
+
+    ob = d; // A reference to d
+    System.out.println("ob now refers to d");
+    if(ob instanceof D) 
+      System.out.println("ob is instance of D");
+
+    System.out.println();
+
+    ob = c; // A reference to c
+    System.out.println("ob now refers to c");
+    if(ob instanceof D) 
+      System.out.println("ob can be cast to D");
+    else
+      System.out.println("ob cannot be cast to D");
+
+    if(ob instanceof A) 
+      System.out.println("ob can be cast to A");
+
+    System.out.println();
+
+    // all objects can be cast to Object
+    if(a instanceof Object) 
+      System.out.println("a may be cast to Object");
+    if(b instanceof Object) 
+      System.out.println("b may be cast to Object");
+    if(c instanceof Object) 
+      System.out.println("c may be cast to Object");
+    if(d instanceof Object) 
+      System.out.println("d may be cast to Object");
+  }
+}
+
+listing 18
+public native int meth() ;
+
+listing 19
+// A simple example that uses a native method.
+public class NativeDemo {
+  int i;
+  int j;
+
+  public static void main(String args[]) {
+    NativeDemo ob = new NativeDemo();
+
+    ob.i = 10;
+    ob.j = ob.test(); // call a native method
+    System.out.println("This is ob.j: " + ob.j);
+  }
+
+  // declare native method
+  public native int test() ;
+
+  // load DLL that contains static method
+  static {
+    System.loadLibrary("NativeDemo");
+  }
+}
+
+listing 20
+/* DO NOT EDIT THIS FILE - it is machine generated */
+#include <native.h>
+/* Header for class NativeDemo */
+#ifndef _Included_NativeDemo
+#define _Included_NativeDemo
+typedef struct ClassNativeDemo {
+  long i;
+  long j;
+} ClassNativeDemo;
+HandleTo(NativeDemo);
+#ifdef _ _ cplusplus
+extern "C" {
+#endif
+extern long NativeDemo_test(struct HNativeDemo *);
+#ifdef _ _ cplusplus
+}
+#endif
+#endif
+
+listing 21
+extern long NativeDemo_test(struct HNativeDemo *);
+
+listing 22
+/* DO NOT EDIT THIS FILE - it is machine generated */
+#include <StubPreamble.h>
+/* Stubs for class NativeDemo */
+/* SYMBOL: "NativeDemo/test()I", Java_NativeDemo_test_stub */
+_ _ declspec(dllexport) stack_item *Java_NativeDemo_test_stub(stack_item *_P_,struct 
+execenv *_EE_) {
+  extern long NativeDemo_test(void *);
+  _P_[0].i = NativeDemo_test(_P_[0].p);
+  return _P_ + 1;
+}
+
+listing 23
+/* This file contains the C version of the
+   test() method.
+*/
+#include <StubPreamble.h>
+#include "NativeDemo.h"
+#include <stdio.h>
+long NativeDemo_test(struct HNativeDemo *this)
+{
+  printf("This is inside the native method.\n");
+  printf("this->i: %ld\n", unhand(this)->i);
+  return (unhand(this)->i) * 2;
+}
+
+listing 24
+// A simple example that uses a native method.
+public class NativeDemo {
+  int i;
+  public static void main(String args[]) {
+    NativeDemo ob = new NativeDemo();
+
+    ob.i = 10;
+    System.out.println("This is ob.i before the native method:" + ob.i);
+    ob.test(); // call a native method
+    System.out.println("This is ob.i after the native method:" + ob.i);
+  }
+
+  // declare native method
+  public native void test() ;
+
+  // load DLL that contains static method
+  static {
+    System.loadLibrary("NativeDemo");
+  }
+}
+
+listing 25
+/* DO NOT EDIT THIS FILE - it is machine generated */
+#include <jni.h>
+/* Header for class NativeDemo */
+
+#ifndef _Included_NativeDemo
+#define _Included_NativeDemo
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*
+ * Class:     NativeDemo
+ * Method:    test
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_NativeDemo_test
+  (JNIEnv *, jobject);
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+
+listing 26
+JNIEXPORT void JNICALL Java_NativeDemo_test(JNIEnv *, jobject);
+
+listing 27
+/* This file contains the C version of the
+   test() method.
+*/
+
+#include <jni.h>
+#include "NativeDemo.h"
+#include <stdio.h>
+
+JNIEXPORT void JNICALL Java_NativeDemo_test(JNIEnv *env, jobject obj)
+{
+  jclass cls;
+  jfieldID fid;
+  jint i;
+
+  printf("Starting the native method.\n");
+  cls = (*env)->GetObjectClass(env, obj); 
+  fid = (*env)->GetFieldID(env, cls, "i", "I");
+
+  if(fid == 0) {
+    printf("Could not get field id.\n");
+    return;
+  }
+
+  i = (*env)->GetIntField(env, obj, fid);
+  printf("i = %d\n", i);
+  (*env)->SetIntField(env, obj, fid, 2*i);
+  printf("Ending the native method.\n");
+}
+

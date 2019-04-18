@@ -1,0 +1,426 @@
+|       Feature       |
+| *                   |
+| *                   |
+| Agent Timer         |
+| API                 |
+| Browser             |
+| Browser             |
+| Browser             |
+| Browser             |
+| Browser             |
+| Browser             |
+| Browser             |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Calendars           |
+| Categories          |
+
+| Categories          |
+
+| Categories          |
+
+| Charge  Code        |
+
+| Charge Code         |
+
+| Charge Code         |
+
+| Charge Code         |
+
+| Data Model          |
+
+| Data Model          |
+
+| Data Model Changes  |
+
+| Fields              |
+
+| Fields              |
+
+| Fields              |
+
+| Fields              |
+
+| Filter              |
+
+| Filter              |
+
+| Filter              |
+
+| Filter              |
+
+| Filter              |
+
+| Grouping of View    |
+
+| Grouping of View    |
+
+| Grouping of View    |
+
+| Grouping of View    |
+
+| Grouping of View    |
+
+| Grouping of Views   |
+
+| GUI                 |
+
+| GUI                 |
+
+| GUI                 |
+
+| GUI                 |
+
+| GUI                 |
+
+| GUI                 |
+
+| Guidelines          |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Import/Export       |
+
+| Localization        |
+
+| Localization        |
+
+| Localization        |
+
+| Localization        |
+
+| Localization        |
+
+| Localization        |
+
+| Locks               |
+
+| Locks               |
+
+| Locks               |
+
+| Performance         |
+
+| Performance         |
+
+| Performance         |
+
+| Performance         |
+
+| Preferences         |
+
+| Print               |
+
+| Print               |
+
+| Print               |
+
+| Print               |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| PRLINK              |
+
+| Process & WKFlow    |
+
+| Process & WKFlow    |
+
+| Projects            |
+
+| Projects            |
+
+| Projects            |
+
+| Projects            |
+
+| Projects            |
+
+| Projects            |
+
+| Projects            |
+
+| Protocol            |
+
+| Protocol            |
+
+| Protocol            |
+
+| Protocol            |
+
+| Reports             |
+
+| Repository Admin    |
+
+| Repository Admin    |
+
+| Repository Admin    |
+
+| Repository Admin    |
+
+| Repository Admin    |
+
+| Res. Availability   |
+
+| Resources           |
+
+| Search              |
+
+| Search              |
+
+| Services            |
+
+| Services            |
+
+| Services            |
+
+| System Log          |
+
+| System Users        |
+
+| System Users        |
+
+| Task                |
+
+| Task                |
+
+| Task                |
+
+| Task                |
+
+| Task                |
+
+| Time Periods        |
+
+| Time Periods        |
+
+| Time Periods        |
+
+| Timer               |
+
+| Timer               |
+
+| Timer               |
+
+| Timer               |
+
+| Timer               |
+
+| Timer               |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet           |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Timesheet Sum.      |
+
+| Type Code           |
+
+| Type Code           |
+
+| Upgrade             |
+
+| Upgrade             |
+
+| Upgrade             |
+
+| Upgrade             |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| User Rights         |
+
+| Utilities           |
+
+| Utilities           |
+
+| Utilities           |
+
+| Utilities           |
+
+| Utilities           |
+
+| View+Layouts        |
+
+| View+Layouts        |
+
+| View+Layouts        |
+
+| View+Layouts        |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+| Views               |
+
+

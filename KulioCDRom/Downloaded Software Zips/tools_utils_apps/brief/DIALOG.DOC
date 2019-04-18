@@ -1,0 +1,556 @@
+	HOW TO USE THE BRIEF DIALOG MANAGER PACKAGE
+
+WHAT IS THE DIALOG MANAGER?
+
+The BRIEF dialog manager is a macro package containing tools for
+generating pop-up menus and dialog boxes.  Menus allow a user to perform
+complicated tasks by choosing from lists of possible actions.  Dialog
+boxes allow a user to answer questions and fill in forms, while possibly
+restricting the set of valid answers.
+
+Many of BRIEF's standard macros (Help, for example) use the dialog
+manager.  You can use the dialog manager in your own macros, too.
+
+WHERE IS THE DIALOG MANAGER?
+
+Source code for the package is located in the files dialog.m and
+dialog.h; the compiled version is in dialog.cm.
+
+WHY USE THE DIALOG MANAGER?
+
+The BRIEF dialog manager provides a standard user interface for macros.
+If you write a macro that uses this interface properly, it will have the
+look and feel of the standard commands that are shipped with BRIEF, and
+any BRIEF user will be able to use it with minimal effort.
+
+Using the dialog manager conserves memory and avoids reinventing the
+wheel.  Suppose you frequently use Help and three other macro packages
+with separate user interfaces.  That's a lot of macros to load at once;
+BRIEF may spend a fair amount of time re-reading the disk.  The macros
+will take up far less memory if they reuse the same code.
+
+WHAT CAPABILITIES ARE PROVIDED?
+
+The dialog manager is essentially just two macro calls, one to create
+and process a menu, and one to create and process a dialog box.
+Although the dialog manager contains dozens of other macros (as well as
+several global variables,) you should seldom need to deal with them.
+(Consult the source code for more information.)
+
+Menus are pop-up windows, within which one line ("button") is always 
+highlighted.  Pressing Enter ("picking") causes an action associated
+with the highlighted button to be executed.  The up and down arrow keys
+move the highlight up or down.  Windows scroll vertically as needed.
+
+Menus offer a choice of several actions.  These actions may invoke other
+menus or dialog boxes.  In Help, for example, picking some buttons
+causes a window of help information on a particular topic to appear;
+picking others causes another menu (more detailed) to appear.
+
+Dialog boxes are the other half of the dialog manager.  Dialog boxes are
+pop-up windows that contain descriptive text and any of several kinds of
+input fields.  A user may move between fields and change the contents of
+any field.  These changes can be saved or cancelled as a group.
+
+The kinds of input fields are:
+	Filenames
+	Lists
+	Integers
+	Nonblank strings
+	Strings
+
+LISTS
+
+Lists, like menus, are multiple-choice situations; however, lists are
+choices of values, not actions, and the values are usually mutually
+exclusive.  One very common list has two choices: Yes and No.
+
+Lists appear on the screen on a single line, with items separated by
+whitespace.  A highlight is used to mark the currently selected item
+while the user's cursor is on the field; when he or she leaves, the
+highlight changes to a pair of parentheses.
+
+A list can be paired with a text string, which is usually a question:
+
+	Do you want to save your changes?  (Yes)No
+	Line drawing style:		   Single(Double)Mixed None
+
+FILENAMES, INTEGERS, NONBLANK STRINGS, AND STRINGS
+
+The number of possible answers to a question is often so great that a
+list is awkward or impossible.  In such situations, it's best to let the
+user to type in his or her answer, then check it for validity.  The user
+can be asked to re-enter an invalid answer.
+
+Filenames, Integers, Nonblank strings, and Strings behave identically
+except that they use different validation criteria.  Strings are not
+checked at all.  Nonblank strings may not be blank.  Integer fields must
+contain an integer value, and Filename fields must contain a
+syntactically legal path name.
+
+Fields are one line deep and may extend from their beginning to the
+right edge of the window.  The entire field is highlighted when the
+user's cursor enters it; the highlight disappears as soon as anything
+happens.  When the user's cursor leaves, the field contents are
+validated.
+
+KEY ASSIGNMENTS
+
+The key assignments for moving around and between menus and dialog boxes
+are standardized.  You should not change these key assignments, although
+you may add your own to the list.
+
+These key assignments are uniform throughout the dialog manager:
+Esc		Exit all levels		Keypad minus	Exit 1 level
+Ctrl-Home	Top of window		Ctrl-End	End of window
+
+Within menus, the additional assignments are:
+Enter		Pick from menu
+Up arrow	Previous item		Down arrow	Next item
+Backspace	Previous item		Space		Next item
+Home		First item		End		Last item
+PgUp		Previous page		PgDn		Next page
+Alphanumeric character   Next item beginning with character
+
+Within any dialog box field, the following keys are defined:
+Enter		Next field, or save if on last field (== Ctrl-m)
+F10		Save dialog box and exit
+Up arrow	Previous field		Down arrow	Next field
+Shift-Tab	Previous field		Tab		Previous field
+
+Within lists only, additional assignments are:
+Left arrow	Previous item		Right arrow	Next item
+Backspace	Previous item		Space		Next item
+Home		First item		End		Last item
+Alphanumeric character	Next item beginning with character
+
+Within fields (excepting lists), additional key assignments are:
+Left arrow	Left			Right arrow	Right
+Backspace	Backspace		Space		Space
+Home		Beginning of field	End		End of field
+Del		Delete character	Alt-k		Delete to end
+Ins, Alt-i	Toggle insert mode	Alt-d		Delete field
+
+When a field is highlighted, typing causes the contents of the field to
+be replaced by the new characters.
+
+	MENUS
+
+HOW TO CREATE A MENU
+
+There are 3 steps involved in creating a menu.
+
+1.  Create a data file containing the names of the menu buttons and the
+actions you want the buttons to invoke.
+
+2.  Write a macro that calls the dialog manager package.
+
+3.  Write the action macros that will handle everything the user does in
+the menu.
+
+CREATING THE MENU DATA FILE
+
+Menu data files are usually given a .mnu extension and kept in the same
+directory as the help files (specified by BHELP).
+
+A menu file contains one line for each line of the menu.  Each line
+consists of a button name and optional additional information.  When
+the menu is displayed, the additional information should be invisible
+(just past the right edge of the window).  The menu button is normally
+centered in the visible part of the line.
+
+For fastest operation, each line is normally pre-formatted; in this
+example (taken from help.mnu), spaces are used to center the buttons in
+the visible part of the window, which is delimited by the semicolons.
+Everything to the right of the semicolons is considered "additional
+information":
+
+   Help on Help    ;display_help "help"
+  Quick Reference  ;display_help "keyboard layout"
+ Key-Specific Help ;key_specific_help
+
+You can also have the menu automatically formatted.  If you do, you
+must use a semicolon as the delimiter, and leading/trailing whitespace
+around the buttons will be ignored:
+
+Help on Help;display_help "help"
+Quick Reference;display_help "keyboard layout"
+Key-Specific Help;key_specific_help
+
+Action macros, described below, are free to do whatever they want with
+the additional information.  In this case, the information is a macro
+call (complete with a string parameter), and it is passed to
+execute_macro.
+
+CALLING UP THE MENU
+
+The call to create and process a menu is as follows:
+
+(_process_menu lx by rx ty title msg filename buf_id action fast)
+
+Parameters 0 through 3 are integers, the coordinates of the left (lx),
+bottom (by), right (rx), and top (ty) edges of the window.  These are
+absolute screen coordinates; the top left corner of a 25x80 screen is
+(0, 0) and the lower right is (24, 79).  If lx equals rx or ty equals
+by, the menu is positioned at (lx, ty) and the size will be computed
+automatically based on the number of lines on the menu and the column
+position of the first semicolon.  (Be careful not to position menus
+so close to the bottom and left edges of the screen so that there's
+no room for automatic formatting.)
+
+Parameter 4 is the title of the menu, a string to be displayed in the
+top edge of the window.  It may be at most 12 characters long.
+
+Parameter 5 is a string, a message to be displayed in the bottom edge of
+the window.  Make sure it is shorter than the edge itself.
+
+You should supply either, but not both, of parameters 6 and 7.  Supply
+NULL in the place of whichever parameter you omit.  Parameter 6 is the
+filename of a menu data file (in the BHELP directory), while parameter 7
+is the identifier of a buffer containing a menu data file.  Use
+parameter 7 if you have a .mnu file already in memory and want to keep
+it there; otherwise, use parameter 6 and the dialog manager will delete
+the buffer when you're done with it.  (If you use parameter 7, then the
+title you passed in parameter 4 will be ignored, and the buffer name
+already in existence will be used.)
+
+Note that parameter 6 is assumed to be the name of a file in the
+BHELP directory unless an absolute path name is supplied.  The dialog
+manager assumes that any name containing the characters /, \, or : is
+an absolute path.
+
+Parameter 8 is a string containing the name of your main action macro,
+described below.
+
+Parameter 9 may be omitted.  If it is passed and TRUE, your menu file
+is not formatted in any way, saving oodles of time when it pops up.
+If you use this parameter, make sure to pre-format your .mnu file.
+
+The dialog manager assumes the values you pass it are correct, so be
+careful.
+
+When the call to _process_menu is encountered, the menu will pop up and
+processing of the user's keystrokes will begin immediately.  Processing
+will stop when the user presses Esc (or the keypad minus key), and
+control will return to your macro, just after the _process_menu call.
+_process_menu returns TRUE if it was able to create and process a menu,
+FALSE if an error occurred.
+
+EVENTS
+
+We have written the dialog manager to be as flexible as possible.
+Hence, the system leaves a lot of decisions and a lot of work up to your
+action macro.  The dialog manager is event-driven; it quietly goes about
+its business until an "event" of significance occurs, at which point it
+taps your macro on the shoulder, informs it of the situation, and waits
+for a response before continuing.
+
+Here's a list of all significant events, for both menus and dialog
+boxes.  Matching #define statements are contained in the file
+"dialog.h".  You should #include this file in any macro file you write
+that calls the dialog manager, so that you can refer to the event types
+by symbolic name rather than by number.
+
+DIALOG_INIT		The dialog manager has just been invoked
+DIALOG_TERM		The dialog manager is exiting
+DIALOG_ENTER_FIELD	The cursor has just entered a non-list field
+DIALOG_EXIT_FIELD	The cursor has just left a non-list field
+DIALOG_ENTER_LIST	The cursor has just entered a list
+DIALOG_EXIT_LIST	The cursor has just left a list
+DIALOG_ALTER_LIST	The current item in a list has just been changed
+DIALOG_ALTER_MENU	The current item in a menu has just been changed
+DIALOG_MOVE_MENU	(Same as DIALOG_ALTER_MENU)
+DIALOG_PICK_MENU	The user has just selected a menu button with Enter
+DIALOG_ESCAPE		The user has just pressed Esc to exit all levels
+DIALOG_F10		The user has just pressed F10 to save a dialog box
+DIALOG_GREY_MINUS	The user has just pressed the keypad minus key
+DIALOG_CREATE_MENU	A menu buffer has just been made current
+DIALOG_CREATE_DBOX	A dialog box data buffer "
+
+HOW TO WRITE THE MENU ACTION MACROS
+
+When you're working with menus, only the invoke/exit events, the
+Esc/keypad minus events, and the events for changing or selecting menu
+items can happen.  Your job is to provide a single macro that responds
+to these events; the name of this macro is parameter 8 in the call to
+_process_menu, and the macro is called by _process_menu whenever one of
+these events occurs.
+
+Suppose you call your action macro "action".  When called, action will
+be passed three parameters:
+
+	(action event_type line text)
+
+The first parameter is an integer matching one of the above #defines.
+The second is the number of the current line in the menu (note that this
+is also the number a user will see as Line: in the BRIEF message area).
+The third is the text of the entire button, including the delimiter and
+additional information (if any).
+
+In the BRIEF macro language, parameters in the calling function are only
+evaluated when the called function explicitly requests the parameter.
+This means that, for best performance, your action macro should never
+get a parameter it does not need.
+
+The normal strategy for processing events within a menu action macro is
+as follows:
+
+1.  Get the event type parameter.
+
+2.  If the event type is DIALOG_PICK_MENU, then get the line number or
+text parameters and process them as desired.  Note that the dialog
+manager does NOT execute an action associated with a button
+automatically.  Your action macro must parse the button text and execute
+the command.
+
+Commonly, a pick event will cause the action macro to pop up a window
+of text (such as help) and enter a process under the user's control.
+The window will remain visible until the user presses Esc or Keypad
+minus to signal he's done.  If the user pressed Esc, the action macro
+should push the Esc back into the keyboard buffer so that a DIALOG_ESC
+event is generated as soon as the action macro returns.
+
+3.  If the event type is DIALOG_CREATE_MENU, the unformatted menu 
+is the current buffer, and its name is the text parameter.  You can
+use this event to add buttons to the menu.
+
+(If the event type is anything else, you usually don't need to do any
+more.  However, if you want to add key assignments to the normal menu
+keymap, you can use DIALOG_INIT as a signal to add them, and DIALOG_TERM
+as a signal to remove them.  And if you want to preclude the user from
+moving to a particular line of the menu (for example, a heading) then
+you can use DIALOG_MOVE_MENU.)
+
+3.  Return TRUE.  The only time you should return FALSE is if the event
+was DIALOG_MOVE_MENU, and the line number or text was such that you
+don't want the cursor to be allowed to move to it (other lines will be
+tried until EOF or until DIALOG_MOVE_MENU succeeds).
+
+ACTION MACRO EXAMPLE
+
+The following macro, when called by the dialog manager, will handle two
+types of events.  First, the user will not be allowed to move to line 1
+or line 4.  Second, when the user picks a button, this macro will use 
+the additional information present in the .mnu file to call another macro.
+
+(macro action
+   (
+      (int      event_type
+		line_no
+		retval
+      )
+      (string   button_text)
+
+      (get_parm 0 event_type)
+      (= retval TRUE)
+
+      (switch event_type
+
+	 DIALOG_MOVE_MENU
+	    (
+	       (get_parm 1 line_no)
+
+	       (if (|| (== line_no 1) (== line_no 4))
+		  (= retval FALSE)
+	       )
+	    )
+
+	 DIALOG_PICK_MENU
+	    (
+	       (get_parm 2 button_text)
+
+	       ;**   Trim the button name and treat the additional
+	       ;**   information as a command that can be executed.
+
+	       (execute_macro (substr button_text
+	       (+ (index button_text ";") 1)))
+	    )
+      )
+      (returns retval)
+   )
+)
+
+	DIALOG BOXES
+
+HOW TO CREATE A DIALOG BOX
+
+As with menus, there are 3 steps to creating a dialog box: creating a
+data file, writing a macro that calls the dialog manager, and writing
+action macros.
+
+DATA FILES FOR DIALOG BOXES
+
+Dialog box data files must be kept in the BHELP directory.  Like menu
+files, they contain one line for each item displayed.  Each line
+contains the type of the input field, the row and column coordinates
+(relative to the window's origin) at which the field should be placed,
+and the field's initial contents.  The number of fields is unlimited
+because dialog boxes, like menus, can scroll vertically.
+
+The row and column coordinates must be surrounded by parentheses and
+separated by a comma.  The initial contents must be surrounded by double
+quotes.  Whitespace may go just about anywhere, and you can have
+comments.  The following example shows a number of legal ways of
+defining fields, and descriptive text, in a dialog box:
+
+;**  Get the speed using a 3-item list.
+Text at (1, 1) is "Speed:"
+List ( 1, 8 ) = "(Slow)Medium Fast"
+
+;**  Get the user's name.  Make sure they enter one.
+text (3,1) "Name:"
+	nonblank(3,9)  "Your name goes here"
+;**  Prompt for user's age.  Make sure it's numeric.
+T    (5, 1)   "Age:"
+I(5,9)"24"
+
+The first non-whitespace character on a line defines the type of the
+field.  A 'T' means that this line is a descriptive text string that can
+be displayed only.  The letters F, L, I, N, and S denote Filenames,
+Lists, Integers, Nonblank strings, and Strings.
+
+All fields, even lists and integers, are really strings.  Hence, you
+should format the initial contents of every field as a quoted string, as
+in the example above.
+
+List strings have a special format.  Items must be separated by single
+tab characters (since spaces are allowed in item names).  The item that
+is to be initially highlighted should be surrounded by parentheses
+instead of tabs.
+
+Position lists as you would any other field.  If a list begins with
+a (, the dialog manager will compensate for you.
+
+If you omit the current item in a list, or if you supply a field that's
+too wide for the window, the invalid field will not be displayed and an
+error message will.
+
+The dialog manager does not check to see if any fields overlap.  Hence,
+only one input field is allowed per line.  Text can be placed anywhere
+except to the right of an input field.
+
+HOW TO CALL UP A DIALOG BOX
+
+The call to create and process a dialog box is nearly identical to the
+call to create a menu, except that the macro name is _process_dialog_box:
+
+(_process_dialog_box lx by rx ty title msg filename buf_id action)
+
+All parameters have the same meaning, except:
+
+1.  There is no automatic sizing for dialog boxes, so lx must not equal
+rx, and by must not equal ty.
+
+2.  Parameter 4, the title, is always used, even when a buffer ID is passed
+for parameter 7.
+
+3.  There is no parameter 9 for quick dialog box creation.
+
+This call may return when the user presses F10, Esc, or the keypad minus
+key.  _process_dialog_box returns TRUE if it was successful, FALSE if an
+error occurred.
+
+HOW TO WRITE THE ACTION MACROS
+
+The first two parameters passed to your action function are the event
+type and line number.  The third parameter is either (for lists) the
+text of the current list item, not counting separator characters, or
+(for other field types) the full text of the field, not counting the
+newline at the end.
+
+Any event may occur in a dialog box except DIALOG_ALTER_MENU or
+DIALOG_PICK_MENU.  However, the only events you normally have to worry
+about are DIALOG_EXIT_FIELD, DIALOG_EXIT_LIST, and DIALOG_F10.
+
+You can perform additional validation on the contents of a field when
+the user wants to move to another field (DIALOG_EXIT_FIELD).  After the
+dialog manager has performed its built-in type checking on the field,
+your action macro will be called.  If your action macro returns FALSE
+for any reason, the user will not be allowed to leave the field.  You
+can use a String field coupled with your own validation function to
+check for almost any value.  Lists are not validated, since all the
+possible answers are known in advance.
+
+When the user leaves a field or a list (DIALOG_EXIT_FIELD or
+DIALOG_EXIT_LIST), keep track of the value of that input field.  There
+is no way to determine the value of an input field at any other time.
+We recommend you use a separate buffer, where each line represents the
+contents of one input field, for dialog boxes containing more than three
+or four input fields; otherwise, use string variables to store the
+current values.
+
+Treat DIALOG_F10 as a signal that the user is satisfied with his or her
+changes and wishes to save them.  The current list or field will be
+exited before DIALOG_F10 occurs.  When it does, process the values you
+have saved in your macro.  (DIALOG_ESC and DIALOG_GREY_MINUS should just
+ignore the saved values.)
+
+EXAMPLE
+
+This data file ("example") defines a dialog box containing two lists.
+
+Text (1, 3)  = "Do you want case-sensitive search?"
+List (1, 38) = "(Yes)No"
+Text (3, 3)  = "Do you want regular expressions?"
+List (3, 38) = "(Yes)No"
+
+This macro puts up a dialog box containing the above information, and
+defines two string variables which are used by the action macro.  Both
+variables are set to Yes, since the data file's defaults are Yes.
+
+(macro put_up_box
+   (
+      (string   case_sens
+		reg_exp
+      )
+      (global  case_sens
+	       reg_exp
+      )
+
+      (= case_sens "Yes")
+      (= reg_exp "Yes")
+      (_process_dialog_box 10 15 60 10 "Search" "Set search parameters"
+		"example" NULL "action")
+   )
+)
+
+The following macro will process the dialog box, and save the current
+values when F10 is pressed:
+
+(macro action
+   (
+      (int    event_type
+	      line_no
+      )
+      (string  button_text)
+
+      (get_parm 0 event_type)
+
+      (switch event_type
+	 DIALOG_EXIT_LIST
+	    (
+	       (get_parm 1 line_no)
+	       (get_parm 2 button_text)
+
+	       (if (== line_no 1)
+		  (= case_sens button_text)
+	       ;else
+		  (= reg_exp button_text)
+	       )
+	    )
+	 DIALOG_F10
+	    (
+	       (search_case (if (== case_sens "Yes") 0 1))
+	       (toggle_re (if (== reg_exp "Yes") 1 0))
+	    )
+      )
+      (returns TRUE)
+   )
+)
+
+A more sophisticated macro could keep the data file in a buffer and
+continuously alter it to make sure the correct values of case
+sensitivity and regular expressions were always displayed.
+
+That's all you need to know to design menus and dialog boxes in the
+BRIEF macro language.  Enjoy.

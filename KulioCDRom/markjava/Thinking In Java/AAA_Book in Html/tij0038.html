@@ -1,0 +1,296 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0037.html">Prev</a> | <a href="tij0039.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Your
+first Java program
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Finally,
+here&#8217;s the program.
+</FONT><A NAME="fnB15" HREF="#fn15">[15]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+It prints out information about the system that it&#8217;s running on using
+various methods of the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object from the Java standard library. Note that an additional style of comment
+is introduced here: the &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>//</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;,
+which is a comment until the end of the line:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#009900">// Property.java</font>
+<font color="#0000ff">import</font> java.util.*;
+
+<font color="#0000ff">public</font> <font color="#0000ff">class</font> Property {
+  <font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) {
+    System.out.println(<font color="#0000ff">new</font> Date());
+    Properties p = System.getProperties();
+    p.list(System.out);
+    System.out.println("--- Memory Usage:");
+    Runtime rt = Runtime.getRuntime();
+    System.out.println("Total Memory = "
+                       + rt.totalMemory()
+                       + " Free Memory = "
+                       + rt.freeMemory());
+  }
+}</PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">At
+the beginning of each program file, you must place the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>import</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+statement to bring in any extra classes you&#8217;ll need for the code in that
+file. Note that it is &#8220;extra.&#8221; That&#8217;s because there&#8217;s a
+certain library of classes that are automatically brought into every Java file: 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.lang</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Start up your Web browser and look at the documentation from Sun. (If you
+haven&#8217;t downloaded it from 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>java.sun.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+or otherwise installed the Java documentation, do so now). If you look at the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>packages.html</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+file, you&#8217;ll see a list of all the different class libraries that come
+with Java. Select 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.lang</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Under &#8220;Class Index&#8221; you&#8217;ll see a list of all the classes that
+are part of that library. Since 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.lang</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is implicitly included in every Java code file, these classes are automatically
+available. In the list, you&#8217;ll see 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Runtime</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which are used in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Property.java</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+There&#8217;s no 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Date</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class listed in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.lang</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which means you must import another library to use that. If you don&#8217;t
+know the library where a particular class is, or if you want to see all of the
+classes, you can select &#8220;Class Hierarchy&#8221; in the Java
+documentation. In a Web browser, this takes awhile to construct, but you can
+find every single class that comes with Java. Then you can use the
+browser&#8217;s &#8220;find&#8221; function to find 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Date.
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+you do you&#8217;ll see it listed as 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.util.Date</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which lets you know that it&#8217;s in the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>util</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+library and that you must 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>import
+java.util.*
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+in order to use 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Date</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you look at the documentation starting from the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>packages.html</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+file (which I&#8217;ve set in my Web browser as the default starting page),
+select 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>java.lang</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and then 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+You&#8217;ll see that the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class has several fields, and if you select 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>out</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+you&#8217;ll discover that it&#8217;s a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>PrintStream
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">object.
+Since it&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+you don&#8217;t need to create anything. The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>out</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object is always there and you can just use it. What you can do with this 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>out</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object is determined by the type it is: a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>PrintStream</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Conveniently, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>PrintStream
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+shown in the description as a hyperlink, so if you click on that you&#8217;ll
+see a list of all the methods you can call for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>PrintStream</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+There are quite a few and these will be covered later in the book. For now all
+we&#8217;re interested in is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>println(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which in effect means &#8220;print out what I&#8217;m giving you to the console
+and end with a new line.&#8221; Thus, in any Java program you write you can say 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System.out.println(&#8220;things&#8221;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+whenever you want to print something to the console.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+name of the class is the same as the name of the file. When you&#8217;re
+creating a stand-alone program such as this one, one of the classes in the file
+must have the same name as the file. (The compiler complains if you don&#8217;t
+do this.) That class must contain a method called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+with the signature shown:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">public
+static void main(String[] args) {
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>public</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+keyword means that the method is available to the outside world (described in
+detail in Chapter 5). The argument to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is an array of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects. The 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>args</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+won&#8217;t be used in this program, but they need to be there because they
+hold the arguments invoked on the command line.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+first line of the program is quite interesting:
+</FONT><P></DIV><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=3 COLOR="Black">System.out.println(new
+Date());
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Consider
+the argument: a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Date</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object is being created just to send its value to 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>println(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+As soon as this statement is finished, that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Date</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+is unnecessary, and the garbage collector can come along and get it anytime. We
+don&#8217;t need to worry about cleaning it up.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+second line calls 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System.getProperties(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+If you consult the online documentation using your Web browser, you&#8217;ll
+see that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>getProperties(&#160;)
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">is
+a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">method
+of class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>System</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Because it&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+you don&#8217;t need to create any objects in order to call the method; a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">method
+is always available whether an object of its class exists or not. When you call 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>getProperties(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+it
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">produces
+the system properties as an object of class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Properties</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+The handle that comes back is stored in a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Properties</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+handle called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>p</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+In line three, you can see that the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Properties</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object has a method called 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>list(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+that sends its entire contents to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>PrintStream</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object that you pass as an argument.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+fourth and sixth lines in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+are typical print statements. Note that to print multiple 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+values, we simply separate them with &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+signs. However, there&#8217;s something strange going on here. The &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+sign doesn&#8217;t mean addition when it&#8217;s used with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects. Normally, you wouldn&#8217;t ascribe any meaning to &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+when you think of strings. However, the Java 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+class is blessed with something called &#8220;operator overloading.&#8221; That
+is, the &#8216;
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&#8217;
+sign, only when used with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects, behaves differently from the way it does with everything else. For 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">s,
+it means &#8220;concatenate these two strings.&#8221;
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">But
+that&#8217;s not all. If you look at the statement:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>    System.out.println("Total Memory = "
+                       + rt.totalMemory()
+                       + " Free Memory = "
+                       + rt.freeMemory()); </PRE></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>totalMemory(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>freeMemory(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+return 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>numerical
+values
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+and not 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects. What happens when you &#8220;add&#8221; a numerical value to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">?
+The compiler sees the problem and magically calls a method that turns that
+numerical value (
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>int</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>float</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+etc.) into a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+which can then be &#8220;added&#8221; with the plus sign. This 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>automatic
+type conversion
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+also falls into the category of operator overloading.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Much
+of the Java literature states vehemently that operator overloading (a feature
+in C++) is bad, and yet here it is! However, this is wired into the compiler,
+only for 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>String</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+objects, and you can&#8217;t overload operators for any of the code you write.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+fifth line in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+creates a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Runtime</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object by calling the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>static</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+method 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>getRuntime(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+for the class 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Runtime</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+What&#8217;s returned is a handle to a 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Runtime</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object; whether this is a static object or one created with 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>new</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+doesn&#8217;t need to concern you, since you can use the objects without
+worrying about who&#8217;s responsible for cleaning them up. As shown, the 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>Runtime</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+object can tell you information about memory usage.
+</FONT><a name="_Toc375545234"></a><a name="_Toc408018435"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn15" HREF="#fnB15">[15]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+Some programming environments will flash programs up on the screen and close
+them before you've had a chance to see the results. You can put in the
+following bit of code at the end of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><B>main(&#160;)</B></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+to pause the output:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE>  <font color="#0000ff">try</font> {
+      Thread.currentThread().sleep(5 * 1000);
+    } <font color="#0000ff">catch</font>(InterruptedException e) {}</PRE></font><DIV ALIGN=LEFT><TT><FONT FACE="Courier New" SIZE=2 COLOR="Black">
+ }
+</FONT></TT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">This
+will pause the output for five seconds. This code involves concepts that will
+not be introduced until much later in the book, so you won&#8217;t understand
+it until then, but it will do the trick.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0037.html">Prev</a> | <a href="tij0039.html">Next</a>
+</div>
+</body></html>
+

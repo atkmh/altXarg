@@ -1,0 +1,1763 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0022)http://www.ucc.ie/xml/ -->
+<HTML><HEAD><TITLE>Frequently Asked Questions about the Extensible Markup Language</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY aLink=#ff0000 bgColor=#ffffff link=#000099 text=#000000 
+vLink=#009900><BODYTEXT>
+<DIV align=center>
+<H1>FAQs about Ex ML</H1>
+<H2>The <IMG align=middle alt="[xml logo]" 
+src="FAQs about Ex ML/xml.gif"><!--XML--> 
+FAQ</H2>
+<H3>Version 1.5 (1 June 1999)</H3></DIV>
+<BLOCKQUOTE><BODYTEXT>
+  <P><SMALL>Maintained on behalf of the World Wide Web Consortium’s XML Special 
+  Interest Group by <B>Peter</B> <B>Flynn</B>, (<I>University College Cork</I>), 
+  with the collaboration of <B>Terry</B> <B>Allen</B>, (<I></I>), <B>Tom</B> 
+  <B>Borgman</B>, (<I>Harlequin Ltd</I>), <B>Tim</B> <B>Bray</B>, 
+  (<I>Textuality, Inc</I>), <B>Robin</B> <B>Cover</B>, (<I>Isogen, Inc</I>), 
+  <B>Bob</B> <B>DuCharme</B>, (<I>Moody’s</I>), <B>Christopher</B> <B>Maden</B>, 
+  (<I>O’Reilly &amp; Associates</I>), <B>Eve</B> <B>Maler</B>, (<I>Arbortext, 
+  Inc</I>), <B>Peter</B> <B>Murray-Rust</B>, (<I>Nottingham University</I>), 
+  <B>Liam</B> <B>Quin</B>, (<I>Groveware</I>), <B>Michael</B> 
+  <B>Sperberg-McQueen</B>, (<I>University of Illinois at Chicago</I>), 
+  <B>Joel</B> <B>Weber</B>, (<I>MIT</I>), <B>Murata</B>, <B>Makoto</B> (<I>Fuji 
+  Xerox Information Systems</I>), and many other members of the XML Special 
+  Interest Group of the W3C as well as FAQ readers around the world. Please use 
+  the form at the end for any corrections or additions. </SMALL></P>
+  <H3>Recent changes</H3>
+  <P>June 1999</P>
+  <UL>
+    <LI>Added new XML mailing lists in <A 
+    href="http://www.ucc.ie/xml/#NEWLISTS">Italian and in French</A>
+    <LI>Added details of <A href="http://www.ucc.ie/xml/#ACADSINDEV">developer 
+    resources in Chinese</A>
+    <LI>Two more translations under way (<A 
+    href="http://www.ucc.ie/xml/#TRANSLATIONS">Chinese and Czech</A>)
+    <LI>Updated links to the <A 
+    href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">question on DTDs</A>
+    <LI>Added <A href="http://www.ucc.ie/xml/#JAVA-GEN">question on the use of 
+    Java</A> to generate and manage XML
+    <LI>Added <A href="http://www.ucc.ie/xml/#ATTRIBORELEM">question on when to 
+    use attributes</A> and when to use element markup
+    <LI>Added <A href="http://www.ucc.ie/xml/#SCHEMATA">question on the use of 
+    XML syntax</A> to describe DTD data (schemata)
+    <LI>Expanded on the explanation of <A 
+    href="http://www.ucc.ie/xml/#FAQ-TERMS">the use of formal language</A> in 
+    the spec
+    <LI>Added <A href="http://www.ucc.ie/xml/#LANGS">question on the difference 
+    between XML and C<SUP>++</SUP></A>
+    <LI>Separated information on <A href="http://www.ucc.ie/xml/#HTMLXML">XML 
+    versions of HTML</A> into a separate question
+    <LI>Typos and minor corrections</LI></UL>
+  <P>Paragraphs which have been added since the last version are indicated with 
+  a pilcrow (¶). Paragraphs which have been changed since the last version are 
+  indicated with a section sign (§). Paragraphs marked for future deletion but 
+  retained at the moment for information are indicated with a plus/minus sign 
+  (±).</P></BODYTEXT></BLOCKQUOTE>
+<BLOCKQUOTE><BODYTEXT>
+  <H3>Summary</H3>
+  <P>This document contains the most frequently-asked questions (with answers) 
+  about XML, the Extensible Markup Language. It is intended as a first resource 
+  for users, developers, and the interested reader, and should not be regarded 
+  as a part of the XML Specification.</P></BODYTEXT></BLOCKQUOTE>
+<BLOCKQUOTE><BODYTEXT>
+  <H3>Organization</H3>
+  <P>The FAQ is divided into four parts: <I>a</I>) <A 
+  href="http://www.ucc.ie/xml/#FAQ-GENERAL">General</A>, <I>b</I>) <A 
+  href="http://www.ucc.ie/xml/#FAQ-USER">User</A>, <I>c</I>) <A 
+  href="http://www.ucc.ie/xml/#FAQ-AUTHOR">Author</A>, and <I>d</I>) <A 
+  href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">Developer</A>. The questions are 
+  numbered independently within each section. As the numbering may therefore 
+  change with each version, comments and suggestions should refer to the version 
+  number (see Recent History above) as well as the Part and Question Number.</P>
+  <P>There is <A href="http://www.ucc.ie/xml/#FAQ-FORM">a form</A> at the end of 
+  this document which you can use to submit bug reports, suggestions for 
+  improvement, and other comments relating to <EM>this FAQ only</EM> (or you can 
+  mail the maintainer direct at <A 
+  href="mailto:pflynn@imbolc.ucc.ie"><TT>pflynn@imbolc.ucc.ie</TT></A>). 
+  Comments about the <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML 
+  Specification</A> itself should be sent to the <A 
+  href="http://www.w3.org/">W3C</A>.</P></BODYTEXT></BLOCKQUOTE>
+<BLOCKQUOTE><BODYTEXT>
+  <H3>Availability</H3>
+  <UL>
+    <LI>
+    <P>The master file for use with any conforming <A 
+    href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> system is available at <A 
+    href="http://www.ucc.ie/xml/faq.sgml"><TT>http://www.ucc.ie/xml/faq.sgml</TT></A> 
+    (this can also be used online with SGML browsers like <CITE><A 
+    href="http://www.interleaf.com/Panorama/page4.html">Panorama</A></CITE> or 
+    <CITE><A href="http://www.citec.fi/mdp/index.html">Multidoc Pro</A></CITE>; 
+    you can also <A href="http://www.ucc.ie/xml/xmlview.exe">download the DTD 
+    and stylesheet installation self-extractor</A> for faster local access with 
+    these browsers, or the <A href="http://www.ucc.ie/xml/catalog">DTD list as 
+    ASCII files</A>).</P>
+    <LI>
+    <P>There is a <A href="http://www.ucc.ie/xml/faq.html">HTML version</A> for 
+    use with any HTML browser (<EM>eg</EM> <CITE><A 
+    href="http://www.netscape.com/">Netscape Navigator</A></CITE>, <CITE><A 
+    href="http://www.microsoft.com/">Microsoft Internet Explorer</A></CITE>, 
+    <CITE><A href="http://www.spry.com/">Spry Mosaic</A></CITE>, <CITE><A 
+    href="http://www.ncsa.edu/">NCSA Mosaic</A></CITE>, <CITE><A 
+    href="http://kufacts.cc.ukans.edu/">Lynx</A></CITE>, <CITE><A 
+    href="http://opera.nta.no/">Opera</A></CITE>, <CITE><A 
+    href="http://www.cs.indiana.edu/???">GNUscape Navigator</A></CITE> 
+    <EM>etc</EM>) at <A 
+    href="http://www.ucc.ie/xml/"><TT>http://www.ucc.ie/xml/</TT></A>.</P>
+    <LI>
+    <P>An XML version will be produced when DTDs and browsers are more widely 
+    available to handle it.</P>
+    <LI>
+    <P>A plaintext (ASCII) version is available <A 
+    href="http://www.ucc.ie/xml/faq.txt">from the Web</A> and (eventually) by <A 
+    href="http://www.ucc.ie/doc/other/howtoftp.html">anonymous FTP</A> to one of 
+    several <A href="ftp://rtfm.mit.edu/">FAQ repositories</A>. The versions 
+    above are also available by <A href="mailto:webmail@www.ucc.ie">electronic 
+    mail</A> to the <CITE><A 
+    href="http://www.ucc.ie/webmail/">WebMail</A></CITE> server (for users with 
+    email-only access). The plaintext version is posted to 
+    <SAMP>comp.text.xml</SAMP> monthly for the archives.</P>
+    <LI>
+    <P>For printed copies there are PostScript<SUP>TM</SUP> versions for <A 
+    href="http://www.ucc.ie/xml/faqa4.ps">A4</A> and <A 
+    href="http://www.ucc.ie/xml/faqlet.ps">Letter</A> paper sizes. PDF will be 
+    available soon for <A href="http://www.ucc.ie/xml/faqa4.pdf">A4</A> and <A 
+    href="http://www.ucc.ie/xml/faqlet.pdf">Letter</A> as well.</P>
+    <LI>
+    <P>§ <FONT color=#8e2323>The document is also available in oil-based toner 
+    on flattened dead trees by sending US$10 (or equivalent) to the <A 
+    href="mailto:pflynn@imbolc.ucc.ie">editor</A> (email first to check currency 
+    and postal address).</FONT></P></LI></UL>
+  <P>§ <FONT color=#8e2323><A name=TRANSLATIONS>»</A>Thanks to Murata Makoto for 
+  making this document available in Japanese (see <A 
+  href="http://www.fxis.co.jp/DMS/sgml/xml/xmlfaq.html"><TT>http://www.fxis.co.jp/DMS/sgml/xml/xmlfaq.html</TT></A>); 
+  to Jaime Sagarduy for a translation into Spanish (see <A 
+  href="http://slug.ctv.es/~olea/sgml-esp/xfaq13.html"><TT>http://slug.ctv.es/~olea/sgml-esp/xfaq13.html</TT></A>); 
+  to Kangchan Lee for the Korean version (see <A 
+  href="http://xml.t2000.co.kr/faq/index.html"><TT>http://xml.t2000.co.kr/faq/index.html</TT></A>); 
+  to Jiang Luqin for one Chinese version (1.4: see <A 
+  href="http://weblab.crema.unimi.it/xmlzh/XML_FAQ.htm"><TT>http://weblab.crema.unimi.it/xmlzh/XML_FAQ.htm</TT></A>) 
+  and to Neko for another at <A 
+  href="http://zxd.webjump.com/xml.html"><TT>http://zxd.webjump.com/xml.html</TT></A>); 
+  to Miloslav Nic for a Czech version (in preparation); and to Tim Bray for the 
+  Annotated Spec at <A 
+  href="http://www.xml.com/axml/testaxml.htm"><TT>http://www.xml.com/axml/testaxml.htm</TT></A>. 
+  A Greek version is also in preparation.</FONT></P>
+  <P>§ <FONT color=#8e2323>You can download the XML logo as a <A 
+  href="FAQs about Ex ML/xml.gif">GIF</A> 
+  or in <A href="http://www.ucc.ie/xml/xmllogo.eps">EPS</A> format; and an icon 
+  for your files in <A href="http://www.ucc.ie/xml/xml.ico">ICO</A> (Microsoft 
+  Windows), <A href="http://www.ucc.ie/xml/xml_folder_icon.sit.hqx">Mac</A>, or 
+  <A href="http://www.ucc.ie/xml/xml.xpm">XPM</A> (X Window system) 
+  format.</FONT></P></BODYTEXT></BLOCKQUOTE>
+<HR>
+
+<DIV>
+<H2>The Questions</H2>
+<H3><A href="http://www.ucc.ie/xml/#FAQ-GENERAL">A. General questions</A></H3>
+<BLOCKQUOTE><BODYTEXT>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-ACRO">A.1 &nbsp; What is XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-DEF">A.2 &nbsp; What is XML 
+for?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SGML">A.3 &nbsp; What is SGML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-HTML">A.4 &nbsp; What is HTML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SAME">A.5 &nbsp; Aren’t XML, SGML, and 
+  HTML all the same thing?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#LANGS">A.6 &nbsp; What is the difference 
+  between SGML/XML and C or C<SUP>++</SUP>?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-OWNS">A.7 &nbsp; Who is responsible for 
+  XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-IMPORT">A.8 &nbsp; Why is XML such an 
+  important development?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-HOWTO">A.9 &nbsp; How can XML make SGML 
+  simpler and still let you define your own document types?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-EXTEND">A.10 &nbsp; Why not just carry 
+  on extending HTML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-WORD">A.11 &nbsp; Why do we need all 
+  this SGML stuff? Why not just use <CITE>Word</CITE> or 
+  <CITE>Notes</CITE>?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-MORE">A.12 &nbsp; Where do I find more 
+  information about XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-MAILINGLIST">A.13 &nbsp; Where can I 
+  discuss implementation and development of XML?</A></P></BODYTEXT></BLOCKQUOTE>
+<H3><A href="http://www.ucc.ie/xml/#FAQ-USER">B. Users of SGML (including 
+browsers of HTML)</A></H3>
+<BLOCKQUOTE><BODYTEXT>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-USEXML">B.1 &nbsp; What do I have to do 
+  to use XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-XMLOFFER">B.2 &nbsp; Why should I use 
+  XML instead of HTML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-BROWSER">B.3 &nbsp; Where can I get an 
+  XML browser?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SWITCH">B.4 &nbsp; Do I have to switch 
+  from SGML or HTML to XML?</A></P></BODYTEXT></BLOCKQUOTE>
+<H3><A href="http://www.ucc.ie/xml/#FAQ-AUTHOR">C. Authors of SGML (including 
+writers of HTML)</A></H3>
+<BLOCKQUOTE><BODYTEXT>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-REPLACE">C.1 &nbsp; Does XML replace 
+  HTML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-XMLDOC">C.2 &nbsp; What does an XML 
+  document look like inside?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SPACE">C.3 &nbsp; How does XML handle 
+  white-space in my documents?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-CASE">C.4 &nbsp; Which parts of an XML 
+  document are case-sensitive?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-EXIST">C.5 &nbsp; How can I make my 
+  existing HTML files work in XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#HTMLXML">C.6 &nbsp; Is there an XML version 
+  of HTML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SUBSET">C.7 &nbsp; If XML is just a 
+  subset of SGML, can I use XML files directly with SGML tools?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-LEARN">C.8 &nbsp; I’m used to authoring 
+  and serving HTML. Can I learn XML easily?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-CHARENTS">C.9 &nbsp; Will XML be able 
+  to use non-Latin characters?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">C.10 &nbsp; What’s a Document 
+  Type Definition (DTD) and where do I get one?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#SCHEMATA">C.11 &nbsp; I keep hearing about 
+  alternatives to DTDs. What’s a schema?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-HYPERTEXT">C.12 &nbsp; How will XML 
+  affect my document links?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-MATH">C.13 &nbsp; Can I do mathematics 
+  using XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-META">C.14 &nbsp; How does XML handle 
+  metadata?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-JAVA">C.15 &nbsp; Can I use Java, 
+  ActiveX, <I>etc</I> in XML files?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#JAVA-GEN">C.16 &nbsp; Can I use Java to 
+  create or manage XML files?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-STYLE">C.17 &nbsp; How do I control 
+  appearance?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-GRAPH">C.18 &nbsp; How do I use 
+  graphics in XML?</A></P></BODYTEXT></BLOCKQUOTE>
+<H3><A href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">D. Developers and 
+Implementors (including WebMasters and server operators)</A></H3>
+<BLOCKQUOTE><BODYTEXT>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SPEC">D.1 &nbsp; Where’s the 
+  spec?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-VALIDWF">D.2 &nbsp; What are these 
+  terms `DTDless', `valid', and `well-formed'?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-WF">D.2.1 &nbsp; ‘Well-formed’ 
+  documents</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-VALID">D.2.2 &nbsp; Valid XML</A></P>
+  <P><A href="http://www.ucc.ie/xml/#ATTRIBORELEM">D.3 &nbsp; Which should I use 
+  in my DTD, attributes or elements?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-DTD">D.4 &nbsp; What else has changed 
+  between SGML and XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-XMLSOFT">D.5 &nbsp; What XML software 
+  can I use today?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SWCHX">D.6 &nbsp; Do I have to change 
+  any of my server software to work with XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-SSINCLUDES">D.7 &nbsp; Can I still use 
+  server-side <CODE>INCLUDE</CODE>s?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-CSINCLUDES">D.8 &nbsp; Can I (and my 
+  authors) still use client-side <CODE>INCLUDE</CODE>s?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-TERMS">D.9 &nbsp; I’m trying to 
+  understand the XML Spec: why does SGML (and XML) have such difficult 
+  terminology?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-API">D.10 &nbsp; Is there a Developer’s 
+  API kit for XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-DOM">D.11 &nbsp; How does XML fit with 
+  the DOM?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-TEST">D.12 &nbsp; Is there a 
+  conformance test suite for XML processors?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-INCLUDES">D.13 &nbsp; How do I include 
+  one DTD (or fragment) in another?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-DTDCONV">D.14 &nbsp; I’ve already got 
+  SGML DTDs: how do I convert them for use with XML?</A></P>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-EDI">D.15 &nbsp; What’s the story on 
+  XML and EDI?</A></P></BODYTEXT></BLOCKQUOTE></DIV>
+<HR>
+
+<H2 align=center>The Answers</H2>
+<HR>
+
+<DIV>
+<H2><A name=FAQ-GENERAL>A. General questions</A></H2>
+<DIV>
+<H3><A name=FAQ-ACRO>A.1 &nbsp; What is XML?</A></H3>
+<P>XML is the `Extensible Markup Language' (extensible because it is not a fixed 
+format like <A href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A>). It is designed 
+to enable the use of <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> on the 
+World Wide Web.</P>
+<P>§ <FONT color=#8e2323>XML is not a single, predefined markup language: it’s a 
+metalanguage&nbsp;-- a language for describing other languages&nbsp;-- which 
+lets you design your own markup. (A predefined markup language like HTML defines 
+a way to describe information in one specific class of documents: XML lets you 
+define your own customized markup languages for different classes of document.) 
+It can do this because it’s written in SGML, the international standard 
+metalanguage for markup.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-DEF>A.2 &nbsp; What is XML for?</A></H3>
+<P>XML is designed ‘to make it easy and straightforward to use <A 
+href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> on the Web: easy to define 
+document types, easy to author and manage SGML-defined documents, and easy to 
+transmit and share them across the Web.’</P>
+<P>It defines ‘an extremely simple dialect of SGML which is completely described 
+in the <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML Specification</A>. The goal 
+is to enable generic SGML to be served, received, and processed on the Web in 
+the way that is now possible with <A 
+href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A>.’</P>
+<P>‘For this reason, XML has been designed for ease of implementation, and for 
+interoperability with both SGML and HTML’ [quotes from <A 
+href="http://www.ucc.ie/xml/#FAQ-SPEC">the XML spec</A>].</P></DIV>
+<DIV>
+<H3><A name=FAQ-SGML>A.3 &nbsp; What is SGML?</A></H3>
+<P>SGML is the <A href="http://www.oasis-open.org/cover/sgml-xml.html">Standard 
+Generalized Markup Language</A> (<A href="http://www.iso.ch/">ISO 8879</A>), the 
+international standard for defining descriptions of the structure and content of 
+different types of electronic document. There is an SGML FAQ at <A 
+href="http://www.infosys.utas.edu.au/info/sgmlfaq.txt"><TT>http://www.infosys.utas.edu.au/info/sgmlfaq.txt</TT></A> 
+which is posted every month to the <SAMP>comp.text.sgml</SAMP> newsgroup, and 
+the SGML Web pages are at <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html"><TT>http://www.oasis-open.org/cover/sgml-xml.html</TT></A>.</P>
+<P>ISO standards are governed by the International Organization for 
+Standardization in Geneva, Switzerland, and voted into or out of existence by 
+representatives from every country’s national standards body.</P>
+<UL>
+  <LI>
+  <P>If you have a query about an international standard, you should contact 
+  your national standards body for the name of your country’s representative on 
+  the relevant ISO committee or working group.</P>
+  <LI>
+  <P>If you have a query about your country’s representation in Geneva or about 
+  the conduct of your national standards body, you should contact the relevant 
+  government department in your country, or speak to your public 
+  representative.</P></LI></UL>
+<P>The representation of countries at the ISO is not a matter for this FAQ. 
+Please do not submit queries to the maintainer about how or why your ISO 
+representatives have or have not voted.</P></DIV>
+<DIV>
+<H3><A name=FAQ-HTML>A.4 &nbsp; What is HTML?</A></H3>
+<P>HTML is the <A href="http://www.w3.org/MarkUp">HyperText Markup Language</A> 
+(<A href="http://ds.internic.net/rfc/rfc1866.txt">RFC 1866</A>), a specific 
+application of <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> used on the <A 
+href="http://www.w3.org/">World Wide Web</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-SAME>A.5 &nbsp; Aren’t XML, SGML, and HTML all the same 
+thing?</A></H3>
+<P>Not quite. <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> is the `mother 
+tongue', used for describing thousands of different document types in many 
+fields of human activity, from transcriptions of <A 
+href="http://www.ucc.ie/celt/">ancient Irish manuscripts</A> to the <A 
+href="http://web.deskbook.osd.mil/">technical documentation for stealth 
+bombers</A>, and from <A 
+href="http://www.mcis.duke.edu/standards/HL7/hl7frontpage.htm">patients’ 
+clinical records</A> to <A href="http://www.tecno.com/smdl.htm">musical 
+notation</A>.</P>
+<P>§ <FONT color=#8e2323><A href="http://www.ucc.ie/xml/#FAQ-SGML">HTML</A> is 
+just one of these document types, the one most frequently used in the <A 
+href="http://www.w3.org/">Web</A>. It defines a simple, fixed type of document 
+with markup designed for a common class of office or technical report, with 
+headings, paragraphs, lists, illustrations, <I>etc</I>, and some provision for 
+hypertext and multimedia.</FONT></P>
+<P>XML is an abbreviated version of SGML, to make it easier for you to define 
+your own document types, and to make it easier for programmers to write programs 
+to handle them. It omits the more complex and less-used parts of SGML in return 
+for the benefits of being easier to write applications for, easier to 
+understand, and more suited to delivery and interoperability over the Web. But 
+it is still SGML, and XML files may still be parsed and validated the same as 
+any other SGML file (see the question on <A 
+href="http://www.ucc.ie/xml/#FAQ-XMLSOFT">XML software</A>).</P>
+<P>Programmers may find it useful to think of XML as being SGML<SUP>--</SUP> 
+rather than HTML<SUP>++</SUP>.</P></DIV>
+<DIV>
+<H3><A name=LANGS>A.6 &nbsp; What is the difference between SGML/XML and C or 
+C<SUP>++</SUP>?</A></H3>
+<P>C and C<SUP>++</SUP> (and others like Fortran, or Pascal, or Basic, or Java 
+or dozens more) are <EM>programming languages</EM> with which you specify 
+calculations, actions, and decisions to be carried out:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>do when @front(@date,6) is equal "01-Apr"
+     print "April Fool!\n"
+else
+     print @days(@datesub("25-Dec",@date)),\
+           " shopping days to Christmas\n"
+done</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>SGML and XML are <EM>markup specification languages</EM> with which you can 
+design ways of <EM>describing</EM> information, usually for storage, 
+transmission, or processing by a program:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;para&gt;It was the week after &lt;event class="festival"&gt;Christmas&lt;/event&gt; 
+but &lt;name class="person"&gt;Max&lt;/name&gt;’s mind was still running on the
+prank he had played on &lt;name class="person"&gt;Louise&lt;/name&gt; the previous
+&lt;name class="month"&gt;April&lt;/name&gt;.&lt;/para&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>On its own, a file of SGML or XML text (including HTML) doesn’t <EM>do</EM> 
+anything: you have to have a program to do something <EM>with</EM> it.</P></DIV>
+<DIV>
+<H3><A name=FAQ-OWNS>A.7 &nbsp; Who is responsible for XML?</A></H3>
+<P>XML is a project of the <A href="http://www.w3.org/">World Wide Web 
+Consortium (W3C)</A>, and the development of the specification is being 
+supervised by their XML Working Group. A Special Interest Group of co-opted 
+contributors and experts from various fields contributed comments and reviews by 
+email.</P>
+<P>XML is a public format: it is not a proprietary development of any company. 
+<A href="http://www.ucc.ie/xml/#FAQ-SPEC">The v1.0 specification</A> was 
+accepted by the W3C as Recommendation on Feb 10, 1998.</P></DIV>
+<DIV>
+<H3><A name=FAQ-IMPORT>A.8 &nbsp; Why is XML such an important 
+development?</A></H3>
+<P>It removes two constraints which are holding back Web developments:</P>
+<OL>
+  <LI>
+  <P>dependence on a single, inflexible document type (<A 
+  href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A>);</P>
+  <LI>
+  <P>the complexity of full <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A>, 
+  whose syntax allows many powerful but hard-to-program options.</P></LI></OL>
+<P>XML simplifies the levels of optionality in SGML, and allows the development 
+of user-defined document types on the Web.</P></DIV>
+<DIV>
+<H3><A name=FAQ-HOWTO>A.9 &nbsp; How can XML make SGML simpler and still let you 
+define your own document types?</A></H3>
+<P>To make SGML simpler, XML redefines some of <A 
+href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A>’s internal values and 
+parameters, and removes a large number of the more complex and sometimes 
+less-used features which made it harder to write processing programs (see <A 
+href="http://www.w3.org/TR/NOTE-sgml-xml-971215"><TT>http://www.w3.org/TR/NOTE-sgml-xml-971215</TT></A>).</P>
+<P>§ <FONT color=#8e2323>Although it retains all of SGML’s structural abilities 
+which let you define and manage your own document types, XML introduces a new 
+class of document which does not require you to use a <EM>predefined</EM> 
+document type description (basically you can make up your own markup so long as 
+you stick strictly to the syntactic rules). See the questions about <A 
+href="http://www.ucc.ie/xml/#FAQ-VALIDWF">‘valid’ and ‘well-formed’ 
+documents</A>, and <A href="http://www.ucc.ie/xml/#FAQ-SELFDEF">how to define 
+your own document types</A> in the <A 
+href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">Developers’ 
+Section</A>.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-EXTEND>A.10 &nbsp; Why not just carry on extending 
+HTML?</A></H3>
+<P><A href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A> is already overburdened 
+with dozens of interesting but often incompatible inventions from different 
+manufacturers, because it provides only one way of describing your 
+information.</P>
+<P>XML will allow groups of people or organizations to create their own 
+customized markup languages for exchanging information in their domain (music, 
+chemistry, electronics, hill-walking, finance, surfing, petroleum geology, 
+linguistics, cooking, knitting, stellar cartography, history, engineering, 
+rabbit-keeping, <A href="http://www.ucc.ie/xml/#FAQ-MATH">mathematics</A>, 
+<I>etc</I>).</P>
+<P>HTML is at the limit of its usefulness as a way of describing information, 
+and while it will continue to play an important role for the content it 
+currently represents, many new applications require a more robust and flexible 
+infrastructure. </P></DIV>
+<DIV>
+<H3><A name=FAQ-WORD>A.11 &nbsp; Why do we need all this SGML stuff? Why not 
+just use <CITE>Word</CITE> or <CITE>Notes</CITE>?</A></H3>
+<P>§ <FONT color=#8e2323>Information on a network which connects many different 
+types of computer has to be usable on all of them. Public information cannot 
+afford to be restricted to one make or model or manufacturer, or to cede control 
+of its data format to private hands. It is also helpful for such information to 
+be in a form that can be reused in many different ways, as this can minimize 
+wasted time and effort. Proprietary data formats, no matter how well documented 
+or publicized, are simply not an option: their control still resides in private 
+hands and they can be changed or withdrawn arbitrarily without 
+notice.</FONT></P>
+<P>§ <FONT color=#8e2323><A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> is 
+the international standard for defining this kind of application, but those who 
+need an alternative based on different software for other purposes are entirely 
+free to implement similar services using such a system, especially if they are 
+for private use. </FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-MORE>A.12 &nbsp; Where do I find more information about 
+XML?</A></H3>
+<P>Online, there’s the <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML 
+Specification</A> and ancillary documentation available from the W3C; the <A 
+href="http://www.oasis-open.org/cover/xml.html">XML Web pages</A> with an 
+extensive list of online reference material in Robin Cover’s <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html">SGML pages</A>; and a <A 
+href="http://www.textuality.com/xml/">summary</A> and <A 
+href="http://www.textuality.com/xml/faq.html">condensed FAQ</A> from Tim 
+Bray.</P>
+<P>The items listed below are the ones I have been told about: please <A 
+href="mailto:pflynn@imbolc.ucc.ie">mail me</A> if you come across others.</P>
+<UL>
+  <LI>
+  <P>The annual XML Conference is run by the Graphic Communications Association. 
+  <A href="http://www.gca.org/conf/xml99/xm99ndex.htm">XML’99</A> is being held 
+  in Philadelphia on December 5-9 and consists as last year of two conferences 
+  in one: the XML Conference ’99 and <A 
+  href="http://www.gca.org/conf/mt99/mtndex.htm">Markup Technologies ’99</A></P>
+  <LI>
+  <P><A href="http://www.allette.com.au/asia99/xml.html">SGML/XML 
+  Asia/Pacific</A> is in Sydney on October 18-21.</P></LI></UL>
+<P>Further details of these on <A href="http://www.gca.org/">the GCA’s Web 
+site</A>.</P>
+<P>There are lists of books, articles, and software for XML in Robin Cover’s <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html">SGML and XML pages</A>. 
+That site should always be your first port of call: please look there first 
+before using the form in this FAQ to ask about software or 
+documentation.</P></DIV>
+<DIV>
+<H3><A name=FAQ-MAILINGLIST>A.13 &nbsp; Where can I discuss implementation and 
+development of XML?</A></H3>
+<BLOCKQUOTE><B>Note</B> 
+  <P>Please <EM>Read The Fine Documentation</EM> which you will be sent when you 
+  join a mailing list, as it contains important information, particularly about 
+  what to do when your email address changes.</P></BLOCKQUOTE>
+<P>There is a mailing list called <TT>xml-dev</TT> for those committed to 
+developing components for XML. You can subscribe by sending a 1-line mail 
+message to <A href="mailto:majordomo@ic.ac.uk"><TT>majordomo@ic.ac.uk</TT></A> 
+saying:</P>
+<BLOCKQUOTE><SAMP>subscribe xml-dev 
+<I>your@email.address</I></SAMP></BLOCKQUOTE>
+<P>(substituting your correct email address). To unsubscribe, send a 1-line 
+message to the same address saying</P>
+<BLOCKQUOTE><SAMP>unsubscribe xml-dev 
+<I>your@email.address</I></SAMP></BLOCKQUOTE>
+<P>The list is hypermailed for online reference at <A 
+href="http://www.lists.ic.ac.uk/hypermail/xml-dev/"><TT>http://www.lists.ic.ac.uk/hypermail/xml-dev/</TT></A>. 
+Note that this list is for those people actively involved in developing 
+resources for XML. It is <EM>not</EM> for general information about XML (see 
+this FAQ and <A href="http://www.ucc.ie/xml/#FAQ-MORE">other sources</A>) or for 
+general discussion about SGML implementation and resources (see below).</P>
+<P>§ <FONT color=#8e2323>There is a general-purpose mailing list called 
+<TT>XML-L</TT> for public discussions: to subscribe, send a 1-line mail message 
+to <A 
+href="mailto:listserv@listserv.hea.ie"><TT>LISTSERV@listserv.heanet.ie</TT></A> 
+saying</P>
+<BLOCKQUOTE><SAMP>subscribe XML-L <I>forename</I> 
+<I>surname</I></SAMP></BLOCKQUOTE>
+<P>(substituting your own forename and surname). To unsubscribe, send a 1-line 
+message to the same address saying</P>
+<BLOCKQUOTE><SAMP>unsubscribe XML-L</SAMP></BLOCKQUOTE>
+<P>(Note that LISTSERV lists like <TT>XML-L</TT> don’t need you to give your 
+email address: they read it from your email headers.) You can access XML-L and 
+its archives, as well as subscribe and unsubscribe interactively, from <A 
+href="http://listserv.heanet.ie/xml-l.html"><TT>http://listserv.heanet.ie/xml-l.html</TT></A>.</FONT></P>
+<BLOCKQUOTE><B>Note</B> 
+  <P>Please note that there is a lot of inaccurate and misleading information 
+  published in print and on the Web about subscribing to mailing lists. The 
+  information given here is correct&nbsp;-- use it.</P></BLOCKQUOTE>
+<P>¶ <FONT color=#23238e>There are mailing lists being set up in other 
+languages:</FONT></P>
+<UL>
+  <LI>
+  <P>Gianni Rubagotti writes: ‘A new Italian mailing list about XML is born: to 
+  subscribe, send a mail message without a subject line but with text saying 
+</P>
+  <BLOCKQUOTE><SAMP>subscribe XML-IT</SAMP></BLOCKQUOTE>
+  <P>to <SAMP>majordomo@ananas.usr.dsi.unimi.it</SAMP>. Send discussion messages 
+  to: <SAMP>xml-it@ananas.usr.dsi.unimi.it</SAMP> (only subscribers may send 
+  messages). Everyone, Italian or not, who wants to debate about XML in our 
+  tongue is welcome.’</P>
+  <LI>
+  <P>JP Theberge writes: ‘A French mailing list about XML has been created. To 
+  subscribe, send <SAMP>subscribe</SAMP> to 
+  <SAMP>xml-request@trisome.com</SAMP>. Then post to 
+  <SAMP>xml@trisome.com</SAMP>.’</P></LI></UL>
+<P>§ <FONT color=#8e2323>The Usenet newsgroup <A 
+href="news:comp.text.sgml"><TT>comp.text.xml</TT></A> is for discussions of XML. 
+If this is not available on your local news server, ask your Internet Provider 
+to add it, or use a Web interface like <A 
+href="http://www.dejanews.com/">Déj[agrave]News</A>.</FONT></P></DIV></DIV>
+<HR>
+
+<DIV>
+<H2><A name=FAQ-USER>B. Users of SGML (including browsers of HTML)</A></H2>
+<DIV>
+<H3><A name=FAQ-USEXML>B.1 &nbsp; What do I have to do to use XML?</A></H3>
+<P>§ <FONT color=#8e2323>For the average user of the Web, nothing except use a 
+browser which works with XML (see the <A 
+href="http://www.ucc.ie/xml/#FAQ-BROWSER">question about browsers</A>). Remember 
+XML is still being implemented, so some features are still either undefined or 
+have yet to be written.</FONT></P>
+<P>You can use XML browsers to look at some of the emerging XML material, such 
+as <A href="ftp://sunsite.unc.edu/pub/sun-info/standards/xml/eg/">Jon Bosak’s 
+Shakespeare plays</A> and the molecular experiments of the <A 
+href="http://www.xml-cml.org/">Chemical Markup Language (CML)</A>. There are 
+some more example sources listed at <A 
+href="http://www.oasis-open.org/cover/xml.html#examples"><TT>http://www.oasis-open.org/cover/xml.html#examples</TT></A>.</P>
+<P>If you want to start preparations for creating your own XML, see the 
+questions in the <A href="http://www.ucc.ie/xml/#FAQ-AUTHOR">Authors’ 
+Section</A>and the <A href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">Developers’ 
+Section</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-XMLOFFER>B.2 &nbsp; Why should I use XML instead of 
+HTML?</A></H3>
+<UL>
+  <LI>
+  <P>Authors and providers can <A 
+  href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">design their own document types</A> 
+  using XML, instead of being stuck with HTML. Document types can be explicitly 
+  tailored to an audience, so the cumbersome fudging that has to take place with 
+  <A href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A> to achieve special effects 
+  should become a thing of the past: authors and designers will be free to 
+  invent their own markup elements;</P>
+  <LI>
+  <P>Information content can be richer and easier to use, because the <A 
+  href="http://www.ucc.ie/xml/#FAQ-HYPERTEXT">hypertext linking abilities of 
+  XML</A> are much greater than those of HTML.</P>
+  <LI>
+  <P>XML can provide more and better facilities for browser presentation and 
+  performance;</P>
+  <LI>
+  <P>It removes many of the underlying complexities of SGML in favor of a more 
+  flexible model, so writing programs to handle XML will be much easier than 
+  doing the same for full SGML.</P>
+  <LI>
+  <P>Information will be more accessible and reusable, because the more flexible 
+  markup of XML can be used by any XML software instead of being restricted to 
+  specific manufacturers as has become the case with HTML.</P>
+  <LI>
+  <P><A href="http://www.ucc.ie/xml/#FAQ-VALID">Valid XML files</A> are kosher 
+  SGML, so they can be used outside the Web as well, in an SGML 
+  environment.</P></LI></UL></DIV>
+<DIV>
+<H3><A name=FAQ-BROWSER>B.3 &nbsp; Where can I get an XML browser?</A></H3>
+<P>Remember the <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML specification</A> 
+is still new, so a lot of what you see now is experimental. As with <A 
+href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A>, there won’t be just one 
+browser, but many. However, because the potential number of different XML 
+applications is not limited, no single browser can be expected to handle 100% of 
+everything.</P>
+<P>§ <FONT color=#8e2323>Some of the generic parts of XML (<I>eg</I> parsing, 
+tree management, searching, formatting, <I>etc</I>) are being combined into 
+general-purpose browser libraries or toolkits to make it easier for <A 
+href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">developers</A> to take a consistent 
+line when writing XML applications. Such applications can then be customized by 
+adding semantics for specific markets, or using languages like <CITE>Java</CITE> 
+to develop plugins for generic browsers and have the specialist modules 
+delivered transparently over the Web.</FONT></P>
+<UL>
+  <LI>
+  <P>§ <FONT color=#8e2323>MSIE5 handles XML but currently still renders it via 
+  CSS, using a largely HTML-derived model, so not all the stylesheet options 
+  work. Microsoft are also the architects of a hybrid solution in which you can 
+  embed fragments of XML in HTML files because current HTML-only browsers simply 
+  ignore element markup which they don’t recognize.</FONT></P>
+  <LI>
+  <P>§ <FONT color=#8e2323>The publicly-released Netscape code (<A 
+  href="http://www.mozilla.org/">Mozilla</A>) has resulted in a test XML 
+  implementation including an application of RDF plus James Clark’s <CITE><A 
+  href="http://www.jclark.com/xml/expat.html">expat</A></CITE> XML 
+  parser.</FONT></P>
+  <LI>
+  <P>The authors of the <CITE>MultiDoc Pro</CITE> SGML browser, <A 
+  href="http://www.citec.fi/">CITEC</A>, have joined forces with Mozilla to 
+  produce a multi-everything browser called <CITE>DocZilla</CITE>, which reads 
+  HTML, XML, and SGML, with XSL and CSS stylesheets. This runs under NT and 
+  linux and is currently Alpha. See <A 
+  href="http://www.doczilla.com/"><TT>http://www.doczilla.com</TT></A> for 
+  details. This is early alpha, but is by far the most ambitious, and the only 
+  one so far backed by solid SGML expertise.</P></LI></UL>
+<P>See also the notes on software for <A 
+href="http://www.ucc.ie/xml/#FAQ-XMLSOFT">authors</A> and <A 
+href="http://www.ucc.ie/xml/#FAQ-API">developers</A>, and the more detailed list 
+on the XML pages in the SGML Web site at <A 
+href="http://www.oasis-open.org/cover/xml.html"><TT>http://www.oasis-open.org/cover/xml.html</TT></A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-SWITCH>B.4 &nbsp; Do I have to switch from SGML or HTML to 
+XML?</A></H3>
+<P>No, existing <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> and <A 
+href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A> applications software will 
+continue to work with existing files. But as with any enhanced facility, if you 
+want to view or download and use XML files, you will need to add XML-aware 
+software as it becomes available.</P></DIV></DIV>
+<HR>
+
+<DIV>
+<H2><A name=FAQ-AUTHOR>C. Authors of SGML (including writers of HTML)</A></H2>
+<BLOCKQUOTE><BODYTEXT>
+  <P>Authors should also read the <A 
+  href="http://www.ucc.ie/xml/#FAQ-DEVELOPER">Developers’ Section</A>, which 
+  contains further information about the internals of XML 
+files.</P></BODYTEXT></BLOCKQUOTE>
+<DIV>
+<H3><A name=FAQ-REPLACE>C.1 &nbsp; Does XML replace HTML?</A></H3>
+<P>§ <FONT color=#8e2323>No. XML itself does not replace <A 
+href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A>: instead, it provides an 
+alternative which allows you to define your own set of markup elements. HTML is 
+expected to remain in common use for some time to come, and <A 
+href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">Document Type Definitions</A> for HTML 
+will be available in XML versions as well as in original SGML. XML is designed 
+to make the writing of DTDs much simpler than with full <A 
+href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A>. (See <A 
+href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">the question on DTDs</A> for what one 
+is and why you’d want one.)</FONT></P>
+<P><A href="http://www.ucc.ie/xml/#HTMLXML">Work is going on</A> to produce XML 
+versions of HTML and other popular existing DTDs, but this may not take off 
+until more stable software is available. Watch <SAMP>comp.text.sgml</SAMP>, 
+<SAMP>comp.text.xml</SAMP>, <SAMP>XML-L</SAMP>, and <SAMP>xml-dev</SAMP> for 
+announcements.</P></DIV>
+<DIV>
+<H3><A name=FAQ-XMLDOC>C.2 &nbsp; What does an XML document look like 
+inside?</A></H3>
+<P>The basic structure is very similar to most other applications of SGML, 
+including HTML. XML documents can be very simple, with no document type 
+declaration, and straightforward nested markup of your own design:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;conversation&gt;
+  &lt;greeting&gt;Hello, world!&lt;/greeting&gt;
+  &lt;response&gt;Stop the planet, I want to get off!&lt;/response&gt;
+&lt;/conversation&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>Or they can be more complicated, with a DTD specified (see <A 
+href="http://www.ucc.ie/xml/#FAQ-DOCTYPE"></A>), and maybe an internal subset, 
+and a more complex structure:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0" standalone="no" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE titlepage SYSTEM "http://www.frisket.org/dtds/typo.dtd" 
+[&lt;!ENTITY % active.links "INCLUDE"&gt;]&gt;
+&lt;titlepage&gt;
+  &lt;white-space type="vertical" amount="36"/&gt;
+  &lt;title font="Baskerville" size="24/30" 
+         alignment="centered"&gt;Hello, world!&lt;/title&gt;
+  &lt;white-space type="vertical" amount="12"/&gt;
+  &lt;!-- In some copies the following decoration is 
+        hand-colored, presumably by the author --&gt;
+  &lt;image location="http://www.foo.bar/fleuron.eps" type="URL" alignment="centered"/&gt;
+  &lt;white-space type="vertical" amount="24"/&gt;
+  &lt;author font="Baskerville" size="18/22" style="italic"&gt;Vitam capias&lt;/author&gt;
+&lt;/titlepage&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>Or they can be anywhere between: a lot will depend on how you want to define 
+your document type (or whose you use) and what it will be used for. See the 
+question on <A href="http://www.ucc.ie/xml/#FAQ-VALIDWF">valid and well-formed 
+files</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-SPACE>C.3 &nbsp; How does XML handle white-space in my 
+documents?</A></H3>
+<P>§ <FONT color=#8e2323>The SGML rules regarding white-space have been changed 
+for XML, so <EM>all</EM> white-space, including linebreaks, TAB characters, and 
+regular spaces, <EM>even between elements where no text can appear</EM>, is 
+passed by the parser <EM>unchanged</EM> to the application (browser, formatter, 
+viewer, <I>etc</I>). This means:</FONT></P>
+<UL>
+  <LI>
+  <P>`insignificant' white-space between structural elements (those which appear 
+  where only element content is allowed, <I>ie</I> between other elements, 
+  without text data) <EM>will</EM> get passed to the application (under standard 
+  SGML this white-space gets suppressed, which is why you can put all that extra 
+  space in HTML documents and not worry about it. This is not so in XML);</P>
+  <LI>
+  <P>`significant' white-space within elements which <EM>can</EM> contain text 
+  and markup mixed together (‘mixed content’ or PCDATA [parsed character data]) 
+  will still get passed to the application exactly as under regular 
+  SGML.</P></LI></UL>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;chapter&gt;
+  &lt;section&gt;
+    &lt;title&gt;
+      My title for Section 
+1.
+    &lt;/title&gt;
+    &lt;para&gt;
+      ...
+    &lt;/para&gt;
+  &lt;/section&gt;
+&lt;/chapter&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>§ <FONT color=#8e2323>The parser must, however, still inform the application 
+that white-space has occurred in element content, if it can detect it. (Users of 
+standard SGML may recognize that this information was not in the <A 
+href="http://www.oasis-open.org/cover/WG8-n931a.html">ESIS</A>, but it 
+<EM>is</EM> in the <A 
+href="http://www.oasis-open.org/cover/topics.html#groves">grove</A>.) In the 
+above example, the application will receive all the pretty-printing linebreaks, 
+TABs, and spaces between the elements <EM>as well as</EM> those embedded in the 
+section title. It is the function of the application (browser, formatter, 
+viewer, <I>etc</I>) to decide which type of white-space to discard and which to 
+retain.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-CASE>C.4 &nbsp; Which parts of an XML document are 
+case-sensitive?</A></H3>
+<P>All of it, both markup <EM>and</EM> text. This is significantly different 
+from HTML and most other SGML document types. It was introduced to allow markup 
+in non-Latin-alphabet languages and to obviate problems with case-folding in 
+scripts which are caseless.</P>
+<UL>
+  <LI>
+  <P>Element type names (used in start-tags and end-tags) are case-sensitive: 
+  you must stick with whatever combination of upper- or lower-case you use to 
+  define them (either by usage or in a <A 
+  href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">DTD</A>).</P>
+  <P>So you can’t say <CODE>&lt;BODY&gt;</CODE>...<CODE>&lt;/body&gt;</CODE>: 
+  upper- and lower-case <EM>must</EM> match; thus <CODE>&lt;IMG/&gt;</CODE> and 
+  <CODE>&lt;img/&gt;</CODE> are <EM>two different element types</EM>;</P>
+  <LI>
+  <P>For well-formed files with no DTD, the <EM>first occurrence</EM> of an 
+  element type name defines the casing;</P>
+  <LI>
+  <P>Attribute names are also case-sensitive, on a per-element basis: for 
+  example <CODE>&lt;PIC width="7in"/&gt;</CODE> and <CODE>&lt;PIC 
+  WIDTH="6in"/&gt;</CODE> in the same file exhibit two <EM>separate</EM> 
+  attributes, because the different casings of <CODE>width</CODE> and 
+  <CODE>WIDTH</CODE> distinguish them;</P>
+  <LI>
+  <P>Attribute values are also case-sensitive. Character data values (<I>eg</I> 
+  <CODE>HRef="MyFile.SGML"</CODE>) always have been, but ID and IDREF attributes 
+  are now case-sensitive as well and no longer get folded to uppercase for 
+  comparisons;</P>
+  <LI>
+  <P>All entity names (<CODE>&amp;Aacute;</CODE>), and your data content (your 
+  text), are case-sensitive, exactly as before.</P></LI></UL></DIV>
+<DIV>
+<H3><A name=FAQ-EXIST>C.5 &nbsp; How can I make my existing HTML files work in 
+XML?</A></H3>
+<P>§ <FONT color=#8e2323>Make them <A 
+href="http://www.ucc.ie/xml/#FAQ-WF">well-formed</A> DTD-less documents (see 
+below) and write a stylesheet. A <A 
+href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">DTD (Document Type Description)</A> is 
+optional in XML, but HTML files converted to XML format currently have to be 
+DTDless because there are few working XML versions of the current SGML-based 
+HTML DTDs yet (they need to be substantially edited to remove their dependence 
+on those features of SGML which are excluded from XML).</FONT></P>
+<P>It is necessary to convert existing HTML files to be well-formed because XML 
+does not allow end-tag minimization (missing <CODE>&lt;/p&gt;</CODE>, 
+<I>etc</I>) which is allowed in most HTML DTDs. Many HTML authoring tools 
+already produce almost (but not quite) well-formed XML. As a preparation for 
+XML, the W3C’s <A href="http://www.w3.org/People/Raggett/tidy/">HTML Tidy</A> 
+program can clean up some of the formatting mess left beind by inadequate HTML 
+editors.</P>
+<P>If you want to move your files out of HTML into some other DTD entirely, 
+there is a pilot site run by CommerceNet (<A 
+href="http://www.xmlx.com/"><TT>http://www.xmlx.com/</TT></A>) for the exchange 
+of XML DTDs, and a pilot FPI server at <A 
+href="http://www.ucc.ie/cgi-bin/public"><TT>http://www.ucc.ie/cgi-bin/public</TT></A> 
+with several common SGML DTDs to start from.</P>
+<P>If you have created your <A href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A> 
+files conforming to one of the several HTML <A 
+href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">Document Type Definitions (DTDs)</A>, 
+and they validate OK, then they can be converted as follows:</P>
+<UL>
+  <LI>
+  <P>replace the <CODE>DOCTYPE</CODE> declaration and any internal subset 
+  (basically everything within the first set of angled brackets 
+  <CODE>&lt;!DOCTYPE HTML...&gt;</CODE>) with the XML Declaration <CODE>&lt;?xml 
+  version="1.0" standalone="yes"?&gt;</CODE></P>
+  <LI>
+  <P>change any <CODE>EMPTY</CODE> elements (<I>eg</I> 
+  <CODE>&lt;ISINDEX&gt;</CODE>, <CODE>&lt;BASE&gt;</CODE>, 
+  <CODE>&lt;META&gt;</CODE>, <CODE>&lt;LINK&gt;</CODE>, 
+  <CODE>&lt;NEXTID&gt;</CODE> and <CODE>&lt;RANGE&gt;</CODE> in the header, and 
+  <CODE>&lt;IMG&gt;</CODE>, <CODE>&lt;BR&gt;</CODE>, <CODE>&lt;HR&gt;</CODE>, 
+  <CODE>&lt;FRAME&gt;</CODE>, <CODE>&lt;WBR&gt;</CODE>, 
+  <CODE>&lt;BASEFONT&gt;</CODE>, <CODE>&lt;SPACER&gt;</CODE>, 
+  <CODE>&lt;AUDIOSCOPE&gt;</CODE>, <CODE>&lt;AREA&gt;</CODE>, 
+  <CODE>&lt;PARAM&gt;</CODE>, <CODE>&lt;KEYGEN&gt;</CODE>, 
+  <CODE>&lt;COL&gt;</CODE>, <CODE>&lt;LIMITTEXT&gt;</CODE>, 
+  <CODE>&lt;SPOT&gt;</CODE>, <CODE>&lt;TAB&gt;</CODE>, 
+  <CODE>&lt;OVER&gt;</CODE>, <CODE>&lt;RIGHT&gt;</CODE>, 
+  <CODE>&lt;LEFT&gt;</CODE>, <CODE>&lt;CHOOSE&gt;</CODE>, 
+  <CODE>&lt;ATOP&gt;</CODE>, and <CODE>&lt;OF&gt;</CODE> in the body) so that 
+  they end with ‘<CODE>/&gt;</CODE>’, for example <CODE>&lt;IMG SRC="mypic.gif" 
+  alt="Picture"/&gt;</CODE></P>
+  <LI>
+  <P>§ <FONT color=#8e2323>ensure there are correctly-matched explicit end-tags 
+  for all non-empty elements; <I>eg</I> every <CODE>&lt;P&gt;</CODE> must have a 
+  <CODE>&lt;/P&gt;</CODE>, <I>etc</I>. If your HTML was created by a conformant 
+  editor, this process can be automated by a normalizer program like 
+  <CITE>sgmlnorm</CITE> (part of <A 
+  href="http://www.jclark.com/sp/"><CITE>SP</CITE></A>) or the 
+  <SAMP>sgml-normalize</SAMP> function in an editor like 
+  <CITE>Emacs</CITE>/<CITE>psgml</CITE>;</FONT></P>
+  <LI>
+  <P>escape all <CODE>&lt;</CODE> and <CODE>[amp ]</CODE> non-markup (<I>ie</I> 
+  literal) characters as <CODE>&amp;lt;</CODE> and <CODE>&amp;amp;</CODE> 
+  respectively;</P>
+  <LI>
+  <P>ensure all attribute values are in quotes;</P>
+  <LI>
+  <P>ensure all occurrences of all element names in start-tags <EM>and</EM> 
+  end-tags match with respect to upper- and lower-case and that they are 
+  consistent throughout the file;</P>
+  <LI>
+  <P>ensure all attribute names are similarly in a consistent case throughout 
+  the file.</P></LI></UL>
+<P>Be aware that many HTML browsers may not accept XML-style <CODE>EMPTY</CODE> 
+elements with the trailing slash, so the above changes may not be 
+backwards-compatible. An alternative is to add a dummy end-tag to all 
+<CODE>EMPTY</CODE> elements, so <CODE>&lt;IMG src="foo.gif"&gt;</CODE> becomes 
+<CODE>&lt;IMG src="foo.gif"&gt;</CODE><CODE>&lt;/IMG&gt;</CODE>.</P>
+<P>§ <FONT color=#8e2323>If you have a lot of valid HTML files, could write a 
+script to do this in a programming language which understands SGML/XML markup 
+(such as <CITE><A href="http://www.omnimark.com/">Omnimark</A></CITE>, <CITE><A 
+href="http://www.balise.com/">Balise</A></CITE>, <CITE><A 
+href="http://www.dircon.co.uk/sgml/">SGMLC</A></CITE>, or a system using one of 
+the SGML libraries for <CITE>Perl</CITE>, <CITE>Python</CITE>, or 
+<CITE>Tcl</CITE>), or you could even use editor macros if you know what you’re 
+doing.</FONT></P>
+<P>If your HTML files are invalid (HTML created by most WYSIWYG editors is 
+invalid) then they will almost certainly have to be converted manually, although 
+if the deformities are regular and carefully constructed, the files may actually 
+be almost well-formed, and you could write a program or script to do as 
+described above. To test for invalidity and non-conformance, check the 
+following:</P>
+<UL>
+  <LI>
+  <P>do the files contain markup syntax errors? For example, are there any 
+  backslashes instead of forward slashes on end-tags; or elements which nest 
+  incorrectly (<I>eg</I> <CODE>&lt;B&gt;an element which starts &lt;I&gt;inside 
+  one element&lt;/B&gt; but ends outside it&lt;/I&gt;</CODE>)?</P>
+  <LI>
+  <P>do the files contain markup which conflicts with the HTML DTDs, such as 
+  headings inside paragraphs, list items outside list environments?</P>
+  <LI>
+  <P>do the files use elements which are not in any DTD? Although this is easy 
+  to transform to a DTDless well-formed file (because you don’t have to define 
+  elements in advance) most proprietary [browser-specific] extensions have never 
+  been formally defined, so it is often impossible to work out where they can 
+  meaningfully be used.</P></LI></UL>
+<P>Markup which is valid but which is meaningless or void may need to be edited 
+out before conversion (such as repeated empty paragraphs or linebreaks, empty 
+tables, invisible `spacing' GIFs <I>etc</I>: XML uses stylesheets, so you won’t 
+need any of these).</P>
+<P>See the <A href="http://www.ucc.ie/xml/#FAQ-WF">rules for `well-formed' XML 
+files</A> for details of what you need to check in XML when 
+converting.</P></DIV>
+<DIV>
+<H3><A name=HTMLXML>C.6 &nbsp; Is there an XML version of HTML?</A></H3>
+<P>There are XML versions of the HTML DTD in preparation but none ready yet:</P>
+<UL>
+  <LI>
+  <P><A href="mailto:btrafford@worldnet.att.net">Ben Trafford</A> is developing 
+  an XML version of HTML 3.2</P>
+  <LI>
+  <P>I have started work on an XML version of HTML Pro, but it’s not easy, and I 
+  need convincing it’s worth doing.</P>
+  <LI>
+  <P>The <A href="http://www.w3.org/TR/xhtml1/">Extensible HyperText Markup 
+  Language</A> (XHTML) is a W3C project: ‘This specification defines XHTML 1.0, 
+  a reformulation of HTML 4.0 as an XML 1.0 application, and three DTDs 
+  corresponding to the ones defined by HTML 4.0. The semantics of the elements 
+  and their attributes are defined in the W3C Recommendation for HTML 4.0. These 
+  semantics provide the foundation for future extensibility of XHTML. 
+  Compatibility with existing HTML user agents is possible by following a small 
+  set of guidelines.’</P></LI></UL></DIV>
+<DIV>
+<H3><A name=FAQ-SUBSET>C.7 &nbsp; If XML is just a subset of SGML, can I use XML 
+files directly with SGML tools?</A></H3>
+<P>§ <FONT color=#8e2323>Yes, provided you use SGML software which knows about 
+the new WebSGML Adaptations to ISO 8879 (features needed to support XML, such as 
+the special form for <CODE>EMPTY</CODE> elements; some aspects of the SGML 
+Declaration such as <CODE>NAMECASE GENERAL NO</CODE>; multiple attribute 
+declarations, <I>etc</I>).</FONT></P>
+<P>¶ <FONT color=#23238e>An alternative is to use an SGML DTD to let you create 
+an SGML file, but one which does not use empty elements; and then remove the 
+DocType Declaration so it becomes a well-formed DTDless XML file.</FONT></P>
+<P>§ <FONT color=#8e2323>At the moment there are few tools which handle XML 
+files unchanged because of the format of these <CODE>EMPTY</CODE> elements, but 
+this is changing. The <CITE>nsgmls</CITE> parser has an XML conformance switch, 
+introduced for use with <CITE>Jade</CITE>, and the first XML-specific editors 
+and parsers are in use (see the question on <A 
+href="http://www.ucc.ie/xml/#FAQ-XMLSOFT">software</A>).</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-LEARN>C.8 &nbsp; I’m used to authoring and serving HTML. Can I 
+learn XML easily?</A></H3>
+<P>§ <FONT color=#8e2323>Yes, very easily, but at the moment there is still a 
+need for tutorials, simple tools, and more examples of XML documents. <A 
+href="http://www.ucc.ie/xml/#FAQ-WF">Well-formed</A> XML documents may look 
+similar to <A href="http://www.ucc.ie/xml/#FAQ-HTML">HTML</A> except for some 
+small but very important points of syntax.</FONT></P>
+<P>¶ <FONT color=#23238e>The big practical difference is that XML has to stick 
+to the rules. HTML browsers let you create broken HTML because they elide all 
+the broken bits: with XML your files have to be correct or they simply won’t 
+work.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-CHARENTS>C.9 &nbsp; Will XML be able to use non-Latin 
+characters?</A></H3>
+<P>Yes, the <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML Specification</A> 
+explicitly says XML uses <A href="http://www.iso.ch/">ISO 10646</A>, the 
+international standard 31-bit character repertoire which covers most human (and 
+some non-human) languages. This is currently congruent with Unicode.</P>
+<P>The spec says (2.2): ‘All XML processors must accept the UTF-8 and UTF-16 
+encodings of ISO 10646...’. UTF-8 is an encoding of Unicode into 8-bit 
+characters: the first 128 are the same as ASCII, the rest are used to encode the 
+rest of Unicode into sequences of between 2 and 6 bytes. UTF-8 in its 
+single-octet form is therefore the same as ISO 646 IRV (ASCII), so you can 
+continue to use ASCII for English or other unaccented languages using the Latin 
+alphabet. Note that UTF-8 is incompatible with ISO 8859-1 (ISO Latin-1) after 
+code point 126 decimal (the end of ASCII). UTF-16 is like UTF-8 but with a 
+scheme to represent the next 16 planes of 64k characters as two 16-bit 
+characters.</P>
+<P>‘...the mechanisms for signalling which of the two are in use, and for 
+bringing other encodings into play, are [...] in the discussion of character 
+encodings.’ The <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML Specification</A> 
+explains how to specify in your XML file which coded character set you are 
+using.</P>
+<P>Use of UCS-4 can only legally be specified in SGML or XML when the WebSGML 
+Adaptations to ISO 8879 are implemented: this enables numbers longer than eight 
+digits to be used in the SGML Declaration.</P>
+<P>‘Regardless of the specific encoding used, any character in the ISO 10646 
+character set may be referred to by the decimal or hexadecimal equivalent of its 
+bit string’: so no matter which character set you personally use, you can still 
+refer to specific individual characters from elsewhere in the encoded repertoire 
+by using <CODE>&amp;#dddd;</CODE> (decimal character code) or 
+<CODE>&amp;#xHHHH;</CODE> (hexadecimal character code, in uppercase). The 
+terminology can get confusing, as can the numbers: see the <A 
+href="http://cns-web.bu.edu/pub/djohnson/web_files/i18n/ISO-10646.html">ISO 
+10646 Concept Dictionary</A>. Rick Jelliffe has <A 
+href="http://www.oasis-open.org/cover/xml-ISOents.txt">‘XML-ized’ the ISO 
+character entity sets</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-DOCTYPE>C.10 &nbsp; What’s a Document Type Definition (DTD) and 
+where do I get one?</A></H3>
+<P>§ <FONT color=#8e2323>A DTD is a file (or several files to be used together), 
+written in XML, which contains a formal definition of a particular type of 
+document. It sets out what names can be used for element types, where they may 
+occur, and how they all fit together. For example, if you want a document type 
+to be able to describe <CODE>&lt;List&gt;</CODE>s which contain 
+<CODE>&lt;Item&gt;</CODE>s, part of your DTD would contain something like</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;!ELEMENT List (Item)+&gt;
+&lt;!ELEMENT Item (#PCDATA)&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>This fragment defines a list as an element type containing one or more items 
+(that’s the plus sign), and items as element types containing just text. XML is 
+the formal specification language which processors read to automatically parse 
+the DTD and then use that information to identify where every element type comes 
+and how each relates to the other, so that stylesheets, navigators, browsers, 
+search engines, databases, printing routines, and other applications can be 
+used. The above fragment lets you create lists which get stored as:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;List&gt;&lt;Item&gt;Chocolate&lt;/Item&gt;&lt;Item&gt;Music&lt;/Item&gt;&lt;Item&gt;Surfing&lt;/Item&gt;&lt;/List&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>How the list appears in print or on the screen depends on your stylesheet: 
+you do not normally need to put anything in the XML to affect formatting in the 
+way that had to be done with HTML before stylesheets.</FONT></P>
+<P>In effect, a DTD provides applications with advance notice of what names and 
+structures can be used in a particular document type. Using a DTD means you can 
+be certain that all documents which belong to a particular type will be 
+constructed and named in a conformant manner.</P>
+<P>§ <FONT color=#8e2323><A name=FAQ-SELFDEF>»</A>There are thousands of SGML 
+DTDs already in existence in all kinds of areas (see the <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html">SGML Web pages</A> for 
+examples). Many of them can be downloaded and used freely; or you can write your 
+own. As with any language, you need to learn it to do this (see for example 
+<CITE>Developing SGML DTDs</CITE> by Maler and el Andaloussi, Prentice Hall, 
+1997, 0-13-309881-8): but XML is much simpler than full SGML: see the <A 
+href="http://www.ucc.ie/xml/#FAQ-RESTRICT">list of restrictions</A> which shows 
+what has been cut out. Existing SGML DTDs do need to be converted to XML for use 
+with XML systems: <A href="http://www.ucc.ie/xml/#FAQ-DTDCONV">read the question 
+on converting SGML DTDs to XML</A>, and expect to see announcements of popular 
+DTDs eventually becoming available in XML format.</FONT></P></DIV>
+<DIV>
+<H3><A name=SCHEMATA>C.11 &nbsp; I keep hearing about alternatives to DTDs. 
+What’s a schema?</A></H3>
+<P>Bob DuCharme writes: ‘Many XML developers are dissatisfied with the syntax of 
+the markup declarations described in the XML spec for two reasons. First, they 
+feel that if XML documents are so good at describing structured information, 
+then the description of a document type’s structure (its `schema') should be in 
+an XML document instead of written with its own special syntax. In addition to 
+being more consistent, this would make it easier to edit and manipulate the 
+schema with regular document manipulation tools. Secondly, they feel that 
+traditional DTD notation doesn’t allow schema designers the power to impose 
+enough constraints on the data&nbsp;-- for example, the ability to say that a 
+certain element type must always have a positive integer value, that it may not 
+be empty, or that it must be one of a list of possible choices. This would ease 
+the development of software using that data because the developer would have 
+less error-checking code to write.’</P>
+<BLOCKQUOTE><B>Note</B> 
+  <P>Users from a database or computer science background should be aware that 
+  SGML systems&nbsp;-- and that includes XML&nbsp;-- are not database management 
+  systems: they are text markup systems. While there are many similarities, such 
+  as the ones described here, some of the concepts of one are simply 
+  non-existent in the other: XML does not possess some database-like features in 
+  the same way that DBMSs do not possess markup-like ones.</P></BLOCKQUOTE>
+<P>‘Several groups have submitted proposals to the W3C for alternative ways to 
+express document type schemata. In addition to offering schema constraints like 
+data typing and the others described here, many take advantage of other current 
+trends in software development such as object-oriented methodologies. The W3C 
+Schema Working Group is currently reviewing these proposals and developing their 
+own proposal based on the most useful features suggested by the existing 
+proposals and the members of the Working Group.’</P></DIV>
+<DIV>
+<H3><A name=FAQ-HYPERTEXT>C.12 &nbsp; How will XML affect my document 
+links?</A></H3>
+<P>§ <FONT color=#8e2323>The linking abilities of XML systems are much more 
+powerful than those of HTML, so you’ll be able to do much more with them. 
+Existing <CODE>HREF</CODE>-style links will remain usable, but the new linking 
+technology is based on the lessons learned in the development of other standards 
+involving hypertext, such as <A href="http://www-tei.uic.edu/orgs/tei/">TEI</A> 
+and <A href="http://www.oasis-open.org/cover/hytime.html">HyTime</A>, which let 
+you manage bidirectional and multi-way links, as well as links to a span of text 
+(within your own or other documents) rather than to a single point. These 
+features have been available to standard SGML users in browsers like 
+<CITE>DynaText</CITE>, <CITE>Panorama</CITE> and <CITE>Multidoc Pro</CITE> for 
+many years, so there is considerable experience and expertise available in using 
+them.</FONT></P>
+<P>The <A href="http://www.w3.org/TR/WD-xlink">XML Linking Specification 
+(XLink)</A> and <A href="http://www.w3.org/TR/1998/WD-xptr">XML Extended Pointer 
+Specification (XPointer)</A> documents contain a detailed draft specification. 
+An XML link can be either a URL or a TEI-style Extended Pointer (<A 
+href="http://www.ucc.ie/xml/#LOC2" id=LOC1 name=LOC1>XPointer</A>), or both. A 
+URL on its own is assumed to be a resource (as with HTML); if an XPointer 
+follows it, it is assumed to be a sub-resource of that URL; an XPointer on its 
+own is assumed to apply to the current document.</P>
+<P>An XPointer is always preceded by one of <TT>#</TT>, <TT>?</TT>, or 
+<TT>|</TT>. The <TT>#</TT> and <TT>?</TT> mean the same as in HTML applications; 
+the <TT>|</TT> means the sub-resource can be found by applying the XPointer to 
+the resource, but the method of doing this is left to the application.</P>
+<P>The <A href="http://etext.virginia.edu/bin/tei-tocs?div=DIV2;id=SAXR">TEI 
+Extended Pointer Notation</A> (EPN) is much more powerful than the `fragment 
+address' on the end of some URLs, as it allows you to specify the location of a 
+link end using the structure of the document as well as (or in addition to) 
+known, fixed points like IDs. For example, <A href="http://www.ucc.ie/xml/#LOC1" 
+id=LOC2 name=LOC2>the linked second occurrence of the word `XPointer' two 
+paragraphs back</A> could be referred to as 
+<SAMP>http://www.ucc.ie/xml/faq.sgml#ID(faq-hypertext)CHILD(2,*)(6,*)</SAMP>, 
+meaning the sixth child object within the second child object after the element 
+whose ID is <TT>faq-hypertext</TT>. Count the objects from the start of this 
+question in the <A href="http://www.ucc.ie/xml/faq.sgml">SGML version</A> (which 
+has the ID ‘<SAMP>faq-hypertext</SAMP>’):</P>
+<OL>
+  <LI>
+  <P>the title of the question;</P>
+  <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;SECT2 ID="faq-hypertext"&gt;
+&lt;TITLE&gt;How will XML affect my document links?&lt;/TITLE&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+  <LI>
+  <P>the second paragraph:</P>
+  <OL>
+    <LI>
+    <P>the character data from the start of the paragraph to the first item of 
+    markup:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;PARA&gt;The</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+    <LI>
+    <P>the markup item:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;ULINK URL="http://www.w3.org/TR/WD-xlink"&gt;XML Linking 
+Specification (XLink)&lt;/ULINK&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+    <LI>
+    <P>the text item:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>and</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+    <LI>
+    <P>the markup item:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;ULINK 
+URL="http://www.w3.org/TR/WD-xptr"&gt;XML Extended Pointer Specification
+(XPointer)&lt;/ULINK&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+    <LI>
+    <P>the next stretch of character data:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>documents contain a detailed specification. An XML link
+can be either a URL or a TEI-style Extended Pointer (</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+    <LI>
+    <P>and the next markup item:</P>
+    <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;LINK ID="loc1" LINKEND="loc2"&gt;XPointer&lt;/LINK&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE></LI></OL></LI></OL>
+<P>If you view this file with <CITE>Panorama</CITE> or <CITE>MultiDoc Pro</CITE> 
+you can click on the highlighted cross-reference button at the start of the 
+example sentence, and it will display the locations in Extended Pointer Notation 
+of all the links to it, including the word ‘XPointer’ mentioned. (Doing this in 
+an HTML browser is not meaningful, as they do not support bidirectional linking 
+or EPN.) David Megginson has produced an additional function for 
+<CITE>Emacs</CITE>/<CITE>psgml</CITE> which will deduce an XPointer for any 
+location in an SGML or XML file.</P></DIV>
+<DIV>
+<H3><A name=FAQ-MATH>C.13 &nbsp; Can I do mathematics using XML?</A></H3>
+<P>Yes, if the <A href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">document type</A> 
+you use provides for math. The mathematics-using community is developing 
+software, and there is a <A href="http://www.w3.org/Math/">MathML proposal at 
+the W3C</A>, which is a native XML application. It would also be possible to 
+make XML fragments from the long-expired HTML3, <A 
+href="http://www.arbornet.org/~silmaril/dtds/html/htmlpro.html">HTML Pro</A>, or 
+<A href="http://www.oasis-open.org/cover/gen-apps.html#iso12083DTDs">ISO 12083 
+Math</A>, or <A href="http://www.can.nl/~abbott/OpenMath/">OpenMath</A>, or one 
+of your own making. Browsers which display some math embedded in SGML already 
+exist (<I>eg</I> <CITE>DynaText</CITE>, <CITE>Panorama</CITE>, <CITE>Multidoc 
+Pro</CITE>).</P>
+<P>The sophistication could vary from math expressions like <MATH 
+position="INLINE" 
+alt="$$b_{4}\root i\of u{{ru}\over{16}}qt\pi $$"><I>x</I><SUB><I>i</I></SUB></MATH> 
+through simple inline equations such as <MATH position="INLINE" 
+alt="$$b_{4}\root i\of u{{ru}\over{16}}qt\pi $$"><I>E</I>&nbsp;=&nbsp;<I>m</I><I>c</I><SUP>2</SUP></MATH> 
+to display equations like</P>
+<DIV align=center><IMG align=middle alt="" height=64 
+src="FAQs about Ex ML/equation.gif"> 
+(<MATH position="DISPLAY" 
+alt="$$b_{4}\root i\of u{{ru}\over{16}}qt\pi $$"><I>b</I><SUB>4</SUB><ROOT><I>i</I><OF><I>u</I></ROOT><BOX><ABOVE><I>r</I><I>u</I></ABOVE><OVER>/<BELOW>16</BELOW></BOX><I>q</I><I>t</I><FONT 
+face=Symbol>p</FONT></MATH><!--
+<EMBED TYPE="application/x-techexplorer" TEXDATA="$$b_{4}\root i\of u{{ru}\over{16}}qt\pi $$" HEIGHT="85" WIDTH="125">
+--> 
+)</DIV>
+<P>If you are using an HTML browser to read this, of course, the above equations 
+may not be rendered correctly. The <CITE>Techexplorer</CITE> plugin from IBM can 
+be used with regular HTML browsers to render TeX math, and the 
+<CITE>Amaya</CITE> testbed browser <A href="http://www.w3.org/Amaya/">at the 
+W3C</A> has an experimental MathML display.</P></DIV>
+<DIV>
+<H3><A name=FAQ-META>C.14 &nbsp; How does XML handle metadata?</A></H3>
+<P>§ <FONT color=#8e2323>Because XML lets you define your own markup language, 
+you can make full use of the extended hypertext features (see the question on <A 
+href="http://www.ucc.ie/xml/#FAQ-HYPERTEXT">Links</A>) of XML to store or link 
+to metadata in any format (<I>eg</I> ISO&nbsp;11179, <A 
+href="http://purl.oclc.org/metadata/dublin_core/">Dublin Core, Warwick 
+Framework</A>, <A href="http://www.dstc.edu.au/RDU/RDF/">Resource Description 
+Framework (RDF)</A>, and <A href="http://www.w3.org/PICS/">Platform for Internet 
+Content Selection (PICS)</A>).</FONT></P>
+<P>There are no predefined elements in XML, because it is an architecture, not 
+an application, so it is not part of XML’s job to specify how or if authors 
+should or should not implement metadata. You are therefore free to use any 
+suitable method from simple attributes to the embedding of entire Dublin 
+Core/Warwick Framework metadata records. Browser makers may also have their own 
+architectural recommendations or methods to propose.</P></DIV>
+<DIV>
+<H3><A name=FAQ-JAVA>C.15 &nbsp; Can I use Java, ActiveX, <I>etc</I> in XML 
+files?</A></H3>
+<P>This depends on what facilities the browser makers implement. XML is about 
+describing information; scripting languages and languages for embedded 
+functionality are software which enables the information to be manipulated at 
+the user’s end.</P>
+<P>XML itself provides a way to define the markup needed to implement scripting 
+languages: as a neutral standard it neither encourages not discourages their 
+use, and does not favour one language over another, so the field is wide open. 
+</P>
+<P>Scripting languages <EM>are</EM> provided for in a proposal for an <A 
+href="http://www.w3.org/TR/NOTE-XSL-970910">Extensible Style Language, XSL</A> 
+(see question on <A 
+href="http://www.ucc.ie/xml/#FAQ-STYLE">Stylesheets</A>).</P></DIV>
+<DIV>
+<H3><A name=JAVA-GEN>C.16 &nbsp; Can I use Java to create or manage XML 
+files?</A></H3>
+<P>Yes, any programming language can be used to output data from any source in 
+XML format. There is a growing number of front-ends and back-ends for 
+programming environments and data management environments to automate this.</P>
+<UL>
+  <LI>
+  <P>Mark Watson writes in article <TT>344c3443.4494773@news.infonex.net</TT>: 
+  ‘I posted the spec to a Java toolkit for creating XML documents from 
+  relational database queries, and for save/loading XML documents to local 
+  files, and for transport via sockets, RMI, and CORBA IIOP. The spec is at: <A 
+  href="http://www.ucc.ie/xml/www.markwatson.com/XMLdb_0_1.htm"><TT>www.markwatson.com/XMLdb_0_1.htm</TT></A>.’</P>
+  <LI>
+  <P>There is a suite of Java tutorials (with source code and explanation) 
+  available at <A 
+  href="http://developerlife.com/"><TT>http://developerlife.com</TT></A>. These 
+  tutorials show the Java2 developer how to use the IBM, Sun and OpenXML Java 
+  parsers to write Java programs that use XML.</P></LI></UL></DIV>
+<DIV>
+<H3><A name=FAQ-STYLE>C.17 &nbsp; How do I control appearance?</A></H3>
+<P>§ <FONT color=#8e2323>The use of a stylesheet is required for XML. Some 
+browsers may possibly provide simple default styles for popular elements like 
+<CODE>&lt;Para&gt;</CODE>, or <CODE>&lt;List&gt;</CODE> containing 
+<CODE>&lt;Item&gt;</CODE>, but in general a stylesheet gives the author much 
+better control of the layout. But as with any system where files can be viewed 
+at random by arbitrary users, the author cannot know what resources (such as 
+fonts) are on the user’s system, so care is needed.</FONT></P>
+<UL>
+  <LI>
+  <P>§ <FONT color=#8e2323>The international standard for stylesheets for SGML 
+  documents is <A href="http://www.oasis-open.org/cover/dsssl.html">DSSSL, the 
+  Document Style and Semantics Specification Language</A> (<A 
+  href="http://www.iso.ch/">ISO 10179</A>). This provides Scheme-like languages 
+  for stylesheets and document conversion, and is implemented in the <A 
+  href="http://www.jclark.com/jade/"><CITE>Jade</CITE> formatter</A>.</FONT></P>
+  <LI>
+  <P>The <A href="http://www.w3.org/Style/css">Cascading Stylesheet 
+  Specification (CSS)</A> provides a simple syntax for assigning styles to 
+  elements, and has been part-implemented in some HTML browsers.</P>
+  <LI>
+  <P>A new <A href="http://www.w3.org/TR/WD-xsl">Extensible Style Language</A> 
+  (XSL) has been drafted for use specifically with XML. This uses XML syntax (an 
+  XSL stylesheet is actually an XML file) but combines formatting features from 
+  both DSSSL and CSS (HTML) and has already attracted support from several major 
+  vendors.</P></LI></UL>
+<P>Arbortext’s experimental <A href="http://www.arbortext.com/xmlstyler/">XML 
+Styler</A> has details of how to use it with XSL. You will also need the ActiveX 
+controls and <A href="http://www.microsoft.com/xml/xsl/msxsl.cab">XSL 
+codebase</A>.</P>
+<P>There are also many pre-existing proprietary stylesheet systems and 
+implementations, many of which are deeply embedded in the technical 
+documentation community (and thus heavily supported by one or more 
+products):</P>
+<UL>
+  <LI>
+  <P>Inso Corp’s <CITE>DynaText</CITE> and <CITE>DynaWeb</CITE> browser and 
+  server products (their forerunner company, EBT, was where much of today’s 
+  stylesheet technology was invented);</P>
+  <LI>
+  <P>The Synex stylesheet DTD as used in <CITE>Panorama</CITE> and 
+  <CITE>MultiDoc Pro</CITE>;</P>
+  <LI>
+  <P>The US military standard FOSI (Formatted Output Specification Instance) is 
+  implemented in Arbortext’s <CITE>ADEPT*Editor</CITE> (and elsewhere);</P>
+  <LI>
+  <P>SoftQuad’s <CITE>Author/Editor</CITE> uses stylesheets controllable by the 
+  user.</P></LI></UL>
+<P>§ <FONT color=#8e2323>Most browser and editor vendors appear to be committing 
+to a move to XSL but with a large installed user base for their existing systems 
+this will probably not occur quickly.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-GRAPH>C.18 &nbsp; How do I use graphics in XML?</A></H3>
+<P>§ <FONT color=#8e2323>Graphics are just links which happen to have a picture 
+file at the end rather than another piece of text, so they can be done in any 
+way supported by the XLink and XPointer specifications (see <A 
+href="http://www.ucc.ie/xml/#FAQ-HYPERTEXT">earlier question</A>), including 
+using similar syntax to existing HTML images. They can also be done using XML’s 
+built-in <CODE>NOTATION</CODE> and <CODE>ENTITY</CODE> mechanism in a similar 
+way to standard SGML. The linking specifications, however, give you much better 
+control over the traversal and activation of links, so an author can specify, 
+for example, whether or not to have an image appear when the page is loaded, or 
+on a click from the user, or in a separate window, <EM>without having to resort 
+to scripting</EM>. Which graphic file formats will be supported is a matter for 
+the browser makers: XML itself doesn’t predict or restrict you. GIF, JPG, TIFF, 
+PNG, and CGM at a minimum would seem to make sense: there are moves towards 
+creating a networked vector graphics standard (see next paragraph).</FONT></P>
+<P>Peter Murray-Rust writes: ‘GIFs and JPEGs cater for bitmaps (pixel 
+representations of images). Vector graphics (scaleable) are being addressed in 
+the W3C’s graphics activity (see <A 
+href="http://www.w3.org/Graphics/Activity"><TT>http://www.w3.org/Graphics/Activity</TT></A>). 
+When a consensus is reached it will be possible to transmit the graphics 
+representation <EM>within the XML file</EM>. For many graphics objects this will 
+mean greatly decreased download time and scaling without loss of detail.’</P>
+<BLOCKQUOTE><B>Note</B> 
+  <P>You cannot embed a raw graphics file (or any other binary [non-text] data) 
+  directly into an XML file because any bytes resembling markup would get 
+  misinterpreted: you must refer to it by linking (see below).</P></BLOCKQUOTE>
+<P>Bob DuCharme adds: ‘All the data in an XML document entity must be parseable 
+XML. You can define an external entity as either a parsed entity (parseable XML) 
+or an unparsed entity (anything else). Unparsed entities can be used for picture 
+files, sound files, movie files, or whatever you like. They can only be 
+referenced from within a document as the value of an attribute (much like a 
+bitmap picture on an HTML Web page is the value of the <CODE>img</CODE> 
+element’s <CODE>src</CODE> attribute) and not part of the actual document. In an 
+XML document, this attribute must be declared to be of type <CODE>ENTITY</CODE>, 
+and the entity’s declaration must specify a declared <CODE>NOTATION</CODE>, 
+because if the entity isn’t XML, the XML processor needs to know what it is. For 
+example, in the following document, the <SAMP>colliepic</SAMP> entity is 
+declared to have a JPEG notation, and it’s used as the value of the empty dog 
+element’s <SAMP>picfile</SAMP> attribute.’</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0"?&gt; 
+&lt;!DOCTYPE dog [
+&lt;!NOTATION JPEG SYSTEM "Joint Photographic Experts Group"&gt;
+&lt;!ENTITY colliepic SYSTEM "lassie.jpg" NDATA JPEG&gt;
+&lt;!ELEMENT dog EMPTY&gt;
+&lt;!ATTLIST dog picfile ENTITY #REQUIRED&gt;
+]&gt;
+&lt;dog picfile="colliepic"/&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>‘The XLink and XPointer linking specifications describe other ways to point 
+to a non-XML file such as a graphic. These offer more sophisticated control over 
+the external entity’s position, handling, and appearance within the XML 
+document.’</P>
+<P>(It would, however, be possible to include a text-encoded transformation of a 
+binary file as a <CODE>CDATA</CODE> marked section, using something like 
+UUencode with the markup characters <CODE>]</CODE> and <CODE>&gt;</CODE> removed 
+from the map so that they could not occur and be 
+misinterpreted.)</P></DIV></DIV>
+<HR>
+
+<DIV>
+<H2><A name=FAQ-DEVELOPER>D. Developers and Implementors (including WebMasters 
+and server operators)</A></H2>
+<DIV>
+<H3><A name=FAQ-SPEC>D.1 &nbsp; Where’s the spec?</A></H3>
+<P>Right <A href="http://www.w3.org/TR/REC-xml">here</A> 
+(<TT>http://www.w3.org/TR/REC-xml</TT>). Includes the EBNF. There are also 
+versions in Japanese (<A 
+href="http://www.fxis.co.jp/DMS/sgml/xml/"><TT>http://www.fxis.co.jp/DMS/sgml/xml/</TT></A>); 
+Spanish (<A 
+href="http://www.ucc.ie/xml/faq-es.html"><TT>http://www.ucc.ie/xml/faq-es.html</TT></A>); 
+Korean (<A 
+href="http://xml.t2000.co.kr/faq/index.html"><TT>http://xml.t2000.co.kr/faq/index.html</TT></A>) 
+and a Java-ised annotated version at <A 
+href="http://www.xml.com/axml/testaxml.htm"><TT>http://www.xml.com/axml/testaxml.htm</TT></A>.</P>
+<P>Eve Maler has released the <A 
+href="http://www.w3.org/XML/1998/06/xmlspec-19980910.dtd">DTD</A> and <A 
+href="http://www.w3.org/XML/1998/06/xmlspec-report-19980910.htm">documentation</A> 
+used for the spec itself: this is a new version that was used to encode the XML, 
+XLink, XPointer, DOM, <I>etc</I> specifications. Be aware that this version is 
+no longer compatible with the version that XML 1.0 uses; please send any 
+comments or questions to <A href="mailto:elm@arbortext.com">Eve</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-VALIDWF>D.2 &nbsp; What are these terms `DTDless', `valid', and 
+`well-formed'?</A></H3>
+<P>§ <FONT color=#8e2323>Full SGML uses a Document Type Definition (DTD) to 
+describe the markup (elements) available in any specific type of document. 
+However, the design and construction of a DTD can be a complex and non-trivial 
+task, so XML has been designed so it can be used either with or without a DTD. 
+DTDless operation means you can invent markup without having to define it 
+formally, at the penalty of losing automated control over the structuring of 
+additional documents of the same type.</FONT></P>
+<P>To make this work, a DTDless file in effect defines its own markup 
+informally, by the simple existence and location of elements where you create 
+them. But when an XML application such as a browser encounters a DTDless file, 
+it needs to be able to understand the document structure <EM>while it reads 
+it</EM>, because it has no DTD to tell it what to expect, so some changes have 
+been made to the rules. </P>
+<P>§ <FONT color=#8e2323>For example, HTML’s <CODE>&lt;IMG&gt;</CODE> element is 
+defined as ‘<CODE>EMPTY</CODE>’: it doesn’t have an end-tag. An XML application 
+reading a file <EM>without a DTD</EM> and encountering <CODE>&lt;IMG&gt;</CODE> 
+would have no way to know whether or not to expect an end-tag, so the concept of 
+`well-formed' files has become necessary. This makes the start and end of every 
+element, and the occurrence of <CODE>EMPTY</CODE> elements completely 
+unambiguous.</FONT></P>
+<DIV>
+<H4><A name=FAQ-WF>D.2.1 &nbsp; ‘Well-formed’ documents</A></H4>
+<P>All XML documents, both DTDless and valid, <EM>must</EM> be well-formed:</P>
+<UL>
+  <LI>
+  <P><A name=FAQ-RMDPI>»</A>if there is no DTD in use, the document must start 
+  with a Standalone Document Declaration (SDD) saying so:</P>
+  <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;foo&gt;
+  &lt;bar&gt;...&lt;blort/&gt;...&lt;/bar&gt;
+&lt;/foo&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+  <P></P>
+  <P>David Brownell notes: ‘XML that’s `just' well-formed doesn’t <EM>need</EM> 
+  to use a Standalone Document Declaration at all. Such declarations are there 
+  to permit certain speedups when processing documents while ignoring external 
+  parameter entities&nbsp;-- basically, you can’t rely on external declarations 
+  in standalone documents. The types that are relevant are entities and 
+  attributes. Standalone documents must not require any kind of attribute value 
+  normalization or defaulting, otherwise they are invalid.’</P>
+  <LI>
+  <P>all tags must be balanced: that is, all elements which may contain 
+  character data must have both start- and end-tags present (omission is not 
+  allowed except for <A href="http://www.ucc.ie/xml/#FAQ-EMPTY">empty 
+  elements</A>, see below);</P>
+  <LI>
+  <P>all attribute values must be in quotes (the single-quote character [the 
+  apostrophe] may be used if the value contains a double-quote character, and 
+  <I>vice versa</I>): if you need both, use <CODE>&amp;apos;</CODE> or 
+  <CODE>&amp;quot;</CODE>, and declare them in the internal subset;</P>
+  <LI>
+  <P><A name=FAQ-EMPTY>»</A>any <CODE>EMPTY</CODE> element tags (<I>eg</I> those 
+  with no end-tag like HTML’s <CODE>&lt;IMG&gt;</CODE>, <CODE>&lt;HR&gt;</CODE>, 
+  and <CODE>&lt;BR&gt;</CODE> and others) must either end with 
+  ‘<CODE>/&gt;</CODE>’ or you have to make them appear non-<CODE>EMPTY</CODE> by 
+  adding a real end-tag;</P>
+  <P>Example: <CODE>&lt;BR&gt;</CODE> would become either 
+  <CODE>&lt;BR/&gt;</CODE> or 
+  <CODE>&lt;BR&gt;</CODE><CODE>&lt;/BR&gt;</CODE>.</P>
+  <LI>
+  <P>there must not be any isolated markup-start characters (<SAMP>&lt;</SAMP> 
+  or <CODE>&amp;</CODE>) in your text data (<I>ie</I> they must be given as 
+  <CODE>&amp;lt;</CODE> and <CODE>&amp;amp;</CODE>), and the sequence 
+  <CODE>]]&gt;</CODE> must be given as <CODE>]][amp ]gt;</CODE> if it does not 
+  occur as the end of a <CODE>CDATA</CODE> marked section;</P>
+  <LI>
+  <P>elements must nest inside each other properly (no overlapping markup, same 
+  rule as for all SGML);</P>
+  <LI>
+  <P>Well-formed files with no DTD may use attributes on any element, but the 
+  attributes must all be of type CDATA by default.</P></LI></UL>
+<P>§ <FONT color=#8e2323>XML files with no DTD are considered to have 
+<CODE>&amp;lt;</CODE>, <CODE>&amp;gt;</CODE>, <CODE>&amp;apos;</CODE>, 
+<CODE>&amp;quot;</CODE>, and <CODE>&amp;amp;</CODE> predefined and thus 
+available for use even without a DTD. Valid XML files must declare them 
+explicitly if they use them. If you want to use more than these five default 
+character entities, but you want to avoid having to write a full DTD, it is 
+possible to declare just character entities on their own in the internal subset 
+of a standalone XML file (thanks to Richard Lander for this):</FONT></P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0" standalone="yes"?&gt;
+&lt;!doctype example [
+&lt;!entity nbsp "&amp;#032;"&gt;
+]&gt;
+&lt;example&gt;Three&amp;nbsp;&amp;nbsp;&amp;nbsp;blanks.&lt;/example&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE></DIV>
+<DIV>
+<H4><A name=FAQ-VALID>D.2.2 &nbsp; Valid XML</A></H4>
+<P>§ <FONT color=#8e2323><A name=FAQ-DOCDEC>»</A>Valid XML files are those which 
+have a <A href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">Document Type Definition 
+(DTD)</A> like other <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> 
+applications, and which adhere to it. They must already be <A 
+href="http://www.ucc.ie/xml/#FAQ-WF">well-formed</A>.</FONT></P>
+<P>A valid file begins like any other SGML file with a Document Type 
+Declaration, but may have an optional XML Declaration prepended:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE advert SYSTEM "http://www.foo.org/ad.dtd"&gt;
+&lt;advert&gt;
+  &lt;headline&gt;...&lt;pic/&gt;...&lt;/headline&gt;
+  &lt;text&gt;...&lt;/text&gt;
+&lt;/advert&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>The <A href="http://www.ucc.ie/xml/#FAQ-SPEC">XML Specification</A> defines 
+an SGML Declaration for XML which is fixed for all instances (the declaration 
+has been removed from the text of the Specification and is now in <A 
+href="http://www.w3.org/TR/NOTE-sgml-xml-971215#null">a separate document</A>). 
+An <A href="http://www.ucc.ie/xml/#FAQ-DOCTYPE">XML version of the specified 
+DTD</A> must be accessible to the XML processor, either by being available 
+locally (<I>ie</I> the user already has a copy on disk), or by being retrievable 
+via the network. You can specify this by supplying the URL for the DTD in a 
+System Identifier (as in the example above). It is possible (many people would 
+say preferable) to supply a <A href="http://www.ucc.ie/cgi-bin/public">Formal 
+Public Identifier</A>, but if used, this must <EM>precede</EM> the System 
+Identifier, which must still be given (and only the <SAMP>PUBLIC</SAMP> keyword 
+is used), </P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;!DOCTYPE advert PUBLIC "-//Foo, Inc//DTD Advertisements//EN"
+  "http://www.foo.org/ad.dtd"&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P></P>
+<P>The defaults for the other attributes of the XML Declaration are 
+<CODE>version="1.0"</CODE> and <CODE>encoding="UTF-8"</CODE>.</P></DIV></DIV>
+<DIV>
+<H3><A name=ATTRIBORELEM>D.3 &nbsp; Which should I use in my DTD, attributes or 
+elements?</A></H3>
+<P>There is no single answer to this: a lot depends on what you are designing 
+the document type for. The two extremes are best illustrated with examples.</P>
+<UL>
+  <LI>
+  <P>`Traditional' textual practice is to put the `real' text (what would be 
+  printed) as character data content, and keep the metadata (like line numbers) 
+  in attributes, from where they can more easily be isolated for analysis or 
+  special treatment like display in the margin or in a mouseover:</P>
+  <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;l n="184"&gt;&lt;sp&gt;Portia&lt;/sp&gt;&lt;text&gt;The quality of mercy is not strain’d,&lt;/text&gt;&lt;/l&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+  <LI>
+  <P>But from the systems point of view, there is nothing `wrong' with storing 
+  the data the other way round, especially where the volume of text data on each 
+  occasion is relatively small:</P>
+  <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;line speaker="Portia" text="The quality of mercy is not strain’d,"&gt;184&lt;/line&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE></LI></UL>
+<P>A lot will depend on what you want to do with the information and which bits 
+of it are easiest accessed by each method. A rule of thumb for conventional 
+textual documents is that if the markup were all stripped away, the bare text 
+should still be readable and usable, even if inconvenient. For database output, 
+however, or other machine-generated documents, `reading' may not be meaningful, 
+so it is perfectly possible to have documents where <EM>all</EM> the data is in 
+attributes, and the document contains no character data in content models at 
+all. See <A 
+href="http://www.oasis-open.org/cover/elementsAndAttrs.html"><TT>http://www.oasis-open.org/cover/elementsAndAttrs.html</TT></A> 
+for more.</P></DIV>
+<DIV>
+<H3><A name=FAQ-DTD>D.4 &nbsp; What else has changed between SGML and 
+XML?</A></H3>
+<P><A name=FAQ-RESTRICT>»</A>The principal changes are in what you can do in 
+writing a Document Type Definition (DTD). To simplify the syntax and make it 
+easier to write processing software, a large number of SGML markup declaration 
+options have been suppressed (see the <A 
+href="http://www.ucc.ie/xml/#FAQ-DTDCONV">list of omitted features</A>).</P>
+<P>An extra delimiter is permitted in Names (the colon) for use in experiments 
+with namespaces (enabling DTDs to distinguish element source, ownership, or 
+application). A colon may only appear in mid-name, though, not at the start or 
+the end. Work is ongoing to define how these can be declared and referenced 
+using element and attribute markup.</P></DIV>
+<DIV>
+<H3><A name=FAQ-XMLSOFT>D.5 &nbsp; What XML software can I use today?</A></H3>
+<P>Details are no longer in this FAQ as they are now changing too rapidly to be 
+kept up to date: see the XML pages at <A 
+href="http://www.oasis-open.org/cover/xml.html"><TT>http://www.oasis-open.org/cover/xml.html</TT></A>.</P>
+<P>¶ <FONT color=#23238e>For a detailed guide to examples of SGML and XML 
+programs and the concepts behind them, see the editor’s book <A 
+href="http://imbolc.ucc.ie/~pflynn/books/sgmltools.html"><CITE>Understanding 
+SGML and XML Tools</CITE></A> (Kluwer, 1998, 0-7923-8169-6).</FONT></P>
+<P>For browsers see the question on <A 
+href="http://www.ucc.ie/xml/#FAQ-BROWSER">XML Browsers</A> and the details of 
+the <A href="http://www.ucc.ie/xml/#FAQ-MAILINGLIST"><TT>xml-dev</TT> mailing 
+list</A> for software developers. Bert Bos keeps <A 
+href="http://www.w3.org/XML/notes.html">a list of some XML developments</A> in 
+bison, flex, perl and Python.</P>
+<P>¶ <FONT color=#23238e><A name=ACADSINDEV>»</A>Information for developers of 
+Chinese XML systems can be found at the Chinese <CITE>XML Now!</CITE> website of 
+Academia Sinica: <A 
+href="http://www.ascc.net/xml/"><TT>http://www.ascc.net/xml/</TT></A> This site 
+includes an FAQ and test files.</FONT></P></DIV>
+<DIV>
+<H3><A name=FAQ-SWCHX>D.6 &nbsp; Do I have to change any of my server software 
+to work with XML?</A></H3>
+<P>§ <FONT color=#8e2323>Only to serve up <TT>.xml</TT> files as the correct 
+MIME type (<SAMP>application/xml</SAMP>, see <A 
+href="ftp://ftp.isi.edu/in-notes/rfc2376.txt">RFC2376</A>), so for serving XML 
+documents all that is needed is to edit the <TT>mime-types</TT> file (or its 
+equivalent) and add the line</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>application/xml       xml XML</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>In some servers (<I>eg</I> <CITE>Apache</CITE>), users can change the MIME 
+type for specific file types from their own directories by using directives in a 
+<TT>.htaccess</TT> file. The MIME content-type <SAMP>text/xml</SAMP> must only 
+be applied to pure ASCII files (ISO 646 IRV) because of a character-set 
+restriction in the RFC: for all normal use, <SAMP>application/xml</SAMP> is the 
+one to go for.</FONT></P>
+<P>§ <FONT color=#8e2323>Since XML is designed to support stylesheets and 
+sophisticated hyperlinking, XML documents may be accompanied by ancillary files 
+in the same way that SGML files are: DTDs, entity files, catalogs, stylesheets, 
+etc, which may need other MIME Content-Type entries, such as 
+<SAMP>text/css</SAMP> for CSS stylesheets. XUA (XML User Agent), which is one of 
+the planned deliverables of the XML WG, might provide a mechanism for packaging 
+XML documents and XSL styles into a single message.</FONT></P>
+<P>If you run scripts generating HTML, which you wish to work with XML, they 
+will need to be modified to produce the relevant document type.</P></DIV>
+<DIV>
+<H3><A name=FAQ-SSINCLUDES>D.7 &nbsp; Can I still use server-side 
+<CODE>INCLUDE</CODE>s?</A></H3>
+<P>Yes, so long as what they generate ends up as part of an XML-conformant file 
+(<I>ie</I> either <A href="http://www.ucc.ie/xml/#FAQ-VALID">valid</A> or just 
+<A href="http://www.ucc.ie/xml/#FAQ-WF">well-formed</A>).</P></DIV>
+<DIV>
+<H3><A name=FAQ-CSINCLUDES>D.8 &nbsp; Can I (and my authors) still use 
+client-side <CODE>INCLUDE</CODE>s?</A></H3>
+<P>The same rule applies as for <A 
+href="http://www.ucc.ie/xml/#FAQ-SSINCLUDES">server-side 
+<CODE>INCLUDE</CODE>s</A>, so you need to ensure that any embedded code which 
+gets passed to a third-party engine (<I>eg</I> <CITE>SDQL</CITE> enquiries, 
+<CITE>Java</CITE> <CODE>write</CODE>s, <CITE>LiveWire</CITE> requests, streamed 
+content, <I>etc</I>) does not contain any characters which might be 
+misinterpreted as XML markup (<I>ie</I> no angle brackets or ampersands): either 
+use a <CODE>CDATA</CODE> marked section to avoid your XML application parsing 
+the embedded code, or use the standard <CODE>&amp;lt;</CODE>, 
+<CODE>&amp;gt;</CODE>, and <CODE>&amp;amp;</CODE> character entity references 
+instead.</P></DIV>
+<DIV>
+<H3><A name=FAQ-TERMS>D.9 &nbsp; I’m trying to understand the XML Spec: why does 
+SGML (and XML) have such difficult terminology?</A></H3>
+<P>§ <FONT color=#8e2323>For implementation to succeed, the terminology needs to 
+be precise. Design goal 8 of the specification tells us that ‘the design of XML 
+shall be formal and concise’. To describe XML in formal terms, the specification 
+uses the concise language of Computer Science, which is often confusing to 
+non-CS people because it uses well-known English words in a specialised sense 
+which can be very different from their commonly understood meanings&nbsp;-- for 
+example, `grammar', `production', `token', or `terminal'.</FONT></P>
+<P>The specification rarely explains these terms because of the other part of 
+this design goal: the specification should be concise. It doesn’t repeat 
+explanations that are available elsewhere. In essence this means that to grok 
+the fullness of the spec, you need foreknowledge of computer science and 
+SGML.</P>
+<P>Sloppy terminology in specifications causes misunderstandings, so formal 
+standards have to be phrased in formal terminology. This FAQ is not a formal 
+document, and the astute reader may already have noticed it refers to `element 
+names' where `element type names' is more correct; but the former is more widely 
+understood.</P>
+<P>Those new to <A href="http://www.ucc.ie/xml/#FAQ-SGML">SGML</A> may want to 
+read something like the <CITE><A 
+href="http://etext.virginia.edu/bin/tei-tocs?div=DIV1;id=SG">Gentle Introduction 
+to SGML</A></CITE> chapter of the <A href="http://www.uic.edu/orgs/tei/">TEI</A> 
+Guidelines.</P>
+<P>Thanks to Bob DuCharme for suggestions and some bits from his <A 
+href="http://www.snee.com/bob/xmlann">book on the XML Spec</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-API>D.10 &nbsp; Is there a Developer’s API kit for XML?</A></H3>
+<P>Several are available or under development. Details of these and other XML 
+software are held on the <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html">SGML/XML Web pages</A>.</P>
+<P>The big conversion and application development engines like 
+<CITE>Balise</CITE>, <CITE>Omnimark</CITE>, and <CITE>SGMLC</CITE> are all 
+working on adding XML. Details of SGML software of all kinds is on <A 
+href="http://www.oasis-open.org/cover/sgml-xml.html">the SGML Web 
+pages</A>.</P></DIV>
+<DIV>
+<H3><A name=FAQ-DOM>D.11 &nbsp; How does XML fit with the DOM?</A></H3>
+<P>The Document Object Model (DOM) (<A 
+href="http://www.w3.org/TR/PR-DOM-Level-1"><TT>http://www.w3.org/TR/PR-DOM-Level-1</TT></A>) 
+provides an abstract API for constructing, accessing, and manipulating XML and 
+HTML documents. A ‘binding’ of the DOM to a particular programming language 
+provides a concrete API.</P></DIV>
+<DIV>
+<H3><A name=FAQ-TEST>D.12 &nbsp; Is there a conformance test suite for XML 
+processors?</A></H3>
+<P>James Clark has a collection of test cases for testing XML parsers at <A 
+href="http://www.jclark.com/xml/"><TT>http://www.jclark.com/xml/</TT></A> which 
+includes a conformance test.</P></DIV>
+<DIV>
+<H3><A name=FAQ-INCLUDES>D.13 &nbsp; How do I include one DTD (or fragment) in 
+another?</A></H3>
+<P>This works exactly the same as for regular SGML. First you declare the entity 
+you want to include, and then you reference it by name:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;!ENTITY % mylists PUBLIC 
+         "-//Foo, Inc//ENTITIES Common list structures//EN"
+         "dtds/listfrag.ent"&gt;
+...
+%mylists;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>Such declarations traditionally go all together towards the top of the main 
+DTD file, where they can be managed and maintained, but this is not essential so 
+long as they are declared before they are used. You use Parameter Entity syntax 
+for this (the percent sign) because the file is to be included at DTD compile 
+time, not when the document instance itself is parsed.</P>
+<P>Note that a URL is compulsory in XML for all external file references: 
+standard rules for dereferencing URLs apply (assume the same method, server, and 
+directory as the containing document). The URL can be supplied either as a 
+System Identifier alone:</P>
+<BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;!ENTITY mydtd SYSTEM "http://www.foo.bar/~blort/my.dtd"&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE>
+<P>or as a second parameter to a <A 
+href="http://www.ucc.ie/cgi-bin/public">formal Public Identifier</A> as in the 
+<A href="http://www.ucc.ie/xml/#FAQ-VALID">earlier example</A>. </P></DIV>
+<DIV>
+<H3><A name=FAQ-DTDCONV>D.14 &nbsp; I’ve already got SGML DTDs: how do I convert 
+them for use with XML?</A></H3>
+<P>There are numerous projects being started to convert common or popular SGML 
+DTDs to XML format (for example Patrice Bonhomme is working on an unofficial XML 
+version of the TEI Lite DTD: details of that are discussed on the TEI-L mailing 
+list).</P>
+<P>The following checklist comes courtesy of Seán McGrath (author of <CITE>XML 
+By Example</CITE>, Prentice Hall, 1998) <EM>[my italics]</EM>:</P>
+<OL>
+  <LI>
+  <P>No equivalent of the SGML Declaration. So keywords, character set 
+  <I>etc</I> are essentially fixed;</P>
+  <LI>
+  <P>Tag mimimization is not allowed, so <CODE>&lt;!ELEMENT x - O 
+  (A,B)&gt;</CODE> becomes <CODE>&lt;!ELEMENT X (A,B)&gt;</CODE> and 
+  <CODE>&lt;!ELEMENT x - O EMPTY&gt;</CODE> becomes <CODE>&lt;!ELEMENT X 
+  EMPTY&gt;</CODE>;</P>
+  <LI>
+  <P><CODE>#PCDATA</CODE> must only occur extreme left in an <CODE>OR</CODE> 
+  model, <I>eg</I><CODE>&lt;!ELEMENT x (A|B|#PCDATA|C)&gt;</CODE> becomes 
+  <CODE>&lt;!ELEMENT x (#PCDATA|A|B|C)&gt;</CODE> and <CODE>&lt;!ELEMENT x 
+  (A,#PCDATA)&gt;</CODE> is illegal;</P>
+  <LI>
+  <P>No <CODE>CDATA</CODE>, <CODE>RCDATA</CODE> elements <EM>[declared 
+  content]</EM>;</P>
+  <LI>
+  <P>Some SGML attribute types are not allowed in XML <I>eg</I> 
+  <CODE>NUTOKEN</CODE>. Also there are no <CODE>NOTATION</CODE> attributes (data 
+  attributes);</P>
+  <LI>
+  <P>Some SGML attribute defaults are not allowed in XML <I>eg</I> 
+  <CODE>CONREF</CODE>;</P>
+  <LI>
+  <P>Comments cannot be inline to declarations like <EM>[they can in standard 
+  SGML]</EM> <CODE>&lt;!ELEMENT x (A,B) -- this is an SGML comment in a 
+  declaration --&gt;</CODE>;</P>
+  <LI>
+  <P>A whole bunch of SGML optional features are not present in XML: <I>a</I>) 
+  all forms of tag minimization (<CODE>OMITTAG</CODE>, <CODE>DATATAG</CODE>, 
+  <CODE>SHORTREF</CODE>, <I>etc</I>); <I>b</I>) Link Process Definitions; 
+  <I>c</I>) Multiple DTDs per document and many more: see <A 
+  href="http://www.ucc.ie/xml/#FAQ-HOWTO">the question on the bits of SGML that 
+  were removed for XML</A> for a reference to the complete list;</P>
+  <LI>
+  <P>And last but not least, <CODE>CONCUR</CODE>! There are some important 
+  differences betweeen the internal and external subset portion of a DTD in XML: 
+  <I>a</I>) marked sections can only occur in the external subset <I>b</I>) 
+  Parameter Entities must be used to replace entire declarations in the internal 
+  subset portion of a DTD, <I>eg</I> the following is invalid XML:</P>
+  <BLOCKQUOTE><BODYTEXT><PRE><SMALL>&lt;!DOCTYPE x [
+        &lt;!ENTITY % modelx "(A|B)*"&gt;
+        &lt;!ELEMENT x %modelx;&gt;
+        ]&gt;
+        &lt;x&gt;&lt;/x&gt;</SMALL></PRE></BODYTEXT></BLOCKQUOTE></LI></OL></DIV>
+<DIV>
+<H3><A name=FAQ-EDI>D.15 &nbsp; What’s the story on XML and EDI?</A></H3>
+<P>Electronic Document Interchange has been used in e-commerce for many years to 
+exchange documents between commercial partners to a transaction. It has required 
+special proprietary software, but there are now moves to enable EDI data to 
+travel inside XML. Details of developments are at <A 
+href="http://www.xmledi.com/"><TT>http://www.xmledi.com/</TT></A> and there is a 
+guideline document at <A 
+href="http://www.geocities.com/WallStreet/Floor/5815/guide.htm"><TT>http://www.geocities.com/WallStreet/Floor/5815/guide.htm</TT></A>.</P></DIV></DIV>
+<HR>
+
+<DIV>
+<H3><A name=FAQ-FORM>Response and query form</A></H3>
+<P><SMALL><I>Illustration from <A 
+href="http://webreview.com/97/05/16/feature/index.html">Dale Dougherty’s article 
+in Web Review</A> (courtesy of the publishers).<BR><IMG align=middle 
+alt="[XMLfiles       image]" 
+src="FAQs about Ex ML/head-xmlfiles.gif"><!--XML FILES--></I></SMALL></P>
+<FORM action=http://www.ucc.ie/cgi-bin/uncgi/mailform method=post>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <DL>
+        <DT><B>Section and question</B> 
+        <DD>
+        <P><INPUT name=QNo size=6></P>
+        <DT><B>New material</B> 
+        <DD>
+        <P><INPUT CHECKED name=Type type=radio value=NewQ>New question, answer 
+        not known</P>
+        <P><INPUT name=Type type=radio value=NewA>New question, with sample 
+        answer</P>
+        <DT><B>Corrections to existing wording</B> 
+        <DD>
+        <P><INPUT name=Type type=radio value=ModQ>Correction to an existing 
+        question only</P>
+        <P><INPUT name=Type type=radio value=ModA>Correction to an existing 
+        answer only</P>
+        <P><INPUT name=Type type=radio value=ModB>Correction to both question 
+        and answer</P>
+        <DT><B>Additional material</B> 
+        <DD>
+        <P><INPUT name=Type type=radio value=AddQ>Addition to an existing 
+        question only</P>
+        <P><INPUT name=Type type=radio value=AddA>Addition to an existing answer 
+        only</P>
+        <P><INPUT name=Type type=radio value=AddB>Addition to both question and 
+        answer</P></DD></DL></TD>
+    <TD>
+      <DL>
+        <DT><B>Question and Answer</B> 
+        <DD>
+        <P><TEXTAREA cols=32 name=Q rows=5>[replace this with your question]</TEXTAREA></P>
+        <P><TEXTAREA cols=32 name=A rows=5>[replace this with your model answer]</TEXTAREA></P>
+        <DT><B>Details</B> 
+        <DD>
+        <P>Your name: <INPUT name=sender_Name size=32></P>
+        <P>Affiliation: <INPUT name=Affiliation size=32></P>
+        <P>Email address: <INPUT name=sender_Email size=32></P>
+        <P><INPUT type=submit value=" Submit "><INPUT type=reset value=" Clear and start again "><INPUT 
+        name=Version type=hidden 
+value=v.1.5></P></DD></DL></TD></TR></TBODY></TABLE></FORM></DIV></BODYTEXT></BODY></HTML>

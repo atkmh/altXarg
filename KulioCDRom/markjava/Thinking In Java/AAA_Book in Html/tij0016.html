@@ -1,0 +1,154 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0015.html">Prev</a> | <a href="tij0017.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Acknowledgements</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">First
+of all, thanks to the Doyle Street Cohousing Community for putting up with me
+for the two years that it took me to write this book (and for putting up with
+me at all). Thanks very much to Kevin and Sonda Donovan for subletting their
+great place in gorgeous Crested Butte, Colorado for the summer while I worked
+on the book. Also thanks to the friendly residents of Crested Butte and the
+Rocky Mountain Biological Laboratory who made me feel so welcome. The World Gym
+in Emeryville and its enthusiastic staff helped keep me sane during the final
+months of the book.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is my first experience using an agent, and I&#8217;m not looking back. Thanks
+to Claudette Moore at Moore Literary Agency for her tremendous patience and
+perseverance in getting me exactly what I wanted.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">My
+first two books were published with Jeff Pepper as editor at
+Osborne/McGraw-Hill. Jeff appeared at the right place and the right time at
+Prentice-Hall and has cleared the path and made all the right things happen to
+make this the most pleasant publishing experience I&#8217;ve ever had. Thanks,
+Jeff &#8211; it means a lot to me.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">I&#8217;m
+especially indebted to Gen Kiyooka and his company Digigami, who have
+graciously provided my Web server, and to Scott Callaway who has maintained it.
+This has been an invaluable aid while I was learning about the Web.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Thanks
+to Cay Horstmann (co-author of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Core
+Java
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+Prentice Hall 1997
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>)</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+D&#8217;Arcy Smith (Symantec), and Paul Tyma (co-author of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Java
+Primer Plus
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+The Waite Group 1996), for helping me clarify concepts in the language.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Thanks
+to people who have spoken in my Java track at the Software Development
+Conference, and students in my seminars, who ask the questions I need to hear
+in order to make the material more clear.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Special
+thanks to Larry and Tina O&#8217;Brien, who turned this book and my seminar
+into a teaching CD ROM. (You can find out more at 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.BruceEckel.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.)</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Lots
+of people sent in corrections and I am indebted to them all, but particular
+thanks go to: Kevin Raulerson (found tons of great bugs), Bob Resendes (simply
+incredible), John Pinto, Joe Dante, Joe Sharp (all three were fabulous), David
+Combs (many grammar and clarification corrections), Dr. Robert Stephenson,
+Franklin Chen, Zev Griner, David Karr, Leander A. Stroschein, Steve Clark,
+Charles A. Lee, Austin Maher, Dennis P. Roth, Roque Oliveira, Douglas Dunn,
+Dejan Ristic, Neil Galarneau, David B. Malkovsky, Steve Wilkinson, and a host
+of others. 
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Prof.
+Ir. Marc Meurrens put in a great deal of effort to publicize and make the book
+available in Europe.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">There
+have been a spate of smart technical people in my life who have become friends
+and have also been both influential and unusual in that they&#8217;re
+vegetarians, do yoga and practice other forms of spiritual enhancement, which I
+find quite inspirational and instructional. They are Kraig Brockschmidt, Gen
+Kiyooka and Andrea Provaglio, who helps in the understanding of Java and
+programming in general in Italy.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+not that much of a surprise to me that understanding Delphi helped me
+understand Java, since there are many concepts and language design decisions in
+common. My Delphi friends provided assistance by helping me gain insight into
+that marvelous programming environment. They are Marco Cantu (another Italian
+&#8211; perhaps being steeped in Latin gives one aptitude for programming
+languages?), Neil Rubenking (who used to do the yoga/vegetarian/Zen thing but
+discovered computers) and of course Zack Urlocker, a long-time pal whom
+I&#8217;ve traveled the world with.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">My
+friend Richard Hale Shaw&#8217;s insights and support have been very helpful
+(and Kim&#8217;s, too). Richard and I spent many months giving seminars
+together and trying to work out the perfect learning experience for the
+attendees. Thanks also to KoAnn Vikoren, Eric Faurot, Deborah Sommers, Julie
+Shaw, Nicole Freeman, Cindy Blair, Barbara Hanscome, Regina Ridley, Alex Dunne,
+and the rest of the cast and crew at MFI.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+book design, cover design, and cover photo were created by my friend Daniel
+Will-Harris, noted author and designer (
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.Will-Harris.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">),
+who used to play with rub-on letters in junior high school while he awaited the
+invention of computers and desktop publishing, and complained of me mumbling
+over my algebra problems. However, I produced the camera-ready pages myself, so
+the typesetting errors are mine. Microsoft
+</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">&reg;</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+Word 97 for Windows was used to write the book and to create camera-ready
+pages. The body typeface is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Bitstream
+Carmina 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">and
+the headlines are in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Bitstream
+Calligraph 421 
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">(</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>www.bitstream.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).
+The symbols at the start of each chapter are 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Leonardo
+Extras
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+from P22 (
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.p22.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).
+The cover typeface is 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>ITC
+Rennie Mackintosh.
+</I></FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Thanks
+to the vendors who supplied me with compilers: Borland, Microsoft, Symantec,
+Sybase/Powersoft/Watcom, and of course, Sun.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">A
+special thanks to all my teachers and all my students (who are my teachers as
+well). The most fun writing teacher was Gabrielle Rico (author of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Writing
+the Natural Way
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+Putnam 1983). I&#8217;ll always treasure the terrific week at Esalen.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+supporting cast of friends includes, but is not limited to: Andrew Binstock,
+Steve Sinofsky, JD Hildebrandt, Tom Keffer, Brian McElhinney, Brinkley Barr,
+Bill Gates at 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Midnight
+Engineering Magazine
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+Larry Constantine and Lucy Lockwood, Greg Perry, Dan Putterman, Christi
+Westphal, Gene Wang, Dave Mayer, David Intersimone, Andrea Rosenfield, Claire
+Sawyers, more Italians (Laura Fallai, Corrado, Ilsa, and Cristina Giustozzi),
+Chris and Laura Strand, the Almquists, Brad Jerbic, Marilyn Cvitanic, the
+Mabrys, the Haflingers, the Pollocks, Peter Vinci, the Robbins Families, the
+Moelter Families (and the McMillans), Michael Wilk, Dave Stoner, Laurie Adams,
+the Cranstons, Larry Fogg, Mike and Karen Sequeira, Gary Entsminger and Allison
+Brody, Kevin Donovan and Sonda Eastlack, Chester and Shannon Andersen, Joe
+Lordi, Dave and Brenda Bartlett, David Lee, the Rentschlers, the Sudeks, Dick,
+Patty, and Lee Eckel, Lynn and Todd, and their families. And of course, Mom and
+Dad.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Da Vinci Extras" SIZE=39 COLOR="Black">ABC
+</FONT><a name="_Toc375545187"></a><a name="_Toc407441445"></a><a name="_Toc408018384"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0015.html">Prev</a> | <a href="tij0017.html">Next</a>
+</div>
+</body></html>
+

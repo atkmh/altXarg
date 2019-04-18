@@ -1,0 +1,982 @@
+=============================================================================
+ Product:  StatLAN Workstation - Release Notes for 3.80  Aug. 31 - Xxx, 1995
+=============================================================================
+
+Group Select from Census Screen
+Ref. 3.8-4 - 3.8-28
+
+Summary of Request
+
+Highlight multiple patients on the SLW's Census screen to use in certain
+functions that currently accept only one patient at a time such as
+Patient Update or Order Entry. 
+
+The Group Selection function would allow the SLW user to use 
+Control-Enter to select specific multiple patients, and then act on these
+selected patients as a group for such functions as Send Form Letters and
+Order Entry.
+
+Solution
+
+The SLW user would use the current Control-Enter keystroke function at
+the SLW's Census screen to select multiple patients, building a logical
+"list" of patients. The user would then execute a function such as Order
+Entry. Once in Order Entry, the SLW would automatically select the first
+patient from the logical list as the current patient, and the user would
+enter orders for that patient. A new function (the "Next Patient"
+function) would be available on the Order Entry menu, and on the menus 
+of other functions that support this option. When "Next Patient" is 
+selected in Order Entry, the current Order Entry FGDEF session would be
+cleared, and the next patient on the logical list would be automatically
+selected, allowing an order to be entered for that patient. This process
+would be repeated until orders had been entered for all patients on the
+logical list.
+Configuration Procedure
+
+This enhancement will be implemented as described in the Solution section
+above.  The SLW functions that will support this feature are:
+-	QRG - Registration System Information for One Patient
+-	QRS - Results
+-	QOR - Order Review
+-	Order Entry (the \OE function)
+-	Patient Update (the \PU function)
+-	Mail - Send Form Letters
+
+Example Scenario of Census with Multiple Selects
+
+Figure 3-1.	Multiple selected patients on Census screen
+
+Figure 3-2.	(DELETE)
+
+The following menu sample from the PUMSCR file shows how the above Patients...
+
+{----------------------------------------------------
+{
+
+Screen = ( fmenu , tstform ) 
+...
+{  Size = (1,80,0,0,1,80)
+{  No Box Defined
+
+ MENU = ( 1 , 0 , 2 ,  , \ZS , ,  , 0 , 0 ,  16 )
+ MENU = ( 3 , 0 , 2 ,  , \NP, ,  ,  0 , 17 , 17 )
+ MENU = ( 4 , 1 , 0 , , \MP, `,,fgforml,,,ASM`, , 10 ,38 , 21 )
+ MENU = ( 5 , 1 , 0 , , \MP, `fgcmd01,fgcmd02,fgcmd03,fgcmd04,AMD`, , 10, 38, 21)
+ MENU = ( 6 , 0 , 0 , , \MZ, `,LETTER1,pt_ln4`, , 15 , 26 , 39 )
+ MENU = ( 7 , 0 , 0 , , \OZ, `0, PRBT, NUOROZ, FGOELAB`, , 15 , 26 , 39 )
+   { 3.80 \OZ is like OE:  anc#, pat_opts,fmenu_scr,fgdf,,,OE FileCode,,
+
+Text = (` F1 ...
+ F2 ...
+ F3 ...
+ F4 One Form Letter for each Selected Patient
+ F5 Unix Gateway Commands, CMDs, for Each Patient Selected
+ F6 One Form Letter with Multiple Patients In It
+ F7 Order Entry for each Selected Patient`
+
+-------------
+
+ PUMFDD's "pt_ln4" Requirement for the new \MZ function:
+
+{
+{  Mail Form Letter Patient Format - new for 3.80
+{  Puts all the mmulti-selected patients, one per line,
+{  in the format described below.
+{
+display = (pt_ln4, 70)
+ column = ( 4, 5,  patient, room)
+ column = ( 9, 1,  patient, bed)
+ column = (22, 20, patient, name)
+ column = (42, 9,  patient, number)
+ column = (51, 1,  "-" )
+ column = (52, 1,  patient, number, 8, 2)
+ column = (55, 10, patient, acctnum)
+
+-------------
+
+
+ PUMVCT's requirement for \MZ support:
+
+{ Form Letters section of PUMVCT  (LETTER1 is new additional line)
+
+FGFLNEWB.SL             h:360\FGFLNEWB.SL               R       -       13
+FGFLMBED.SL             h:350\FGFLMBED.SL               R       -       00
+FGOEPFS.SL              h:320\FGOEPFS.SL                R       -       00
+FGSMLTL.SL              h:320\FGSMLTL.SL                R       -       00
+LETTER1                 H:380\LETTER1                   R       -       00
+
+--------------
+
+Sample Form LETTER file that supports the new \MZ function:
+
+
+TL|   FORM LETTER for lots of Patients, multi-selected from the Census
+TL|
+TL|   Patient List:
+TL|
+XX|  ("XX" means: repeating Patient Line data here formatted from PUMFDD)
+TL|
+TL|   End of List.
+
+
+--------------
+
+ PUMVCT's requirement for the new \MP Gateway++ CMD support:
+
+FGCMD01.SL              H:380\FGCMD01.SL                R       -       00
+FGCMD02.SL              H:380\FGCMD02.SL                R       -       00
+FGCMD03.SL              H:380\FGCMD03.SL                R       -       00
+FGCMD04.SL              H:380\FGCMD04.SL                R       -       00
+FGFORML.SL              H:380\FGFORML.SL                R       -       00
+
+------------
+
+
+Sample FGDEF source file for a form letter for each selected patient:
+
+
+{OACIS HEALTHCARE SYSTEMS, INC.
+{NAME:        FGFORML.SRC
+{VERSION:     3.80 KJP
+{DESCRIPTION: FORM LETTER
+{
+{********************************************************************
+
+
+Overall declarations
+INP ","
+OUT "\"
+NOPROMPT
+:END
+
+ITEM declarations
+:END
+
+FIXED GROUP
+FG
+Question
+NAME type
+EDIT DISPLAY
+SIZE I 1  D 1  O 5
+P1   No prompt.
+DISP 20
+
+:END
+
+TABLE
+:END
+
+MESSAGE
+ID  SML
+ANC 00
+DELIMETERS | ~ ^
+LITERALS
+
+@@@
+@@@
+M0|OPS
+MH|<S_USER>|GM|FORM Letter Model|<S_LOC>|N
+TL|
+TL|
+TL| The following patient needs all paper Medical Record:
+TL|
+TL| <S_LOC> Patient Acctnum and name:  <P_ACCT_NUM> <P_NAME>
+TL|
+TL|
+TL| Thank you.
+CP|
+
+:END
+
+HELP 0
+Help Message
+
+-----------------------
+
+
+Sample CMD #01 FGDEF source file:  (first of four total files)
+
+{OACIS HEALTHCARE SYSTEMS, INC.
+{NAME:        FGCMD01.SRC
+{VERSION:     3.80 KJP VERSION
+{DESCRIPTION: CMD *start/begin* to a Gateway Report using RUNRW on Unix
+{
+{  For example - a Unit Patient Condition Report on Selected Patients
+{
+{********************************************************************
+
+Overall declarations
+INP ","
+OUT "\"
+NOPROMPT
+:END
+
+ITEM declarations
+:END
+
+FIXED GROUP
+FG
+Question
+NAME type
+EDIT DISPLAY
+SIZE I 1  D 1  O 5
+P1   No prompt.
+DISP 20
+
+:END
+
+TABLE
+:END
+
+MESSAGE
+ID  CMD
+ANC 00
+DELIMETERS : ~ ^
+LITERALS
+
+@@@
+@@@
+UX:isql  -V nloc "START" -P dblmodel -U dblmodel | lpr -P <S_LOC>printer
+:END
+
+HELP 0
+:END
+
+
+--------------
+
+
+Sample CMD #02 FGDEF source file:  (#2 of four total files)
+
+{OACIS HEALTHCARE SYSTEMS, INC.
+{NAME:        FGCMD02.SRC
+{VERSION:     3.80 KJP VERSION
+{DESCRIPTION: ISQL Per Selected Patient to Gateway Report using Unix 'isql'
+{ 
+{********************************************************************
+
+Overall declarations
+INP ","
+OUT "\"
+NOPROMPT
+:END
+
+ITEM declarations
+:END
+
+FIXED GROUP
+FG
+Question
+NAME type
+EDIT DISPLAY
+SIZE I 1  D 1  O 5
+P1   No prompt.
+DISP 20
+
+:END
+
+TABLE
+:END
+
+MESSAGE
+ID  CMD
+ANC 00
+DELIMETERS : ~ ^
+LITERALS
+
+@@@
+@@@
+UX:isql -V <S_LOC> "MIDDLE Patient" -P dblmodel -U <P_ACCT_NUM> <P_NAME>
+:END
+
+HELP 0
+:END
+
+
+--------------
+
+
+Sample CMD #03 FGDEF source file:  (#3 of four total FGDEF source files)
+
+{OACIS HEALTHCARE SYSTEMS, INC.
+{NAME:        FGCMD03.SRC
+{VERSION:     3.80 KJP MODELNET VERSION
+{DESCRIPTION: CMD (final/end ISQL) to a Gateway Report using 'isql' on Unix
+{
+{********************************************************************
+
+Overall declarations
+INP ","
+OUT "\"
+NOPROMPT
+:END
+
+ITEM declarations
+:END
+
+FIXED GROUP
+FG
+Question
+NAME type
+EDIT DISPLAY
+SIZE I 1  D 1  O 5
+P1   No prompt.
+DISP 20
+
+
+:END
+
+TABLE
+:END
+
+MESSAGE
+ID  CMD
+ANC 00
+DELIMETERS : ~ ^
+LITERALS
+
+@@@
+@@@
+UX:isql Close Tbl -V nloc "END" -P dblmodel -U dblmodel
+:END
+
+HELP 0
+:END
+
+--------------
+
+
+Sample CMD #04 FGDEF source file:  (#4 of four total FGDEF source files)
+
+{OACIS HEALTHCARE SYSTEMS, INC.
+{NAME:        FGCMD04.SRC
+{VERSION:     3.80 KJP MODELNET VERSION
+{DESCRIPTION: CMD (FINAL/end) to a Gateway Report using RUNRW on Unix
+{
+{********************************************************************
+
+Overall declarations
+INP ","
+OUT "\"
+NOPROMPT
+:END
+
+ITEM declarations
+:END
+
+FIXED GROUP
+FG
+Question
+NAME type
+EDIT DISPLAY
+SIZE I 1  D 1  O 5
+P1   No prompt.
+DISP 20
+
+:END
+
+TABLE
+:END
+
+MESSAGE
+ID  CMD
+ANC 00
+DELIMETERS : ~ ^
+LITERALS
+
+@@@
+@@@
+UX:runrw PRINT-IT -V nloc "END" -P dblmodel -U dblmodel | lpr -P<S_LOC> -h
+:END
+
+HELP 0
+:END
+
+
+
+==========================================================================
+
+Select Network Printer from Menu
+Ref. 3.8-9
+
+Summary of Request
+Select/Change Network Printer from SLW menu.
+
+Redirect SLW print jobs to any Novell printer from the SLW screen, on
+demand, at any time. Allow easy, user-friendly printer control such as
+choosing a new printer from a menu causing SLW print jobs to appear at
+the new printer chosen from the menu.
+
+Solution
+
+Internal SLW program logic will be enhanced to allow an additional
+parameter denoting destination printer.
+
+The destination printer will either be a Novell Capture printer 1, 2, or
+3, or will be a local printer accessed via the DOS PRINT.COM printer
+queue program which is normally loaded before the SLW is started up.
+Unless the user changes the printer selection, all print jobs will
+appear at the destination chosen.
+
+PUMSPF will require a new parameter, 'printdef', to turn on this new
+feature of the SLW to allow for compatibility with prior versions of
+the SLW. Also new function arguments, 10 through 13, will be added to
+the existing printer control operation code,  "\ZP", in order to support
+this enhancement.
+
+Configuration Procedure
+
+The printers to choose from will be in a menu called from or within the
+Printer Control menu as shown in Figure 1 below. This menu is configured
+in the PUMSCR.SL file. These printers must be captured, via the Novell
+CAPTURE command; or if the printer is the local printer attached to the
+SLW, then PRINT.COM must already be loaded. There is a limit of three
+printers in the CAPTURE command-the limit is two if a local printer is
+attached to the Workstation.
+
+To install and configure this new feature, "printdef = xx" (where xx is
+a number from 10 to 13), must be defined in the PUMSPF.SL.
+
+Example of Menu User Selects From
+Example Novell Capture commands:
+
+capture l=1 q=LJ-200-N1 s=EROOM ti=30 nt nb nff
+capture l=2 q=lj-350-n1 s=BLOODAB ti=30 nt nb ff
+
+PUMSPF.SL new line to configure this option:
+
+mapprint  = 1      { 3.80 enhance: '1' = choose printer from Menu
+
+{----------------------------------------------------
+{
+{      PUMSCR Sample Configuration
+{      Screen Menu: selprntr - Choose/change Network Printer
+{                   3.80 SER #9 for the SLW
+{
+Screen = ( fmenu , selprntr ) 
+{
+   Size = (10,44,5,55,7,20)
+   Box = (2,1,0)
+   MENU = ( 1 , 0 , 0 , nuotpcpp , \ZP , `11, print.com`,  , 5 , 55 , 20 )
+   MENU = ( 2 , 0 , 0 , nuotpctp , \ZP , `11, lpt1,`,  , 6 , 55 , 20 )
+   MENU = ( 3 , 0 , 0 , nuotpcrm , \ZP , `11, lpt2 `,  , 7 , 55 , 20 )
+   MENU = ( 4 , 0 , 0 , nuotpcrm , \ZP , `11, PRN` ,  , 8 , 55 , 20 )
+   MENU = ( 5 , 0 , 0 , nuotpcrm , \ZP , `11, lpt3` ,  , 9 , 55 , 20 )
+   MENU = ( 6 , 0 , 0 , nuotpcrm , \ZP , `11, PRNT.TXT`  ,  ,10 , 55 , 20 )
+   MENU = ( 9 , 0 , 0 , , \ZQ , , , 11 , 55 , 20 )
+
+   Text = (` F1 PRINT.COM
+ F2 LPT1=LJ-200-TP
+ F3 LPT2=LJ-200-N1
+ F4 Default to PRN
+ F5 LPT3  - v3.80
+ F6 File Printouts to File
+ F9 Quit/Go Back
+`)
+
+
+Figure 3-3.	Example of Selecting a Preconfigured Printer
+
+In the example below, and the way the printer control enhancement will be
+configured, function argument 10 always denotes the local (PRINT.COM)
+printer, while arguments 11, 12, and 13 are for Novell Network printers
+using the CAPTURE command. The initial printer control menu, nuotpc,
+calls the new Printer Control Select menu, selprntr, which has the new
+function arguments to \ZP as previously noted.
+
+{----------------------------------------------------
+{
+{	Screen Menu: nuotpc
+{
+{
+Screen = ( fmenu , nuotpc )
+{
+
+   Size = (10,44,5,55,5,20)
+   Box = (2,1,0)
+   MENU = ( 1 , 0 , 0 , nuotpcpp , \ZP , `1`,  , 5 , 55 , 20 )
+   MENU = ( 2 , 0 , 0 , nuotpctp , \ZP , `2`,  , 6 , 55 , 20 )
+   MENU = ( 3 , 0 , 0 , nuotpcrm , \ZP , `3`,  , 7 , 55 , 20 )
+   MENU = ( 4 , 0 , 0 , nuotpcam , \ZP , `4`,  , 8 , 55 , 20 )
+   MENU = ( 5 , 0 , 0 , nuotpc22 , selprntr , ,  , 5 , 53 , 24 )
+   Text = (` F1 Stop Printer
+             F2 Start Printer
+	     F3 Restart Messages
+             F4 Abort Messages
+             F5 Select Printer
+          `)
+{ Screen Menu: selprntr
+{ Choose / Change Network printer		{ SLW 3.80 Enhancement
+{
+Screen = ( fmenu , selprntr )
+{   Size = (10,44,5,55,5,20)
+    Box = (2,1,0)
+    MENU = ( 1 , 0 , 0 , nuotpcpp , \ZP , `10`,  , 5 , 55 , 20 )
+    MENU = ( 2 , 0 , 0 , nuotpctp ,  \ZP , `11`,  , 6 , 55 , 20 )
+    MENU = ( 3 , 0 , 0 , nuotpcrm , \ZP , `12`,  , 7 , 55 , 20 )
+    MENU = ( 4 , 0 , 0 , nuotpcam , \ZP , `13`,  , 8 , 55 , 20 )
+    MENU = ( 6 , 0 , 0 , , \ZQ , ,  , 9 , 55 , 20 )
+    Text = (` F1 Local Printer
+              F2 E.R. Printer
+              F3 Upstairs Printer
+              F4 Lab Printer
+    	      F6 Quit/Go back
+
+	
+           `)
+
+{----------------------------------------------------
+
+
+==========================================================================
+
+System Audit Report Utility
+Ref. 3.8-16
+
+Summary of Request
+A system audit utility is requested that reports User sign-on/sign-off,
+functions accessed, and alert errors.
+
+The system audit enhancement will read the SLW's PUMLOG files and produce 
+reports such as who is signed on, where and for how long, what functions 
+are they using, what systems are being accessed, and what are the common
+errors occurring.
+
+The function will be available on-line and in "report format" and be able
+to export to "standard PC applications" for further processing and
+reporting.
+
+Solution
+
+A new utility program will be written and provided as a new executable
+file. It will have the capability to read the PUMLOG*.* files, extract
+information in an orderly fashion, and produce various reports.
+Information extracted and reported on will be:
+ -	Who is signed on, for how long, and when signed off
+ -	List and frequency of functions accessed
+ -	List of Errors (alerts) that have occurred and their frequency
+	(count)
+ -	Input & Output files specific to the utility program
+
+Configuration Procedure
+
+A program that runs outside of the SLW, similar to the way the FGDEF
+Compiler runs, will be made available. System Administrators can append
+PUMLOG files from any NLOCs they would like to see the report run on
+allowing tracking of user access across NLOCs.
+
+This new utility program will require two parameters to run: 
+
+ -	its input file which is the aggregated PUMLOG file(s) appended
+	together, and
+ -	the output report file which is the file that will be produced
+	itemizing user access, functions accessed, and the alert
+	message numbers that occurred and their counts.
+
+Example:	
+
+C> LOGUTL -i pumlog.all -o lreport.txt
+
+Following is a sample from a very small PUMLOG file:
+
+[1] 03/21/1995 16:21:57 Signon-^
+STEVE
+[1] 03/21/1995 16:22:11 Alert->  @xi01        STEVE
+Previous requests are still active.
+Please retry this function in a few seconds.
+[1] 03/21/1995 16:22:15 MEM:
+Largest contiguous free memory: 3120 bytes
+
+[1] 03/21/1995 16:22:29 ->OE / 0, PRBT, NUOREO, FGOELAB
+[1] 03/21/1995 16:22:45 Alert->  @fi01        S
+
+Insufficient memory for FGDEF control file. Function terminated.
+[1] 03/21/1995 16:22:48 <-OE
+[1] 03/21/1995 16:23:12 ->ZO /
+[1] 03/21/1995 16:23:12 <-ZO
+[1] 03/21/1995 16:23:12 Signoff-v
+STEVE
+
+This example shows one user, STEVE, who signed on 3/21/95 at 4:21 pm and
+had a problem with FGDEF running out of memory while trying to access
+Order Entry (OE). STEVE signed off at 4:23 pm. Output from the new PUMLOG
+report utility will summarize this information and make it available in
+the output file specified to be read into another PC program that accepts
+standard ASCII text files.
+
+
+==========================================================================
+
+STAT Results Select All to Printer
+Ref. 3.8-24
+
+Summary of Request
+
+Select multiple or all STAT results to be printed at once.
+
+Retrieve all STAT results then add the option to print all STAT results
+that have been selected. This adds the multiple-select capability to the
+Stat Results screen, saving time for the users who need to print STAT
+information.
+
+Solution
+
+The \ST "Stat Results" function capability will be enhanced by adding
+new logic to the SLW to permit highlighting of multiple STAT results,
+and then for all selected results to be printed.
+
+Configuration Procedure
+
+Use Control-Enter to select and highlight multiple results from the Stat
+Results list that is returned via the Stat Request (\ST) function. Print
+each STAT result one at a time until all selected reports have been
+printed, returning the user back to the Stat Results screen for more
+possible action.
+
+A Wait Msg / Wait Box will appear while the results are printing.
+
+As in previous releases, when there are STAT results to view, the STAT
+light is turned "on" in the Census screen, as shown in Figure 1.
+
+Figure 3-4.	The STAT light is on, indicating there are STAT results to 
+		view or print
+
+At this point, F7 is pressed in order to send messages to retrieve the S
+Stat Results headers.
+
+To configure Print Selected Stat Results, you must make a change to the 
+'srfmenu' in the PUMSCR file to include a function key, such as F3 in 
+Figure 2 below, to call a new Print Stats function, "\SP". The example 
+'srfmenu' is presented below.
+
+Example:	
+
+{----------------------------------------------------
+
+{      Screen Menu: srfmenu
+
+Screen = ( fmenu , srfmenu )
+
+{
+
+   Size = (1,80,0,0,1,80)
+
+{  No Box Defined
+
+   MENU = ( 1 , 0 , 2 , nustat , \MN , ,  , 0 , 0 , 15 )
+   MENU = ( 3 , 0 , 2 ,  , \SP , ,  , 0 , 16 , 26 )
+   MENU = ( 6 , 0 , 2 ,  , \ZQ , ,  , 0 , 43 , 8 )
+   MENU = ( 8 , 0 , 0 , nuot , nuot , ,  , 0 , 52 , 8 )
+   MENU = ( 9 , 0 , 2 , nuso , \ZO , ,  , 0 , 61 , 10 )
+   MENU = ( 10 , 0 , 0 , nuso , \ZH , ,  , 0 , 72 , 8 )
+   Text = (`F1 Read Stat |F3 Print Stats |F6 Quit|
+		F8 Other_F9 Signoff|F10 Help`)
+
+Note that a new menu choice is added to support printing selected STAT 
+results. This example has F3 configured, with the new "\SP" function, to 
+carry out the printing function. See the headers of Figures 2 and 3 to 
+see the placement of the new function key in the menu to print the 
+selected STAT results.
+
+Figure 2 appears below with six (6) STAT results returned. A user presses 
+Control-Enter to select a STAT result to print. Selected items are 
+denoted below by the asterisk (*) in the right column, similar to the way 
+multiple patients are selected from the Census screen.
+
+Figure 3-5.	Three STAT results are selected. (press F3 to print them.
+
+Figure 3-6.	The three STAT Results have been printed, and are marked 'Y' 
+		as being read
+
+
+==========================================================================
+
+Password Echo
+Ref. 3.8-27 
+
+Summary of Request
+
+Echo a placeholder character, such as an asterisk or an underline, when 
+the user is entering the password during SLW sign-on. The character that 
+is echoed should be configurable, otherwise the default is no echo. Also 
+echo this character every time a key is pressed while user is changing 
+the password in the SLW's Change Password Dialog.
+
+Solution
+
+Add new variable in PUMSPF.SL that will be read upon SLW startup. Logic 
+will be added to SLW to support the new variable with the functionality 
+as described.
+
+Configuration Procedure
+
+PUMSPF.SL Additional Line
+
+A new variable called "pwecho = *",  will specify the  character to echo 
+every time the user types a key during password entry in the sign-on. If 
+"pwecho" is not in PUMSPF, then nothing will be echoed and the SLW will 
+operate as it currently does during password entry.
+
+Example:	From PUMSPF.SL
+
+.
+.
+.
+signoff		= 0		{ number of inactive seconds
+				{ before signoff
+
+blankout	= 0		{ number of inactive seconds 
+				{ before blank crt
+clock_wait	= 500		{ number of times to bypass 
+				{ calls to DOS for spooling
+
+jrnlrcds	= 1		{ number of transaction
+				{ records per file
+				{(2)
+
+mailtab	= 5			{ tab setting for text editing in send mail
+
+pwecho	= *			{ echo an asterisk during
+				{ sign-on password entry
+
+
+New PUMSCR scratch record entry:
+
+dialog = ( passwd)
+ input  = (0, 40, 10, 8)
+ place = ( 0, 1, 1)
+ prompt = ( `@Dsign2`)
+ output = (scratch, newpw)   {  <--- New for 3.80
+ place = ( 0, 40, 6)
+ prompt = ( `          `)
+
+
+Figure 3-7.	Signon Screen with Password Prompt
+
+Figure 3-8.	Change Password showing echoed asterisks
+
+Change Password requires the GQP Server - UNIX Change Password to be 
+configured. Without the GQP Server the only way to change a user password
+is by changing the entry in the PUMUSR file and recompiling. This example 
+shows asterisks echoed as keystroke placeholders during password 
+modification assuming the GQP Server is configured. 
+
+Please note that the asterisks cannot be seen in the first field, Old 
+Password, because when the user tabs off this input field the information 
+disappears. Asterisks will appear in your password field only as long as 
+the user is in that field typing in an old or a new password as shown in 
+this example.
+
+Change Password uses the change password function "\UP" which uses the 
+default dialog 'newpassw' that is in the PUMSCR file. Example dialog is
+below:
+
+screen   = (dialog, newpassw)
+  size   = (10, 40, 10, 20, 10, 40)
+  box    = (1, 0)
+  text   = (`@npw0`, 0, 1)
+dialog   = (newpassw)
+  input  = (3, 1, 10, 8)
+  place  = (9, 1, 7)
+  prompt = (`@npw1`)
+  output = (scratch, oldpw)
+  input  = (5, 1, 10, 8)
+  place  = (9, 1, 7)
+  prompt = (`@npw2`)
+  output = (scratch, newpw)
+  input  = (7, 1, 10, 8)
+  place  = (9, 1, 7)
+  prompt = (`@npw3`)
+  output = (scratch, verpw)
+
+
+==========================================================================
+
+Delete from Composite Order
+Ref. 3.8-31
+
+Summary of Request
+
+Immediate delete of a component item from an order set (composite order)
+is requested.
+
+Upon selecting order sets (composite orders) from the order entry options 
+(see Figure 1), the user will have the ability to delete individual 
+components as soon as they are displayed on the screen. This eliminates 
+the requirement of answering the specific questions for the item that is 
+going to be deleted anyway. The component will be marked as "deleted," 
+and the next component of the composite order will then appear.
+
+Solution
+
+Allow the user to press the Delete key when an item in a composite order 
+comes up on the screen. Currently, the Delete key is not allowed until 
+after the entire composite has been filled out and the user must 
+backtrack, via the Up Arrow or Shift-Tab, to delete the specific 
+component the user does not want. Additional program logic will be added 
+to the SLW to handle this FGDEF navigation enhancement; specifically the 
+Delete key function will have to be expanded to include immediate deletes 
+in composite orders because currently they are handled differently from 
+regular order entry.
+
+Configuration Procedure
+
+Simply allow the Delete to function as expected when the cursor pops up 
+on the order field. This requires pressing Shift-Tab first to move to 
+the component level field before the Delete key will delete the entire 
+component. The selected component of the composite will be deleted 
+immediately and the cursor will go directly to the next component of the 
+composite order. (see Figures 2 and 3)
+
+New PUMSPF entry:
+
+del_comp  = 1   { 3.80 enhance: Allows Immediate DEL of Order Component Item
+
+
+Figure 3-9.	The HEPC Order Set is highlighted and will be chosen
+
+Notice that there are three components to this composite order set, 
+namely HBsAG, HBC, and HBS.
+
+Figure 3-10.	HEPC Order Set is being filled out. Item #2, HBC is not 
+		needed.
+
+Notice that the cursor is on the first question item (collection time) 
+of the second item HBC of this three part order set. This is where the 
+user would press Shift-Tab to highlight the HBC component itself, then 
+the Delete key to delete the HBC component of this order set.
+
+Figure 3-11.	The second item was deleted immediately without requiring 
+		the input of unnecessary data.
+
+
+==========================================================================
+
+Substring Search for File or Table Edits
+Ref. 3.8-39
+
+Summary of Request
+The SLW will support a wildcard search in the description field of file 
+and table edits.
+
+Solution
+
+When the user is prompted for input while performing a file edit or table 
+edit, the user is allowed to type * and a word or phrase (for example 
+*BLOOD) and a list of all records in the file or table being edited which 
+contain that word in the display field will be displayed. This is similar 
+to the use of "=" and a word to show display values which begin with a 
+particular word.
+
+Step 1	User enters "*BLOOD".
+
+Figure 3-12.	
+
+Step 2	After the user presses enter, a list box with only those
+ 	fields which include BLOOD in the display field is displayed.
+
+Figure 3-13.	
+
+No particular configuration will have to be performed to take advantage 
+of this new feature. No changes will be needed to the FGDEF Compiler or 
+existing dialogs.
+
+
+==========================================================================
+
+Enhanced Temporary Census Function
+Ref. 3.8-201
+
+Summary of Request
+
+Enhance the temporary census function to support queries by multiple 
+patient names, medical record numbers, or multiple account numbers.
+
+Solution
+
+Currently, when requesting a temporary census with the \PC function, a 
+user can request one name at a time (although more than one patient record 
+may be returned.) This enhancement would allow the user to enter more 
+than one name, medical record number, or account number, and for a list 
+of patients to be returned. Once the list of patients is returned, SLW 
+functions could be performed with these patients.
+
+Configuration Procedure
+
+Currently, the \PC function is invoked with a FGDEF session, which could 
+now ask for patient name information in the repeating section of the 
+FGDEF session. 
+
+The QNU message sent out by the \PC function currently does not support 
+queries by medical record number or account number. The QNU message will 
+be enhanced to carry this information.
+
+The QNU would also have a repeating section so that the query for multiple 
+patients could be sent.
+
+Figure 3-14.	User enters patient names
+
+Figure 3-15.	Temporary census with selected patients is returned
+
+
+==========================================================================
+
+Enhanced FGDEF IF Logic
+Ref. 3.8-10 and 3.8-203
+
+Summary of Request
+
+Allow more comparisons and variables in FGDEF IF statement.
+
+Currently in IF statements in FGDEF files, the SLW allows either two 
+variable comparisons, or a single flag. The enhancement request is to 
+allow more comparisons for both flags and variables, and to be able to 
+mix flags and variables in the same IF statement.
+
+Solution
+
+Users will be able to have IF statements in FGDEF files that have up to 
+four arguments and three comparisons. The four arguments may be a mixture 
+of flags and variable comparisons.
+
+Some restrictions will exist. Within a single IF statement, all
+comparisons must be the same (either "||" or "&&"). No mixing of "||"
+ and "&&" is allowed.
+
+UNLESS, which can be used in place of IF, will still be supported, and 
+can be used with the new features. When UNLESS is used, the question 
+associated with it is only asked if the logical statement is false, 
+whereas if IF is used, the question is only asked if the logical statement 
+is true.
+
+This enhancement will require changes to the FGDEF compiler and to the 
+SLW. The format of compiled FGDEF files will change, but we will probably 
+be able to maintain backwards compatibility so that FGDEF files will not 
+have to be recompiled unless users want to use this feature. However, 
+the new FGDEF compiled files will not be usable with old versions of the 
+SLW.
+
+Configuration Procedure
+
+Below is an example of an IF statement that will be allowed in FGDEF with 
+this enhancement. It combines two variable comparisons and two flags. 
+All logical operations in this IF statement are ORs (indicated by "||").
+
+Example:
+
+IF (<|number1|> == '1' ) || ( <|number2|> <= '55') || C || D
+
+
+==========================================================================
+
+Bugfix #12. Configurably poll queues ADT, PrnMail, and Orders  ... 
+
+New PUMSPF Parms:
+
+                        { 3.80 enhance: Timers for Polling 3 Queues
+pollq_timers = ( 45,    { ADT Tx Q    (times in seconds, 30 is MINIMUM)
+                 30,    { prnt_mailQ  (also, this is OPTIONAL)
+                 40 )   { ordersQ
+
+==========================================================================
+

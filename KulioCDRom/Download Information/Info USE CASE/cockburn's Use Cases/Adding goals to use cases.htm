@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://members.aol.com/acockburn/papers/uctempla.htm -->
+<HTML><HEAD><TITLE>Adding goals to use cases</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY>
+<P><B><FONT size=3></FONT></B>
+<P align=center><B>Basic Use Case Template</B> 
+<P><FONT size=2></FONT>
+<P align=center>Alistair Cockburn 
+<P align=center>Human and Technology 
+<P align=center>7691 Dell Rd, Salt Lake City, UT 84121 
+<P align=center>(801)943-8484 fax: 801/943-8499 
+<P align=center>email: arc@acm.org<BR>home page: 
+http://members.aol.com/acockburn 
+<P><FONT size=3></FONT>
+<P> 
+<P>Document: TR.96.03a 
+<P>This Version Date: October 26, 1998 
+<P>Version: 2 
+<P>Previous Version Date: April 26, 1996 
+<P> 
+<P>Per popular request, I am putting forward a basic template for use cases 
+matching the document "Structuring Use Cases with Goals", HaT.TR.95.1 (available 
+at the same address and web site), and the course / tutorial of a similar name. 
+This document is copyrighted by Humans and Technology as HaT technical report TR 
+96.03a, also found at http://members.aol.com/acockburn. You have permission to 
+copy and distribute the documents as long as you reference the source of the 
+originals. You may use the templates in courses and presentations with proper 
+reference. You may use and vary the template on your projects without reference. 
+Do note that the template may evolve over time according to your feedback. 
+<I>Additions to the text may appear in italics, like this (added, v.2).</I> 
+<P> 
+<P>The template has the sections: name (which is the goal), goal in context, 
+scope, level, trigger, pre- and postconditions, main course, extensions, 
+sub-variations, and other characteristic data for the use case. You may<I> 
+</I>easily graft more information on to the end, <I>or omit information. To help 
+you decide when to omit information, I include a section on <A 
+href="http://members.aol.com/acockburn/papers/uctempla.htm#TAILORING">Using, 
+Staging, Tailoring the Template</A></I>. The base template is given twice, once 
+in simple word-processing format and then again in table format so you can 
+choose the one that best suits your tool set. <I>Personally, I find that people 
+work best with the simple text format. </I>You will find that the collection of 
+use cases is easier to work with in something like Lotus Notes than in a word 
+processor. 
+<P> 
+<P><I></I>
+<P>In this version of the template, I write Sub-Variation as an attempt to make 
+it more distinct from Extensions. Refer to the original paper. 
+<P> 
+<P>This document has the following parts: 
+<UL>
+  <LI>Template in plain text 
+  <LI>Template in table form 
+  <LI>Example in plain text 
+  <LI>Example in table form 
+  <P><I></I></P>
+  <LI>Using, Staging, Tailoring the Template </LI></UL>
+<P> 
+<P>The Word binary of this document <I>may</I> be available on the web site. 
+<P> 
+<P> 
+<P>Use Case: &lt;number&gt; &lt;the name should be the goal as a short active 
+verb phrase&gt; 
+<P>-------------------------------------------------- 
+<P>CHARACTERISTIC INFORMATION 
+<P><U></U>
+<P>Goal in Context: &lt;a longer statement of the goal, if needed&gt; 
+<P><U></U>
+<P>Scope: &lt;what system is being considered black-box under design&gt; 
+<P><U></U>
+<P>Level: &lt;one of: Summary, Primary task, Subfunction&gt; 
+<P><U></U>
+<P>Preconditions: &lt;what we expect is already the state of the world&gt; 
+<P><U></U>
+<P>Success End Condition: &lt;the state of the world upon successful 
+completion&gt; 
+<P><U></U>
+<P>Failed End Condition: &lt;the state of the world if goal abandoned&gt; 
+<P><U></U>
+<P>Primary Actor: &lt;a role name for the primary actor, or description&gt; 
+<P><U></U>
+<P>Trigger: &lt;the action upon the system that starts the use case, may be time 
+event&gt; 
+<P>---------------------------------------- 
+<P>MAIN SUCCESS SCENARIO 
+<P>&lt;put here the steps of the scenario from trigger to goal delivery, and any 
+cleanup after&gt; 
+<P>&lt;step #&gt; &lt;action description&gt; 
+<P>---------------------- 
+<P>EXTENSIONS 
+<P>&lt;put here there extensions, one at a time, each refering to the step of 
+the main scenario&gt; 
+<P>&lt;step altered&gt; &lt;condition&gt; : &lt;action or sub.use case&gt; 
+<P>&lt;step altered&gt; &lt;condition&gt; : &lt;action or sub.use case&gt; 
+<P>-------------------- 
+<P>SUB-VARIATIONS 
+<P>&lt;put here the sub-variations that will cause eventual bifurcation in the 
+scenario&gt; 
+<P>&lt;step or variation # &gt; &lt;list of sub-variations&gt; 
+<P>&lt;step or variation # &gt; &lt;list of sub-variations&gt; 
+<P>---------------------- 
+<P>RELATED INFORMATION (optional) 
+<P><U></U>
+<P>Priority: &lt;how critical to your system / organization&gt; 
+<P><U></U>
+<P>Performance Target: &lt;the amount of time this use case should take&gt; 
+<P><U></U>
+<P>Frequency: &lt;how often it is expected to happen&gt; 
+<P><U></U>
+<P>Superordinate Use Case: &lt;optional, name of use case that includes this 
+one&gt; 
+<P><U></U>
+<P>Subordinate Use Cases: &lt;optional, depending on tools, links to sub.use 
+cases&gt; 
+<P><U></U>
+<P>Channel to primary actor: &lt;e.g. interactive, static files, database&gt; 
+<P><U></U>
+<P>Secondary Actors: &lt;list of other systems needed to accomplish use case&gt; 
+
+<P><U></U>
+<P>Channel to Secondary Actors: &lt;e.g. interactive, static, file, database, 
+timeout&gt; 
+<P>---------------------------- 
+<P>OPEN ISSUES (optional) 
+<P>&lt;list of issues about this use cases awaiting decisions&gt; 
+<P>--------------------------- 
+<P>SCHEDULE 
+<P><U></U>
+<P>Due Date: &lt;date or release of deployment&gt; 
+<P>...any other schedule / staffing information you need... 
+<P> 
+<P>Table format: 
+<P>&nbsp; 
+<TABLE border=1 borderColor=#000000 cellPadding=7 cellSpacing=1 width=529>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="23%"><FONT size=3></FONT>
+      <P> 
+      <P><B></B>
+      <P>USE CASE #</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt; the name is the goal as a short active verb phrase&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Goal in Context</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;a longer statement 
+      <P>of the goal in context 
+      <P>if needed&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Scope &amp; Level</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;what system is being considered black box under design&gt; 
+      <P>&lt;one of : Summary, Primary Task, Subfunction&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Preconditions</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;what we expect is already the state of the world&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Success End Condition</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;the state of the world upon successful completion&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Failed End Condition</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;the state of the world if goal abandoned&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Primary, 
+      <P>Secondary Actors</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;a role name or description for the primary actor&gt;. 
+      <P>&lt;other systems relied upon to accomplish use case&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Trigger</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>&lt;the action upon the system that starts the use case&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>DESCRIPTION</P></TD>
+    <TD vAlign=top width="9%"><B><FONT size=3></FONT></B>
+      <P>Step</P></TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>1</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>&lt;put here the steps of the scenario 
+      <P>from trigger to goal delivery,and any cleanup afte&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>2</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>&lt;...&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>3</P></TD>
+    <TD vAlign=top width="68%">&nbsp;</TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>EXTENSIONS</P></TD>
+    <TD vAlign=top width="9%"><B><FONT size=3></FONT></B>
+      <P>Step</P></TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Branching Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>1a</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>&lt;condition causing branching&gt; : 
+      <P>&lt;action or name of sub.use case&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>SUB-VARIATIONS</P></TD>
+    <TD vAlign=top width="9%">&nbsp;</TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Branching Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>1</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>&lt;list of variation s&gt;</P></TD></TR></TBODY></TABLE>
+<P><FONT size=3></FONT>
+<P> 
+<P>&nbsp; 
+<TABLE border=1 borderColor=#000000 cellPadding=7 cellSpacing=1 width=529>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>RELATED INFORMATION</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;Use case name&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Priority:</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;how critical to your system / organization&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Performance</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;the amount of time this use case should take&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Frequency</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;how often it is expected to happen&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Channels to actors</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;e.g. interactive, static files, database, timeouts&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>OPEN ISSUES</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;list of issues 
+      <P>awaiting decision 
+      <P>affecting this use case &gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Due Date</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;date or release needed&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>...any other 
+      <P>management 
+      <P>information...</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;...as needed&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Superordinates</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;optional, name of use case(s) that includes this one&gt;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Subordinates</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>&lt;optional, depending on tools, 
+      <P>links to sub.use cases&gt;</P></TD></TR></TBODY></TABLE>
+<P><FONT size=3></FONT>
+<P> 
+<P><I></I>
+<P> 
+<P>Sample: 
+<P>Use Case: 5 Buy Goods 
+<P>-------------------------------------------------- 
+<P>CHARACTERISTIC INFORMATION 
+<P><U></U>
+<P>Goal in Context: Buyer issues request directly to our company, expects goods 
+shipped and to be billed. 
+<P><U></U>
+<P>Scope: Company 
+<P><U></U>
+<P>Level: Summary 
+<P><U></U>
+<P>Preconditions: We know Buyer, their address, etc. 
+<P><U></U>
+<P>Success End Condition: Buyer has goods, we have money for the goods. 
+<P><U></U>
+<P>Failed End Condition: We have not sent the goods, Buyer has not spent the 
+money. 
+<P><U></U>
+<P>Primary Actor: Buyer, any agent (or computer) acting for the customer 
+<P><U></U>
+<P>Trigger: purchase request comes in. 
+<P>---------------------------------------- 
+<P>MAIN SUCCESS SCENARIO 
+<P>1. Buyer calls in with a purchase request. 
+<P>2. Company captures buyer’s name, address, requested goods, etc. 
+<P>3. Company gives buyer information on goods, prices, delivery dates, etc. 
+<P>4. Buyer signs for order. 
+<P>5. Company creates order, ships order to buyer. 
+<P>6. Company ships invoice to buyer. 
+<P>7. Buyers pays invoice. 
+<P>---------------------- 
+<P>EXTENSIONS 
+<P>3a. Company is out of one of the ordered items: 
+<P>3a1. Renegotiate order. 
+<P>4a. Buyer pays directly with credit card: 
+<P>4a1. Take payment by credit card (use case 44) 
+<P>7a. Buyer returns goods: 
+<P>7a. Handle returned goods (use case 105) 
+<P>-------------------- 
+<P>SUB-VARIATIONS 
+<P>1. Buyer may use 
+<P>phone in, 
+<P>fax in, 
+<P>use web order form, 
+<P>electronic interchange 
+<P>7. Buyer may pay by 
+<P>cash or money order 
+<P>check 
+<P>credit card 
+<P>---------------------- 
+<P>RELATED INFORMATION 
+<P><U></U>
+<P>Priority: top 
+<P><U></U>
+<P>Performance Target: 5 minutes for order, 45 days until paid 
+<P><U></U>
+<P>Frequency: 200/day 
+<P><U></U>
+<P>Superordinate Use Case: Manage customer relationship (use case 2) 
+<P><U></U>
+<P>Subordinate Use Cases: 
+<P>Create order (use case 15) 
+<P>Take payment by credit card (use case 44) 
+<P>Handle returned goods (use case 105) 
+<P><U></U>
+<P>Channel to primary actor: may be phone, file or interactice 
+<P><U></U>
+<P>Secondary Actors: credit card company, bank, shipping service 
+<P><U></U>
+<P>Channels to Secondary Actors: 
+<P>---------------------------- 
+<P>OPEN ISSUES 
+<P>What happens if we have part of the order? 
+<P>What happens if credit card is stolen? 
+<P>--------------------------- 
+<P>SCHEDULE 
+<P><U></U>
+<P>Due Date: release 1.0 
+<P> 
+<P><I></I>
+<P>Sample in table format: 
+<P>&nbsp; 
+<TABLE border=1 borderColor=#000000 cellPadding=7 cellSpacing=1 width=529>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="23%"><FONT size=3></FONT>
+      <P> 
+      <P><B></B>
+      <P>USE CASE 5</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>Buy Goods</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Goal in Context</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>Buyer issues request directly to our company, expects goods shipped and 
+      to be billed.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Scope &amp; Level</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>Company, Summary</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Preconditions</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>We know Buyer, their address, etc.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Success End Condition</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>Buyer has goods, we have money for the goods.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Failed End Condition</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>We have not sent the goods, Buyer has not spent the money.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Primary, 
+      <P>Secondary Actors</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>Buyer, any agent (or computer) acting for the customer. 
+      <P>Credit card company, bank, shipping service</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>Trigger</P></TD>
+    <TD colSpan=2 vAlign=top width="77%"><FONT size=3></FONT>
+      <P>purchase request comes in.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>DESCRIPTION</P></TD>
+    <TD vAlign=top width="9%"><B><FONT size=3></FONT></B>
+      <P>Step</P></TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>1</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer calls in with a purchase request</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>2</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Company captures buyer’s name, address, requested goods, etc.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>3</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Company gives buyer information on goods, prices, delivery dates, 
+      etc.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>4</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer signs for order.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>5</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Company creates order, ships order to buyer.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>6</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Company ships invoice to buyer.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>7</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyers pays invoice.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>EXTENSIONS</P></TD>
+    <TD vAlign=top width="9%"><B><FONT size=3></FONT></B>
+      <P>Step</P></TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Branching Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>3a</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Company is out of one of the ordered items: 
+      <P>3a1. Renegotiate order.</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>4a</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer pays directly with credit card: 
+      <P>4a1. Take payment by credit card (use case 44)</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>7a</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer returns goods: 
+      <P>7a. Handle returned goods (use case 105)</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%"><B><FONT size=3></FONT></B>
+      <P>SUB-VARIATIONS</P></TD>
+    <TD vAlign=top width="9%">&nbsp;</TD>
+    <TD vAlign=top width="68%"><B><FONT size=3></FONT></B>
+      <P>Branching Action</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>1</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer may use 
+      <P>phone in, 
+      <P>fax in, 
+      <P>use web order form, 
+      <P>electronic interchange</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="23%">&nbsp;</TD>
+    <TD vAlign=top width="9%"><FONT size=3></FONT>
+      <P>7</P></TD>
+    <TD vAlign=top width="68%"><FONT size=3></FONT>
+      <P>Buyer may pay by 
+      <P>cash or money order 
+      <P>check 
+      <P>credit card 
+      <P>&nbsp;</P></TD></TR></TBODY></TABLE>
+<P><FONT size=3></FONT>
+<P> 
+<P> 
+<P> 
+<P> 
+<P> 
+<P>&nbsp; 
+<TABLE border=1 borderColor=#000000 cellPadding=7 cellSpacing=1 width=529>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>RELATED INFORMATION</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>5. Buy Goods</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Priority:</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>top</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Performance</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>5 minutes for order, 45 days until paid</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Frequency</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>200/day</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Channel to actors</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>not yet determined</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>OPEN ISSUES</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>What if we have part of the order? 
+      <P>What is credit card is stolen?</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Due Date</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>release 1.0</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>...any other 
+      <P>management 
+      <P>information...</P></TD>
+    <TD vAlign=top width="75%">&nbsp;</TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Superordinates</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>Manage customer relationship (use case 2)</P></TD></TR>
+  <TR>
+    <TD vAlign=top width="25%"><B><FONT size=3></FONT></B>
+      <P>Subordinates</P></TD>
+    <TD vAlign=top width="75%"><FONT size=3></FONT>
+      <P>Create order (use case 15) 
+      <P>Take payment by credit card (use case 44)</P></TD></TR></TBODY></TABLE>
+<P><FONT size=3></FONT>
+<P> 
+<P> 
+<P><B></B>
+<P><A name=TAILORING></A>
+<H3>Using, Staging, Tailoring the Template </H3>
+<P><FONT size=3></FONT>
+<P>My (and others') experience is that at early stages of the project the 
+template is too long and <I>too complete</I> to fill out all at one time - at 
+the beginning of the project, it is appropriate to work with less information 
+(see the chapter, "Managing Precision, Accuracy and Scale" in my book, 
+<U>Surviving Object-Oriented Projects</U>). Therefore... 
+<P> 
+<P><B>1. Learn to fill in all the fields of the template in several passes</B>, 
+at several moments in the project's requirements gathering and project setup 
+work. Here is a sample sequence. First, fill in just these fields, for all the 
+use cases you need to consider at this time: 
+<P> 
+<P><I></I>
+<P>Use Case: &lt;number&gt; &lt;the name should be the goal as a short active 
+verb phrase&gt; 
+<P><U></U>
+<P>Goal in Context: &lt;a longer statement of the goal, if needed&gt; 
+<P><U></U>
+<P>Scope: &lt;what system is being considered black-box under design&gt; 
+<P><U></U>
+<P>Level: &lt;one of: Summary, Primary task, Subfunction&gt; 
+<P><U></U>
+<P>Primary Actor: &lt;a role name for the primary actor, or description&gt; 
+<P><U></U>
+<P>Priority: &lt;how critical to your system / organization&gt; 
+<P><U></U>
+<P>Frequency: &lt;how often it is expected to happen&gt; 
+<P> 
+<P><B>2. Stare at what you have so far</B>. Think. Examine. Can you merge or 
+remove some of them? Can you partition them into ones that should be developed 
+together, or written later? For the ones you determine to pursue now, fill in 
+the following fields: 
+<P> 
+<P><I><U></U></I>
+<P><B>Trigger:</B> &lt;the action upon the system that starts the use case, may 
+be time event&gt; 
+<P><B>MAIN SUCCESS SCENARIO</B> 
+<P> 
+<P><B>3. </B>Now you have enough information to check your project's scope and 
+look for surprises. <B>Before you are done describing the system's 
+functioning,</B> you have to fill out: 
+<P> 
+<P><I></I>
+<P><B>EXTENSIONS</B> 
+<P><B>SUB-VARIATIONS</B> 
+<P>
+<P>Superordinate Use Case: &lt;optional, name of use case that includes this 
+one&gt; 
+<P><U></U>
+<P>Subordinate Use Cases: &lt;optional, depending on tools, links to sub.use 
+cases&gt; 
+<P> 
+<P><B>4. </B>You now have the system's functionality captured. <B>When you are 
+ready to work on your estimations, </B>fill in: 
+<P> 
+<P><U></U>
+<P><B>Performance Target:</B> &lt;the amount of time this use case should 
+take&gt; 
+<P>
+<P><B>OPEN ISSUES</B> 
+<P><B>SCHEDULE</B> 
+<P> 
+<P><B>5. Finally, </B>when you are in the final stages of project estimating, 
+you need to <B>identify all the systems to which you will have to build 
+interfaces. </B>Fill in: 
+<P> 
+<P><U></U>
+<P>Channel to primary actor: &lt;e.g. interactive, static files, database&gt; 
+<P><U></U>
+<P>Secondary Actors: &lt;list of other systems needed to accomplish use case&gt; 
+
+<P><U></U>
+<P>Channel to Secondary Actors: &lt;e.g. interactive, static, file, database, 
+timeout&gt; 
+<P>counter is <IMG alt=;-) src="Adding goals to use cases_files/counter.gif"> 
+since resetting March 13, 1999 </P></BODY></HTML>

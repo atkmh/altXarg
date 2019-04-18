@@ -1,0 +1,1621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.midrangecomputing.com/anje/article.cfm?id=217 -->
+<HTML><HEAD><TITLE>A Mini Relational Database and JDBC Driver for Your PC</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type><LINK 
+href="A Mini Relational Database and JDBC Driver for Your PC_files/hss1.css" 
+rel=stylesheet type=text/css>
+<SCRIPT language=javascript>
+
+<!--
+//this sets some defaults for pre-4 browsers
+var ie4=0;
+var nav4=0;
+var moo = "OFF";
+
+function makev(){
+        return;
+}
+
+function makei(){
+        return;
+}
+
+//-->
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2 
+src="A Mini Relational Database and JDBC Driver for Your PC_files/morejs.js">
+<!--
+moo = "OFF";
+//-->
+</SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+var noDHTML = (ie4==0&&nav4==0) ? 1 : 0;
+//-->
+</SCRIPT>
+
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=5 topMargin=5 MARGINHEIGHT="5" MARGINWIDTH="5">
+<DIV id=controlpanel>
+<TABLE border=0 cellPadding=0 cellSpacing=0 height=406 width=757 HSPACE="0" 
+VSPACE="0">
+  <TBODY>
+  <TR>
+    <TD align=left rowSpan=2 vAlign=top width=150><IMG 
+      alt="Midrange Computing" border=0 height=167 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/01.gif" 
+      width=150><A href="http://www.midrangecomputing.com/magazines/" 
+      onclick="if(nav4||ie4)makev('pubs'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('pubs');"><IMG 
+      alt="" border=0 height=26 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/02.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/journals/" 
+      onclick="if(nav4||ie4)makev('news'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('news');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/03.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/mmu/" 
+      onclick="if(nav4||ie4)makev('mmu'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('mmu');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/04.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/forums/" 
+      onclick="if(nav4||ie4)makev('forums'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('forums');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/05.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/solctr/" 
+      onclick="if(nav4||ie4)makev('solctr'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('solctr');"><IMG 
+      alt="" border=0 height=26 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/06.gif" 
+      width=150></A><A href="http://www.mc-store.com/" 
+      onclick="if(nav4||ie4)makev('store'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('store');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/07.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/seminars/" 
+      onclick="if(nav4||ie4)makev('mci'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('mci');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/08.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/techref/" 
+      onclick="if(nav4||ie4)makev('resources'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('resources');"><IMG 
+      alt="" border=0 height=26 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/09.gif" 
+      width=150></A><A href="http://www.midrangecomputing.com/compinfo/" 
+      onclick="if(nav4||ie4)makev('compinfo'); return false;" 
+      onmouseover="if((nav4||ie4)&amp;&amp;(moo=='ON'))makev('compinfo');"><IMG 
+      alt="" border=0 height=25 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/10.gif" 
+      width=150></A><IMG align=top alt="" border=0 height=11 hspace=0 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/11.gif" 
+      width=150> <SPAN id=pubs>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer><A class=closer 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(pubs); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/magazines/">Magazines Home 
+            Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/mc/">Midrange 
+            Computing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/showcase/">AS/400 Technology 
+            SHOWCASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/guidelines/">Author 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/adinfo/">Advertising 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m0 
+            href="http://www.midrangecomputing.com/coffeebreak/">Coffee Break 
+            with the 
+            Editors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=news>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer1><A class=closer1 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(news); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/journals/">Technical Journals 
+            Home 
+            Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/ane/">AS/400 Network 
+            Expert&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/anje/">AS/400 NetJava 
+            Expert&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/guidelines/">Author 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/adinfo/">Advertising 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/coffeebreak/">Coffee Break 
+            with the 
+            Editors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=mmu>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer1><A class=closer1 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(mmu); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/mmu/">MMU Home 
+            Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/mmu/currentissue.cfm">Current 
+            Issue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/mmu/backissues/">Back 
+            Issues&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/mmu/editors.cfm">Meet the 
+            Editors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/adinfo/">Advertising 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/mmu/emailsignup.cfm">Subscribe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer noWrap><A class=m1 
+            href="http://www.midrangecomputing.com/coffeebreak/">Coffee Break 
+            with the 
+            Editors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=forums>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer><A class=closer2 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(forums); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer2><A class=m2 
+            href="http://www.midrangecomputing.com/forums/">Discussion Forums 
+            Home 
+            Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=solctr>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer3><A class=closer3 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(solctr); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/solctr/">Solutions Center 
+            Home Page</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/solctr/rapidresponse/">Rapid 
+            Response&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/solctr/productlink/">Product 
+            Link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/yellowpages/">Online Yellow 
+            Pages&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/solctr/midmarket/">Midrange 
+            Market&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/adinfo/">Advertising 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=store>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer><A class=m0 href="http://mc-store.com/">Company 
+            Store Home Page</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/products.html">Books&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/coltex.html">College Text 
+            Books&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/videos.html">Videos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/cbts.html">Computer-based 
+            Training&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/cdroms.html">CD 
+            ROMs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/audioprograms.html">Audio 
+            Training&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/midcom2.html">Subscribe to 
+            Midrange 
+            Computing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/astecshow.html">Subscribe to 
+            SHOWCASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/netjavaexpert.html">Subscribe 
+            to AS/400 NetJava Expert</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m0 
+            href="http://www.mc-store.com/mc-store/clienacex1.html">Subscribe to 
+            AS/400 Network Expert</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=closer 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(store); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=mci>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer1><A class=m1 
+            href="http://mc-store.com/mc-store/seminars1.html">Seminars &amp; 
+            Conferences Home Page</A></TD></TR>
+        <TR>
+          <TD class=closer1><A class=m1 
+            href="http://www.mc-store.com/mc-store/1999seminars.html">MC 
+            Institute Seminars and Conferences</A></TD></TR>
+        <TR>
+          <TD class=closer1><A class=m1 
+            href="http://www.midrangecomputing.com/institute/onsite.cfm">On-site 
+            Training&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer1><A class=m1 
+            href="http://www.midrangecomputing.com/common/">COMMON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer1><A class=m1 
+            href="http://www.midrangecomputing.com/events/">General Upcoming 
+            Events&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer><A class=m1 
+            href="http://www.midrangecomputing.com/mediakit/sponsor.cfm">Sponsorship 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer1><A class=closer1 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(mci); return false;"><IMG alt="" border=0 height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=resources>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer2 noWrap><A class=m2 
+            href="http://www.midrangecomputing.com/techref/">Technical 
+            References Home Page</A></TD></TR>
+        <TR>
+          <TD class=closer2><A class=m2 
+            href="http://www.midrangecomputing.com/salary/">Salary 
+            Survey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer2><A class=m2 
+            href="http://www.midrangecomputing.com/usergrp/default.cfm">User 
+            Groups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer2><A class=m2 
+            href="http://www.midrangecomputing.com/techref/newsgroups.cfm">AS/400 
+            Newsgroups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer2 noWrap><A class=m2 
+            href="http://www.midrangecomputing.com/techref/webrefs.cfm">AS/400 
+            Web References &amp; Links</A></TD></TR>
+        <TR>
+          <TD class=closer2><A class=closer2 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(resources); return false;"><IMG alt="" border=0 
+            height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN><SPAN 
+      id=compinfo>
+      <TABLE border=1 cellPadding=2 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/">Company 
+            Information Home Page</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/profile.cfm">Company 
+            Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/privacy.cfm">Privacy 
+            Statement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/custserv.cfm">Customer 
+            Service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/staff.cfm">Meet the 
+            MC 
+            Staff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/guidelines/">Author 
+            Opportunities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/adinfo/">Advertising 
+            Opportunities</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/employment/">Employment 
+            Opportunities</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=m3 
+            href="http://www.midrangecomputing.com/compinfo/contact.cfm">Contact 
+            Us</A></TD></TR>
+        <TR>
+          <TD class=closer3><A class=closer3 
+            href="http://www.midrangecomputing.com/anje/" 
+            onclick="makei(compinfo); return false;"><IMG alt="" border=0 
+            height=9 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/CloseArrow.gif" 
+            width=5> Close 
+            Menu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</A></TD></TR></TBODY></TABLE></SPAN></TD>
+    <TD align=left rowSpan=2 vAlign=top width=35><IMG border=0 height=406 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/2a.gif" 
+      useMap=#map1 width=35><MAP name=map1> <AREA coords=7,11,122,32 
+        href="http://www.midrangecomputing.com/" shape=RECT></MAP></TD>
+    <TD align=left height=48 vAlign=top width=572><IMG alt="" border=0 
+      height=58 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/3a.gif" 
+      useMap=#map2 width=370><IMG alt="" border=0 height=58 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/4a.gif" 
+      useMap=#map3 width=39><IMG alt="" border=0 height=58 
+      src="A Mini Relational Database and JDBC Driver for Your PC_files/5a.gif" 
+      width=163><MAP name=map2> <AREA coords=292,11,371,31 
+        href="http://www.midrangecomputing.com/mcnetnews/" shape=RECT><AREA 
+        coords=227,11,290,31 href="http://www.midrangecomputing.com/hotpicks/" 
+        shape=RECT><AREA coords=188,11,225,31 
+        href="http://www.midrangecomputing.com/faqs/" shape=RECT><AREA 
+        coords=122,11,187,29 href="http://www.midrangecomputing.com/feedback/" 
+        shape=RECT><AREA coords=63,11,121,30 
+        href="http://www.midrangecomputing.com/sitemap/" shape=RECT><AREA 
+        coords=15,11,63,30 href="http://www.midrangecomputing.com/search/" 
+        shape=RECT><AREA coords=0,11,11,29 
+        href="http://www.midrangecomputing.com/" shape=RECT></MAP></TD><MAP 
+    name=map3><AREA coords=0,11,38,30 
+      href="http://www.midrangecomputing.com/mcnetnews/" shape=RECT></MAP></TR>
+  <TR>
+    <TD align=left height=336 vAlign=top>
+      <CENTER>
+      <SCRIPT language=javascript1.2>
+<!--
+if(ie4){
+document.writeln('<IFRAME name="floater" src="/templates/test3.cfm" FrameBorder="0" width=510 height=80 Scrolling="No" Valign="top">');
+document.writeln('</IFRAME><BR>');
+
+}
+if (nav4) {
+
+document.writeln('<a href="http://www.midrangecomputing.com/scripts/redirect.exe/712ee25d?REGION=site&CAMPAIGN=Nexgen&ACCOUNT=Nexgen&BANNER=nexgenbanner"  target="_top" ><img src="http://www.midrangecomputing.com/scripts/getimage.exe/712ee25d?REGION=site&CAMPAIGN=Nexgen&ACCOUNT=Nexgen&BANNER=nexgenbanner" border=0  ></a>');
+
+
+}
+// -->
+</SCRIPT>
+      </CENTER>
+      <TABLE border=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD align=left colSpan=4 vAlign=center><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/headanje.gif"> 
+
+            <P>&nbsp;
+            <P></P></TD></TR></TBODY></TABLE>
+      <TABLE border=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD align=left vAlign=center width="15%"><IMG align=middle 
+            alt="October/November Issue" border=0 height=132 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/newanjecover.jpg" 
+            width=100> </TD>
+          <TD align=left class=helv vAlign=center width="30%"><B>The 
+            October/November Issue of AS/400 NetJava Expert</B>
+            <HR>
+             Scroll down to see the selected month's TOC!</TD>
+          <TD width="20%">&nbsp;</TD>
+          <TD align=right vAlign=bottom width="35%"><IMG alt="AS/400 Button" 
+            border=0 height=110 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/as400buttonanje.gif" 
+            useMap=#map99 width=175><MAP name=map99> <AREA coords=53,85,172,98 
+              href="http://mc-store.com/mc-store/netjavaexpert.html" 
+              shape=RECT><AREA coords=53,70,172,83 
+              href="http://www.midrangecomputing.com/anje/sample.pdf" 
+              shape=RECT><AREA coords=53,56,172,69 
+              href="http://www.midrangecomputing.com/anje/code.cfm" 
+              shape=RECT><AREA coords=53,41,172,54 
+              href="http://www.midrangecomputing.com/anje/editors.cfm" 
+              shape=RECT><AREA coords=53,27,172,40 
+              href="http://www.midrangecomputing.com/anje/backiss.cfm" 
+              shape=RECT><AREA alt="AS/400 Button" coords=53,11,172,26 
+              href="http://www.midrangecomputing.com/anje/" 
+        shape=RECT></MAP></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <P>
+      <CENTER>
+      <TABLE border=0 cellSpacing=10 width="95%">
+        <TBODY>
+        <TR>
+          <TD colSpan=2>
+            <H1>A Mini Relational Database and JDBC Driver for Your PC</H1>
+            <P><I>by Don Denoncourt</I></P></TD></TR>
+        <TR>
+          <TD vAlign=top>
+            <P>In 1997, when I first set out to learn how to access relational 
+            database files using Java Database Connect (JDBC), the first text I 
+            read was <I>Database Programming with JDBC and Java</I> by George 
+            Reese. I had always been a proponent of SQL and as a Java evangelist 
+            JDBC seemed an elegant strategy to access DB2/400. My development 
+            environment, however, was a laptop and I often coded in places where 
+            an Internet connection for AS/400 access was not available. (Places 
+            such as a park bench or on a lawn chair in my backyard, or, curse 
+            the thought, at my mother-in-law’s house during a family visit.) 
+            Reese’s book proposed a solution to my AS/400 inaccessibility 
+            problem--a lightweight workstation-based relational database 
+            environment. Reese, you see, is the developer of the world’s first 
+            JDBC driver (mSQL-JDBC). His JDBC driver was for the <B>Hughes 
+            Technologies</B> <B>Pty Ltd.</B>'s (<A 
+            href="http://www.hughes.com.au/"><FONT 
+            size=2>www.hughes.com.au/</FONT></A>) Mini SQL (mSQL) relational 
+            database. But back in 1997, the mSQL database engine did not work on 
+            Windows. A few weeks ago, I discovered that mSQL now works on 
+            Windows 9<I>x</I>/NT. Further, I discovered that not only was there 
+            a JDBC driver for mSQL, but there was also a 100% pure Java GUI for 
+            mSQL.</P>
+            <P>In this article, I will show you how to download, configure, and 
+            test mSQL, the Java-based GUI, and the JDBC driver. But before I do 
+            that, I should mention that mSQL is available on a "14-day 
+            evaluation period." At the end of that period, David J. Hughes, 
+            managing director of Hughes Technologies expects you to send in the 
+            registration form provided with the documentation. Note, however, 
+            that some groups may continue to use mSQL free of charge as Hughes 
+            points out in mSQL’s readme file: </P>
+            <DIR>
+            <P>
+            <P>Hughes Technologies continues to support the original ethos of 
+            the Internet by providing mSQL 2.0 (and all other Hughes 
+            Technologies products) free of charge to certain organisations. If 
+            your use of our software is in conjunction with your work or study 
+            at one of the organisational types listed below you may continue to 
+            use the software beyond the 14 day evaluation without licensing your 
+            copy.</P></DIR>
+            <P>
+            <UL>
+              <LI>Universities and schools 
+              <LI>Non-commercial research organisations 
+              <LI>Registered not-for-profit, organisations 
+              <LI>Registered charities 
+              <LI>Churches</LI></UL>
+            <P><B>
+            <P>Download and Setup</P></B>
+            <P>To download mSQL, the Java-based GUI, and the JDBC driver visit 
+            <A href="http://blnet.com/msqlpc/"><FONT 
+            size=2>blnet.com/msqlpc/</FONT></A> (the Hughes’ site only has the 
+            mSQL engine; this site has all the products) and select the 
+            following products for download:</P>
+            <P>
+            <UL>
+              <LI>mSQL 2.0.4.1 Build #9 for Win32 - CygWin build 
+              <LI>GUImSQL client 
+              <LI>JDBC Driver 2.0b4 for mSQL 1.0.x and 2.0.x (JDK 1.2) 
+              <LI>JDBC Driver 1.0 for mSQL 1.0.x and 2.0.x (JDK 1.1.x) </LI></UL>
+            <P>
+            <P>The version numbers may have changed, so I’d suggest you download 
+            the most recent versions that are not in beta. Also, as Java 
+            proponents, I’d expect you to do as I did and download the "Pure 
+            Java" build of GUImSQL not the "Native Build." The pure Java build 
+            requires that you have a JDK installed on your machine to be able to 
+            execute the Java classes. Note too that there are JDBC drivers for 
+            both Java 1.1.<I>x </I>and Java 1.2, so download the JDBC driver for 
+            whichever JDK version you are using. For various reasons, I use both 
+            JDK 1.1 and JDK 1.2, so I downloaded both drivers. </P>
+            <P>For best results, create a directory called C:\usr and 
+            C:\usr\local. (It’s a UNIX thing.) Then unzip the 
+            msql-2041-build9.zip to C:\usr\local. The C drive is the default so 
+            if you don’t/can’t use C: you’ll have to modify the msql.conf 
+            configuration file’s Inst_Dir property. Next unzip the Java GUI 
+            (GuiMSQL.zip) to some directory. On my machine I simply put it under 
+            C:\usr\local. Finally unzip the JDBC driver (mSQL-JDBC-2b.zip) to 
+            wherever. Just remember that wherever you put it you’ll have to add 
+            the location of the JAR (msql-jdbc-2-0b5.jar) file to your 
+            CLASSPATH.</P><B>
+            <P>Start Your Engines</P></B>
+            <P>To start the mSQL server, open a DOS window, change the current 
+            directory to c:\usr\local\hughes\bin (or just have 
+            c:\usr\local\hughes\bin as a part of your PATH environment variable) 
+            and execute the <B>msql2d.exe</B> Windows program. The <I>d</I> is 
+            for daemon, which is what UNIX geeks commonly call server programs 
+            because they quietly lie waiting and then pounce up in a flurry of 
+            activity in response to a user entry. Typically HTTP server programs 
+            (such as the Apache HTTP server) are called httpd.exe. At this point 
+            the mSQL driver is lying in wait for SQL access on the default port 
+            of 1114. </P>
+            <P>The mSQL system comes with a database called <I>joshua,</I> but 
+            you’ll want to set up your own (or several for that matter). To 
+            create your own application database, use mSQL’s administration 
+            program, <B>msqladmin.exe</B>. For instance, I used the following 
+            command to create a database called denoncourt:</P><FONT 
+            face="Courier New">
+            <P>C:\usr\local\Hughes\bin&gt;msqladmin create denoncourt</P></FONT>
+            <P>Note that the mSQL administration program created a directory 
+            called denoncourt within the msqldb directory of the Hughes 
+            directory (c:\usr\local\msqldb\denoncourt). </P>
+            <P>To add a table to your newly created database, you could use a 
+            Java program and the msql JDBC driver, but creating tables is best 
+            done (or, at least, more easily done) with a GUI. So now it’s time 
+            to fire up your Java mSQL GUI. Open a new DOS window and change your 
+            current directory to wherever you decompressed GuiMSQL.zip. Then 
+            fire up the GUImsql AWT Java application:</P><FONT 
+            face="Courier New">
+            <P>C:\usr\msqlgui&gt;java GUImsql</P></FONT>
+            <P>You should see a Java GUI like the one shown in <B>Figure 1</B>. 
+            Change the DB UserName to whatever you want; I simply keyed in my 
+            last name. The mSQL database enables security through access control 
+            lists (ACL), but the default setting is ACL-disabled (which, in 
+            fact, the mSQL engine warns you about on startup). As you can see in 
+            <B>Figure 2</B>, I selected localhost for the DB HostName and 
+            denoncourt for the DB UserName. If all goes well (meaning your 
+            msql2d.exe database engine is appropriately configured and currently 
+            running in a separate window), you should see a successful connect 
+            message at the bottom of the mSQL GUI. </P>
+            <P>With the mSQL GUI successfully connected, your next step is to 
+            select your database. Click the Pick DB button and from the Choose 
+            the Database panel (as shown on <B>Figure 3</B>), select the 
+            database you wish to work with, and click OK. I selected my 
+            denoncourt database.</P>
+            <P>Now you are ready to create a file. The SQL command to create a 
+            file is CREATE TABLE and, as you can see in <B>Figure 4</B>, I 
+            created a file called <I>salesperson</I> with the following SQL 
+            command:</P><FONT face="Courier New">
+            <P>CREATE TABLE salesperson (salesId INT, salesman CHAR 
+            (20))</P></FONT>
+            <P>Once you complete typing your CREATE TABLE command you ask mSQL 
+            to execute your SQL statement with the Run Query button. Hopefully 
+            you’ll get a message--Query executed successfully!--in the bottom of 
+            the display. </P>
+            <P>Next you’ll want to populate your database. Again, you could do 
+            this with a Java program but it is handy to have a GUI environment 
+            if only to test the syntax of your SQL statements. I added two 
+            records to my file with SQL’s INSERT statement:</P><FONT 
+            face="Courier New">
+            <P>INSERT INTO salesperson VALUES (1, 'Don Denoncourt')</P>
+            <P>INSERT INTO salesperson VALUES (2, 'Joe Pluta')</P></FONT>
+            <P>To list the records of my salesperson file, I cleared the mSQL 
+            GUI with the Clear button and then typed the following SQL SELECT 
+            statement:</P><FONT face="Courier New">
+            <P>SELECT * FROM salesperson</P></FONT>
+            <P>The mSQL GUI then presented the results of my SELECT statement 
+            (two records) in the middle panel of its GUI.</P><B>
+            <P>mSQL Access with JDBC </P></B>
+            <P>Finally, with my database file populated with records, I was able 
+            to test the mSQL JDBC driver. <B>Figure 5</B> shows my Java 
+            application that simply lists the contents of my salesperson file. 
+            The code for my ListMSQLFile class is self-explanatory, so I only 
+            have to point out the URL qualification for the mSQL engine. 
+            ListMSQLFile, as you would expect, loads the mSQL JDBC driver (which 
+            George Reese called com.imaginary.sql.msql.MsqlDriver. (Can you 
+            imagine having a real company called Imaginary?) Then, when a JDBC 
+            Connection object is retrieved with the DriverManager class’s 
+            getConnection method, the protocol, as always, is JDBC, but the 
+            subprotocol is msql. The URL then specifies the IP address, which 
+            for local access is 127.0.0.1 followed by the port number, which, if 
+            you remember, defaults to 1114. It is very important that you also 
+            note the URL qualifies the name of the database following the IP 
+            address and the port number:</P><FONT face="Courier New">
+            <P>DriverManager.getConnection("jdbc:msql://127.0.0.1:1114/denoncourt");</P></FONT>
+            <P>After a Connection object is successfully returned, the 
+            ListMSQLFile application simply dumped the records (all two of them) 
+            to the AWL list box shown in <B>Figure 6</B>.</P><B>
+            <P>mSQL Potential</P></B>
+            <DL>
+              <DT>My example Java application may not be too impressive, but the 
+              three products that it uses are indeed impressive. The mSQL 
+              database has been proven to be a stable enough for commercial 
+              development. It does, however, lack some of the more sophisticated 
+              features (such as commitment control) that are available with 
+              other, more expensive, relational databases like DB2 UDB. 
+              Nevertheless, many small companies are using mSQL as a low-cost 
+              database server for their Internet applications. </DT></DL><I>
+            <P>Don Denoncourt is the editor of </I>AS/400 NetJava Expert<I>. Don 
+            can be reached at </I><A 
+            href="mailto:denoncourt@midrangecomputing.com"><I>denoncourt@midrangecomputing.com</I></A><I>.</P></I><B>
+            <DL>
+              <DT>Related Materials </DT></DL></B><I>
+            <P>Database Programming with JDBC and Java</I>. George Reese. 
+            O'Reilly &amp; Associates, 1997</P>
+            <P>Hughes Technologies Pty Ltd.'s Home Page: <A 
+            href="http://www.hughes.com.au/"><FONT 
+            size=2>www.Hughes.com.au/</FONT></A></P>
+            <P></P></TD>
+          <TD align=left vAlign=top width="1%"><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/Msql1.gif"><BR><B>FIGURE 
+            1:</B> The Java SQL GUI allows you to interface, either locally or 
+            remotely, to an mSQL RDB server. <A 
+            href="http://www.midrangecomputing.com/anje/images/lgMsql1.gif">- 
+            Click here for larger image</A>
+            <P>&nbsp;</P><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/Msql2.gif"><BR><B>FIGURE 
+            2:</B> When connecting to an mSQL server you specify your user name 
+            along with the IP or domain name of the host. <A 
+            href="http://www.midrangecomputing.com/anje/images/lgMsql2.gif">- 
+            Click here for larger image</A>
+            <P>&nbsp;</P><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/Msql3.gif"><BR><B>FIGURE 
+            3:</B> The mSQL engine supports multiple databases so you must 
+            select one before you can invoke SQL commands. <A 
+            href="http://www.midrangecomputing.com/anje/images/lgMsql3.gif">- 
+            Click here for larger image</A>
+            <P>&nbsp;</P><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/Msql4.gif"><BR><B>FIGURE 
+            4:</B> SQL commands are entered in the bottom panel, the “Run Query” 
+            button invokes the command, and the middle panel shows the results 
+            of that command. <A 
+            href="http://www.midrangecomputing.com/anje/images/lgMsql4.gif">- 
+            Click here for larger image</A>
+            <P>&nbsp;</P><A 
+            href="http://www.midrangecomputing.com/anje/images/Msql5.txt"><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/text.gif"></A> 
+            <BR><B>FIGURE 5:</B> The ListMSQLFile Java class shows how to access 
+            a specific database from a locally accessed mSQL server. 
+            <P>&nbsp;</P><IMG 
+            src="A Mini Relational Database and JDBC Driver for Your PC_files/Msql6.gif"><BR><B>FIGURE 
+            6:</B> The ListMSQLFile application simply displays an AWT list box 
+            that contains the complete list of records from the salesman file. 
+            <A href="http://www.midrangecomputing.com/anje/images/lgMsql6.gif">- 
+            Click here for larger image</A>
+            <P>&nbsp;</P>
+            <P>&nbsp;</P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+            <TABLE border=1 width="100%">
+              <TBODY>
+              <TR bgColor=red>
+                <TD><FONT color=white size=-1><B>ALSO BY THIS 
+                AUTHOR</B></FONT></TD></TR>
+              <TR>
+                <TD>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9908FocusOn.pdf"><FONT 
+                        size=-2>Focus on E-business and Web Serving 
+                      </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9905DenoncourtDog.pdf"><FONT 
+                        size=-2>E-commerce Security with Cerberus, the 
+                        Three-headed Dog </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9905A_DenoncourtNew.pdf"><FONT 
+                        size=-2>What Are We Fighting For? 
+                    </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9905A_Denoncourt4.pdf"><FONT 
+                        size=-2>E-commerce Technology Mutates 
+                    </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9901java.pdf"><FONT 
+                        size=-2>Object-oriented Design for AS/400 Java 
+                        Applications: Abstract Classes and Polymorphism 
+                        </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19981201focus.pdf"><FONT 
+                        size=-2>Focus on Internet/Intranet and E-commerce 
+                        </FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19981201.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, August 1998: Focus 
+                        on Visual Programing</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19980802.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, August 1998: Java 
+                        Environments for Visual 
+                    Programming</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19980801.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, August 1998: Focus 
+                        on Visual Programing</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19980601.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, June 1998: Focus on 
+                        Java</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19980401a.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, April 1998: Grids: 
+                        Subfiles for Java 
+                  Programmers</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/mc/articles/19980401.htm"><FONT 
+                        size=-2>Midrange Computing Magazine, April 1998: Grids: 
+                        Subfiles for Java 
+                  Programmers</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=990728.cfm"><FONT 
+                        size=-2>Coffee Break:RPG20: The Language That Wouldn't 
+                        Die</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=990414.cfm"><FONT 
+                        size=-2>Coffee Break: PDF: Why Donny Can't 
+                        Read</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=990106.cfm"><FONT 
+                        size=-2>Coffee Break: The Black Hats versus the White 
+                        Hats</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=981028.cfm"><FONT 
+                        size=-2>Coffee Break: Industrial-Strength Software 
+                        Components</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=980916.cfm"><FONT 
+                        size=-2>Coffee Break: AS/400 Web Application 
+                        Choices</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=980715.cfm"><FONT 
+                        size=-2>Coffee Break: Swinging with 
+                    Java</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=980520.cfm"><FONT 
+                        size=-2>Coffee Break: Magicians of the 
+                    Time</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=980325.cfm"><FONT 
+                        size=-2>Coffee Break: Coffee 
+                    Talk</FONT></A></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">The 
+                        Spartan Order System: Order Detail GUI Implementation 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">The 
+                        Spartan Order System: An Exercise in AS/400 Java 
+                        Application Design </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=213&amp;md=19996">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=214&amp;md=19996">Pointer: 
+                        Enabling JSP with V4R4 </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">A 
+                        Mini Relational Database and JDBC Driver for Your PC 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=217&amp;md=19996">A 
+                        Mini Relational Database and JDBC Driver for Your PC 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">Cheap 
+                        Java Subfile Programming Tricks 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">From 
+                        the Editor: Java Server Pages: Separation of 
+                        Presentation and Programming 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19996">Email, 
+                        Pointers, and Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=215&amp;md=19996">The 
+                        Spartan Order System: Order Detail GUI Implementation 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19995">JDBC 
+                        Basics </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19995">Emails, 
+                        Pointers, &amp; Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=189&amp;md=19995">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=190&amp;md=19995">Pointer: 
+                        Testing Java Servlets </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=191&amp;md=19995">Commitment 
+                        Control for Record-level Access 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9909ntandenon.pdf">Needful 
+                        Things </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19995">Making 
+                        a Commitment to JDBC </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=202&amp;md=19995">Prepare 
+                        Your JDBC Apps for Performance 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=203&amp;md=19995">Phone 
+                        Home with JDBC: Calling RPG from Java 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19995">From 
+                        the Editor: Enter the Octagon 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/articles/9907xml.pdf">XML 
+                        Today </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=163&amp;md=19994">An 
+                        Objective Look at Java by MC's RPG Brain Trust 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=166&amp;md=19994">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19994">From 
+                        the Editor: Technologies Shift to the Web 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/coffeebreak/bi.cfm?bi=990728.cfm">Coffee 
+                        Break with the Editors: RPG20: The Language That 
+                        Wouldn't Die </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19994">anje://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=178&amp;md=19994">More 
+                        Impure Java: Creating Java Executables with Symantec’s 
+                        Visual Café </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=180&amp;md=19994">CPYSPLFPDF 
+                        Command </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19994">Emails, 
+                        Pointers, Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=156&amp;md=19993">Qshell 
+                        and IBM’s Java Toolbox for the AS/400 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=159&amp;md=19993">Test 
+                        Driving JDBC 2.0 with jt400 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19993">From 
+                        the Editor: Considerations for Server Software 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19993">Emails, 
+                        Pointers, Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/article.cfm?id=155&amp;md=19993">RPG 
+                        Program Call from Java Made Easy with PCML 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19992">A 
+                        Framework for E-business </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19992">Emails, 
+                        Pointers, Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19992">A 
+                        Tour of XML Applications </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19991">The 
+                        Internet Is the Computer </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19991">Emails, 
+                        Pointers, Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19991">Java 
+                        Error Handling for CL Programmers 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19986">Perception 
+                        Is Reality </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19986">Programming 
+                        Domino with Java </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19986">Emails, 
+                        Pointers, Advice </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19985">ie://TechTalk 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19985">AS/400 
+                        NetJava Expert? </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19985">CGI 
+                        Template Programming with IBM's Snippets Library 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19985">ie://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19985">Starting 
+                        the AS/400 HTTP Server with a Java AWT Application 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19984">Subfile 
+                        Programming with Net.Data? 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19984">ie://HotSites 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19984">The 
+                        Java Glossery </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19984">Did 
+                        You Miss Me? </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19983">ie://TechTalk 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19983">Building 
+                        a Java Database Bridge </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19983">Java 
+                        Choices for DB2 Record-level Access 
+                    </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19982">Distributed 
+                        Java Computing with RMI </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19981">Impedance 
+                        Mismatch--The Problem of Java-based Data Access 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19981">JavaBeans: 
+                        The New Component Strategy 
+                  </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19981">Educate 
+                        Yourself on Java </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19976">Java 
+                        Polymorphism </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19975">An 
+                        Introduction into Java's Object-oriented Inheritance 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/anje/monthdisplay.cfm?md=19974">A 
+                        First Look at Object Oriented Programming in Java 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19996">Repository-based 
+                        Source Control</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19995">E-commerce 
+                        Technology Mutates </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19995">What 
+                        Are We Fighting For?</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19993">R.I.P. 
+                        5250</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19981">Client/Server 
+                        Application Development with Java</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19986">Focus 
+                        on Java</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19986">Object-oriented 
+                        Design for AS/400 Java Applications: Object Modeling and 
+                        Basic Java Class Design</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19988">Focus 
+                        on Visual Programming</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19988">Java 
+                        Environments for Visual Programming</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199812">Focus 
+                        on Internet/Intranet and E-commerce</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199812">Programming 
+                        Strategies: Applets, Servlets, Sockets, Distributed 
+                        Objects, and Vendor Specific</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">Focus 
+                        on E-business and Web Serving</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">E-business 
+                        by Design with EJB</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19996">This 
+                        Article May Be Monitored for Quality Assurance 
+                        Purposes</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19996">Linux 
+                        Rocks</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19995">E-commerce 
+                        Security with Cerberus, the Three-headed Dog</A></FONT> 
+                      </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19995">Universal 
+                        Database: DB2: The Sequel 
+</A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19995">Product 
+                        Closeup: Midrange Computing's "Y2K Survival Kit for 
+                        AS/400 Programmers"</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19994">Don't 
+                        Break the Law, but Break Protocol</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19994">Threads 
+                        Sew Up AS/400 Apps</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19994">Apaches 
+                        Invade Rochester</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19993">Technology 
+                        Spotlight: XML: The Language of Confusion</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19991">Object-oriented 
+                        Design for AS/400 Java Applications: Abstract Classes 
+                        and Polymorphism</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19984">Grids: 
+                        Subfiles for Java Programmers</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199811">Object-oriented 
+                        Design for AS/400 Java Applications: Java 
+                        Interfaces</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19987">Object-oriented 
+                        Design for AS/400 Java Applications: Standard 
+                        Encapsulation Strategies</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199810">Object-oriented 
+                        Design for AS/400 Java Applications: Inheritance 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19982">Java 
+                        GUI Design with JavaBean Components</A></FONT> 
+                    </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199711">Activation 
+                        Groups Demystified</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19981">Technology 
+                        Spotlight: Java GUI Programming</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19997">Enterprise 
+                        JavaBeans: Show Me the Code!</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19997">XML 
+                        Today</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19997">A 
+                        Roadmap for E-Business</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19999">Needful 
+                        Things</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">Product 
+                        Closeup: Symantec's VisualCafe</A></FONT> 
+                  </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">Java/400: 
+                        Tools for Today</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">Is 
+                        It Fast?</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=19998">Serving 
+                        Up Host-based Java Apps</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199910">Face-off: 
+                        JSP vs. ASP</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/mc/monthdisplay.cfm?md=199910">Java 
+                        Momentum</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19985">Product 
+                        Review: ASNA Enters the Java Toolkit Market</A></FONT> 
+                      </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19985">Decision 
+                        Support: Should You Caffeinate Your AS/400 
+                        Applications?</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19997">Product 
+                        Review: From Whiteboards to UML: The Evolution of Three 
+                        Design Tools</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=199812">Product 
+                        Review: Building Object Distribution Strategies 
+                        </A></FONT></TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19988">IBM 
+                        Says RPG Programmer Career Path Is Short-Order 
+                        Cook</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffcf>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19989">Net 
+                        Take: HTML Shows Its Age</A></FONT> </TD></TR></TBODY></TABLE>
+                  <TABLE border=0 width="100%">
+                    <TBODY>
+                    <TR bgColor=#ffffff>
+                      <TD vAlign=top><FONT size=-2><A 
+                        href="http://www.midrangecomputing.com/showcase/monthdisplay.cfm?md=19988">Net 
+                        Take: Servlets: Grown-Up Java Apps</A></FONT> 
+                    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+      <CENTER><A href="http://www.midrangecomputing.com/anje/"><FONT color=red 
+      face="Tahoma,Arial Black">Click here to return to AS/400 NetJava 
+      Expert</FONT></A></CENTER></TD></TR>
+  <TR>
+    <TD align=middle colSpan=3>
+      <HR>
+
+      <CENTER>
+      <CENTER>
+      <H6>Last Modified: Friday, October 1, 1999</H6></CENTER>
+      <H6>Copyright © 1999 Midrange Computing<BR>IBM® and AS/400® are registered 
+      trademarks of IBM.<BR>All other product names are trademarked or 
+      copyrighted by their respective 
+holders.</H6></CENTER></TD></TR></TBODY></TABLE></DIV></BODY></HTML>

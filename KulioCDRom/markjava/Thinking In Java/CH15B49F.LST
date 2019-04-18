@@ -1,0 +1,526 @@
+listing 1
+// Implement Enumeration.
+import java.util.Enumeration;
+
+class Enum implements Enumeration {
+  private int count = 0;
+  private boolean more = true;
+
+  public boolean hasMoreElements() {
+    return more;
+  }
+
+  public Object nextElement() {
+    count++;
+    if(count > 4)
+      more = false;
+      return new Integer(count);
+  }
+}
+
+class EnumerateDemo {
+  public static void main(String args[]) {
+    Enumeration enum = new Enum();
+
+    while(enum.hasMoreElements()) {
+      System.out.println(enum.nextElement());
+    }
+  }
+}
+
+listing 2
+// Demonstrate various Vector operations.
+import java.util.Vector;
+import java.util.Enumeration;
+
+class VectorDemo {
+  public static void main(String args[]) {
+   
+    // initial size is 3, increment is 2
+    Vector v = new Vector(3, 2);
+
+    System.out.println("Initial size: " + v.size());
+    System.out.println("Initial capacity: " +
+                       v.capacity());
+
+    v.addElement(new Integer(1));
+    v.addElement(new Integer(2));
+    v.addElement(new Integer(3));
+    v.addElement(new Integer(4));
+
+    System.out.println("Capacity after four additions: " +
+                       v.capacity());
+
+    v.addElement(new Double(5.45));
+    System.out.println("Current capacity: " +
+                       v.capacity());
+    v.addElement(new Double(6.08));
+    v.addElement(new Integer(7));
+
+    System.out.println("Current capacity: " +
+                       v.capacity());
+    v.addElement(new Float(9.4));
+    v.addElement(new Integer(10));
+
+    System.out.println("Current capacity: " +
+                       v.capacity());
+    v.addElement(new Integer(11));
+    v.addElement(new Integer(12));
+
+    System.out.println("First element: " +
+                       (Integer)v.firstElement());
+    System.out.println("Last element: " +
+                       (Integer)v.lastElement());
+
+    if(v.contains(new Integer(3))) 
+      System.out.println("Vector contains 3.");
+
+    // enumerate the elements in the vector.
+    Enumeration vEnum = v.elements();
+
+    System.out.println("\nElements in vector:");
+    while(vEnum.hasMoreElements())
+      System.out.print(vEnum.nextElement() + " ");
+    System.out.println();
+  }
+}
+
+listing 4
+// Demonstrate a Hashtable
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Enumeration;
+
+class HTDemo {
+  public static void main(String args[]) {
+    Hashtable balance = new Hashtable();
+    Enumeration names;
+    Enumeration negbal;
+    String str;
+    double bal;
+
+    balance.put("John Doe", new Double(3434.34));
+    balance.put("Tom Smith", new Double(123.22));
+    balance.put("Jane Baker", new Double(1378.00));
+    balance.put("Tod Hall", new Double(99.22));
+    balance.put("Ralph Smith", new Double(-19.08));
+
+    // Show all balances in hashtable
+    names = balance.keys();
+    while(names.hasMoreElements()) {
+      str = (String) names.nextElement();
+      System.out.println(str + ": " +
+                         balance.get(str));
+    }
+
+    System.out.println();
+   
+    // Deposit 1,000 into John Doe's account
+    bal = ((Double)balance.get("John Doe")).doubleValue();
+    balance.put("John Doe", new Double(bal+1000));
+    System.out.println("John Doe's new balance: " +
+                       balance.get("John Doe"));
+  }
+}
+
+listing 5
+// Demonstrate a Property list.
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Properties;
+import java.util.Enumeration;
+
+class PropDemo {
+  public static void main(String args[]) {
+    Properties capitals = new Properties();
+    Enumeration states;
+    String str;
+
+    capitals.put("Illinois", "Springfield");
+    capitals.put("Missouri", "Jefferson City");
+    capitals.put("Washington", "Olympia");
+    capitals.put("California", "Sacramento");
+    capitals.put("Indiana", "Indianapolis");
+
+    // Show all states and capitals in hashtable.
+    states = capitals.keys();
+    while(states.hasMoreElements()) {
+      str = (String) states.nextElement();
+      System.out.println("The capital of " +
+                         str + " is " +
+                         capitals.getProperty(str)
+                         + ".");
+    }
+
+    System.out.println();
+
+    // look for state not in list -- specify default
+    str = capitals.getProperty("Florida", "Not Found");
+    System.out.println("The capital of Florida is "
+                       + str + ".");
+
+  }
+}
+
+listing 6
+// Use a default property list.
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Properties;
+import java.util.Enumeration;
+
+class PropDemoDef {
+  public static void main(String args[]) {
+    Properties defList = new Properties();
+    defList.put("Florida", "Tallahassee");
+    defList.put("Wisconsin", "Madison");
+
+    Properties capitals = new Properties(defList);
+    Enumeration states;
+    String str;
+
+
+    capitals.put("Illinois", "Springfield");
+    capitals.put("Missouri", "Jefferson City");
+    capitals.put("Washington", "Olympia");
+    capitals.put("California", "Sacramento");
+    capitals.put("Indiana", "Indianapolis");
+
+    // Show all states and capitals in hashtable.
+    states = capitals.keys();
+    while(states.hasMoreElements()) {
+      str = (String) states.nextElement();
+      System.out.println("The capital of " +
+                         str + " is " +
+                         capitals.getProperty(str)
+                         + ".");
+    }
+
+    System.out.println();
+
+    // Florida will now be found in the default list.
+    str = capitals.getProperty("Florida");
+    System.out.println("The capital of Florida is "
+                       + str + ".");
+
+  }
+}
+
+listing 7
+/* A simple telphone number database that uses
+   a property list. */
+import java.io.*;
+import java.util.*;
+
+class Phonebook {
+  public static void main(String args[]) 
+    throws IOException
+  {
+    Properties ht = new Properties();
+    DataInputStream inData = new DataInputStream(System.in);
+    String name, number;
+    FileInputStream fin = null;
+    boolean changed = false;
+
+    // Try to open phonebook.dat file.
+    try {
+      fin = new FileInputStream("phonebook.dat");
+    } catch(FileNotFoundException e) {
+      // ignore missing file
+    }
+
+    /* If phonebook file already exists, 
+       load existing telephone numbers. */
+    try {
+      if(fin != null) {
+        ht.load(fin);
+        fin.close();
+      }
+    } catch(IOException e) {
+      System.out.println("Error reading file.");
+    }
+
+    // Let user enter new names and numbers.
+    do {
+      System.out.println("Enter new name" + 
+                         " ('quit' to stop): ");
+      name = inData.readLine();
+      if(name.equals("quit")) continue;
+
+      System.out.println("Enter number: ");
+      number = inData.readLine();
+
+      ht.put(name, number);
+      changed = true;
+    } while(!name.equals("quit"));
+
+    // If phone book data has changed, save it.
+    if(changed) {
+      PrintStream fout = new 
+        PrintStream(new FileOutputStream("phonebook.dat"));
+
+      ht.save(fout, "Telephone Book");    
+      fout.close();
+    }
+
+    // Look up numbers given a name.
+    do {
+      System.out.println("Enter name to find" +
+                         " ('quit' to quit): ");
+      name = inData.readLine();
+      if(name.equals("quit")) continue;
+
+      number = (String) ht.get(name);
+      System.out.println(number);
+    } while(!name.equals("quit"));
+  }
+}
+
+listing 8
+// Demonstrate StringTokenizer.
+import java.util.StringTokenizer;
+
+class STDemo {
+  static String in = "title=Java: The Complete Reference;" +
+    "author=Naughton and Schildt;" +
+    "publisher=Osborne/McGraw-Hill;" +
+    "copyright=1997";
+
+  public static void main(String args[]) {
+    StringTokenizer st = new StringTokenizer(in, "=;");
+    while(st.hasMoreTokens()) {
+      String key = st.nextToken();
+      String val = st.nextToken();
+      System.out.println(key + "\t" + val);
+    }
+  }
+} 
+
+listing 9
+// BitSet Demonstration.
+import java.util.BitSet;
+
+class BitSetDemo {
+  public static void main(String args[]) {
+    BitSet bits1 = new BitSet(16);
+    BitSet bits2 = new BitSet(16);
+
+    // set some bits
+    for(int i=0; i<16; i++) {
+      if((i%2) == 0) bits1.set(i);
+      if((i%5) != 0) bits2.set(i);
+   }
+
+    System.out.println("Initial pattern in bits1: ");
+    System.out.println(bits1);
+    System.out.println("\nInitial pattern in bits2: ");
+    System.out.println(bits2);
+
+    // AND bits
+    bits2.and(bits1);
+    System.out.println("\nbits2 AND bits1: ");
+    System.out.println(bits2);
+
+    // OR bits
+    bits2.or(bits1); 
+    System.out.println("\nbits2 OR bits1: ");
+    System.out.println(bits2);
+
+    // XOR bits
+    bits2.xor(bits1);
+    System.out.println("\nbits2 XOR bits1: ");
+    System.out.println(bits2);
+
+  }
+}
+
+listing 10
+// Demonstrate Time and Date.
+import java.util.Date;
+
+class TimeAndDate {
+  public static void main(String args[]) {
+    Date curDate = new Date();
+    String months[] = {
+             "Jan", "Feb", "Mar", "Apr", 
+             "May", "Jun", "Jul", "Aug",
+             "Sep", "Oct", "Nov", "Dec"};
+
+    // display time and date using toString()
+    System.out.println(curDate);
+
+    // display time and date, manually
+    System.out.print("Date: ");
+    System.out.print(months[curDate.getMonth()]);
+    System.out.print(" " + curDate.getDate() + " ");
+    System.out.println(curDate.getYear() + 1900);
+
+    System.out.print("Time: ");
+    System.out.print(curDate.getHours() + ":");
+    System.out.print(curDate.getMinutes() + ":");
+    System.out.println(curDate.getSeconds());
+
+    // Set the time.
+    curDate.setHours(10);
+    curDate.setMinutes(29);
+    curDate.setSeconds(22);
+
+    System.out.print("Updated time: ");
+    System.out.print(curDate.getHours() + ":");
+    System.out.print(curDate.getMinutes() + ":");
+    System.out.println(curDate.getSeconds());
+  }
+}
+
+listing 11
+// Demonstrate Date formats and time zone.
+import java.util.Date;
+
+class DateFormats {
+  public static void main(String args[]) {
+    Date curDate = new Date();
+
+    // display time and date using toString()
+    System.out.println("Default format: " + curDate);
+    System.out.println("Converted to locale: " +
+                       curDate.toLocaleString());
+    System.out.println("Converted to GMT: " +
+                       curDate.toGMTString());
+
+    System.out.println("Time zone offset: " +
+                       curDate.getTimezoneOffset());
+  }
+}
+
+
+listing 12
+// Demonstrate random Gaussian values.
+import java.util.Random;
+
+class RandDemo {
+  public static void main(String args[]) {
+    Random r = new Random();
+    double val;
+    double sum = 0;
+    int bell[] = new int[10];
+
+    for(int i=0; i<100; i++) {
+      val = r.nextGaussian();
+      sum += val;
+
+      double t = -2;
+      for(int x=0; x<10; x++, t += 0.5) 
+        if(val < t) {
+          bell[x]++;
+          break;
+        }
+
+    }
+    System.out.println("Average of values: " +
+                        (sum/100));
+
+    // display bell curve, sideways
+    for(int i=0; i<10; i++) {
+      for(int x=bell[i]; x>0; x--)
+        System.out.print("*");
+      System.out.println();
+    }
+  }
+}
+
+listing 13
+/* Demonstrate the Observable class and the
+   Observer interface.
+*/
+
+import java.util.*;
+
+// This is the observing class.
+class Watcher implements Observer {
+  public void update(Observable obj, Object arg) {
+    System.out.println("update() called, count is " +
+                       ((Integer)arg).intValue());
+  }
+}
+
+// This is the class being observed.
+class BeingWatched extends Observable {
+  void counter(int period) {
+    for( ; period >=0; period--) {
+      setChanged();
+      notifyObservers(new Integer(period));
+      try {
+        Thread.sleep(100);
+      } catch(InterruptedException e) {
+        System.out.println("Sleep interrupted");
+      }
+    }
+  }
+}
+
+class ObserverDemo {
+  public static void main(String args[]) {
+    BeingWatched observed = new BeingWatched();
+    Watcher observing = new Watcher();
+
+    /* Add the observing to the list of observers for 
+       observed object.  */
+    observed.addObserver(observing);
+
+    observed.counter(10);
+  }
+}
+
+listing 14
+/* An object may be observed by two or more
+   observers.
+*/
+
+import java.util.*;
+
+// This is the first observing class.
+class Watcher1 implements Observer {
+  public void update(Observable obj, Object arg) {
+    System.out.println("update() called, count is " +
+                       ((Integer)arg).intValue());
+  }
+}
+
+// This is the second observing class.
+class Watcher2 implements Observer {
+  public void update(Observable obj, Object arg) {
+    // Ring bell when done
+    if(((Integer)arg).intValue() == 0)
+      System.out.println("Done" + '\7');
+  }
+}
+
+// This is the class being observed.
+class BeingWatched extends Observable {
+  void counter(int period) {
+    for( ; period >=0; period--) {
+      setChanged();
+      notifyObservers(new Integer(period));
+      try {
+        Thread.sleep(100);
+      } catch(InterruptedException e) {
+        System.out.println("Sleep interrupted");
+      }
+    }
+  }
+}
+
+class TwoObservers {
+  public static void main(String args[]) {
+    BeingWatched observed = new BeingWatched();
+    Watcher1 observing1 = new Watcher1();
+    Watcher2 observing2 = new Watcher2();
+
+    // add both observers
+    observed.addObserver(observing1);
+    observed.addObserver(observing2);
+
+    observed.counter(10);
+  }
+}
+

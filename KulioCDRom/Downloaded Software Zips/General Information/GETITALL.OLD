@@ -1,0 +1,35 @@
+@echo off
+rem 
+rem 
+rem 
+rem 
+if not exist c:\backup\c_disk.txt goto skipmove
+c:\utils\mv c:\backup\c_disk.txt c:\backup\dskimage
+
+:skipmove
+c:
+cd \
+dir /og/oe/s > c:\backup\c_disk.txt
+
+copy c:\*.*	      c:\backup\*.*
+copy c:\windows\*.ini c:\backup\ini\*.*
+copy c:\windows\*.grp c:\backup\grp\*.*
+copy c:\windows\*.pif c:\backup\pif\*.*
+del c:\backup\command.com
+del c:\backup\wina20.386
+
+pkzip -rp a:backup.zip c:\backup\*.*
+
+rem xcopy c:\backup\*.*	a:\ /s/e
+rem xcopy c:\mark\bin\*.*	a:\/s/e
+rem del a:\command.com
+rem del del a:\wina20.386
+
+
+pkzip a:\mailarc.zip		c:\mark\mail\*.cca
+pkzip a:\diskimag.zip		c:\mark\diskimag\*.*
+pkzip -rp a:\evaluatr.zip	c:\mark\evhost\*.*
+pkzip -rp a:\testdefs.zip	c:\mark\testdefs\*.*
+pkzip -rp a:\weektask.zip	c:\mark\weektask\*.*
+
+copy c:\mark\*.* a:\*.*

@@ -1,0 +1,1 @@
+vdiff %1.c_v %1.c |more

@@ -1,0 +1,60 @@
+
+
+
+,desktop PCs, PC servers, laptops,and
+15 PC classroom environment.  Worked independently and unsupervised 75% of my
+time or more.  Looked for direction only where needed.  Responsible for
+software, hardware installations, systems maintenance, and system repair
+coordination.  Developed classroom  software administration system, reducing
+duration of curriculum change and setup for class room.
+Developed simple low cost WAN system between individual site mail systems.
+Identified need for and received approval to spend time on:
+*  Development of nightly PC backup technique that took ZERO budgetary expense. 
+*  Updating the software library, both disks and tapes, removing out-of-date
+   versions of software and product no longer in use.  Reduced volume by 30%.
+   Increased ease of common item location.
+*  Maintained periodical and non periodical library,  worked with one other to 
+   reduce by 50% the volume of    
+    trade journals on hand, increasing available space for new publications and periodicals.
+Projected and forecasted Hardware system software needs, Made purchase requests and installations.
+
+
+Materiel asset manager, tool control coordinator.  Received Letter of Commendation for accomplishments. 
+Managed 250 items from $15.00 $430,000.00.  Reduced visual inspection to 2 hours from 4 days
+Corrosion paint shop crew leader leading team of 5.  Acted as liaison between 8 separate work centers and
+Maintenance control.  Honor student at AMS 'A' school.
+
+
+
+
+SUMMARY: Twenty plus months as QA lead on companies legacy product and as test
+lab manager.  Member of defect resolution team.  Responsible for analyzing
+system functionality and determining where product has malfunctioned.  Worked
+with lead developer on all operating system porting issues, preformance
+issues, future OS requirments.  Four plus years providing system administration
+on multiple platform, multiple  operating system environments. Responsible for
+developing and maintaining legacy test environment Met all scheduled releases
+with a quality product.
+
+
+PROFESSIONAL EXPERIENCE:  *****  Lost of work as independent ****
+May 1995 - Present Oacis Healthcare Systems   Lead Software QA engineer Test Lab
+Manager in a 25 PC environment.  Responsible for developing and configuring new
+product functionality, preforming all regression testing  administered over
+multiple server multiple NOS platforms, maintaining baseline data for test
+automation, reacting in a timely manner to all client support issues, review
+documentation, submit corrections, produce release media, ship product. Work in
+design group to porting product to Windows NT and Windows95
+
+
+TECHNOLOGIES:
+Platforms DOS, Windows 3.1, Windows95, Window NT 3.51, 4.0,  Mac 6.x, 7.0
+          Solaris 2.3,2.4, 2.5.  Sybase ODBC 10, 11.
+          Btrieve 5.0, 6.15, Novell 3.x, 4.1(NDS and Bindery emulation)
+          FTP3.1,4.0 OnNet2.0, 2.1, OnNet16 2.5, OnNet32 2.0, LWD4.2, 5.0,
+          Prolinc 2.x, UB 16_62A
+          Network analyzer(sniffer), assorted test equipment.
+Software  Basic working familiarity with all common DOS, Windows and Mac prod.
+          Testing software Evaluator(DOS), exposure to QA partner, Autotester.
+          Bug tracking software, DCS2.0, 2.1, HEAT,Clarify.
+Languages Java, C, C++, Scheme, Forth, Pascal, MC68xxx Assembly

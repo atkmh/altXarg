@@ -1,0 +1,1 @@
+test-LD: /usr/local/lib/libg++.a /usr/local/lib/gcc-lib/sun4/2.3.1/libgcc.a

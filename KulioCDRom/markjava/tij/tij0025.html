@@ -1,0 +1,67 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0024.html">Prev</a> | <a href="tij0026.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Exception
+handling: 
+<P>dealing
+with errors
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Ever
+since the beginning of programming languages, error handling has been one of
+the most difficult issues. Because it&#8217;s so hard to design a good
+error-handling scheme, many languages simply ignore the issue, passing the
+problem on to library designers who come up with halfway measures that can work
+in many situations but can easily be circumvented, generally by just ignoring
+them. A major problem with most error-handling schemes is that they rely on
+programmer vigilance in following an agreed-upon convention that is not
+enforced by the language. If the programmer is not vigilant, which is often if
+they are in a hurry, these schemes can easily be forgotten.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Exception
+handling
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+wires error handling directly into the programming language and sometimes even
+the operating system. An exception is an object that is &#8220;thrown&#8221;
+from the site of the error and can be &#8220;caught&#8221; by an appropriate 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>exception
+handler
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+designed to handle that particular type of error. It&#8217;s as if exception
+handling is a different, parallel path of execution that can be taken when
+things go wrong. And because it uses a separate execution path, it
+doesn&#8217;t need to interfere with your normally-executing code. This makes
+that code simpler to write since you aren&#8217;t constantly forced to check
+for errors. In addition, a thrown exception is unlike an error value
+that&#8217;s returned from a function or a flag that&#8217;s set by a function
+in order to indicate an error condition, These can be ignored. An exception
+cannot be ignored so it&#8217;s guaranteed to be dealt with at some point.
+Finally, exceptions provide a way to reliably recover from a bad situation.
+Instead of just exiting you are often able to set things right and restore the
+execution of a program, which produces much more robust programs.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Java&#8217;s
+exception handling stands out among programming languages, because in Java,
+exception-handling was wired in from the beginning and you&#8217;re 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>forced</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+to use it. If you don&#8217;t write your code to properly handle exceptions,
+you&#8217;ll get a compile-time error message. This guaranteed consistency
+makes error-handling much easier.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+worth noting that exception handling isn&#8217;t an object-oriented feature,
+although in object-oriented languages the exception is normally represented
+with an object. Exception handling existed before object-oriented languages.
+</FONT><a name="_Toc375545204"></a><a name="_Toc408018401"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0024.html">Prev</a> | <a href="tij0026.html">Next</a>
+</div>
+</body></html>
+

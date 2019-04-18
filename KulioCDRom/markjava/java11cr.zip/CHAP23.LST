@@ -1,0 +1,147 @@
+listing 1
+// Demonstrate reflection.
+import java.lang.reflect.*;
+public class ReflectionDemo1 {
+  public static void main(String args[]) {
+    try {
+      Class c = Class.forName("java.awt.Dimension");
+      System.out.println("Constructors:");
+      Constructor constructors[] = c.getConstructors();
+      for(int i = 0; i < constructors.length; i++) {
+        System.out.println(" " + constructors[i]);
+      }
+
+      System.out.println("Fields:");
+      Field fields[] = c.getFields();
+      for(int i = 0; i < fields.length; i++) {
+        System.out.println(" " + fields[i]);
+      }
+
+      System.out.println("Methods:");
+      Method methods[] = c.getMethods();
+      for(int i = 0; i < methods.length; i++) {
+        System.out.println(" " + methods[i]);
+      }
+    }
+    catch(Exception e) {
+      System.out.println("Exception: " + e);
+    }
+  }
+}
+
+listing 3
+import java.rmi.*;
+public interface AddServerIntf extends Remote {
+  double add(double d1, double d2) throws RemoteException;
+} 
+
+listing 4
+import java.rmi.*;
+import java.rmi.server.*;
+public class AddServerImpl extends UnicastRemoteObject
+  implements AddServerIntf {
+
+  public AddServerImpl() throws RemoteException {
+  }
+  public double add(double d1, double d2) throws RemoteException {
+    return d1 + d2;
+  }
+}
+
+listing 5
+import java.net.*;
+import java.rmi.*;
+public class AddServer {
+  public static void main(String args[]) {
+    try {
+      AddServerImpl addServerImpl = new AddServerImpl();
+      Naming.rebind("AddServer", addServerImpl);
+    }
+    catch(Exception e) {
+      System.out.println("Exception: " + e);
+    }
+  }
+}
+
+listing 6
+import java.rmi.*;
+public class AddClient {
+  public static void main(String args[]) {
+    try {
+      String addServerURL = "rmi://" + args[0] + "/AddServer";
+      AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
+      System.out.println("The first number is: " + args[1]);
+      double d1 = Double.valueOf(args[1]).doubleValue();
+      System.out.println("The second number is: " + args[2]);
+      double d2 = Double.valueOf(args[2]).doubleValue();
+      System.out.println("The sum is: " + addServerIntf.add(d1, d2));
+    }
+    catch(Exception e) {
+      System.out.println("Exception: " + e);
+    }
+  }
+}
+   
+listing 7
+// Demonstrate date formats.
+import java.text.*;
+import java.util.*;
+public class DateFormatDemo {
+  public static void main(String args[]) {
+    Date date = new Date();
+    DateFormat df;
+
+    df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.JAPAN);
+    System.out.println("Japan: " + df.format(date));
+
+    df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.KOREA);
+    System.out.println("Korea: " + df.format(date));
+
+    df = DateFormat.getDateInstance(DateFormat.LONG, Locale.UK);
+    System.out.println("United Kingdom: " + df.format(date));
+
+    df = DateFormat.getDateInstance(DateFormat.FULL, Locale.US);
+    System.out.println("United States: " + df.format(date));
+  }
+}
+
+listing 8
+// Demonstrate time formats.
+import java.text.*;
+import java.util.*;
+public class TimeFormatDemo {
+  public static void main(String args[]) {
+    Date date = new Date();
+    DateFormat df;
+
+    df = DateFormat.getTimeInstance(DateFormat.SHORT, Locale.JAPAN);
+    System.out.println("Japan: " + df.format(date));
+
+    df = DateFormat.getTimeInstance(DateFormat.LONG, Locale.UK);
+    System.out.println("United Kingdom: " + df.format(date));
+
+    df = DateFormat.getTimeInstance(DateFormat.FULL, Locale.CANADA);
+    System.out.println("Canada: " + df.format(date));
+  }
+}
+
+listing 9
+SimpleDateFormat sdf = SimpleDateFormat(“dd MMM yyyy hh:mm:ss zzz”);
+
+listing 10
+// Demonstrate SimpleDateFormat.
+import java.text.*;
+import java.util.*;
+public class SimpleDateFormatDemo {
+  public static void main(String args[]) {
+    Date date = new Date();
+    SimpleDateFormat sdf;
+    sdf = new SimpleDateFormat("hh:mm:ss");
+    System.out.println(sdf.format(date));
+    sdf = new SimpleDateFormat("dd MMM yyyy hh:mm:ss zzz");
+    System.out.println(sdf.format(date));
+    sdf = new SimpleDateFormat("E MMM dd yyyy");
+    System.out.println(sdf.format(date));
+  }
+}
+

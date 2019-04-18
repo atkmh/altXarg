@@ -1,0 +1,132 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0010.html">Prev</a> | <a href="tij0012.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Source
+code
+</H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">All
+the source code for this book is available as copyrighted freeware, distributed
+as a single package, by visiting the Web site 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.BruceEckel.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+To make sure that you get the most current version, this is the official site
+for distribution of the code and the electronic version of the book. You can
+find mirrored versions of the electronic book and the code on other sites (some
+of these sites are found at 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.BruceEckel.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">),
+but you should check the official site to ensure that the mirrored version is
+actually the most recent edition. You may distribute the code in classroom and
+other educational situations.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+primary goal of the copyright is to ensure that the source of the code is
+properly cited, and to prevent you from republishing the code in print media
+without permission. (As long as the source is cited, using examples from the
+book in most media is generally not a problem.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+each <A NAME="Index8"></A>source
+code file you will find the following copyright notice:
+</FONT><P></DIV>
+
+<font color="#990000"><PRE><font color="#009900">//////////////////////////////////////////////////</font>
+<font color="#009900">// Copyright (c) Bruce Eckel, 1998</font>
+<font color="#009900">// Source code file from the book "Thinking in Java"</font>
+<font color="#009900">// All rights reserved EXCEPT as allowed by the</font>
+<font color="#009900">// following statements: You can freely use this file</font>
+<font color="#009900">// for your own work (personal or commercial),</font>
+<font color="#009900">// including modifications and distribution in</font>
+<font color="#009900">// executable form only. Permission is granted to use</font>
+<font color="#009900">// this file in classroom situations, including its</font>
+<font color="#009900">// use in presentation materials, as long as the book</font>
+<font color="#009900">// "Thinking in Java" is cited as the source. </font>
+<font color="#009900">// Except in classroom situations, you cannot copy</font>
+<font color="#009900">// and distribute this code; instead, the sole</font>
+<font color="#009900">// distribution point is http://www.BruceEckel.com </font>
+<font color="#009900">// (and official mirror sites) where it is</font>
+<font color="#009900">// freely available. You cannot remove this</font>
+<font color="#009900">// copyright and notice. You cannot distribute</font>
+<font color="#009900">// modified versions of the source code in this</font>
+<font color="#009900">// package. You cannot use this file in printed</font>
+<font color="#009900">// media without the express permission of the</font>
+<font color="#009900">// author. Bruce Eckel makes no representation about</font>
+<font color="#009900">// the suitability of this software for any purpose.</font>
+<font color="#009900">// It is provided "as is" without express or implied</font>
+<font color="#009900">// warranty of any kind, including any implied</font>
+<font color="#009900">// warranty of merchantability, fitness for a</font>
+<font color="#009900">// particular purpose or non-infringement. The entire</font>
+<font color="#009900">// risk as to the quality and performance of the</font>
+<font color="#009900">// software is with you. Bruce Eckel and the</font>
+<font color="#009900">// publisher shall not be liable for any damages</font>
+<font color="#009900">// suffered by you or any third party as a result of</font>
+<font color="#009900">// using or distributing software. In no event will</font>
+<font color="#009900">// Bruce Eckel or the publisher be liable for any</font>
+<font color="#009900">// lost revenue, profit, or data, or for direct,</font>
+<font color="#009900">// indirect, special, consequential, incidental, or</font>
+<font color="#009900">// punitive damages, however caused and regardless of</font>
+<font color="#009900">// the theory of liability, arising out of the use of</font>
+<font color="#009900">// or inability to use software, even if Bruce Eckel</font>
+<font color="#009900">// and the publisher have been advised of the</font>
+<font color="#009900">// possibility of such damages. Should the software</font>
+<font color="#009900">// prove defective, you assume the cost of all</font>
+<font color="#009900">// necessary servicing, repair, or correction. If you</font>
+<font color="#009900">// think you've found an error, please email all</font>
+<font color="#009900">// modified files with clearly commented changes to:</font>
+<font color="#009900">// Bruce@EckelObjects.com. (Please use the same</font>
+<font color="#009900">// address for non-code errors found in the book.)</font>
+<font color="#009900">/////////////////////////////////////////////////</PRE></font></font><DIV ALIGN=LEFT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+may use the code in your projects and in the classroom (including your
+presentation materials) as long as the copyright notice that appears in each
+source file is retained.
+</FONT><a name="_Toc312373775"></a><a name="_Toc375545183"></a><a name="_Toc408018378"></a><P></DIV>
+<A NAME="Heading12"></A><H3 ALIGN=LEFT>
+Coding
+standards
+<P><A NAME="Index9"></A><A NAME="Index10"></A></H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+the text of this book, identifiers (function, variable and class names) will be
+set in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>bold</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Most keywords will also be set in bold, except for those keywords that are used
+so much that the bolding can become tedious, such as &#8220;class.&#8221;
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">I
+use a particular coding style for the examples in this book. This style seems
+to be supported by most Java development environments. It was developed over a
+number of years, and was inspired by Bjarne Stroustrup&#8217;s<A NAME="Index11"></A>
+style in his original 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>The
+C++ Programming Language
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(Addison-Wesley, 1991; 2
+</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">nd</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+ed.). The subject of formatting style is good for hours of hot debate, so
+I&#8217;ll just say I&#8217;m not trying to dictate correct style via my
+examples; I have my own motivation for using the style that I do. Because Java
+is a free-form programming language, you can continue to use whatever style
+you&#8217;re comfortable with.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+programs in this book are files that are included by the word processor in the
+text, directly from compiled files. Thus, the code files printed in the book
+should all work without compiler errors. The errors that 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>should</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+cause compile-time error messages are commented out with the comment 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><B>//!
+</B></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">so
+they can be easily discovered and tested using automatic means. Errors
+discovered and reported to the author will appear first in the distributed
+source code and later in <A NAME="Index12"></A><A NAME="Index13"></A>updates
+of the book (which will also appear on the Web site 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>http://www.BruceEckel.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).</FONT><a name="_Toc408018379"></a><a name="_Toc312373778"></a><a name="_Toc375545184"></a><P></DIV>
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0010.html">Prev</a> | <a href="tij0012.html">Next</a>
+</div>
+</body></html>
+

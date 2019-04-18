@@ -1,0 +1,1 @@
+primetest-LD: /usr/local/lib/libg++.a /usr/local/lib/gcc-lib/sparc-sun-sunos4.1/2.2.2/libgcc.a

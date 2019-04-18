@@ -1,0 +1,57 @@
+NAI defines Year 2000 compliance as the proper processing of date and date 
+related data, including calculating, comparing, and sequencing.  This 
+includes the manipulation of this data with dates prior to, through, and 
+beyond January 1, 2000, in a manner transparent to the user.
+
+This NAI product is a Year 2000 compliant version.  In order to achieve 
+this goal a formal test strategy had been developed and put in place to 
+determine this compliance.
+
+The following details the items that we are looking for in the test plan 
+and addressing if they are found.  These items are not listed in priority 
+order since failure to address any one of these could potentially be a 
+problem for our customers.
+
+
+***********************************************************************************
+Incorrect century recognition.
+
+Dates used as a special value:
+Special values of the last two digits in a year might be used for special 
+purposes, for example 99, 365/99, or 12/31/99 might be used to indicate 
+"no expiration date" or 00 to indicate an "unknown year".
+
+Incorrect field format determination:Some existing programs determine the 
+date-time format (that is, MMDDYY, DDMMYY, and YYMMDD) by testing an 
+appropriate part of the date field.  For example, checking if the first 
+two characters of the date field are values within an acceptable month, 
+date, or year range (such as 1-12, 1-31, or ( 32).
+
+Sequence:
+When only two digits are used to represent a year, programs that collate 
+year data will sort that data out of sequence in some cases.  For example, 
+the year 2000 (if represented as 00) will be ordered prior to the year 
+1999 (if represented as 99). Arithmetic calculations that operate on dates 
+with 2-digit year representation might have potential exposures. 
+
+Data integrity:
+In programs where historical dates are used, for example, all events 
+occurring in 1800, 1900 and 2000 are not distinguishable when only 2 
+digits represent the years.
+
+Leap year calculation: 
+Note that the year 2000 is a leap year: A specific year is a leap year if 
+it is either evenly divisible by 400 or evenly divisible by 4 and not 
+evenly by 100.  For example, the year 1900 was not a leap year but the 
+year 2000 is a leap year. 
+
+***********************************************************************************
+
+NAI products are Year 2000 compliant within the foregoing meaning.  This 
+warranty is subject to the limitations contained within your end user 
+license agreement.
+
+
+For more information and documents concerning Y2K compliance and Network 
+Associates products please visit 
+http://www.nai.com/services/support/2000/2000.asp

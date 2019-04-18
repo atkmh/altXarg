@@ -1,0 +1,8 @@
+device=c:\windows\himem.sys
+device=c:\windows\emm386.exe
+devicehigh=C:\CDROM\CDROMDRV.SYS /d:mscd001
+
+fileshigh=30
+buffershigh=20
+stacks=9,256
+DOS=HIGH,UMB,NOAUTO

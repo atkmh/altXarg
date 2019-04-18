@@ -1,0 +1,9 @@
+Device=\dos\386max\386max.sys ram=C800-CBFF pro=c:\dos\386max\386max.pro
+DEVICE=\dos\386MAX\386load.sys size=11504 flexframe prog=\DOS\SETVER.EXE
+BUFFERS = 10
+STACKS=0,0
+FILES=20
+DEVICE=\DOS\ansi.SYS
+break=ON
+DOS=HIGH
+SHELL=C:\DOS\COMMAND.COM C:\DOS\ /e:1024 /p

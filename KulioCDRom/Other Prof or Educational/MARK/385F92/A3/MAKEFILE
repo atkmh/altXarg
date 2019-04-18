@@ -1,0 +1,1 @@
+#makefile#written by richard gordon.KEEP_STATE:EXECUTABLE = asign3OBJECTS = error.o unsafearray.o safearray.o autoarray.o\	bunch.o set.o ordbunch.o asign3.o$(EXECUTABLE): $(OBJECTS)	g++ $(OBJECTS) -o $(EXECUTABLE).cc.o:	g++ -g -c $< -o $@clean:	rm -f $(EXECUTABLE) $(OBJECTS)	rm -f *~run::	$(EXECUTABLE)

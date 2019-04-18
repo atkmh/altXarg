@@ -1,0 +1,1508 @@
+           What's New in McAfee VirusScan v4.0.1
+               for Windows 95 and Windows 98
+    Copyright (c) 1994-1998 by Network Associates, Inc.
+     and its Affiliated Companies. All Rights Reserved.
+
+                
+Thank you for using McAfee VirusScan for Windows 95 and
+Windows 98. This What's New file contains important
+information regarding this release. Network Associates
+strongly recommends that you read the entire document.
+
+Network Associates welcomes your comments and suggestions.
+Please use the information provided in this file to contact
+Customer Care or technical support.
+
+___________________
+WHAT'S IN THIS FILE
+
+- New Features
+- Known Issues
+- Installation
+- Documentation
+- Frequently Asked Questions
+- Contacting Network Associates
+
+____________
+NEW FEATURES 
+
+1.  The Dr Solomon's virus scanning engine is at the heart 
+    of VirusScan 4.0.1. Backed by the world's largest
+    antivirus research organization, it delivers
+    outstanding virus detection and cleaning rates. The
+    new engine also detects viruses in nearly all of the
+    popular compressed file formats.
+
+2.  A new Emergency Disk wizard now guides you through the
+    process of formatting a floppy disk, copying necessary
+    files to it, and preparing the disk for use. The
+    Emergency Disk you create is now easier to use and more
+    powerful than in previous VirusScan versions.
+
+3.  A new VShield Properties dialog box groups the 
+    configuration options for VShield's long-standing
+    System Scan module with those for its new E-mail Scan,
+    Internet Filter, and Download Scan modules. For even
+    quicker and easier setup, VShield includes a
+    configuration wizard that enables the most common
+    scanning options for an excellent balance between
+    system performance and virus protection. Now you can
+    set up VShield in one quick pass and get complete
+    protection from viruses and malicious software at all
+    potential points of entry.
+
+4.  VShield's E-mail Scan module looks for viruses in
+    e-mail attachments you receive via your in-house
+    corporate e-mail system. VShield's Download Scan
+    module, meanwhile, checks e-mail you receive via
+    popular Internet mail applications.
+    
+5.  Download Scan also examines other files you choose to
+    download, while the Internet Filter module detects
+    hostile Java applets and ActiveX controls. You can also
+    configure Internet Filter to block access to specific
+    undesirable sites. With this broad focus, VirusScan
+    seals all points of entry for viruses and other
+    malicious software.
+
+6.  New versions of VirusScan Command Line components give
+    VirusScan for Windows 95 and Windows 98 powerful and
+    up-to-date protection for command-line environments.
+
+7.  Specialized scanners help to protect your MAPI-based
+    and cc:Mail corporate e-mail systems against virus
+    threats. Use VShield to scan your corporate e-mail
+    systems in the background, in a continuous sweep for
+    viruses that infect your e-mail. Supplement VShield's
+    E-mail Scan protection with VirusScan's new on-demand
+    E-mail Scan component, which lets you initiate a scan
+    operation on MAPI-compliant Microsoft Exchange or
+    Outlook mailboxes.
+
+8.  VirusScan's heuristic scanning technology evaluates the
+    probability that a file or a macro might be infected by
+    a new, unidentified virus. You can choose to use
+    heuristic scanning to look for file-infecting viruses,
+    macro viruses, or both.
+
+9.  A revamped VShield Security module allows you to protect
+    individual property pages for any VShield module against
+    unauthorized changes. Use it to keep others who use your
+    computer from making changes, or configure VShield with
+    those settings you want all users on your network to
+    have, then distribute password-protected settings files
+    to enforce a network-wide anti-virus security policy.
+
+10. A rewritten VirusScan Scheduler replaces the AV Console
+    component included with previous VirusScan versions. It
+    now includes right-click functionality that allows you
+    to create new tasks and view activity logs directly
+    from the task list. An enhanced scheduling function
+    allows you to run your tasks at a random interval within
+    60 minutes of the time you set for them. This feature
+    allows you to avoid clogging network bandwidth with
+    simultaneous update or upgrade requests, or cross-
+    network scanning tasks.
+
+11. VirusScan detects and cleans files infected with the
+    Win95/CIH and Win95/Marburg viruses. These viruses
+    infect Windows 95 and Windows 98 portable executable
+    (PE) files. A portable executable file is a Windows
+    resource file that other executable files can share
+    --examples include dynamic linking library (.DLL)
+    files.
+
+12. The new scanning engine also includes improved
+    detection and cleaning capability for the W97M/Class,
+    W97M/Groov, and XM/COMPAT.A viruses, along with a
+    new strain of the XF/PAIX virus.
+
+
+* NEW VIRUSES DETECTED *
+
+              **** IMPORTANT NOTE ****
+
+This release of VirusScan for Windows 95 and Windows 98
+functions ONLY with the 40xx .DAT file series, beginning
+with the 4001 .DAT file included with this program package.
+You CANNOT use VirusScan for Windows 95 and Windows 98
+with earlier .DAT file versions, nor may you use the .DAT
+files included in this release with 2.x or 3.x versions
+of VirusScan for Windows 95 and Windows 98.
+
+                         ****
+
+Because the previous VirusScan scanning engine and the
+newly incorporated Dr Solomon scanning engine identify
+and classify viruses in different ways, this release of
+VirusScan for Windows 95 and Windows 98 does not include a
+list of viruses detected or cleaned. Future releases will
+incorporate this information, once McAfee Labs adopts a
+standard virus naming convention.
+
+The INTERNET.DAT component of the .DAT files included with
+this release enables VirusScan to detect these 130 hostile
+Java classes:
+
+ALLTARGETS.CLASS
+ANIMATIONSOURCE.CLASS
+ANIMATIONSOURCEAPPLET.CLASS
+APPLETKILLER.CLASS
+APPSTATUS.CLASS
+ARCTEST.CLASS
+ASSASSIN.CLASS
+ATTACKER.CLASS
+ATTACKTH.CLASS
+AUDIOKILLER.CLASS
+BANKINSPECT.CLASS
+BARAPPLET.CLASS
+BEGINNER.CLASS
+BLINK.CLASS
+BLUESCREEN.CLASS
+BUMCHANGE.CLASS
+CALCULAT.CLASS
+CHANGEBANK.CLASS
+CHART.CLASS
+CHATOUREXPRESS.CLASS
+CLIENT.CLASS
+CONSUME.CLASS
+CRASHCOM405.CLASS
+DELETEFILE.CLASS
+DGCLOCK.CLASS
+DISKHOG.CLASS
+DOMYWORK.CLASS
+DOUBLETROUBLE.CLASS
+DUPE.CLASS
+DYNAPPLET.CLASS
+EI.CLASS
+ERRORMES.CLASS
+EXAMPLE0.CLASS
+EXECTEST.CLASS
+EXITTEST.CLASS
+FILEINFO.CLASS
+FIXJAVA.CLASS
+FORGER.CLASS
+FRACTION.CLASS
+FTPUSERSAPPLET.CLASS
+GEN.CLASS
+GENFRACTION.CLASS
+GETAPPLETCL.CLASS
+GRAPH.CLASS
+HIJACKER.CLASS
+HOSECOM404.CLASS
+HOSEMOCH.CLASS
+HOSTILETHREADS.CLASS
+HUGOBANE1.CLASS
+HUGOBANE3.CLASS
+HUGOBANE5.CLASS
+IMAGEBANK.CLASS
+INSPECTCLIENT3.CLASS
+INSPECTSERVERTHREAD.CLASS
+IRRITANT.CLASS
+JAVAMAIL.CLASS
+JFSAPPLET.CLASS
+JLPR.CLASS
+JMUSH.CLASS
+LETTERBOARD.CLASS
+LETTERBUTTON.CLASS
+LIFEGAME.CLASS
+LOADLIBRARY.CLASS
+LOGIN.CLASS
+LOGINSER.CLASS
+MANDELTEST.CLASS
+MOUSECHASE.CLASS
+MOUSECHASEEXCEPTION.CLASS
+MUTATOR.CLASS
+MYTIMER.CLASS
+NERVOUSI.CLASS
+NETSCOPE.CLASS
+NEWLOADER.CLASS
+NOISYBEAR.CLASS
+OWNNET.CLASS
+PENPAL.CLASS
+PORT25.CLASS
+PUBLICEN.CLASS
+READFILE.CLASS
+REPLACEPROPERTIESFILE.CLASS
+REPORT.CLASS
+REPORTSERVERSOCKET.CLASS
+RM.CLASS
+SCANALYZER.CLASS
+SCAPEGOAT.CLASS
+SEETHEWEB.CLASS
+SELLDRUGS.CLASS
+SENDMAILAPPLET.CLASS
+SENDTEST.CLASS
+SEXY.CLASS
+SHORTCUT.CLASS
+SHOWBASICREADS.CLASS
+SILENTTH.CLASS
+SIMPLETEXT.CLASS
+SLOWERKILLER.CLASS
+SOLARVENGEANCERT.CLASS
+STARFIELD3.CLASS
+STARSMEN.CLASS
+STEALSTUFF.CLASS
+STRANGEBREW.CLASS
+TARGET.CLASS
+TELESCRIVENTE.CLASS
+TELNET.CLASS
+TELNETGUI.CLASS
+TELNETGUI2.CLASS
+THREADKILLER.CLASS
+TICKERTAPE.CLASS
+TICKET.CLASS
+TICKETHOLDER.CLASS
+TICKETREADER.CLASS
+TOURGUIDE.CLASS
+TRALLALA.CLASS
+TRIPLEFRAME.CLASS
+TRIPLETHREAT.CLASS
+TRIPLETHREAT2.CLASS
+TUMBLEITEM.CLASS
+TUMBLINTEXT.CLASS
+TURNTRICKS.CLASS
+UNGRATEFUL.CLASS
+UNPLUGGED.CLASS
+VALUEBOX.CLASS
+VIRUS.CLASS
+WASTEFUL.CLASS
+WEBMAILER.CLASS
+WIDGET.CLASS
+WORDMANAGER.CLASS
+WORDMEISTER.CLASS
+WRITEFILE.CLASS
+XYZAPP.CLASS
+ZEALAND.CLASS
+
+
+The INTERNET.DAT component of the .DAT files included with
+this release enables VirusScan to detect these six hostile
+ActiveX controls:
+
+EXPLODER.OCX
+NETLIST.CAB
+NETLIST.OCX
+RUNNER.OCX
+SLINGSHOT.CAB
+SLINGSHOT1.CAB
+                                         
+____________
+KNOWN ISSUES
+
+1.  Using DOS memory managers might cause VirusScan to
+    falsely detect viruses in memory. Since Windows 95 and
+    Windows 98 no longer require DOS memory managers, you
+    can eliminate false warnings by preceding each line in
+    your CONFIG.SYS file that includes settings for a DOS
+    memory manager with REM. This deactivates the memory
+    manager. To learn more about working with your
+    CONFIG.SYS file, see your DOS or Windows documentation.
+
+2.  If you use a password to protect your VShield
+    configuration options, VShield will ask you for that
+    password whenever you open the VShield Properties
+    dialog box. Use your mouse to click inside the text
+    box provided in order to enter the password--keyboard
+    shortcuts will not work. Microsoft acknowledges this
+    issue in its Knowledge Base Article ID #Q84133. Next,
+    click OK to use the password you enter. To close the
+    password verification dialog box without entering a
+    password, click Cancel.
+
+3.  Disk defragmentation programs move files as they work
+    to maximize hard disk efficiency. If you have VShield,
+    VirusScan, or other applications active during a disk
+    defragmentation operation, your disk defragmentation
+    program might tell you that it cannot find the active
+    application files. This is normal and does not mean
+    that the files do not exist. To avoid error messages
+    like this, close all open applications and disable
+    VShield, then run your disk defragmentation operation
+    again. 
+
+4.  If you unzip a virus-infected file into a directory
+    on a Novell server that you've specified with Universal
+    Naming Convention (UNC) notation, VShield does not
+    detect the infection as the file gets created on the
+    server directory. If you use Windows Explorer to map
+    the server directory to your computer, however,
+    VShield will detect the virus as it gets created. To
+    ensure maximum anti-virus protection for your NetWare
+    servers, install and use NetShield NetWare from
+    Network Associates.
+
+5.  If you ask VShield to prompt you for an action when
+    it finds a virus or a hostile object and you choose
+    to have VShield move the infected file to a quarantine
+    directory, VShield does not retain the correct
+    filename for the infected file. Instead, VShield
+    renames the infected file as it moves it. As a result,
+    the infected file appears on the hard disk with a
+    completely different filename and a .TMP extension.
+
+    If you tell VShield to move infected files to a
+    quarantine directory automatically, however, the
+    program will retain the correct file names.
+
+6.  If VShield detects a virus in a file that you try to
+    open from within another application, by default it
+    will prompt you with a range of possible responses.
+    If you then choose to clean the infected file, the
+    application will tell you that it cannot open the
+    file you just cleaned.
+
+    To work around this limitation, click OK to close the
+    error message, then try to open the file again. The
+    application should open the file successfully on the
+    second try.
+
+    This issue does not occur if you have set VShield to
+    prompt you for a response when it finds a virus, but
+    have also selected Continue Access as one of the
+    possible responses. Rather than a dialog box with
+    buttons, VShield displays a full-screen alert that
+    lists your response options.
+
+    To learn more about configuring VShield's response
+    options, see "Using VShield" in the VirusScan
+    User's Guide.
+
+7.  If you start your computer with a VirusScan Emergency
+    Disk that you created, the Emergency Disk utility will
+    quit to a command prompt when it detects and cleans a
+    boot sector infection. To ensure that you have removed
+    all infecting viruses from your system, Network
+    Associates recommends that you use the Emergency Disk
+    to restart your computer again, then run another scan
+    operation, before you restart your computer normally.
+
+10. If you have VShield's E-Mail Scan module enabled,
+    VShield logs on to your MAPI mail server in order to
+    scan your mailbox for viruses. Ordinarily, VShield
+    logs on with your default MAPI profile soon after you
+    start your computer. But if you start your computer
+    and wait a while before logging on to your network
+    domain controller, VShield will prompt you to log on
+    to your MAPI mail server even if you have not yet
+    logged on to your network, and even if your MAPI
+    server is not in the domain you usually log in to.
+
+____________
+INSTALLATION         
+
+* INSTALLING VIRUSSCAN *
+
+1.  Insert the floppy disk or compact disc with your copy
+    of VirusScan into your floppy disk drive or CD-ROM
+    drive.
+
+    If you downloaded a compressed copy of VirusScan
+    from the Network Associates website or other electronic
+    service, create a temporary directory on your hard disk
+    or on a disk available on your network, then extract
+    the files you downloaded into that directory.
+
+2.  Click Start in the Windows taskbar, then choose Run.
+
+3.  Type x:\setup.exe in the Run dialog box to start the
+    installation utility from a floppy disk. To start the
+    utility from a CD-ROM, type x:\win95\setup.exe. In both
+    cases, x is the drive letter that designates your
+    floppy drive or your CD-ROM drive.
+
+    If you extracted files that you downloaded to your
+    hard disk or to a disk on your network, specify the
+    path to the correct directory. For example, type
+    C:\DOWNLOAD\SETUP.EXE.
+
+4.  Click OK to continue.
+
+    The VirusScan installation wizard will start. Follow
+    the instructions shown on each wizard pane to choose
+    the VirusScan options you want.
+
+5.  When you finish your installation, restart your
+    computer.
+
+
+* PRIMARY PROGRAM FILES FOR VIRUSSCAN *
+
+Note: The specific files you see on your computer will
+depend on the type of license you purchased. Your 
+VirusScan copy might not include some of these files.
+
+   _INST32I.EX_         File used in uninstallation utility
+     _SETUP.DLL         File for uninstall
+   _SETUP32.LIB		File for uninstall
+     ADVGUI.DLL         Advanced interface Dynamic Link
+                        Library file
+   ALLDRIVE.VSC         VirusScan settings file
+   AVCONSOL.EXE		VirusScan Scheduler
+   AVCONSOL.INI         VirusScan Scheduler settings file
+   BOOTSCAN.EXE		Emergency Disk command line scanner
+   BROWSENT.DLL		Dynamic Link Library file
+    CDFW800.DLL         Dynamic Link Library file
+    CDMW800.DLL         Dynamic Link Library file
+   CFGCOM32.DLL         Dynamic Link Library file
+     CFW800.DLL         Dynamic Link Library file
+     CHKVXD.EXE         VShield check file
+   CHRSET32.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+     CIW800.DLL         Dynamic Link Library file
+      CLEAN.DAT         Virus definitions file
+     CMW800.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+   CONFIG32.EXE         VirusScan Configuration Program
+    CONFWIZ.EXE         VShield Configuration Wizard
+        CSH.DLL         Dynamic Link Library file for Help
+    DEFAULT.VSC         Default VirusScan settings file
+    DEFAULT.VSH         Default VShield settings file
+     DEISL1.ISU         File for Uninstall
+   DMIALERT.DLL		Dynamic Link Library File for DMI
+                        Alerting
+    DOMAINX.DAT         Banned URL definitions file
+      ECAPI.DLL         Dynamic Link Library file for
+                        E-Commerce 
+    ECCOMMS.DLL         Dynamic Link Library file for
+                        E-Commerce
+   ECENGINE.EXE         Electronic Commerce program
+      EDISK.EXE         Emergency Disk Creation Wizard
+                        program
+    EDWIZ16.EXE         Emergency Disk utility program
+   EMALSCAN.DLL         Dynamic Link Library file for
+                        On-Demand MAPI Mail Scanner
+    EMCLEAN.DAT         Emergency Disk Virus definitions
+                        file
+    EMNAMES.DAT         Emergency Disk Virus definitions
+                        file
+     EMSCAN.DAT         Emergency Disk Virus definitions
+                        file
+    FAXFORM.TXT         VirusScan registration form suitable
+                        for faxing
+   INETWH16.DLL         Dynamic Link Library File
+   INETWH32.DLL         Dynamic Link Library File
+   INTERNET.DAT         Hostile Applet definitions file
+    IPSCANX.DAT         Banned IP definitions file
+    LICENSE.DAT         License definitions file
+    LICENSE.TXT         License agreement file
+   MCARCHIV.DLL         Dynamic Link Library file for
+                        Compressed file scanning
+   MCKRNL32.DLL         Dynamic Link Library file
+   MCSCAN32.DLL         Dynamic Link Library file
+   MCUTIL32.DLL         Dynamic Link Library file
+    MCZIP32.DLL         Dynamic Link Library file for Send
+                        Virus utility
+    MEDB632.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+   MESSAGES.DAT         Message strings definitions file
+     MEW800.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+    MFLDR32.DLL         Dynamic Link Library file
+      NAMES.DAT         Virus definitions file
+    PACKING.LST         Packing list file
+   PRESERVE.INI         Preserved settings file
+     README.1ST         License agreement file
+   RESELLER.TXT         Network Associates resellers list
+                        file
+    RWABS16.DLL         Dynamic Link Library file for
+                        Emergency Disk creation
+    RWABS32.DLL         Dynamic Link Library file for
+                        Emergency Disk creation
+     S95EXT.DLL         Dynamic Link Library file
+       SCAN.DAT         Virus definitions file
+       SCAN.EXE         Windows 95 and Windows 98
+                        command-line scan program
+     SCAN_C.VSC         VirusScan settings file
+     SCAN32.EXE         VirusScan program file
+     SCAN86.EXE         DOS command line scan program
+     SCANPM.EXE         Protected mode command line scan
+                        program
+    SCRSCAN.EXE         Screen Saver scan program
+   SCRSCANP.DLL         Dynamic Link Library file for
+                        ScreenScan
+   SCRSCANR.DLL         Dynamic Link Library file for
+                        ScreenScan
+    SENDVIR.EXE         Anti-Virus Research Submission
+                        program
+      SETUP.EXE         Setup program
+     SHUTIL.DLL         Dynamic Link Library file
+     UNINST.INS         File for Uninstall
+   VALIDATE.EXE         Validation utility program
+      VIM32.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+   VMEFNW32.DLL         Dynamic Link Library file for
+                        cc:Mail Scan
+        VSC.LM          Electronic Commerce settings file
+     VSCAN4.CNT         VirusScan Help file
+     VSCAN4.HLP         VirusScan Help file
+    VSCAN40.EXE         VirusScan Launcher program
+      VSCLM.INI         Electronic Commerce settings file
+   VSCONFIG.EXE		VirusScan configuration program
+                        file
+    VSECOMR.EXE         Electronic Commerce program file
+   VSHWIN32.EXE         VShield program file
+     VSSTAT.EXE         VShield statistics program file
+   WBHOOK32.DLL         Dynamic Link Library file
+      WCMDR.EXE         File for Uninstall
+      WCMDR.INI         File for Uninstall
+   WCMDRSIL.INI         File for Uninstall
+   WEBSCANX.EXE         VShield program file
+   WHATSNEW.TXT         This document
+        Y2K.TXT         Year 2000 compliance report
+
+
+
+Files installed in the WINDOWS directory:
+
+    SECCAST.ICO         SecureCast icon file
+
+
+
+Files installed in the WINDOWS\SYSTEM directory:
+
+   MCAFECOM.DLL         Dynamic Link Library file
+     MCKRNL.VXD         Virtual Device Driver
+   MCSCAN32.VXD         Virtual Device Driver
+     MCUTIL.VXD         Virtual Device Driver
+    VSHIELD.VXD         Virtual Device Driver for VShield
+    VSHINIT.VXD         Virtual Device Driver for VShield
+
+                         
+* TESTING YOUR INSTALLATION *
+
+The Eicar Standard AntiVirus Test File is a combined
+effort by anti-virus vendors throughout the world to
+implement one standard by which customers can verify
+their anti-virus installations.
+
+To test your installation, copy the following line
+into its own file, then save the file with the name
+EICAR.COM.
+
+X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*
+
+The file size will be 69 or 70 bytes.
+
+Next, start VirusScan and allow it to scan the
+directory that contains EICAR.COM. When VirusScan
+scans this file, it will report finding the
+EICAR-STANDARD-AV-TEST-FILE virus.
+
+Note that this file is NOT A VIRUS. Delete the file
+when you have finished testing your installation to
+avoid alarming unsuspecting users.
+
+______________________
+UNINSTALLING VIRUSSCAN
+
+To uninstall VirusScan, click Start in the Windows taskbar,
+choose Settings, point to Control Panel, and open. Open the
+Add/Remove Programs utility from the folder. Highlight
+VirusScan on the program list, and click Add/Remove to
+uninstall VirusScan.
+
+To remove VirusScan without using the uninstall utility,
+follow these steps: 
+
+1.  Remove references to VirusScan from your AUTOEXEC.BAT
+    and your SYSTEM.INI files. To do so, follow these
+    steps:
+
+    A.  Start the Windows system editor. Click Start in the
+        Windows taskbar, then choose Run. Type SYSEDIT in
+        the Run dialog box, then click OK.
+    
+        A set of text files will open on your screen. Your
+        AUTOEXEC.BAT file should appear as the first or
+        topmost window in this set. Click the title bar for
+        the SYSTEM.INI window to bring it to the foreground,
+        then locate this line:
+
+        [boot]SCRNSAVE.EXE=C:\PROGRA~1\NETWOR~1\MCAFEE~1\SCRSCAN.EXE
+
+    B.  Change the line to read:
+
+        [boot]SCRNSAVE.EXE=C:\WINDOWS\SYSTEM\WINDOW~1.SCR    
+
+    D.  When you have restored your SYSTEM.INI file to its
+        original state, choose Save from the SYSEDIT File
+        menu to save your changes, then choose Exit from the
+        File menu to quit the SYSEDIT application.
+
+2.  Remove VirusScan icons from the Start menu. To do this,
+    follow these steps:
+
+    A.  Click Start in the Windows taskbar, point to
+        Settings, then choose Taskbar.
+
+    B.  Click the Start Menu Programs tab.
+
+    C.  Click the Remove button.
+
+    D.  Select the McAfee VirusScan folder in the list that
+        appears in the Remove Shortcuts/Folders dialog box,
+        then click Remove.
+
+    E.  Windows will ask you to confirm your action. Click
+        Yes to continue.
+
+    F.  Click Close to close the Remove Shortcuts/Folders
+        dialog box, then click OK to close the Taskbar
+        Properties dialog box.
+
+3.  Edit the Registry. To do this, follow these steps:
+
+    A.  Start the Windows Registry editor. Click Start in
+        the Windows taskbar, then choose Run. Type REGEDIT
+        in the Run dialog box, then click OK.
+
+    B.  Click + to expand the HKEY_LOCAL_MACHINE folder,
+        click + again to expand the SOFTWARE folder, then
+        click one more time to expand the CLASSES folder.
+        Next, delete these keys or entries: 
+
+        \.vsc
+        \.vsh
+        \CLSID\{9EF56D61-A50F-11ce-B105-0000C04B2D52}
+        \CLSID\{9EF56D61-A50F-11ce-B105-0000C04B2D52}\InProcServer32
+        \CLSID\{C88249A0-AD7E-11cf-AD53-444553540000}
+        \CLSID\{C88249A0-AD7E-11cf-AD53-444553540000}\InProcServer32
+        \comfile\shell\VirusScan
+        \Directory\shell\VirusScan
+        \Drive\shell\VirusScan
+        \Excel.Addin\shell\VirusScan
+        \Excel.Chart.5\shell\VirusScan
+        \Excel.Chart.8\shell\VirusScan
+        \Excel.Macrosheet\shell\VirusScan
+        \Excel.Sheet.5\shell\VirusScan
+        \Excel.Sheet.8\shell\VirusScan
+        \Excel.Template\shell\VirusScan
+        \Excel.Workspace\shell\VirusScan
+        \Excel.XLL\shell\VirusScan
+        \exefile\shell\VirusScan
+        \Office.Binder.8\shell\VirusScan
+        \Office.Binder.98\shell\VirusScan
+        \rtffile\shell\VirusScan
+        \VSConfigFile
+        \VSHConfigFile
+        \WinZip\shell\VirusScan
+        \Word.Document.6\shell\VirusScan
+        \Word.Document.8\shell\VirusScan
+        \Word.RTF\shell\VirusScan
+        \Word.RTF.8\shell\VirusScan
+        \Word.Template\shell\VirusScan
+        \Word.Template.8\shell\VirusScan
+
+     
+    C.  Move to the HKEY_LOCAL_MACHINE\SOFTWARE folder, then
+        delete these keys or entries:
+
+        1. McAfee
+            
+           \Scan95
+           \ScreenScan
+
+        2. \Microsoft\Windows\CurrentVersion\AppPaths\
+
+           \SCAN32.EXE
+           \SCRSCAN.EXE
+           \VSHWIN32.EXE
+
+        3. \Microsoft\Windows\CurrentVersion\
+            Controls Folder\Display\shellex
+            \PropertySheetHandlers
+
+           \ScrScanP
+
+        4. \Microsoft\Exchange\Client\Extensions\
+              
+           \Exchange Scan="4.0;C:\Program Files
+            \Network Associates\McAfee VirusScan
+            \emalscan.dll;1;01010000000000"
+           \Outlook Setup Extension=
+            "4.0;Outxxx.dll;7;000000000000000;0000000000;OutXXX"
+
+        5. \Microsoft\Windows\CurrentVersion\Run\
+
+           \AvconsoleExe="C:\Program Files\Network Associates\
+             McAfee VirusScan\avconsole.exe /minimize"
+           \McAfeeWebScanX="C:\Program Files\Network Associates\
+             McAfee VirusScan\WebScanX.exe"
+           \Vshwin32EXE="C:\Program Files\Network Associates\
+             McAfee VirusScan\VSHWIN32.EXE"
+           \VsStatEXE="C:\Program Files\Network Associates\
+            McAfee VirusScan\VSSTAT.EXE"
+
+        6. \Microsoft\Windows\CurrentVersion\RunServices
+          
+           \Vshwin32EXE="C:\Program Files\Network Associates\
+             McAfee VirusScan\VSHWIN32.EXE"
+
+        7. \Microsoft\Windows\CurrentVersion\Controls Folder\
+
+           \Display\shellex\PropertySheetHandlers\ScrScanP\
+             @="{C88249A0-AD7E-11cf-AD53-444553540000}"
+
+        8. \Microsoft\Windows\CurrentVersion\SharedDLLs
+
+           \C:\WINDOWS\SYSTEM\MCAFECOM.DLL
+           \C:\WINDOWS\SYSTEM\MCKRNL.VXD
+           \C:\WINDOWS\SYSTEM\MCSCAN32.VXD
+           \C:\WINDOWS\SYSTEM\MCUTIL.VXD
+           \C:\WINDOWS\SYSTEM\VSHIELD.VXD
+           \C:\WINDOWS\SYSTEM\VSHINIT.VXD
+
+        9. \Microsoft\Windows\CurrentVersion\Uninstall
+
+           \McAfee VirusScan
+
+
+
+    D.  Move to the HKEY_LOCAL_MACHINE\System\CurrentControlSet\
+        Services\VxD\ folder, then delete these keys or entries:
+
+        \VSHINIT
+
+4.  Restart your computer.
+
+5.  Delete VirusScan files and directories. To do so,
+    follow these steps:
+    
+    A.  Click Start, point to Programs, then choose Windows
+        Explorer.
+
+    B.  Locate the folder that contains your copy of
+        VirusScan. If you chose the default installation
+        options, you should find VirusScan in this
+        directory path:
+        
+        Program Files\Network Associates\McAfee VirusScan
+
+    C.  Remove the following files from the \Windows\system
+        directory on your hard disk:
+        
+          MCAFECOM.DLL
+            MCKRNL.VXD
+          MCSCAN32.VXD
+            MCUTIL.VXD
+           VSHIELD.VXD
+           VSHINIT.DLL
+
+You have now removed VirusScan from your system.
+Restart your computer to have your changes take effect. 
+   
+_____________
+DOCUMENTATION
+
+For more information, refer to the users guides for each
+product included on the CD-ROM or available from Network
+Associates electronic services. Each product user's guide
+is saved in Adobe Acrobat Portable Document Format (.PDF).
+You can view and print this document with Adobe's Acrobat
+Reader. PDF files can include hypertext links and other
+navigation features to assist you in finding answers to
+questions about your Network Associates product.
+
+To download Adobe Acrobat Reader from the World Wide Web,
+visit Adobe's website at:
+
+http://www.adobe.com/prodindex/acrobat/readstep.html
+
+To download Network Associates documentation, visit the
+Network Associates website at:
+
+http://www.nai.com
+
+Additional contact information appears in the following
+section.
+
+Documentation feedback is welcome. Send e-mail to
+tvd_documentation@nai.com.
+
+__________________________
+FREQUENTLY ASKED QUESTIONS 
+
+Regularly updated lists of frequently asked questions 
+about Network Associates products are also available on
+the Network Associates website, and on CompuServe
+and America Online.
+
+
+Regularly updated lists of frequently asked questions 
+about Network Associates products also are available on
+the Network Associates website, and on CompuServe
+and America Online.
+
+Q:  I use both cc:Mail and a MAPI-compliant e-mail system
+    at work. Can I have VShield scan both of these systems
+    at once or switch back and forth between them?
+
+A:  VShield includes log-in support for only one e-mail
+    system at a time. You may not, for example, have
+    VShield log in to scan your Microsoft Mail or
+    MAPI-compliant mail server for viruses, then switch it
+    to scan a Lotus cc:Mail server. You must first allow
+    VShield to finish logging on to one type of mail server
+    --either the MAPI server or the cc:Mail server--before
+    you tell it to log on to the other type of server.
+
+
+Q:  When I try to restart my computer in MS-DOS mode,
+    Windows shows me an error message that reads "Windows
+    cannot restart the computer, or start MS-DOS mode with
+    messaging service running." The only change I made to
+    the computer was installing VirusScan and enabling
+    VShield's E-mail Scan module. What happened?
+
+A:  Windows cannot restart your computer in MS-DOS mode if
+    you have VShield running in the background. To unload
+    VShield from memory, right-click the VShield icon in 
+    the Windows system tray, then choose Exit from the
+    shortcut menu that appears. 
+
+
+Q:  I've tried to get VShield's E-Mail Scan module to scan
+    my Microsoft Outlook mailbox for viruses, but it doesn't
+    seem to be scanning my mailbox at all. What's happening?
+
+A:  In order for VShield's E-Mail Scan module to look for
+    viruses in your mailbox on a MAPI e-mail server, it
+    must log on to your mail system. VShield does so by
+    using your default MAPI profile, which consists of a
+    group of settings keyed to a particular user name and
+    password. If you have logged on to the server with a
+    profile other than your default profile, VShield will
+    not be able to scan your mailbox, because it will not
+    be able to get access to it via your default profile.
+    If you have not logged on to the server at all, VShield
+    will ask you for your user name and password so that
+    it can log on to the server on your behalf.
+
+    To see what you have as your default MAPI profile:
+
+    1. Click Start in the Windows taskbar, point to
+       Settings, then choose Control Panel to open the
+       Control Panel window.
+
+    2. Locate and double-click the Mail icon in the Control
+       Panel window.
+
+       This opens a Properties dialog box with your name
+       or the name of the person currently logged in to
+       your computer.
+
+    3. Click Show Profiles to open another dialog box
+       that lists all of the profiles you have enabled
+       on this computer. At the bottom of the dialog box,
+       you can choose which profile you want to use to
+       log on to your mail system initially.
+
+    4. Make any changes you want to make, then click
+       Close to close the control panel.
+
+    NOTE: Because MAPI initializes only once during a
+    Windows session, logging on to a MAPI server means
+    that you will remain logged on until you restart your
+    computer. Therefore, if you close your e-mail client
+    and reopen it, or disable the E-Mail Scan module then
+    reactivate it, the MAPI server will NOT prompt you for
+    a user name and password.
+
+
+Q:  I am installing new software on my computer, and the
+    manual recommends disabling any anti-virus software.
+    How do I disable VShield without uninstalling it?
+
+A:  Right-click the VShield icon located in your system
+    tray next to the system clock, point to Enable, then
+    choose System Scan from the shortcut menu. If System
+    Scan does not have a checkmark beside it in this menu,
+    it is already disabled. After you install your new
+    software, reactivate VShield by right-clicking the
+    VShield icon in the system tray, pointing to Enable,
+    then choosing System Scan from the shortcut menu. If
+    System Scan has a checkmark next to it in the menu,
+    it is enabled. 
+
+
+Q:  How can I configure VShield so that network users can
+    enable or disable VShield options temporarily, but keep
+    them from saving these changes permanently?
+
+A:  First set the options you want in the VShield Properties
+    dialog box, then click OK to save your changes. Next,
+    open Windows Explorer and locate the DEFAULT.VSH file
+    in the VirusScan program directory. Right-click the
+    file, then choose Properties from the shortcut menu
+    that appears. In the Properties dialog box, select the
+    Read-only checkbox in the Attributes area. Your users
+    can then enable or disable any VShield options they
+    want to, but their copy of VShield will not save those
+    changes to the DEFAULT.VSH file.
+
+Q:  I've activated VirusScan's heuristic scanning option,
+    but it won't identify the viruses it detects. Why not?
+
+A:  VirusScan's heuristic scanning feature looks for certain
+    "virus-like" characteristics in the files it scans. When
+    it finds a sufficient number of these characteristics,
+    VirusScan concludes that the file is infected. This
+    powerful scanning technique allows VirusScan to discover
+    viruses that are so new that they do not yet have names
+    or identities. VirusScan will, however, identify viruses
+    by name when they match its list of known viruses. 
+
+
+Q:  When I choose Virus List in VirusScan, I get a message
+    that tells me it's unable to connect. What's happening?
+
+A:  Network Associates now stores its virus information in
+    a web-based Virus Information Library. To use this
+    feature, you must have a network-based or dial-up
+    Internet connection and web browsing software installed
+    on your computer. If you still cannot connect, start
+    your web browser and enter this address into the text
+    box at the top of your browser window:
+  
+    http://www.nai.com/vinfo
+
+
+Q:  I opened VirusScan Scheduler, then I configured,
+    activated and scheduled a scan task to run, but it
+    never did. What happened?
+
+A:  To run a scheduled scan task, you must leave VirusScan
+    Scheduler running. If you close the Scheduler or shut
+    down your computer, the scheduled task will not run. If
+    the task misses the time it's supposed to run, it will
+    not run when you next start your computer or when you
+    next start the Scheduler, it will wait until the next
+    scheduled time you have set for it to run.
+
+
+Q:  I have an existing VirusScan installation with a lot
+    of custom settings. Can I keep these settings when I
+    upgrade to the current VirusScan version?
+
+A:  The Setup utility for VirusScan v4.0.1 or later will
+    offer to preserve your settings from previous versions
+    during installation. This feature will preserve any
+    configuration options you set in v3.2.0 or later. It
+    will make every attempt to preserve settings for
+    VirusScan 3.x versions earlier than v3.2.0, but
+    Network Associates does not support this feature for
+    versions earlier than v3.2.0. Setup will NOT preserve
+    settings from VirusScan v2.x, nor from any version of
+    WebScanX.
+
+
+Q:  When VirusScan detects an infection in files compressed
+    in .CAB or ZIP-SFX format, why doesn't VirusScan clean,
+    delete, or move the files?
+
+A:  Because files compressed in .CAB and ZIP-SFX formats can
+    include a Microsoft Authenticode certificate, altering
+    the files can render them unusable. To avoid this
+    possibility, VirusScan does not clean, delete, or move
+    infected files compressed in .CAB or ZIP-SFX format.
+    Network Associates recommends that you decompress any
+    infected files compressed in these formats, then run
+    VirusScan again to clean the uncompressed files.
+
+
+Q:  When my screen saver starts, I suddenly see a lot 
+    of activity on my hard disk. What's happening? How do
+    I stop this activity?
+
+A:  VirusScan includes a component called ScreenScan that
+    scans for viruses on your hard disk during periods 
+    when your computer is idle. In order to use ScreenScan,
+    you must install it separately as part of a custom
+    installation. Then, during idle periods, ScreenScan
+    starts the screen saver you chose in your Windows
+    preferences property page and begins scanning for
+    viruses.
+ 
+    You can disable ScreenScan by following these steps:
+
+    1.  Move your cursor to the Windows 95/98 desktop, then
+        click your right mouse button.
+
+    2.  Choose Properties from the shortcut menu that 
+        appears.
+
+    3.  Click the ScreenScan tab in the Display Properties
+        dialog box.
+
+    4.  Clear the Enable Scanning While in Screen Saver Mode
+        check box.
+
+    5.  Click OK to close the Display Properties dialog box.
+
+
+Q:  VirusScan detected a virus on my system, but it is not
+    one of the default files listed in its Program
+    Extensions dialog box. Therefore, I suspect it might be
+    a false detection. What can I do to verify a detected
+    virus?
+
+A:  If you suspect a false detection on a non-executable 
+    file, run VirusScan's command line scanner, SCAN.EXE, 
+    to verify the infection. If VirusScan detects a virus
+    and SCAN.EXE does not, download the latest .DAT files
+    to update your virus definition files, then scan your
+    system again. If VirusScan still detects a virus that
+    you suspect is a false detection, please report the
+    issue to Network Associates technical support.
+
+
+Q:  I would like to purchase and download the latest
+    version of VirusScan from one of the Network Associates
+    electronic services, but I do not want to give my 
+    credit card information over the Internet for
+    security purposes. Can I purchase VirusScan via modem
+    and download the product via the Internet?
+
+A:  Yes. The first time you download VirusScan, the Network
+    Associates SecureCast wizard will prompt you to select
+    the transmission method you prefer to use to download
+    your Network Associates product. It will also prompt
+    you to transmit your encrypted credit card information.
+
+    At the Transaction Connection Type dialog box, select
+    Internet to download your order via the Internet.
+    At the Security Connection Type dialog box, select
+    Direct Dial Modem to transmit your credit card
+    information via modem.
+
+
+Q:  I have created my own Emergency diskette without using
+    the Emergency Disk creation utility. Is there anything
+    I need to do to be sure that it will work properly?
+
+A:  To enable your own Emergency Disk, you must create a
+    CONFIG.SYS file on the boot diskette, then add these
+    lines:
+
+       DEVICE=HIMEM.SYS
+       DOS=HIGH
+    
+    Add the HIMEM.SYS file from the DOS directory or, if you
+    are using Windows 95 or Windows 98 system files, add 
+    HIMEM.SYS from the \WINDOWS directory to the
+    boot diskette.
+
+    Note: For detailed instructions on creating an Emergency
+    Disk, refer to the instructions outlined in VirusScan
+    User's Guide, which you'll find on the Network
+    Associates website.
+
+
+Q:  I moved a .VSC file to my Startup folder. Whenever I
+    turn on my computer, VirusScan starts, but does not
+    begin scanning. How can I make VirusScan start scanning
+    automatically?
+
+A:  You need to customize your options. Follow these
+    steps:
+
+    1.  Location the .VSC file you saved.
+
+    2.  Right-click the .VSC file, then choose Properties
+        from the shortcut menu that appears.
+  
+    3.  Click the Detection tab.
+ 
+    5.  Select the Start Automatically check box.
+
+    6.  Click OK to close the properties dialog box.
+
+
+Q:  When VirusScan starts, how does it determine its
+    default settings?
+
+A:  VirusScan reads its default settings from the
+    DEFAULT.VSC file located in the installation directory.
+
+
+Q:  What error codes can CHKVXD.EXE return?
+
+A:  Possible CHKVXD.EXE error level codes, along with their
+    descriptions, are:
+
+    65535(-1)= VShield not installed
+
+    0 = VShield enabled
+
+    1 = VShield disabled 
+
+
+Q:  How can I tell that ScreenScan is working?
+
+A:  ScreenScan does not tell you when it scans your system,
+    but if you enable the logging option when you configure
+    it, VirusScan will record all ScreenScan activity in
+    its log file. 
+
+    
+Q:  Can I update Network Associates data (.DAT) files to
+    detect new viruses?
+
+A:  Yes, you can install and use the Network Associates
+    SecureCast client software to receive updated files
+    automatically, as soon as they become available. For
+    details, consult the VirusScan User's Guide.
+    
+    If you need additional assistance with downloading, 
+    contact Network Associates Download Support. Contact
+    information appears later in this file.
+
+
+Q:  An error occurs when VirusScan has completed 95 percent
+    of its installation. Why does this occur on my system,
+    but not on others?
+
+A:  Using a non-standard Windows 95 Winsock will cause the
+    Setup to fail on some systems at the 95 percent
+    completed point. To prevent this, use the default
+    Windows 95 Winsock.
+
+
+Q:  I removed the Recycle Bin from the VirusScan exclusions
+    list. How can I replace it?
+
+A:  Because the Recycle Bin is a system folder, it cannot
+    be added to the exclusions list using VirusScan's
+    browse feature. To restore it to the list, enter the
+    Recycle Bin's full path in the exclusions list:
+
+    \Recycled\
+
+
+Q:  Why are additional extensions added to the Program Files
+    Only list?
+
+A:  As the Network Associates Anti-Virus Emergency Response
+    Team finds viruses that can infect new file types, it
+    adds new extensions to the default extensions list to
+    enhance security. For instance, new viruses can infect
+    Microsoft Office binder files, so the default extensions
+    list now includes the file extension for these binder
+    files so that VirusScan will examine them for viruses.
+
+
+Q:  I thought I could right-click Microsoft Office .DO?,
+    .XL?, or .OBD files, then choose Scan for Viruses
+    from a shortcut menu in order to start a scan operation.
+    I have Microsoft Office installed, but when I try this,
+    it doesn't work. Why not?
+
+A:  If you installed Microsoft Office after you installed
+    VirusScan, you might need to reinstall VirusScan to
+    enable context-sensitive shortcut menus.
+
+
+Q:  I am having trouble installing Service Pack 2 for
+    Microsoft Exchange Client 5.0. Why?
+
+A:  VShield uses files which the upgrade needs to write to.
+    In order to successfully install the service pack,
+    you must first close VShield by right-clicking the
+    VShield icon the Windows system tray, then selecting
+    Exit. You will now be able to successfully run the
+    service pack upgrade.
+
+
+Q:  I'm running Microsoft Exchange Client 5.0, and
+    VirusScan's On-Demand scan icons aren't showing on my
+    taskbar. Why?
+
+A:  If you're using Microsoft Exchange Client 5.0, the two
+    Exchange On-Demand scan icons will not appear on the
+    Windows taskbar. This is due to a limitation of
+    Exchange. Please refer to your Exchange documentation
+    for instructions on how to place these icons onto the
+    taskbar within Exchange.
+
+
+_____________________________
+CONTACTING NETWORK ASSOCIATES
+
+On December 1, 1997, McAfee Associates merged with
+Network General Corporation, Pretty Good Privacy, Inc.,
+and Helix Software, Inc. to form Network Associates, Inc.
+You may direct all questions, comments and technical
+support requests to the Network Associates Customer Care
+department at any of the addresses or phone numbers
+listed below.
+
+Contact the Network Associates Customer Care
+department at: 
+
+1.  Phone (408) 988-3832
+    Monday-Friday, 6:00 A.M. - 6:00 P.M. Pacific time
+
+2.  Fax (408) 970-9727
+    24-hour, Group III Fax 
+
+3.  Fax-back automated response system (408) 346-3414
+
+ 
+Send correspondence to any of the following Network
+Associates locations:
+  
+     Network Associates Corporate Headquarters  
+     3965 Freedom Circle
+     McCandless Towers   
+     Santa Clara, CA 95054
+
+     Phone numbers for corporate-licensed customers:
+     Phone: (408) 988-3832
+     Fax:   (408) 970-9727
+
+     Phone numbers for retail-licensed customers:
+     Phone: (972) 278-6100
+     Fax:   (408) 970-9727
+
+Network Associates offices outside the United States:
+
+     Network Associates Australia
+     Level 1, 500 Pacific Highway
+     St. Leonards, NSW
+     Sydney, Australia 2065
+     Phone: 61-2-8425-4200
+     Fax:   61-2-9439-5166 
+
+     Network Associates Austria
+     Pulvermuehlstrasse 17
+     Linz, Austria
+     Postal Code A-4040
+     Phone: 43-732-757-244
+     Fax:   43-732-757-244-20
+
+     Network Associates Belgium
+     Bessenveldtstraat 25a
+     Diegem, Belgium - 1831
+     Phone: 32-3-716-4070
+     Fax:   61-2-716-4770
+
+     Network Associates do Brasil
+     Rua Geraldo Flausino Gomez 78
+     Cj. - 51 Brooklin Novo - São Paulo
+     SP - 04575-060 - Brasil
+     Phone:  (55 11) 5505 1009
+     Fax:    (55 11) 5505 1006
+
+     Network Associates Canada
+     139 Main Street, Suite 201
+     Unionville, Ontario
+     Canada L3R 2G6
+     Phone: (905) 479-4189
+     Fax:   (905) 479-4540
+
+     Network Associates People's Republic of China
+     New Century Office Tower, Room 1557
+     No. 6 Southern Road Capitol Gym 
+     Beijing
+     People's Republic of China 100044
+     Phone: 86 10 6849-2650
+     Fax:   86 10 6849-2069
+
+     NA Network Associates Oy
+     Kielotie 14 B
+     01300 Vantaa
+     Finland
+     Phone: 358 9 836 2620
+     Fax:   358 9 836 26222 
+
+     Network Associates France S.A.   
+     50 Rue de Londres    
+     75008 Paris     
+     France
+     Phone: 33 1 44 908 737
+     Fax:   33 1 45 227 554  
+
+     Network Associates Deutschland GmbH
+     Industriestrasse 1
+     D-82110 Germering
+     Germany
+     Phone: 49 8989 43 5600
+     Fax:   49 8989 43 5699 
+
+     Network Associates Hong Kong
+     19/F, Matheson Centre
+     3 Matheson Street
+     Causeway Bay
+     Hong Kong
+     Phone: 852-2832-9525
+     Fax:   852-2832-9530
+
+     Network Associates Srl
+     Centro Direzionale Summit     
+     Palazzo D/1
+     Via Brescia, 28
+     20063 - Cernusco sul Naviglio (MI)
+     ITALY  
+     Phone: 39 (0)2 9214 1555   
+     Fax:   39 (0)2 9214 1644
+
+     Network Associates Japan, Inc.
+     Toranomon 33 Mori Bldg.
+     3-8-21 Toranomon Minato-ku
+     Tokyo 105-0001 Japan
+     Phone: 81 3 5408 0700
+     Fax:   81 3 5408 0781
+
+     Network Associates Latin America
+     150 South Pine Island Road, Suite 205
+     Plantation, Florida 33324
+     United States
+     Phone: (954) 452-1731
+     Fax:   (954) 236-8031
+
+     Network Associates de Mexico
+     Andres Bello No. 10, 4 Piso
+     4th Floor
+     Col. Polanco
+     Mexico City, Mexico D.F. 11560
+     Phone: (525) 282-9180
+     Fax:   (525) 282-9183
+
+     Network Associates International B.V.   
+     Gatwickstraat 25   
+     1043 GL Amsterdam    
+     The Netherlands    
+     Phone: 31 20 586 6100
+     Fax:   31 20 586 6101
+
+     Network Associates Portugal
+     Rua Gen. Ferreira Martins, 10-6°c
+     1495 Algés
+     Portugal
+     Phone:  351 1 412 1077
+     Fax:    351 1 412 1488
+
+     Net Tools Network Associates South Africa
+     Bardev House, St. Andrews
+     Meadowbrook Lane
+     Epson Downs, P.O. Box 7062
+     Bryanston, Johannesburg
+     South Africa 2021
+     Phone: 27 11 706-1629
+     Fax:   27 11 706-1569
+
+     Network Associates South East Asia
+     7 Temasek Boulevard
+     The Penthouse
+     #44-01, Suntec Tower One
+     Singapore 038987
+     Phone: 65 430-6670
+     Fax:   65 430-6671
+
+     Network Associates Spain
+     Orense 4, 4th Floor
+     Edificio Trieste
+     28020 Madrid
+     Spain
+     Phone: 34 91 598 18 00
+     Fax:   34 91 556 14 01
+
+     Network Associates Sweden
+     Datavägen 3A
+     Box 596
+     S-175 26 Järfälla
+     Sweden
+     Phone: 46 (0) 8 580 100 00
+     Fax:   46 (0) 8 580 100 05
+
+     Network Associates AG
+     Baeulerwisenstrasse 3
+     8152 Glattbrugg
+     Switzerland
+     Phone: 0041 1 808 99 66
+     Fax:   0041 1 808 99 77
+
+     Network Associates International Ltd.
+     Minton Place, Victoria Street
+     Windsor, Berkshire
+     SL4 1EF
+     United Kingdom
+     Phone: 44 (0)1753 827 500
+     Fax:   44 (0)1753 827 520
+
+
+Or, you can receive online assistance through any
+of the following resources:
+
+ 1.  Internet E-mail: support@nai.com
+
+ 2.  Internet FTP: ftp.nai.com
+
+ 3.  World Wide Web: http://support.nai.com
+
+ 4.  America Online: keyword MCAFEE
+
+ 5.  CompuServe: GO NAI
+
+To provide the answers you need quickly and efficiently,
+the Network Associates technical support staff needs
+some information about your computer and your software.
+Please have this information ready when you call:
+                          
+ - Program name and version number
+ - Computer brand and model
+ - Any additional hardware or peripherals connected to
+   your computer
+ - Operating system type and version numbers
+ - Network name, operating system, and version
+ - Network card installed, where applicable
+ - Modem manufacturer, model, and baud, where applicable
+ - Relevant browsers or applications and their version 
+   numbers, where applicable
+ - How to reproduce your problem: when it occurs, whether
+   you can reproduce it regularly, and under what 
+   conditions
+ - Information needed to contact you by voice, fax, or 
+   e-mail
+
+We also seek and appreciate general feedback.
+
+ 
+* FOR PRODUCT UPGRADES *
+
+To make it easier for you to receive and use Network
+Associates products, we have established a reseller's
+program to provide service, sales, and support for our
+products worldwide. For a listing of resellers, see the
+resellers.txt file or contact Network Associates
+Customer Care for resellers near you.
+
+ 
+* FOR REPORTING PROBLEMS *
+
+Network Associates prides itself on delivering a
+high-quality product. If you find any problems, please
+take a moment to review the contents of this file. If
+the problem you've encountered is documented, there is
+no need to report the problem to Network Associates.
+
+If you find any feature that does not appear to
+function properly on your system, or if you believe
+an application would benefit greatly from enhancement,
+please contact Network Associates with your suggestions
+or concerns.
+
+
+* FOR ON-SITE TRAINING INFORMATION *
+
+Contact Network Associates Customer Service at
+(800) 338-8754.
+
+
+* NETWORK ASSOCIATES BETA SITE *
+
+Get pre-release software, including DAT files, through
+http://beta.nai.com. You will have access to Public
+Beta and External Test Areas. Your feedback will make
+a difference.

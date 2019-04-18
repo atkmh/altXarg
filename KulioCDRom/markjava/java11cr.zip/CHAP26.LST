@@ -1,0 +1,651 @@
+listing 1
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.awt.*;
+import java.awt.image.*;
+
+public class DynamicBillboard
+       extends java.applet.Applet
+       implements Runnable {
+
+  BillData[] billboards;
+  int current_billboard;
+  int next_billboard;
+
+  String[] transition_classes;
+  Thread thread = null;
+  Image image = null;
+  long delay = -1;
+  boolean mouse_inside_applet;
+  String link_target_frame;
+
+  public void init() {
+    String s = getParameter("bgcolor");
+    if(s != null) {
+      Color color = new Color(Integer.parseInt(s.substring(1), 16));
+      setBackground(color);
+      getParent().setBackground(color);
+      getParent().repaint();          
+    }
+    billboards = new
+      BillData[Integer.parseInt(getParameter("billboards"))];
+    current_billboard = next_billboard
+                      = (int)(Math.random() *billboards.length);
+    parseBillData();
+  }
+
+  void parseBillData() {
+    String s = getParameter("bill" + next_billboard);
+    int field_end = s.indexOf(",");
+    Image new_image = getImage(getDocumentBase(),
+                               s.substring(0, field_end));
+    URL link;
+    try {
+      link = new URL(getDocumentBase(),
+                     s.substring(field_end + 1));
+    }
+    catch (java.net.MalformedURLException e) {
+      e.printStackTrace();
+      link = getDocumentBase();
+    }
+    billboards[next_billboard] = new BillData(link, new_image);
+    if(image == null) {
+      image = new_image;
+    }
+    else {
+      prepareImage(new_image, this);
+      billboards[next_billboard].initPixels(getSize().width, 
+                                            getSize().height);
+    }
+  }
+
+  void finishInit() {
+    if(delay != -1) {
+      return;
+    }
+    delay = Long.parseLong(getParameter("delay"));
+
+    link_target_frame = getParameter("target");
+    if(link_target_frame == null) {
+      link_target_frame = "_top";
+    }
+
+    String s = getParameter("transitions");
+    int field_end = s.indexOf(",");
+
+    int trans_count = Integer.parseInt(s.substring(0, field_end));
+    transition_classes = new String[trans_count];
+    for(--trans_count; trans_count > 0; --trans_count) {
+      s = s.substring(field_end + 1);      
+      field_end = s.indexOf(",");
+      transition_classes[trans_count] = s.substring(0, field_end);
+    }
+    transition_classes[0] = s.substring(field_end + 1);
+    billboards[next_billboard].initPixels(getSize().width, 
+                                          getSize().height);
+    mouse_inside_applet = false;
+  }
+
+  public void paint(Graphics g) {
+    g.drawImage(image, 0, 0, this);
+  }
+
+  public void update(Graphics g) {
+    paint(g);
+  }
+
+  public void start() {
+    next_billboard = current_billboard;
+    image = billboards[current_billboard].image;
+    setCursor(new Cursor(Cursor.HAND_CURSOR));
+    if(thread == null) {
+      thread = new Thread(this);
+      thread.start();
+    }  
+  }
+
+  public void stop() {
+    if(thread != null) {
+      thread.stop();
+      thread = null;
+    }
+  }
+
+  public void run() {
+    while((checkImage(image, this) & ImageObserver.ALLBITS) == 0) {
+      try { Thread.sleep(600); } catch (InterruptedException e) {}
+    }
+    finishInit();
+
+    addMouseListener(new MyMouseAdapter());
+    addMouseMotionListener(new MyMouseMotionAdapter());
+
+    int last_transition_type = -1;
+    BillTransition transition;
+    long next_billboard_time;
+    while(true) {
+      next_billboard_time = System.currentTimeMillis() + delay;
+      current_billboard = next_billboard;
+      if(++next_billboard >= billboards.length) {
+        next_billboard = 0;
+      }
+      if(billboards[next_billboard] == null) {
+        parseBillData();
+        try { Thread.sleep(120); } catch (InterruptedException e) {}
+      }
+      int transition_type = (int)(Math.random() * 
+                                 (transition_classes.length - 1));
+      if(transition_type >= last_transition_type) {
+        ++transition_type;
+      }
+      last_transition_type = transition_type;
+
+      try {
+        String trans = transition_classes[last_transition_type];
+        transition = (BillTransition)Class.forName(trans)
+                                          .newInstance();
+      }
+      catch(Exception e) {
+        e.printStackTrace();
+        continue;
+      }
+
+      transition.init(this, billboards[current_billboard].image_pixels,
+        billboards[next_billboard].image_pixels);
+
+      if(System.currentTimeMillis() < next_billboard_time) {
+        try {
+          Thread.sleep(next_billboard_time - System.currentTimeMillis());
+        } catch (InterruptedException e) { };
+      }
+      Graphics g = getGraphics();
+      for(int c = 0; c < transition.cells.length; ++c) {
+        image = transition.cells[c];
+        g.drawImage(image, 0, 0, null);
+        getToolkit().sync();
+        try { Thread.sleep(transition.delay); }  
+       catch(InterruptedException e) { };
+      }
+      image = billboards[next_billboard].image;
+      g.drawImage(image, 0, 0, null);
+      getToolkit().sync();
+      g.dispose();
+      if(mouse_inside_applet == true) {
+        showStatus(billboards[next_billboard].link.toExternalForm());
+      }
+      transition = null;
+      try { Thread.sleep(120); } catch (InterruptedException e) {}
+    }
+  }
+  public class MyMouseAdapter extends MouseAdapter {
+    public void mouseExited(MouseEvent me) {
+      mouse_inside_applet = false;
+      showStatus("");
+    }
+    public void mouseReleased(MouseEvent me) {
+      stop();
+      setCursor(new Cursor(Cursor.WAIT_CURSOR));  
+      getAppletContext().showDocument(billboards[current_billboard].link,
+                                      link_target_frame);
+    }
+  }
+  public class MyMouseMotionAdapter extends MouseMotionAdapter {
+    public void mouseMoved(MouseEvent me) {
+      mouse_inside_applet = true;
+      showStatus(billboards[current_billboard].link.toExternalForm());
+    }
+  }
+}
+
+listing 2
+import java.net.*;
+import java.awt.*;
+import java.awt.image.*;
+
+public class BillData {
+  public URL link;
+  public Image image;
+  public int[] image_pixels;
+
+  public BillData(URL link, Image image) {
+    this.link = link;
+    this.image = image;
+  }
+
+  public void initPixels(int image_width, int image_height) {
+    image_pixels = new int[image_width * image_height];
+    PixelGrabber pixel_grabber = new 
+    PixelGrabber(image.getSource(), 0, 0,
+          image_width, image_height, image_pixels, 0, image_width);
+    try {
+      pixel_grabber.grabPixels();
+    }
+    catch (InterruptedException e) {
+      image_pixels = null;
+    }
+  }
+}
+
+listing 3
+import java.util.*;
+import java.awt.*;
+import java.awt.image.*;
+
+public abstract class BillTransition {  
+  static Hashtable object_table = new Hashtable(20);
+
+  public Image[] cells;
+  public int delay;
+
+  Component owner;
+  int cell_w;
+  int cell_h;
+  int pixels_per_cell;
+  int[] current_pixels;
+  int[] next_pixels;
+  int[] work_pixels;
+
+  public abstract void
+  init(Component owner, int[] current_pixels, int[] next_pixels);
+
+  final protected void 
+  init(Component owner, int[] current_pixels, int[] next_pixels, 
+                        int number_of_cells, int delay) {
+    this.delay = delay;
+    this.next_pixels = next_pixels;
+    this.current_pixels = current_pixels;
+    this.owner = owner;
+
+    cells = new Image[number_of_cells];
+    cell_w = owner.getSize().width;
+    cell_h = owner.getSize().height;
+    pixels_per_cell = cell_w * cell_h;    
+    work_pixels = new int[pixels_per_cell];
+  }
+
+  final protected void
+  init(Component owner, int[] current_pixels, int[] next_pixels, 
+                        int number_of_cells) {
+    init(owner, current_pixels, next_pixels, number_of_cells, 120);
+  }
+
+  final void createCellFromWorkPixels(int cell) {
+    cells[cell] = owner.createImage(
+      new MemoryImageSource(cell_w, cell_h,
+                            work_pixels, 0, cell_w));
+    owner.prepareImage(cells[cell], null);
+  }
+}
+
+listing 4
+import java.awt.*;
+import java.awt.image.*;
+
+public class ColumnTransition extends BillTransition {
+  final static int CELLS = 7;
+  final static int WIDTH_INCREMENT = 3;
+  final static int MAX_COLUMN_WIDTH = 24;
+
+  int rightmost_columns_max_width;
+  int rightmost_columns_x_start;
+  int column_width = WIDTH_INCREMENT;
+
+  public void init(Component owner, int[] current, int[] next) {
+    init(owner, current, next, CELLS, 200);
+
+    rightmost_columns_max_width = cell_w % MAX_COLUMN_WIDTH;
+    rightmost_columns_x_start = cell_w - rightmost_columns_max_width;
+
+    System.arraycopy(current_pixels, 0,
+                     work_pixels, 0, pixels_per_cell);
+
+    for(int c = 0; c < CELLS; ++c) {
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      NextCell();
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      createCellFromWorkPixels(c);
+      column_width += WIDTH_INCREMENT;
+    }
+    work_pixels = null;
+  }
+
+  void NextCell() {
+    int old_column_width = MAX_COLUMN_WIDTH - column_width;
+    for(int p = pixels_per_cell - cell_w; p >= 0; p -= cell_w) {
+      for (int x = 0; x < rightmost_columns_x_start; x += 
+           MAX_COLUMN_WIDTH) {
+        System.arraycopy(next_pixels, x + p, work_pixels,
+              old_column_width + x + p, column_width);
+      }
+      if(old_column_width <= rightmost_columns_max_width) {
+        System.arraycopy(next_pixels, rightmost_columns_x_start + p, 
+                         work_pixels, rightmost_columns_x_start + 
+                                      old_column_width + p - 1,
+                                      rightmost_columns_max_width - 
+                                      old_column_width + 1);
+      }
+    }
+  }
+}
+
+listing 5
+import java.awt.*;
+import java.awt.image.*;
+
+public class FadeTransition extends BillTransition {
+  private static final int CELLS = 7;
+  private static final int MULTIPLIER = 0x5D1E2F;
+
+  private static short[][] createRandomArray(int number_pixels, 
+                                             int cell_h) {
+    int total_cells = CELLS + 1;
+    int new_pixels_per_cell = number_pixels / total_cells;
+    short[][] random = new short[total_cells][new_pixels_per_cell];
+    int random_count[] = new int[total_cells];
+    for(int s = 0; s < total_cells; ++s) {
+      random_count[s] = 0;
+    }
+
+    int cell;
+    int rounded_new_pixels_per_cell =
+          new_pixels_per_cell * total_cells;
+
+    int seed = (int)System.currentTimeMillis();
+
+    int denominator = 10;
+    while((new_pixels_per_cell % denominator > 0 || 
+      cell_h % denominator == 0) && denominator > 1) {
+      --denominator;
+    }
+
+    int new_randoms_per_cell = new_pixels_per_cell / denominator;
+    int new_randoms = rounded_new_pixels_per_cell / denominator;
+
+    for(int p = 0; p < new_randoms_per_cell; ++p) {
+      seed *= MULTIPLIER;
+      cell = (seed >>> 29);
+      random[cell][random_count[cell]++] = (short)p;
+    }
+    seed += 0x5050;
+    try { Thread.sleep(150); } catch (InterruptedException e) {}
+
+    for(int p = new_randoms_per_cell; p < new_randoms; ++p) {
+      seed *= MULTIPLIER;
+      cell = (seed >>> 29);
+
+      while(random_count[cell] >= new_randoms_per_cell) {
+        if(++cell >= total_cells) {
+          cell = 0;
+        }
+      }
+      random[cell][random_count[cell]++] = (short)p;
+    }
+
+    for(int s = 0; s < CELLS; ++s) {
+
+      for(int ps = new_randoms_per_cell; ps < new_pixels_per_cell;
+            ps += new_randoms_per_cell) {
+
+        int offset = ps * total_cells;
+
+        for(int p = 0; p < new_randoms_per_cell; ++p) {
+          random[s][ps + p] = (short)(random[s][p] + offset);
+        }
+      }
+      try { Thread.sleep(50); } catch (InterruptedException e) {}
+    }
+    random[CELLS] = null;
+    return random;
+  }
+
+  public void init(Component owner, int[] current, int[] next) {
+    init(owner, current, next, CELLS);
+    System.arraycopy(current_pixels, 0, work_pixels, 
+                     0, pixels_per_cell);
+
+    short random[][] = (short[][])object_table.get(
+            getClass().getName() + pixels_per_cell);
+
+    if(random == null) {
+      random = createRandomArray(pixels_per_cell, cell_h);    
+      object_table.put(getClass().getName() + pixels_per_cell,
+                       random);
+    }
+
+    for(int c = 0; c < CELLS; ++c) {
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      int limit = random[c].length;
+      for(int p = 0; p < limit; ++p) {
+        int pixel_index = random[c][p];
+        work_pixels[pixel_index] = next_pixels[pixel_index];
+      }
+      try { Thread.sleep(50); } catch (InterruptedException e) {}
+      createCellFromWorkPixels(c);
+    }
+    work_pixels = null;
+  }
+}
+
+listing 6
+import java.awt.*;
+import java.awt.image.*;
+
+public class SmashTransition extends BillTransition {
+  final static int CELLS = 8;
+  final static float FOLDS = 8.0f;
+  static int[] fill_pixels;
+
+  static void setupFillPixels(int width) {
+    if(fill_pixels != null && fill_pixels.length <= width) {
+      return;
+    }
+    fill_pixels = new int[width];
+    for(int f = 0; f < width; ++f) {
+      fill_pixels[f] = 0xFFFFFFFF;
+    }
+  }
+
+  int drop_amount;
+  int location;
+
+  public void init(Component owner, int[] current, int[] next) {
+    init(owner, current, next, CELLS, 160);
+    setupFillPixels(cell_w);
+    drop_amount =  (cell_h / CELLS) * cell_w;
+    location = pixels_per_cell - ((cell_h / CELLS) / 2) * cell_w;
+    for(int c = CELLS - 1; c >= 0; --c) {
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      Smash(c + 1);
+      try { Thread.sleep(150); } catch (InterruptedException e) {}
+      createCellFromWorkPixels(c);
+      location -= drop_amount;
+    }
+    work_pixels = null;
+  }
+
+  void Smash(int max_fold) {
+    System.arraycopy(next_pixels, pixels_per_cell - location,
+                     work_pixels, 0, location);
+    int height = cell_h - location / cell_w;
+    float fold_offset_adder = (float)max_fold * FOLDS / (float)height;
+    float fold_offset = 0.0f;
+    int fold_width = cell_w - max_fold;
+    float src_y_adder = (float)cell_h / (float)height;
+    float src_y_offset = cell_h - src_y_adder / 2;
+    for(int p = pixels_per_cell - cell_w; p >= location; p -= 
+        cell_w) {
+      System.arraycopy(fill_pixels, 0, work_pixels, p, cell_w);
+      System.arraycopy(current_pixels, (int)src_y_offset * cell_w,
+                       work_pixels, p + (int)fold_offset, fold_width);
+      src_y_offset -= src_y_adder;
+      fold_offset += fold_offset_adder;
+      if(fold_offset < 0.0 || fold_offset >= max_fold) {
+        fold_offset_adder *= -1.0f;
+      }
+    }
+  }
+}
+
+listing 7
+import java.awt.*;
+import java.awt.image.*;
+
+public class TearTransition extends BillTransition {
+  static final int CELLS = 7;
+  static final float INITIAL_X_CROSS = 1.6f;
+  static final float X_CROSS_DIVISOR = 3.5f;
+  float x_cross;
+
+  public void init(Component owner, int[] current, int[] next) {    
+    init(owner, current, next, CELLS);      
+    System.arraycopy(next_pixels, 0, work_pixels, 0, pixels_per_cell);
+    System.arraycopy(current_pixels, 0, work_pixels, 0, cell_w);
+
+    x_cross = INITIAL_X_CROSS;
+
+    for(int c = CELLS - 1; c >= 0; --c) {
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      Tear();
+      try { Thread.sleep(150); } catch (InterruptedException e) {}
+      createCellFromWorkPixels(c);
+      x_cross /= X_CROSS_DIVISOR;
+    }
+    work_pixels = null;
+  }
+
+  final void Tear() {
+    float x_increment;
+    int p, height_adder;
+
+    p = height_adder = cell_w;
+    for (int y = 1; y < cell_h; ++y) {
+      x_increment = x_cross * y;
+      if(x_increment >= 0.50f) {
+        float fx = 0.0f;
+        x_increment += 1.0f;
+        int x = 0;
+        do {
+          work_pixels[p++] = current_pixels[height_adder + x];
+          x = (int)(fx += x_increment);
+        } while(x < cell_w);
+      }
+      else {
+        float overflow = 1.0f / x_increment;
+        float dst_end = overflow / 2.0f  + 1.49999999f;
+        int dst_start = 0, src_offset = 0, length = (int)dst_end;
+        while(dst_start + src_offset + length < cell_w) {
+          System.arraycopy(current_pixels, p + src_offset, 
+                           work_pixels, p, length);
+          ++src_offset;
+          dst_end += overflow;
+          p += length;
+          dst_start += length;
+          length = (int)dst_end - dst_start;
+        }
+        length = cell_w - src_offset - dst_start;
+        System.arraycopy(current_pixels, p + src_offset, 
+                         work_pixels, p, length);
+      }
+      p = height_adder += cell_w;
+    }
+  }
+}
+
+listing 8
+import java.awt.*;
+import java.awt.image.*;
+
+public class UnrollTransition extends BillTransition {
+  final static int CELLS = 9;
+  static int fill_pixels[] = { 0xFFFFFFFF, 0xFF000000, 
+                               0xFF000000, 0xFFFFFFFF };
+
+  private static int[] createUnrollAmountArray(int cell_h) {
+    float unroll_increment = 
+      ((float)cell_h / (float)(CELLS + 1)) /
+      ((float)(CELLS + 2) / 2.0f);
+
+    int total = 0;
+    int unroll_amount[] = new int[CELLS + 1];
+    for(int u = 0; u <= CELLS; ++u) {
+      unroll_amount[u] = (int)(unroll_increment * (CELLS - u + 1));
+      total += unroll_amount[u];
+    }
+    if(total < 0) {
+      unroll_amount[0] -= 1;
+    }
+    return unroll_amount;
+  }
+
+  int location;
+  int[] unroll_amount;
+
+  public void init(Component owner, int[] current, int[] next) {
+    init(owner, current, next, CELLS, 220);
+    location = pixels_per_cell;
+    System.arraycopy(current_pixels, 0,
+                     work_pixels, 0, pixels_per_cell);
+    unroll_amount = (int[])object_table.get(getClass().getName() + 
+                     cell_h);
+    if(unroll_amount == null) {
+      unroll_amount = createUnrollAmountArray(cell_h);
+      object_table.put(getClass().getName() + cell_h, unroll_amount);
+    }
+
+    for(int c = 0; c < CELLS; ++c) {
+      location -= unroll_amount[c] * cell_w;
+      try { Thread.sleep(150); } catch (InterruptedException e) {}
+      Unroll(c);
+      try { Thread.sleep(100); } catch (InterruptedException e) {}
+      createCellFromWorkPixels(c);
+      System.arraycopy(next_pixels, location,
+                       work_pixels, location, 
+                       unroll_amount[c] * cell_w);
+    }
+    work_pixels = null;
+  }
+
+  void Unroll(int c) {
+    int y_flip = cell_w;
+    int offset[] = new int[unroll_amount[c]];
+    for(int o = 0; o < unroll_amount[c]; ++o) {
+      offset[o] = 4;
+    }
+    offset[0] = 2;
+
+    if(unroll_amount[c] > 1) {
+      offset[1] = 3;
+    }
+    if(unroll_amount[c] > 2) {
+      offset[unroll_amount[c] - 1] = 2;
+    }
+    if(unroll_amount[c] > 3) {
+      offset[unroll_amount[c] - 2] = 3;
+    }
+
+    int offset_index = 0;
+    int end_location = location + unroll_amount[c] * cell_w;
+    for(int p = location; p < end_location; p += cell_w) {
+
+      System.arraycopy(next_pixels, 
+                       p - y_flip + offset[offset_index], 
+                       work_pixels,
+                       p, cell_w - offset[offset_index]);
+
+      System.arraycopy(fill_pixels, 0,
+                       work_pixels,
+                       p + cell_w - offset[offset_index], 
+                       offset[offset_index]);
+
+      ++offset_index;
+      y_flip += cell_w + cell_w;
+    }
+
+    for(int x = location + cell_w - 1; x > location; --x) {
+      work_pixels[x] |= 0xFFAAAAAA;
+      work_pixels[x + unroll_amount[c]] &= 0xFF555555;
+    }
+  }
+}
+

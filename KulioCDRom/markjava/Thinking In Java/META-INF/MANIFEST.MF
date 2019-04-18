@@ -1,0 +1,1215 @@
+Manifest-Version: 1.0
+Created-By: Manifest JDK 1.2beta3
+
+Name: bangbean/BangBean.java
+SHA-Digest: sT9dnMTaobmSp8mZvRQcJO1OrGE=
+
+Name: bangbean/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c02/Property.java
+SHA-Digest: Fp7J4XSE/njRzzR4BiJ9+/sKBxs=
+
+Name: c02/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c03/Assignment.java
+SHA-Digest: H3AmTghLIzaP8peXhLAfCwyVG2g=
+
+Name: c03/PassObject.java
+SHA-Digest: IGt67RxzIcGbvavJPYXV2pKmZfk=
+
+Name: c03/MathOps.java
+SHA-Digest: M5tFr891Ghxhk57+CysbDTLJ7Ag=
+
+Name: c03/AutoInc.java
+SHA-Digest: zkjxIRufGUCrVHeWPIDb22lMhBA=
+
+Name: c03/Equivalence.java
+SHA-Digest: s0xapGZEdtER0qCBnAp37v8nglE=
+
+Name: c03/EqualsMethod.java
+SHA-Digest: JrRGWvW8nc/XS5uuubrCHNH0yPM=
+
+Name: c03/EqualsMethod2.java
+SHA-Digest: QYa31rJ7MZSXqhQzhGjmaqDXgAI=
+
+Name: c03/Bool.java
+SHA-Digest: VPETPB7mcIbtp0SFdtrpbpqcBCE=
+
+Name: c03/ShortCircuit.java
+SHA-Digest: k2ESSdtDIx/zqmzFfNsuDhKBU/o=
+
+Name: c03/URShift.java
+SHA-Digest: 2QRmtxgKVcfu/7LsA2LPKxt9TtU=
+
+Name: c03/BitManipulation.java
+SHA-Digest: o2u+4vk2P0c3OFGOD9WiwUQ45Ak=
+
+Name: c03/Literals.java
+SHA-Digest: 0WLoI8D7uL02TGZt4fq4xj127s8=
+
+Name: c03/AllOps.java
+SHA-Digest: cfq6aa7xwQsoM5weKqoG/iqFiQU=
+
+Name: c03/Overflow.java
+SHA-Digest: GjpNUSWxG2rDkFRD6tWtE/17wao=
+
+Name: c03/WhileTest.java
+SHA-Digest: 59rk+HPWfsZM+GGMnkzOT1Ux64I=
+
+Name: c03/ListCharacters.java
+SHA-Digest: OgUKYDYh/gixKie058h+0d5am2A=
+
+Name: c03/CommaOperator.java
+SHA-Digest: sRGpEDim5ZqQl+pZGxueyFcYkhI=
+
+Name: c03/BreakAndContinue.java
+SHA-Digest: jWXKyNLTnUYraGQ+QyfSMPcpxbM=
+
+Name: c03/LabeledFor.java
+SHA-Digest: xhKJwx9nMI+rb4AuZ0oznGMKZaA=
+
+Name: c03/LabeledWhile.java
+SHA-Digest: xQHv8gXSLjalbMOH6pP0HSZ0Al8=
+
+Name: c03/VowelsAndConsonants.java
+SHA-Digest: xzeYG5IWm1yZeDNO2iz3f57jTdE=
+
+Name: c03/CastingNumbers.java
+SHA-Digest: 0Zx+D9ZsM8A/um5OV+P3S5bJ3Jk=
+
+Name: c03/RandomBounds.java
+SHA-Digest: nEVumjJljUj959iiKWl6chD2Im4=
+
+Name: c03/23.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c04/SimpleConstructor.java
+SHA-Digest: FmlG0jiqE78pWc3N8oLLok31wEA=
+
+Name: c04/Overloading.java
+SHA-Digest: lYPrpuQ0VwbVsUbpYWmoXX1qUGg=
+
+Name: c04/OverloadingOrder.java
+SHA-Digest: 8FM9IIZpMRM6/BXGD6OSjZiWaRQ=
+
+Name: c04/PrimitiveOverloading.java
+SHA-Digest: K1OyLnXWcny3OEqvJ6Y/gotq4GU=
+
+Name: c04/Demotion.java
+SHA-Digest: Dw+4A2YKcrP7l2AEpt8MJOVJ4Lk=
+
+Name: c04/DefaultConstructor.java
+SHA-Digest: a9aXe82jMNPljk8cKzbOdwfvUP4=
+
+Name: c04/Leaf.java
+SHA-Digest: I2VPDnDX13vY7/GVetfdRtFj/mU=
+
+Name: c04/Flower.java
+SHA-Digest: Gzyifvrfo47Uv1soSADUun7qTLk=
+
+Name: c04/Garbage.java
+SHA-Digest: q5tjc1l71e645G0aJd60h1JZVrc=
+
+Name: c04/InitialValues.java
+SHA-Digest: NGmvaJPG8XKtZ4EAKeeyKQ1/x/s=
+
+Name: c04/OrderOfInitialization.java
+SHA-Digest: B1ZhwzKZKcQOKn7rWEF14c1Qwrw=
+
+Name: c04/StaticInitialization.java
+SHA-Digest: r29IoPiDLuHtlsDpwNNwzfPZPtI=
+
+Name: c04/ExplicitStatic.java
+SHA-Digest: jOBLqI9/UMci3MGZpZc8MsoXqVY=
+
+Name: c04/Mugs.java
+SHA-Digest: U9VCL/6LCY0zakOnHOarM6ICFFg=
+
+Name: c04/Arrays.java
+SHA-Digest: H4D4HOxFtgKOvHCQfPvnx7LMD9U=
+
+Name: c04/ArrayNew.java
+SHA-Digest: sIQKOlGI6ixtMU4Cy1Pdz1EMNIA=
+
+Name: c04/ArrayClassObj.java
+SHA-Digest: 42qlgXfIMAsxsObxYy9MuY+mzyM=
+
+Name: c04/ArrayInit.java
+SHA-Digest: SqHlCt7m7ugFYue8MHVyBOTxQ3Y=
+
+Name: c04/VarArgs.java
+SHA-Digest: GAY4zqxnbN1aVMmkSReQlbtWby0=
+
+Name: c04/MultiDimArray.java
+SHA-Digest: UccPyK0hPke0lHrW6to1rbTPXbo=
+
+Name: c04/20.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c05/dessert/Cookie.java
+SHA-Digest: OLO3lt9UkJ13I631ypykWN74hM0=
+
+Name: c05/dessert/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c05/foreign/Foreign.java
+SHA-Digest: 9lqUAbREiHJimNiq04LKH+bJC2o=
+
+Name: c05/foreign/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c05/LibTest.java
+SHA-Digest: BSdQSytacKey9/d/XGbodwYwgSg=
+
+Name: c05/ToolTest.java
+SHA-Digest: 0c3B5LrHecLShV/lMO7eeYpYLzI=
+
+Name: c05/TestAssert.java
+SHA-Digest: AqSOM3rgWqUkNmQW2puSO4VlD8w=
+
+Name: c05/Dinner.java
+SHA-Digest: h9nJZHxdhUvCMJXN3HbnwRrOWZ8=
+
+Name: c05/Cake.java
+SHA-Digest: tXY/qmnv2FNIeeU04BCUULYL8E4=
+
+Name: c05/Pie.java
+SHA-Digest: DpbygYogII6UppVs3Ri5ny8WIFM=
+
+Name: c05/IceCream.java
+SHA-Digest: jJqqqr9N1BV0Aeq0PzxR5gi+xK4=
+
+Name: c05/ChocolateChip.java
+SHA-Digest: yEyOG/gvLfHn9cBPvq+Xxc2R9ps=
+
+Name: c05/Lunch.java
+SHA-Digest: SrUbbXgFurxh57tXnKlpEwNFyLE=
+
+Name: c05/PackagedClass.java
+SHA-Digest: IdJEf+Ys/QzhO5ZPyOU7O4RI/OI=
+
+Name: c05/10.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c06/SprinklerSystem.java
+SHA-Digest: wIA+2rKAuL24mKobeCXRTGP82Hw=
+
+Name: c06/Bath.java
+SHA-Digest: wx0G/EhY6hu9QdwIPnDQIxWugEo=
+
+Name: c06/Detergent.java
+SHA-Digest: iTzbj9IbUHSzjksBBqvxXchKSqQ=
+
+Name: c06/Cartoon.java
+SHA-Digest: tdlmo221pgtsRYOOrZleoZJbd0g=
+
+Name: c06/Chess.java
+SHA-Digest: X9YE8qDKtwt2InefbrZIsFhVgYQ=
+
+Name: c06/PlaceSetting.java
+SHA-Digest: PegT1eUd8wBKA4eRBouz42VDTiQ=
+
+Name: c06/CADSystem.java
+SHA-Digest: X+RR9C85xTe24NyFBpMGi+UsAMc=
+
+Name: c06/Hide.java
+SHA-Digest: KnEf+PQGULjZRdvoxSngns/4ffo=
+
+Name: c06/Car.java
+SHA-Digest: euwrJogvf4eWfqWwiJnDepmnk5g=
+
+Name: c06/Orc.java
+SHA-Digest: 4teFOWVLIalB2+vUxvz/fjo8mqg=
+
+Name: c06/Wind.java
+SHA-Digest: 09jczdluCHglORF4dKflFd/Y8Xc=
+
+Name: c06/FinalData.java
+SHA-Digest: tgpW7zDwgTeDSa6EKi3bx6knNpQ=
+
+Name: c06/BlankFinal.java
+SHA-Digest: awATG+jRkyumKLejgJeI3S17ZQc=
+
+Name: c06/FinalArguments.java
+SHA-Digest: zX0hGNIaII8gBcs0iULeXFsUpjk=
+
+Name: c06/Jurassic.java
+SHA-Digest: +9X3G5XJrtreHx3yIjOzoEnyKn0=
+
+Name: c06/Beetle.java
+SHA-Digest: J2DsnT23e3F6p0T0uiTg2rdmpQU=
+
+Name: c06/16.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/controller/Event.java
+SHA-Digest: Vdej/gymUAxMqhgjFwSfdrjpJZQ=
+
+Name: c07/controller/Controller.java
+SHA-Digest: cPR7cqM8nOXyYhx3xUn5oRxAFcA=
+
+Name: c07/controller/GreenhouseControls.java
+SHA-Digest: NZEcP4wNq3gImGXZm/CjLsuaWrQ=
+
+Name: c07/controller/3.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/parcel11/Parcel11.java
+SHA-Digest: XS3TkvJHBjrzbhItBEmJS+zcevU=
+
+Name: c07/parcel11/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/parcel10/Parcel10.java
+SHA-Digest: biE43QS059p5wV6g7IE2V+Ztfqk=
+
+Name: c07/parcel10/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/parcel3/Parcel3.java
+SHA-Digest: bNxYmNwUzSYugWXG5I9Mfmsb/ZA=
+
+Name: c07/parcel3/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/parcel2/Parcel2.java
+SHA-Digest: WYo5x56k9rx28htAbPsa2AjFc7w=
+
+Name: c07/parcel2/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/parcel1/Parcel1.java
+SHA-Digest: oYxFTgbroM/1Aoo2ZAMUHH8KREA=
+
+Name: c07/parcel1/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/innerscopes/Destination.java
+SHA-Digest: LJ6bMh3WkgcQO9Wl0W3YSlTRFtg=
+
+Name: c07/innerscopes/Contents.java
+SHA-Digest: PUnoSDYfYjuTBXJbILY2cgNuox4=
+
+Name: c07/innerscopes/Wrapping.java
+SHA-Digest: TrQU6xZv1iS/oTQ10w1a8Kasm6I=
+
+Name: c07/innerscopes/Parcel4.java
+SHA-Digest: YVaHIdQeoKbnjAE0R5R/MrRsh9A=
+
+Name: c07/innerscopes/Parcel5.java
+SHA-Digest: J+WhcLLKKMGEgGn/uIUs3M7MPDc=
+
+Name: c07/innerscopes/Parcel6.java
+SHA-Digest: +xMOtBZOGPzluCzfEL1Z1OhbgTA=
+
+Name: c07/innerscopes/Parcel7.java
+SHA-Digest: fHVTEIwhFFYP45hOdpj+Y059vKo=
+
+Name: c07/innerscopes/Parcel8.java
+SHA-Digest: Dv7OrBWbUSPNMcCD5zSdpmz4Hp0=
+
+Name: c07/innerscopes/Parcel9.java
+SHA-Digest: r0cNNlxjIXK22FHs4hLzBJzGmCU=
+
+Name: c07/innerscopes/9.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c07/Music.java
+SHA-Digest: vdlMLJI0SqkPI//JVLwTKj46rAM=
+
+Name: c07/Music2.java
+SHA-Digest: dS3suJlba6K3o13oS7V6WpAn8zk=
+
+Name: c07/Shapes.java
+SHA-Digest: 9jDcUv9X1xPGBCVixAe1yBR4csw=
+
+Name: c07/Music3.java
+SHA-Digest: aPNmIgbAHKSkkvp3fIGtJIEMyqc=
+
+Name: c07/WindError.java
+SHA-Digest: /CAOWB1LFubPxlu0yqQcwNR3ffI=
+
+Name: c07/Music4.java
+SHA-Digest: wdqgVMXv4hkZzy51KDsgtJgmHpg=
+
+Name: c07/Music5.java
+SHA-Digest: 7GJVF+vFU5dbldQ6Z1SxtjfhMwQ=
+
+Name: c07/Adventure.java
+SHA-Digest: RX0TH757h1nGG+Bj+J03Fh31jgQ=
+
+Name: c07/HorrorShow.java
+SHA-Digest: 5g6m3Wc1nriDHBHZxCAVuXVH/e0=
+
+Name: c07/Months.java
+SHA-Digest: ef/lfmPnGlByl0YQI8mDiJfhGXY=
+
+Name: c07/Month2.java
+SHA-Digest: 4aZ4m3YLUbFs92lp4h4rdazXFdA=
+
+Name: c07/RandVals.java
+SHA-Digest: HDE+SxAZly7ecPyb6SRrdylKpyw=
+
+Name: c07/TestRandVals.java
+SHA-Digest: /c2HZhNTXJoJYsSjbqLXgi5IMX0=
+
+Name: c07/Sequence.java
+SHA-Digest: odzTbWheg60GLP/y0EwKmk5ZNLs=
+
+Name: c07/IInterface.java
+SHA-Digest: PDeM3GaePF9qQcWdEf1mI6nfOe0=
+
+Name: c07/TestBed.java
+SHA-Digest: vuWIKd3XfLYMpgScU9u+2oed/lU=
+
+Name: c07/InheritInner.java
+SHA-Digest: 0oiJ9gXotsanGYGW58WEZNA/MwU=
+
+Name: c07/BigEgg.java
+SHA-Digest: FFDfJFN3auRsVkBXHYZ5YvBD51g=
+
+Name: c07/BigEgg2.java
+SHA-Digest: y+5MndyCC6u3iBhDZLBnPSZGGoA=
+
+Name: c07/Sandwich.java
+SHA-Digest: pa2oY6eirIHCC4ZSLAvVR0sVZ3E=
+
+Name: c07/Frog.java
+SHA-Digest: jCOad60jxtxnrDUtigEThOlXU2c=
+
+Name: c07/PolyConstructors.java
+SHA-Digest: gAg7WL1iruZxD+uYICCKHIs9zv0=
+
+Name: c07/Transmogrify.java
+SHA-Digest: Etf1Pp7ukRfTge9EAgsQilCB9D0=
+
+Name: c07/RTTI.java
+SHA-Digest: IiAI1eo0wPRCwbbOQHZL818R310=
+
+Name: c07/24.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c08/ArraySize.java
+SHA-Digest: w9AEJH8WY+p9zBR8GAhDiSxS1TM=
+
+Name: c08/IceCream.java
+SHA-Digest: gHESG1hRw3S2e9PF/rqA/eINtGg=
+
+Name: c08/CatsAndDogs.java
+SHA-Digest: 4twv1AtM8FZYhtFDdIYHYp1qaeY=
+
+Name: c08/WorksAnyway.java
+SHA-Digest: wRDv4bpgGg3+GsmfG2JSjxaJJ2k=
+
+Name: c08/GopherVector.java
+SHA-Digest: 4Cw/RA39cm3ysR4rDtbaljvCkNQ=
+
+Name: c08/CatsAndDogs2.java
+SHA-Digest: GbjlKkqLles2PSnMPhdtablXBUo=
+
+Name: c08/HamsterMaze.java
+SHA-Digest: 4AZhPw3iaoKrRWD8C+MkdFArcAQ=
+
+Name: c08/CrashJava.java
+SHA-Digest: XI2Djv/Z9eEe5scoOCzbyy0n13Y=
+
+Name: c08/Bits.java
+SHA-Digest: 6GN+2G6cy/IwaU74Q+E67fG3O20=
+
+Name: c08/Stacks.java
+SHA-Digest: IEvaXm+rxjEefcHxU9+I2DHUXs4=
+
+Name: c08/AssocArray.java
+SHA-Digest: Aa4Z67j88TLSiaGLv4Rnw6Jj/Ko=
+
+Name: c08/Statistics.java
+SHA-Digest: kUnHPHNO2865b5VHEyReKqdNt4M=
+
+Name: c08/SpringDetector.java
+SHA-Digest: SqV4jZd0wPsUC0PWlX/RcplrbRU=
+
+Name: c08/SpringDetector2.java
+SHA-Digest: qt1Op3z5iamrbvyrjs3rbI2+B/M=
+
+Name: c08/Enumerators2.java
+SHA-Digest: UuRfyevvfvkZtK0a/b8xWE4kV1w=
+
+Name: c08/Compare.java
+SHA-Digest: dkwJmWBetFq3homGbBLY25/nbsk=
+
+Name: c08/SortVector.java
+SHA-Digest: sZ4Mk8/S0OeA952oMJo1OB5b+ig=
+
+Name: c08/StringSortTest.java
+SHA-Digest: c+jtZOReqE21b3CK2DDoQdk5rUQ=
+
+Name: c08/StrSortVector.java
+SHA-Digest: leUOoouCk8AGQF1U46g7Jo7N6uM=
+
+Name: c08/19.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c08/newcollections/SimpleCollection.java
+SHA-Digest: uckbDNrJi0r5NEsQiOFroJl8wyM=
+
+Name: c08/newcollections/Collection1.java
+SHA-Digest: 9MR3seLW+iNqdJ2ntDV2KnxEhjg=
+
+Name: c08/newcollections/List1.java
+SHA-Digest: Q3FFfnEE8njT2NkPHymZN7aQkMI=
+
+Name: c08/newcollections/Set1.java
+SHA-Digest: 4ZL2LaPY3F+PwUR2W5hEyq1T3t8=
+
+Name: c08/newcollections/Set2.java
+SHA-Digest: IAv4qju00yFAMzK16zEhZQL5U8k=
+
+Name: c08/newcollections/Map1.java
+SHA-Digest: DxAssRIFNA6e/EpY3BOTwBo1d4U=
+
+Name: c08/newcollections/ListPerformance.java
+SHA-Digest: i4T6LW+CoEJFTbCFAYp/U3qrYXI=
+
+Name: c08/newcollections/SetPerformance.java
+SHA-Digest: rsn0iJfz4E7V9a29gcj1g0yrNxU=
+
+Name: c08/newcollections/MapPerformance.java
+SHA-Digest: Z+m2QqzK04s9KtxvW1SBXaxRdsw=
+
+Name: c08/newcollections/MapCreation.java
+SHA-Digest: R4wXJa+IjyU2NskvXmyiKRND2fU=
+
+Name: c08/newcollections/Unsupported.java
+SHA-Digest: cpBHW7/sW+niWKNES9whWkqZhFU=
+
+Name: c08/newcollections/Array1.java
+SHA-Digest: rn9zCl4DPTgnt0eVJvD9AHFZLpk=
+
+Name: c08/newcollections/AlphaComp.java
+SHA-Digest: BZMcU/2ZMOGXZ3iuDed0VRqUC1M=
+
+Name: c08/newcollections/CompClass.java
+SHA-Digest: /8l6SeSJH/4hrQofSXQLfrBLJFs=
+
+Name: c08/newcollections/ListSort.java
+SHA-Digest: qCTSW/q4FAXJc8elE0v56rdj0lU=
+
+Name: c08/newcollections/ReadOnly.java
+SHA-Digest: Qfye/K8RdkAHzseZB9dcb1VT5mU=
+
+Name: c08/newcollections/Synchronization.java
+SHA-Digest: qBurR5nfB8ClLIiRpuqDYpwwib8=
+
+Name: c08/newcollections/17.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c09/ExceptionMethods.java
+SHA-Digest: 0qUUs5dsVy4RrXrQFDdWKUTHVg0=
+
+Name: c09/Rethrowing.java
+SHA-Digest: Lka45ISvXmaA1KhzYSaxg4nZids=
+
+Name: c09/ThrowOut.java
+SHA-Digest: ZOk15qn394Yayp3upcgZkf9QS3g=
+
+Name: c09/RethrowNew.java
+SHA-Digest: fOXDkr3FTMM1RtPVDrtGYnDANoc=
+
+Name: c09/NeverCaught.java
+SHA-Digest: 0V7SQeJCjaFBGd1VIf8lP/wWaIw=
+
+Name: c09/Inheriting.java
+SHA-Digest: 19uCDW7peSts/+htzmXpiqIylOg=
+
+Name: c09/Inheriting2.java
+SHA-Digest: Au1d0JaWtZ9iGjB9mZ4Zdyw00LE=
+
+Name: c09/SimpleException.java
+SHA-Digest: McCk2/iFxMFKC2ax+5LYNbyR850=
+
+Name: c09/StormyInning.java
+SHA-Digest: +fE1gBOPpqN0xurxO9dQV3PllWI=
+
+Name: c09/FinallyWorks.java
+SHA-Digest: sHM5sPMZBu3pBuMgepqV0fQTjDg=
+
+Name: c09/OnOffSwitch.java
+SHA-Digest: HXXAe7h6TCFxW8F2kbHe639tHqc=
+
+Name: c09/WithFinally.java
+SHA-Digest: hJju2bteuj4vovZyCylt2Pt97YE=
+
+Name: c09/AlwaysFinally.java
+SHA-Digest: ahAUx9KjAr5SFK4Mr/A7jStUpxo=
+
+Name: c09/LostMessage.java
+SHA-Digest: Gd0C2tWVgDUevDNlLK4DMJY3yS0=
+
+Name: c09/Cleanup.java
+SHA-Digest: dNAJd8yW4Iig9e10m8EZKyPQ/m0=
+
+Name: c09/Human.java
+SHA-Digest: qRGKNWXqnwQL2kGbAVuBouGfdQw=
+
+Name: c09/16.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c10/DirList.java
+SHA-Digest: d2jZ7MuYM2eb5g2IucRTtFIVbFQ=
+
+Name: c10/DirList2.java
+SHA-Digest: xtQacD2/ao1/yL4Z3wvI6NFbUjM=
+
+Name: c10/DirList3.java
+SHA-Digest: em1H16o5NSvzoGtr0BVro4TVD5A=
+
+Name: c10/SortedDirList.java
+SHA-Digest: lLohmjszrC6XNBI/B4mHGDsV59E=
+
+Name: c10/MakeDirectories.java
+SHA-Digest: 0tOPDAod4JCxgCS2Gd6+W8e/DXs=
+
+Name: c10/IOStreamDemo.java
+SHA-Digest: BRgqJ4RSwCm+/NnCUgl8sn3EMmo=
+
+Name: c10/TestEOF.java
+SHA-Digest: L4Li6nChJ+6nmzdqY8MR1qit538=
+
+Name: c10/Echo.java
+SHA-Digest: 7A+GuEivhqOu7BjCE4ueWrPfHRI=
+
+Name: c10/SortedWordCount.java
+SHA-Digest: zSKo4IKreJp0136+h/weZNhvhUM=
+
+Name: c10/AnalyzeSentence.java
+SHA-Digest: +Tjio9k0yAte4ZVdWc0VsmjHcu0=
+
+Name: c10/NewIODemo.java
+SHA-Digest: JG6wqeisIK0W1L5/echh9+7yC28=
+
+Name: c10/IOBug.java
+SHA-Digest: kMOCdisNqdlkx1LtJ31e0PhL2mw=
+
+Name: c10/Redirecting.java
+SHA-Digest: XecEn8Ca1jcpPM/kK6gtyhkfYmw=
+
+Name: c10/GZIPcompress.java
+SHA-Digest: o1x8MD6QUgGmE3lUcEC13m0Q8Pk=
+
+Name: c10/ZipCompress.java
+SHA-Digest: 70pNHz7h5trU1WMxb7axOn7o2Co=
+
+Name: c10/Worm.java
+SHA-Digest: eJsLmukp0L8trp7eKDl0AqlyBnc=
+
+Name: c10/Alien.java
+SHA-Digest: Cy35x9m0iFE22jBlp9GiI5O1LYk=
+
+Name: c10/FreezeAlien.java
+SHA-Digest: MeASbPKcby0XoCUAa4J+5T7lvc8=
+
+Name: c10/Blips.java
+SHA-Digest: /8cOVeSvk/g1LOqTG1LA2xcrMu4=
+
+Name: c10/Blip3.java
+SHA-Digest: kesOCg+VEEq+1ZQEQYA2VDurOws=
+
+Name: c10/Logon.java
+SHA-Digest: wg4CyT6NODyPXTWDVGxHN2m5uFE=
+
+Name: c10/SerialCtl.java
+SHA-Digest: iD847AEHRTBwPQzKVEVKiozTDYE=
+
+Name: c10/MyWorld.java
+SHA-Digest: uh10wlQVvgLFRDivYmwiA05nies=
+
+Name: c10/CADState.java
+SHA-Digest: xDdBs2EsbM4OEPfffIfFlpl0+Ew=
+
+Name: c10/24.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c10/xfiles/ThawAlien.java
+SHA-Digest: P5OMkBHZ9c9txWDVx2SltR5GtGQ=
+
+Name: c10/xfiles/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c11/Shapes.java
+SHA-Digest: SNPvabWfue45J1AsaLKah2ZW86s=
+
+Name: c11/SweetShop.java
+SHA-Digest: ZfQxLPlVCdqx2OYv7J2wZnhYoZQ=
+
+Name: c11/ToyTest.java
+SHA-Digest: 5TFXVxStSEfbPWPECXEX6t8mZZ4=
+
+Name: c11/ShowMethods.java
+SHA-Digest: zJ/OCJMu+vEDihBfAYtYk8slDl0=
+
+Name: c11/ShowMethodsClean.java
+SHA-Digest: xoocpXn3q95oQjc0KDlbMlALrr4=
+
+Name: c11/5.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c11/petcount/PetCount.java
+SHA-Digest: S7nfL4b8YY3tdqJvrJLd72f/d5s=
+
+Name: c11/petcount/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c11/petcount3/PetCount3.java
+SHA-Digest: HBCELQa6nkWE0c0ri7YfzA7TNnw=
+
+Name: c11/petcount3/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c11/petcount2/PetCount2.java
+SHA-Digest: HKWgJCeqpvtwTg01hROXmbOPYb8=
+
+Name: c11/petcount2/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c12/PassHandles.java
+SHA-Digest: UYUGVWwxwvFNwUzkvE9MSyyTWZ0=
+
+Name: c12/Alias1.java
+SHA-Digest: bzdPP0p93VZrW/NDmiHB8BRUAj0=
+
+Name: c12/Alias2.java
+SHA-Digest: g2I3uPisL5IBkdP3lr0U2aFoFYA=
+
+Name: c12/Cloning.java
+SHA-Digest: OVhYJk6MJcULqeS5febrFnDTPJE=
+
+Name: c12/LocalCopy.java
+SHA-Digest: 3XeC5MhXXt7t5y4iaDYIwUs8KB4=
+
+Name: c12/Snake.java
+SHA-Digest: rurZD71Fi3UR44RJ3Y7n6UfAx5A=
+
+Name: c12/DeepCopy.java
+SHA-Digest: AzIssTHT6e3scujgMrp6JAPYDvw=
+
+Name: c12/AddingClone.java
+SHA-Digest: KP3DxubXBWYCNj0g9C/aQ60q0mI=
+
+Name: c12/Compete.java
+SHA-Digest: KEddhMC38JSB41Xi+LDHuKpWxtE=
+
+Name: c12/HorrorFlick.java
+SHA-Digest: WzMWxOshMqjKEaTp+9V29unzfOU=
+
+Name: c12/CheckCloneable.java
+SHA-Digest: rk3hczM9FPuiEn5IUCmOQlruh9w=
+
+Name: c12/CopyConstructor.java
+SHA-Digest: UbKCxXfJj74ti71gt7Xvsb4KApc=
+
+Name: c12/ImmutableInteger.java
+SHA-Digest: phveph+y6N6aacTu17moyFxW9V4=
+
+Name: c12/MutableInteger.java
+SHA-Digest: Vl9zzq5j4xYe6E/z0dStOcc9s2Q=
+
+Name: c12/Immutable1.java
+SHA-Digest: mh93dCz4Y5SnvZqpWcyt8DMyBuc=
+
+Name: c12/Immutable2.java
+SHA-Digest: amNDJeyB6ZArlCFqSqZLXOhcnIw=
+
+Name: c12/Stringer.java
+SHA-Digest: svapirmhyYfCWeTGu6KRVczng1w=
+
+Name: c12/ImmutableStrings.java
+SHA-Digest: Pp316onYrZ3igCW4AUafO9ANmug=
+
+Name: c12/18.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c13/Applet1.java
+SHA-Digest: c0VQvzWdHF3VKQ+mw3WlFvuWYsA=
+
+Name: c13/Applet2.java
+SHA-Digest: AqWqhGm86JuJg4W40jB70XA/Igs=
+
+Name: c13/Applet3.java
+SHA-Digest: a8DUtwhzOnfWegT1FCXzbVDPP5M=
+
+Name: c13/Button1.java
+SHA-Digest: tfmv6DdHa/Po7UCAu7dRmmAysPo=
+
+Name: c13/Button2.java
+SHA-Digest: Hf/opWtOA7PI+HSVsCwEwGB7spw=
+
+Name: c13/Button3.java
+SHA-Digest: m+5ffH28oA6dFXqG6+XXVMXOar8=
+
+Name: c13/TextField1.java
+SHA-Digest: fVUFh1UKssQ8U+KlS2C9nDDSkAY=
+
+Name: c13/TextArea1.java
+SHA-Digest: LwY0SWJcC0ZR2i3HPh1JFVbLXEE=
+
+Name: c13/Label1.java
+SHA-Digest: 0Ghn1yZjlvWz5NK+drNwENkWMks=
+
+Name: c13/CheckBox1.java
+SHA-Digest: xGKEVcztbPl3IrjtBqf1twBVAVM=
+
+Name: c13/RadioButton1.java
+SHA-Digest: e+wAEmSj+cDdd64EIjx7c7AdaL8=
+
+Name: c13/Choice1.java
+SHA-Digest: Z7oT6kZjqVjRQk9PkYQ7NWfqxUw=
+
+Name: c13/List1.java
+SHA-Digest: rmgy07PnmTpa8KDjSCZNKY+ChkM=
+
+Name: c13/List2.java
+SHA-Digest: ic194V2yi/7BtfCRFF059UgPBPE=
+
+Name: c13/FlowLayout1.java
+SHA-Digest: +lQWW0nfegIRCFi6GLUd2KZCNEQ=
+
+Name: c13/BorderLayout1.java
+SHA-Digest: 1qdtw/aSiK6UXHvkY/IupPGq/lo=
+
+Name: c13/GridLayout1.java
+SHA-Digest: rYnHPf4NSgBTHaqyq7Vrv+Ze9f0=
+
+Name: c13/CardLayout1.java
+SHA-Digest: 6pJgprhbFo43pamB812lJwabFns=
+
+Name: c13/AutoEvent.java
+SHA-Digest: NBB+eQv+CxY4pShpwoE9Jti9CQc=
+
+Name: c13/Menu1.java
+SHA-Digest: ZUfntdZzddFyOs9vMhZtBwLgmwA=
+
+Name: c13/ToeTest.java
+SHA-Digest: 07jaKlH1mtQ61fWQeasU1y24QWU=
+
+Name: c13/FileDialogTest.java
+SHA-Digest: kWR18zk+Itsp+hU46p0+oE6T5oI=
+
+Name: c13/Button2New.java
+SHA-Digest: QAtK6HAAiMYQmi9uCJA2PegNK9Q=
+
+Name: c13/Button2NewB.java
+SHA-Digest: Ze5IgunUnKRiQsrMnaLhGybTuao=
+
+Name: c13/TextNew.java
+SHA-Digest: zyOLtb4Y4koL2/3IrzmX0X4+DKw=
+
+Name: c13/TextAreaNew.java
+SHA-Digest: bfAYdJoZ6wmjXI9l468K9vOaiRA=
+
+Name: c13/RadioCheckNew.java
+SHA-Digest: KQaDR3TuAeWUB+nXsseEFAdakFE=
+
+Name: c13/ChoiceNew.java
+SHA-Digest: arim3qWno1F7BLD0ZQLniodtvYs=
+
+Name: c13/ListNew.java
+SHA-Digest: 45DrYIXJbofbOSn1IXnBKo+20Gs=
+
+Name: c13/MenuNew.java
+SHA-Digest: 158lcINnfkpjgUyCtUFC233mmvw=
+
+Name: c13/ToeTestNew.java
+SHA-Digest: YYlF5c/7D5gabn1HQi3RfPjCsM0=
+
+Name: c13/FileDialogNew.java
+SHA-Digest: xWXUOjhKwCyviYtPUxaw377+E3M=
+
+Name: c13/DynamicEvents.java
+SHA-Digest: +CgMFYFWjmCMgxpFkPAjEKrxNg0=
+
+Name: c13/Separation.java
+SHA-Digest: ik+U+LzCUXX36yDFxCnEBHTK6JQ=
+
+Name: c13/GoodIdea.java
+SHA-Digest: cfIcsoWxZJBiH7mbM2fQOw5wJPQ=
+
+Name: c13/BadIdea1.java
+SHA-Digest: jPFngTUPqIp0LC3FpANhtnRBq0g=
+
+Name: c13/BadIdea2.java
+SHA-Digest: PmDN7MmCv1LZQ36csrlOR2BbsJg=
+
+Name: c13/GoodTechnique.java
+SHA-Digest: 8IWESPAtOxyXuQz/M9FOcVUtYqU=
+
+Name: c13/BadTechnique.java
+SHA-Digest: q5nRMKdcyHVwQjqIeukpJKiKeR4=
+
+Name: c13/PrintDemo.java
+SHA-Digest: lFn3zlPVqzxEwPZQatMf0RV1n8o=
+
+Name: c13/PrintDemoApplet.java
+SHA-Digest: FCu+I0qpomPYjTmyGb/l6m8dJS4=
+
+Name: c13/CutAndPaste.java
+SHA-Digest: F0zjisCjn7VhmGiAZgea/heWJj4=
+
+Name: c13/42.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c13/swing/JButtonDemo.java
+SHA-Digest: h8ni6Tohi4MdGBRqsaErID8F5iM=
+
+Name: c13/swing/Show.java
+SHA-Digest: UsuujwrK/S6DELDIjpe/o/uMSKs=
+
+Name: c13/swing/Borders.java
+SHA-Digest: iqMkFv3gG6j5RSrJA/timpAo/zc=
+
+Name: c13/swing/Buttons.java
+SHA-Digest: /f50d5Mhqh/Nfroe2llX8IooiBg=
+
+Name: c13/swing/ButtonGroups.java
+SHA-Digest: nfSKPgezIMB8ZK++VmLwFuVUa8Q=
+
+Name: c13/swing/Faces.java
+SHA-Digest: JYYg1NnT8blA+hkPmRsOUY+wJ+c=
+
+Name: c13/swing/Menus.java
+SHA-Digest: /GarZpZsZZ1lxwVkp1g+HgJdkVc=
+
+Name: c13/swing/Popup.java
+SHA-Digest: i7i0lw8stx/ebg+T09zLCMlfp14=
+
+Name: c13/swing/ListCombo.java
+SHA-Digest: Zjj0Q/Km/XtyJdScVB+PdtRmnEc=
+
+Name: c13/swing/Progress.java
+SHA-Digest: FGd4I3g6hv+GMjAjknCQsPkm5Kc=
+
+Name: c13/swing/Trees.java
+SHA-Digest: phayC+PCezqvSjSAD3jKcibcXTg=
+
+Name: c13/swing/Table.java
+SHA-Digest: Glmtni0QVcmOefpMtvk/N/jRNGY=
+
+Name: c13/swing/Tabbed.java
+SHA-Digest: /p+iZh883grmQJXI+KEvcsA8L/k=
+
+Name: c13/swing/13.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c13/swing/Face0.gif
+SHA-Digest: D5thLoRjTvRcOFyWn7zXnrGTUnU=
+
+Name: c13/swing/Face3.gif
+SHA-Digest: o+a2I6Qb078G5ARBoWcyx2xjqUg=
+
+Name: c13/swing/Face2.gif
+SHA-Digest: ZGIm9I88AAKBub/Pne4yj7+ITrE=
+
+Name: c13/swing/Face1.gif
+SHA-Digest: LRdfxStADc/ZeIjpbwVCn5s8pyw=
+
+Name: c13/swing/Face4.gif
+SHA-Digest: YiBa8RagAmiJlxdZ7oZyKpGcnY4=
+
+Name: c14/Counter1.java
+SHA-Digest: 2i6H86/fAZyr3RqMgdxi+YuzRzo=
+
+Name: c14/SimpleThread.java
+SHA-Digest: XIEg6dzOUVEv5paEBPDYOnky8U8=
+
+Name: c14/Counter2.java
+SHA-Digest: grpcx25KBC55j5dKjj8hGpIUaos=
+
+Name: c14/Counter2i.java
+SHA-Digest: umv8y+Rz2p/SuYY34wFRloywcgM=
+
+Name: c14/Counter3.java
+SHA-Digest: S+63GjvjEljftTCyvtqjRFumkbY=
+
+Name: c14/Counter4.java
+SHA-Digest: f7hM92hY0U4E9KQTwpiqtug05R4=
+
+Name: c14/Daemons.java
+SHA-Digest: 3mv04ThjvlKNMn7VtDOC6tF3dhY=
+
+Name: c14/Sharing1.java
+SHA-Digest: DEM14sYKkEPvTkNufx1QE5Sz598=
+
+Name: c14/Sharing2.java
+SHA-Digest: a6xqDeXh4dYKEou+n/GxkzQpkqE=
+
+Name: c14/BangBean2.java
+SHA-Digest: NClejRvOXa/LwmSq5jssZnx7WzE=
+
+Name: c14/Blocking.java
+SHA-Digest: 0qdDxxhMtOSwZmPlSov56de6n8k=
+
+Name: c14/Interrupt.java
+SHA-Digest: CdlnzQ2hOkTXwIBSxHBR+icgrRk=
+
+Name: c14/Suspend.java
+SHA-Digest: YpQ3mFTNuxDRxT1BdO65eNlask0=
+
+Name: c14/Counter5.java
+SHA-Digest: shEwmMpq43mDEqu1293tpWLzXJU=
+
+Name: c14/TestAccess.java
+SHA-Digest: g8wOZR/FPaszNst/xvIbeHgzSvk=
+
+Name: c14/ThreadGroup1.java
+SHA-Digest: GX1MLUspgWu0hfpV6sQXAmkwwWc=
+
+Name: c14/ColorBoxes.java
+SHA-Digest: nGaiXntgURy2xcESkTYHbJ1Vm1U=
+
+Name: c14/ColorBoxes2.java
+SHA-Digest: mEx21aE1z1HNbizRmmZwhBCfCRg=
+
+Name: c14/18.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c15/ptime/PerfectTimeI.java
+SHA-Digest: a7vaMOjh2j/TcJMk7t9yduD1CG4=
+
+Name: c15/ptime/PerfectTime.java
+SHA-Digest: 4X8Otqhdx6pRP3cBK26n5XWbhzg=
+
+Name: c15/ptime/DisplayPerfectTime.java
+SHA-Digest: rMTDvc8hWz7jPCuhCbxI4HoXejA=
+
+Name: c15/ptime/3.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c15/WhoAmI.java
+SHA-Digest: tT4ViTEelnTlC2h+gXNur6IR9CQ=
+
+Name: c15/JabberServer.java
+SHA-Digest: PPdd8ZXmqY57Cg+18pjTfWflwLA=
+
+Name: c15/JabberClient.java
+SHA-Digest: /vTbsT7Lcx9N7PvzhJn+4UHL8hI=
+
+Name: c15/MultiJabberServer.java
+SHA-Digest: o2Li2W+J1d2E4xEO2RQQkMlMYZg=
+
+Name: c15/MultiJabberClient.java
+SHA-Digest: beVwKOhyfbldkqmow0A4k7Qd1f4=
+
+Name: c15/Dgram.java
+SHA-Digest: 2fzajkTywM2Hu8qpNG4lr6PllMs=
+
+Name: c15/ChatterServer.java
+SHA-Digest: 3HEiyl2Tsc3cS62w5cP10F4tK+s=
+
+Name: c15/ChatterClient.java
+SHA-Digest: lxUXlAIL/icL6i0L8P4NmGvPJbU=
+
+Name: c15/Listmgr.c
+SHA-Digest: dI54zzGfG/dEC33bDuZRqdP6ufg=
+
+Name: c15/NameCollector.java
+SHA-Digest: 4791O6ffA84XVM2/MZPZ8wSMiGo=
+
+Name: c15/NameSender.java
+SHA-Digest: J2bYUj/RJYWxeqAXzH0OWSihcnA=
+
+Name: c15/EncodeDemo.java
+SHA-Digest: bdcJymxGj4ePIBBFJeIM7+MvC20=
+
+Name: c15/NameSender2.java
+SHA-Digest: Ivy1KjyVFeIlzucIZJv6a4AKiQU=
+
+Name: c15/ShowHTML.java
+SHA-Digest: bWkBSGnhtrAiGTlBREJXvCjCz5w=
+
+Name: c15/CGITools.h
+SHA-Digest: M552c/dviUzOGZrxI9wW/n3lhQU=
+
+Name: c15/Listmgr2.cpp
+SHA-Digest: S32/Wq05WIaJFKa37lhNzZYXHeo=
+
+Name: c15/POSTtest.cpp
+SHA-Digest: bcE5eFUNo+xWNFJYRPHhEMlpUIk=
+
+Name: c15/POSTtest.java
+SHA-Digest: L8YdOIYHF9u5Wzihbr74uhqihVk=
+
+Name: c15/Lookup.java
+SHA-Digest: Oez9KM+0dnNy3ktXxRsJWtt60Sc=
+
+Name: c15/VLookup.java
+SHA-Digest: 7jCqaUr+fo0K849NGLX29Q9qcqU=
+
+Name: c15/20.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/doubledispatch/TypedBinMember.java
+SHA-Digest: mHf/xhXtwz4tPpE1ZxvnwUBHjhQ=
+
+Name: c16/doubledispatch/DDAluminum.java
+SHA-Digest: 74kGqLWQCssYfD/dKhLyr850i3g=
+
+Name: c16/doubledispatch/DDPaper.java
+SHA-Digest: FHYqij7LMFgoPXEdEXFBOTTyCTU=
+
+Name: c16/doubledispatch/DDGlass.java
+SHA-Digest: dPqfBLKW4/6jrmLmhVjV817DW6w=
+
+Name: c16/doubledispatch/DDCardboard.java
+SHA-Digest: ghDxf9ysOP5DYHA9fEzCsShdlGU=
+
+Name: c16/doubledispatch/TypedBin.java
+SHA-Digest: 3oH9ddw+NL76sQa+LwwNht54GtU=
+
+Name: c16/doubledispatch/DoubleDispatch.java
+SHA-Digest: J9wpPs9GYkgGnx3uavc4HuI7KrY=
+
+Name: c16/doubledispatch/7.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/dynatrash/DynaTrash.java
+SHA-Digest: 5rkoCcT0/pnRw0zFb89rs9H2Fxo=
+
+Name: c16/dynatrash/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/trashvisitor/Visitable.java
+SHA-Digest: E7wHVTvggGpgRHkjdUsu+MbnnYs=
+
+Name: c16/trashvisitor/VAluminum.java
+SHA-Digest: pj+bPfQykW6WPtMs1Mh5mTDZbEg=
+
+Name: c16/trashvisitor/VPaper.java
+SHA-Digest: 88tNjjtxJLWtjZ9I50ZscA0b3H8=
+
+Name: c16/trashvisitor/VGlass.java
+SHA-Digest: ef1kIKPHUe/61FOWuQv5O6HiE9Q=
+
+Name: c16/trashvisitor/VCardboard.java
+SHA-Digest: UrnJcJuRMk+jl9P7K++b3IzRAx8=
+
+Name: c16/trashvisitor/Visitor.java
+SHA-Digest: ap5jrR1ZpvB9jaZrJ9hqSD+vNk0=
+
+Name: c16/trashvisitor/TrashVisitor.java
+SHA-Digest: nvchg7+5U5pXz2wcjbFh7JMuxMs=
+
+Name: c16/trashvisitor/7.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/SingletonPattern.java
+SHA-Digest: CZS9KV8cAxNXNlSVZjox5EkK3tU=
+
+Name: c16/BoxObserver.java
+SHA-Digest: THYBQWd4GKU/XLKQ0cAVB1frlhU=
+
+Name: c16/2.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/trash/Trash.java
+SHA-Digest: wsTuwfej8bVPBFREapPUcklD0YI=
+
+Name: c16/trash/Aluminum.java
+SHA-Digest: mD3eMhGG6m/5SPUNPsFocgVGh3M=
+
+Name: c16/trash/Paper.java
+SHA-Digest: XbPLKHig9EqlCe15IvIlAYElCwQ=
+
+Name: c16/trash/Glass.java
+SHA-Digest: z7FfibBR1GUzpT1wmBSJBmYslBA=
+
+Name: c16/trash/Cardboard.java
+SHA-Digest: XP/dhjlNdNWtkW7rF8waC5SuvRM=
+
+Name: c16/trash/ParseTrash.java
+SHA-Digest: I4ZRea1RirRZ5O3OIJ4m0PlMGgg=
+
+Name: c16/trash/Fillable.java
+SHA-Digest: cI5thyoCM+mjZLWT2e8xJ0Dx3a0=
+
+Name: c16/trash/FillableVector.java
+SHA-Digest: FDXPzVO8Deh0uU5bzOdjNmSuhEg=
+
+Name: c16/trash/8.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/recycleap/RecycleAP.java
+SHA-Digest: FTb67jWd4jTyLicie1tsygSkPzg=
+
+Name: c16/recycleap/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/recycleb/RecycleB.java
+SHA-Digest: QSp/KWfHOMxZJrYdkxrtpI9asaI=
+
+Name: c16/recycleb/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c16/recyclea/RecycleA.java
+SHA-Digest: I89+d5bulrzeB7VFlObn6ftZlag=
+
+Name: c16/recyclea/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: c17/CodePackager.java
+SHA-Digest: s5oiolBcZwgOCGUyVmUCPQ4Vxz4=
+
+Name: c17/ClassScanner.java
+SHA-Digest: /agSJ1LWUd+x+pG1iPgQIoWAcLE=
+
+Name: c17/DisplayMethods.java
+SHA-Digest: ITiE+WfDfuy2KgRMNPZMAbeItqU=
+
+Name: c17/FieldOBeasts.java
+SHA-Digest: tzRz6bdaJIeRJ36Zv1RCJivalYY=
+
+Name: c17/4.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: com/bruceeckel/tools/debug/Assert.java
+SHA-Digest: 0yS5Ki+XA4NCgMxps93vSeuSxP0=
+
+Name: com/bruceeckel/tools/debug/1.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: com/bruceeckel/tools/P.java
+SHA-Digest: EMRwarFWVivSdZoUOumEUCTDHIc=
+
+Name: com/bruceeckel/tools/Assert.java
+SHA-Digest: uU/a5VcL/MyjpZ/r9pkNnFXcceo=
+
+Name: com/bruceeckel/tools/InFile.java
+SHA-Digest: /HdHQ6ObgEw3YRnAPUMaXRMF8Fc=
+
+Name: com/bruceeckel/tools/PrintFile.java
+SHA-Digest: TI1vpcsVKm6X6M/Kv3TuMxrowpw=
+
+Name: com/bruceeckel/tools/OutFile.java
+SHA-Digest: IsAnqkqPQHTOL0xd3BQY4gGsuhQ=
+
+Name: com/bruceeckel/tools/5.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: com/bruceeckel/util/Vector.java
+SHA-Digest: f4UJxrZ+q8eGAIlhQ5jhU/hmNCs=
+
+Name: com/bruceeckel/util/List.java
+SHA-Digest: lm+eK7NHOdb4x/Tq1wybc+6sGCc=
+
+Name: com/bruceeckel/util/2.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: frogbean/Frog.java
+SHA-Digest: aURsPFTHn8e7Yih8WjhP0/eXgWI=
+
+Name: frogbean/BeanDumper.java
+SHA-Digest: Z5u9yHJgdnK/EWzYMaiQ4r/1xIk=
+
+Name: frogbean/2.files
+SHA-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+

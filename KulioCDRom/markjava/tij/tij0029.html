@@ -1,0 +1,372 @@
+<html><body>
+
+<table width="100%"><tr>
+<td>
+<a href="http://www.bruceeckel.com/javabook.html">Bruce Eckel's Thinking in Java</a>
+</td>
+<td align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0028.html">Prev</a> | <a href="tij0030.html">Next</a>
+</td>
+</tr></table>
+<hr>
+
+<H2 ALIGN=LEFT>
+Analysis
+and Design
+<P><A NAME="Index54"></A><A NAME="Index55"></A><A NAME="Index56"></A></H2>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+object-oriented paradigm is a new and different way of thinking about
+programming and many folks have trouble at first knowing how to approach a
+project. Now that you know that everything is supposed to be an object, you can
+create a &#8220;good&#8221; design, one that will take advantage of all the
+benefits that OOP has to offer.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Books
+on OOP analysis and design are coming out of the woodwork. Most of these books
+are filled with lots of long words, awkward prose and important-sounding
+pronouncements.
+</FONT><A NAME="fnB9" HREF="#fn9">[9]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+I come away thinking the book would be better as a chapter or at the most a
+very short book and feeling annoyed that this process couldn&#8217;t be
+described simply and directly. (It disturbs me that people who purport to
+specialize in managing complexity have such trouble writing clear and simple
+books.) After all, the whole point of OOP is to make the <A NAME="Index57"></A>process
+of software development easier, and although it would seem to threaten the
+livelihood of those of us who consult because things are complex, why not make
+it simple? So, hoping I&#8217;ve built a healthy skepticism within you, I shall
+endeavor to give you my own perspective on analysis and design in as few
+paragraphs as possible.
+</FONT><a name="_Toc408018409"></a><P></DIV>
+<A NAME="Heading53"></A><H3 ALIGN=LEFT>
+Staying
+on course
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">While
+you&#8217;re going through the development process, the most important issue is
+this: don&#8217;t get lost. It&#8217;s easy to do. Most of these <A NAME="Index58"></A>methodologies
+are designed to solve the largest of problems. (This makes sense; these are the
+especially difficult projects that justify calling in that author as
+consultant, and justify the author&#8217;s large fees.) Remember that most
+projects don&#8217;t fit into that category, so you can usually have a
+successful analysis and design with a relatively small subset of what a
+methodology recommends. But some sort of process, no matter how limited, will
+generally get you on your way in a much better fashion than simply beginning to
+code.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">That
+said, if you&#8217;re looking at a methodology that contains tremendous detail
+and suggests many steps and documents, it&#8217;s still difficult to know when
+to stop. Keep in mind what you&#8217;re trying to discover:
+</FONT><P></DIV>
+<OL>
+<LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">	What
+are the objects? (How do you partition your project into its component parts?)
+</FONT><LI><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">	What
+are their interfaces? (What messages do you need to be able to send to each
+object?)
+</FONT></OL><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you come up with nothing more than the objects and their interfaces then you
+can write a program. For various reasons you might need more descriptions and
+documents than this, but you can&#8217;t really get away with any less.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+process can be undertaken in four phases, and a phase 0 which is just the
+initial commitment to using some kind of structure.
+</FONT><a name="_Toc408018410"></a><P></DIV>
+<A NAME="Heading54"></A><H3 ALIGN=LEFT>
+Phase
+0: Let&#8217;s make a plan
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+first step is to decide what steps you&#8217;re going to have in your process.
+It sounds simple (in fact, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>all</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+of this sounds simple) and yet, often, people don&#8217;t even get around to
+phase one before they start coding. If your plan is &#8220;let&#8217;s jump in
+and start coding,&#8221; fine. (Sometimes that&#8217;s appropriate when you
+have a well-understood problem.) At least agree that this is the <A NAME="Index59"></A>plan.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+might also decide at this phase that some additional process structure is
+necessary but not the whole nine yards. Understandably enough, some programmers
+like to work in &#8220;vacation mode&#8221; in which no structure is imposed on
+the process of developing their work: &#8220;It will be done when it&#8217;s
+done.&#8221; This can be appealing for awhile, but I&#8217;ve found that having
+a few milestones along the way helps to focus and galvanize your efforts around
+those milestones instead of being stuck with the single goal of &#8220;finish
+the project.&#8221; In addition, it divides the project into more bite-sized
+pieces and make it seem less threatening.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">When
+I began to study story structure (so that I will someday write a novel) I was
+initially resistant to the idea, feeling that when I wrote I simply let it flow
+onto the page. What I found was that when I wrote about computers the structure
+was simple enough so I didn&#8217;t need to think much about it, but I was
+still structuring my work, albeit only semi-consciously in my head. So even if
+you think that your plan is to just start coding, you still go through the
+following phases while asking and answering certain questions.
+</FONT><a name="_Toc408018411"></a><P></DIV>
+<A NAME="Heading55"></A><H3 ALIGN=LEFT>
+Phase
+1: What are we making?
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+the previous generation of program design (procedural design), this would be
+called &#8220;creating the <A NAME="Index60"></A><A NAME="Index61"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>requirements
+analysis
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+and <A NAME="Index62"></A><A NAME="Index63"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>system
+specification
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.&#8221;
+These, of course, were places to get lost: intimidatingly-named documents that
+could become big projects in their own right. Their intention was good,
+however. The requirements analysis says &#8220;Make a list of the guidelines we
+will use to know when the job is done and the customer is satisfied.&#8221; The
+system specification says &#8220;Here&#8217;s a description of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>what</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+the program will do (not 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>how</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">)
+to satisfy the requirements.&#8221; The requirements analysis is really a
+contract between you and the customer (even if the customer works within your
+company or is some other object or system). The system specification is a
+top-level exploration into the problem and in some sense a discovery of whether
+it can be done and how long it will take. Since both of these will require
+consensus among people, I think it&#8217;s best to keep them as bare as
+possible &#8211; ideally, to lists and basic diagrams &#8211; to save time. You
+might have other constraints that require you to expand them into bigger
+documents.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It&#8217;s
+necessary to stay focused on the heart of what you&#8217;re trying to
+accomplish in this phase: determine what the system is supposed to do. The most
+valuable tool for this is a collection of what are called &#8220;<A NAME="Index64"></A>use-cases.&#8221;
+These are essentially descriptive answers to questions that start with
+&#8220;What does the system do if ...&#8221; For example, &#8220;What does the
+auto-teller do if a customer has just deposited a check within 24 hours and
+there&#8217;s not enough in the account without the check to provide the
+desired withdrawal?&#8221; The use-case then describes what the auto-teller
+does in that case.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You
+try to discover a full set of use-cases for your system, and once you&#8217;ve
+done that you&#8217;ve got the core of what the system is supposed to do. The
+nice thing about focusing on use-cases is that they always bring you back to
+the essentials and keep you from drifting off into issues that aren&#8217;t
+critical for getting the job done. That is, if you have a full set of use-cases
+you can describe your system and move onto the next phase. You probably
+won&#8217;t get it all figured out perfectly at this phase, but that&#8217;s
+OK. Everything will reveal itself in the fullness of time, and if you demand a
+perfect system specification at this point you&#8217;ll get stuck.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">It
+helps to kick-start this phase by describing the system in a few paragraphs and
+then looking for nouns and verbs. The nouns become the objects and the verbs
+become the methods in the object interfaces. You&#8217;ll be surprised at how
+useful a tool this can be; sometimes it will accomplish the lion&#8217;s share
+of the work for you.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Although
+it&#8217;s a black art, at this point some kind of <A NAME="Index65"></A>scheduling
+can be quite useful. You now have an overview of what you&#8217;re building so
+you&#8217;ll probably be able to get some idea of how long it will take. A lot
+of factors come into play here: if you estimate a long schedule then the
+company might not decide to build it, or a manager might have already decided
+how long the project should take and will try to influence your estimate. But
+it&#8217;s best to have an honest schedule from the beginning and deal with the
+tough decisions early. There have been a lot of attempts to come up with
+accurate scheduling techniques (like techniques to predict the stock market),
+but probably the best approach is to rely on your experience and intuition. Get
+a gut feeling for how long it will really take, then double that and add 10
+percent. Your gut feeling is probably correct; you 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>can</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+get something working in that time. The &#8220;doubling&#8221; will turn that
+into something decent, and the 10 percent will deal with final polishing and
+details. However you want to explain it, and regardless of the moans and
+manipulations that happen when you reveal such a schedule, it just seems to
+work out that way.
+</FONT><a name="_Toc408018412"></a><P></DIV>
+<A NAME="Heading56"></A><H3 ALIGN=LEFT>
+Phase
+2: How will we build it?
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">In
+this phase you must come up with a design that describes what the classes look
+like and how they will interact. A useful diagramming tool that has evolved
+over time is the <A NAME="Index66"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Unified
+Modeling Language
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+(UML). You can get the specification for UML at 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>www.rational.com</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+UML can also be helpful as a descriptive tool during phase 1, and some of the
+diagrams you create there will probably show up unmodified in phase 2. You
+don&#8217;t need to use UML, but it can be helpful, especially if you want to
+put a diagram up on the wall for everyone to ponder, which is a good idea. An
+alternative to UML is a textual description of the objects and their interfaces
+(as I described in 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Thinking
+in C++
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">),
+but this can be limiting.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+most successful consulting experiences I&#8217;ve had when coming up with an
+initial design involves standing in front of a team, who hadn&#8217;t built an
+OOP project before, and drawing objects on a whiteboard. We talked about how
+the objects should communicate with each other, and erased some of them and
+replaced them with other objects. The team (who knew what the project was
+supposed to do) actually created the design; they &#8220;owned&#8221; the
+design rather than having it given to them. All I was doing was guiding the
+process by asking the right questions, trying out the assumptions and taking
+the feedback from the team to modify those assumptions. The true beauty of the
+process was that the team learned how to do object-oriented design not by
+reviewing abstract examples, but by working on the one design that was most
+interesting to them at that moment: theirs.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">You&#8217;ll
+know you&#8217;re done with phase 2 when you have described the objects and
+their interfaces. Well, most of them &#8211; there are usually a few that slip
+through the cracks and don&#8217;t make themselves known until phase 3. But
+that&#8217;s OK. All you are concerned with is that you eventually discover all
+of your objects. It&#8217;s nice to discover them early in the process but OOP
+provides enough structure so that it&#8217;s not so bad if you discover them
+later.
+</FONT><a name="_Toc408018413"></a><P></DIV>
+<A NAME="Heading57"></A><H3 ALIGN=LEFT>
+Phase
+3: Let&#8217;s build it!
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">If
+you&#8217;re reading this book you&#8217;re probably a programmer, so now
+we&#8217;re at the part you&#8217;ve been trying to get to. By following a plan
+&#8211; no matter how simple and brief &#8211; and coming up with design
+structure before coding, you&#8217;ll discover that things fall together far
+more easily than if you dive in and start hacking, and this provides a great
+deal of satisfaction. Getting code to run and do what you want is fulfilling,
+even like some kind of drug if you look at the obsessive behavior of some
+programmers. But it&#8217;s my experience that coming up with an elegant
+solution is deeply satisfying at an entirely different level; it feels closer
+to art than technology. And <A NAME="Index67"></A>elegance
+always pays off; it&#8217;s not a frivolous pursuit. Not only does it give you
+a program that&#8217;s easier to build and debug, but it&#8217;s also easier to
+understand and maintain, and that&#8217;s where the financial value lies.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">After
+you build the system and get it running, it&#8217;s important to do a reality
+check, and here&#8217;s where the requirements analysis and system
+specification comes in. Go through your program and make sure that all the
+requirements are checked off, and that all the use-cases work the way
+they&#8217;re described. Now you&#8217;re done. Or are you?
+</FONT><a name="_Toc408018414"></a><P></DIV>
+<A NAME="Heading58"></A><H3 ALIGN=LEFT>
+Phase
+4: Iteration
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">This
+is the point in the development cycle that has traditionally been called
+&#8220;maintenance,&#8221; a catch-all term that can mean everything from
+&#8220;getting it to work the way it was really supposed to in the first
+place&#8221; to &#8220;adding features that the customer forgot to mention
+before&#8221; to the more traditional &#8220;fixing the bugs that show
+up&#8221; and &#8220;adding new features as the need arises.&#8221; So many
+misconceptions have been applied to the term &#8220;maintenance&#8221; that it
+has taken on a slightly deceiving quality, partly because it suggests that
+you&#8217;ve actually built a pristine program and that all you need to do is
+change parts, oil it and keep it from rusting. Perhaps there&#8217;s a better
+term to describe what&#8217;s going on.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">The
+term is <A NAME="Index68"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>iteration</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+That is, &#8220;You won&#8217;t get it right the first time, so give yourself
+the latitude to learn and to go back and make changes.&#8221; You might need to
+make a lot of changes as you learn and understand the problem more deeply. The
+elegance you&#8217;ll produce if you iterate until you&#8217;ve got it right
+will pay off, both in the short and the long run.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">What
+it means to &#8220;get it right&#8221; isn&#8217;t just that the program works
+according to the requirements and the use-cases. It also means that the
+internal structure of the code makes sense to you, and feels like it fits
+together well, with no awkward syntax, oversized objects or ungainly exposed
+bits of code. In addition, you must have some sense that the program structure
+will survive the changes that it will inevitably go through during its
+lifetime, and that those changes can be made easily and cleanly. This is no
+small feat. You must not only understand what you&#8217;re building, but also
+how the program will evolve (what I call the <A NAME="Index69"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>vector
+of change
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">).
+Fortunately, object-oriented programming languages are particularly adept at
+supporting this kind of continuing modification &#8211; the boundaries created
+by the objects are what tend to keep the structure from breaking down. They are
+also what allow you to make changes that would seem drastic in a procedural
+program without causing earthquakes throughout your code. In fact, support for
+iteration might be the most important benefit of OOP.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">With
+iteration, you create something that at least approximates what you think
+you&#8217;re building, and then you kick the tires, compare it to your
+requirements and see where it falls short. Then you can go back and fix it by
+redesigning and re-implementing the portions of the program that didn&#8217;t
+work right.
+</FONT><A NAME="fnB10" HREF="#fn10">[10]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+You might actually need to solve the problem, or an aspect of the problem,
+several times before you hit on the right solution. (A study of 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>Design
+Patterns
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">,
+described in Chapter 16, is usually helpful here.)
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Iteration
+also occurs when you build a system, see that it matches your requirements and
+then discover it wasn&#8217;t actually what you wanted. When you see the
+system, you realize you want to solve a different problem. If you think this
+kind of iteration is going to happen, then you owe it to yourself to build your
+first version as quickly as possible so you can find out if it&#8217;s what you
+want.
+</FONT><P></DIV><DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Iteration
+is closely tied to <A NAME="Index70"></A></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>incremental
+development
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">.
+Incremental development means that you start with the core of your system and
+implement it as a framework upon which to build the rest of the system piece by
+piece. Then you start adding features one at a time. The trick to this is in
+designing a framework that will accommodate all the features you plan to add to
+it. (See Chapter 16 for more insight into this issue.) The advantage is that
+once you get the core framework working, each feature you add is like a small
+project in itself rather than part of a big project. Also, new features that
+are incorporated later in the development or maintenance phases can be added
+more easily. OOP supports incremental development because if your program is
+designed well, your increments will turn out to be discreet objects or groups
+of objects.
+</FONT><a name="_Toc408018415"></a><P></DIV>
+<A NAME="Heading59"></A><H3 ALIGN=LEFT>
+Plans
+pay off
+</H3>
+<DIV ALIGN=LEFT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">Of
+course you wouldn&#8217;t build a house without a lot of carefully-drawn plans.
+If you build a deck or a dog house, your plans won&#8217;t be so elaborate but
+you&#8217;ll still probably start with some kind of sketches to guide you on
+your way. Software development has gone to extremes. For a long time, people
+didn&#8217;t have much structure in their development, but then big projects
+began failing. In reaction, we ended up with methodologies that had an
+intimidating amount of structure and detail. These were too scary to use
+&#8211; it looked like you&#8217;d spend all your time writing documents and no
+time programming. (This was often the case.) I hope that what I&#8217;ve shown
+you here suggests a middle path &#8211; a sliding scale. Use an approach that
+fits your needs (and your personality). No matter how minimal you choose to
+make it, 
+</FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black"><I>some</I></FONT><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+kind of plan will make a big improvement in your project as opposed to no plan
+at all. Remember that, by some estimates, over 50 percent of projects fail.
+</FONT><a name="_Toc375545210"></a><a name="_Toc408018416"></a><P></DIV>
+<HR><DIV ALIGN=LEFT><A NAME="fn9" HREF="#fnB9">[9]</A><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+The best introduction is still Grady Booch&#8217;s 
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black"><I>Object-Oriented
+Design with Applications
+</I></FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">,
+2
+</FONT><SUP><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">nd</FONT></SUP><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">
+edition, Wiley &amp; Sons 1996. His insights are clear and his prose is
+straightforward, although his notations are needlessly complex for most
+designs. (You can easily get by with a subset.)
+</FONT><P></DIV>
+<DIV ALIGN=LEFT><A NAME="fn10" HREF="#fnB10">[10]</A><FONT FACE="Carmina Md BT" SIZE=3 COLOR="Black">
+</FONT><FONT FACE="Carmina Md BT" SIZE=2 COLOR="Black">This
+is something like &#8220;rapid prototyping,&#8221; where you were supposed to
+build a quick-and-dirty version so that you could learn about the system, and
+then throw away your prototype and build it right. The trouble with rapid
+prototyping is that people didn&#8217;t throw away the prototype, but instead
+built upon it. Combined with the lack of structure in procedural programming,
+this often leads to messy systems that are expensive to maintain.
+</FONT><P></DIV>
+
+
+<div align="right">
+<a href="tij_c.html">Contents</a> | <a href="tij0028.html">Prev</a> | <a href="tij0030.html">Next</a>
+</div>
+</body></html>
+
