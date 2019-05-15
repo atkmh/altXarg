@@ -1,0 +1,93 @@
+1: package theBeginning;
+2: 
+3: //: c11:IOStreamDemo.java
+4: //Typical I/O stream configurations.
+5: import java.io.*;
+6: public class IOStreamDemo {
+7: 	//Throw exceptions to console:
+8: 	public static void main(String[] args)
+9: 			throws IOException {
+10: 	
+11: /*		
+12: 		//1. Reading input by lines:
+13: 		BufferedReader in =
+14: 				new BufferedReader(
+15: 						new FileReader("IOStreamDemo.java"));  */
+16: 		String s, s2 = new String();
+17: 		
+18: 	/*	
+19: 		
+20: 		while((s = in.readLine())!= null)
+21: 			s2 += s + "\n";
+22: 		in.close();
+23: 		
+24: 	*/	
+25: 		
+26: 		
+27: 		//1b. Reading standard input:
+28: 		BufferedReader stdin = new BufferedReader( new InputStreamReader(System.in));
+29: 		System.out.print("Enter a line:");
+30: 		System.out.println(stdin.readLine());
+31: 		//2. Input from memory
+32: 		StringReader in2 = new StringReader(s2);
+33: 		int c;
+34: 		while((c = in2.read()) != -1)
+35: 
+36: 			System.out.print((char)c);
+37: 		//3. Formatted memory input
+38: 		try {
+39: 			DataInputStream in3 = new DataInputStream( new ByteArrayInputStream(s2.getBytes()));
+40: 			while(true)
+41: 				System.out.print((char)in3.readByte());
+42: 		} catch(EOFException e) {
+43: 			System.err.println("End of stream");
+44: 		}
+45: 		//4. File output
+46: 		try {
+47: 			BufferedReader in4 = new BufferedReader( new StringReader(s2));
+48: 			PrintWriter out1 = new PrintWriter( new BufferedWriter( new FileWriter("IODemo.out")));
+49: 			int lineCount = 1;
+50: 			while((s = in4.readLine()) != null )
+51: 				out1.println(lineCount++ + ": " + s);
+52: 			out1.close();
+53: 		} catch(EOFException e) {
+54: 			System.err.println("End of stream");
+55: 		}
+56: 		//5. Storing & recovering data
+57: 		try {
+58: 			DataOutputStream out2 = new DataOutputStream( new BufferedOutputStream( new FileOutputStream("Data.txt")));
+59: 			out2.writeDouble(3.14159);
+60: 			out2.writeChars("That was pi\n");
+61: 			out2.writeBytes("That was pi\n");
+62: 			out2.close();
+63: 			DataInputStream in5 = new DataInputStream( new BufferedInputStream( new FileInputStream("Data.txt")));
+64: 			BufferedReader in5br = new BufferedReader( new InputStreamReader(in5));
+65: 			//Must use DataInputStream for data:
+66: 			System.out.println(in5.readDouble());
+67: 			//Can now use the "proper" readLine():
+68: 			System.out.println(in5br.readLine());
+69: 			//But the line comes out funny.
+70: 			//The one created with writeBytes is OK:
+71: 			System.out.println(in5br.readLine());
+72: 		} catch(EOFException e) {
+73: 			System.err.println("End of stream");
+74: 		}
+75: 		//6. Reading/writing random access files
+76: 		RandomAccessFile rf = new RandomAccessFile("rtest.dat", "rw");
+77: 		for(int i = 0; i < 10; i++)
+78: 			rf.writeDouble(i*1.414);
+79: 		rf.close();
+80: 		rf =
+81: 				new RandomAccessFile("rtest.dat", "rw");
+82: 		rf.seek(5*8);
+83: 		rf.writeDouble(47.0001);
+84: 		rf.close();
+85: 		rf =
+86: 				new RandomAccessFile("rtest.dat", "r");
+87: 		for(int i = 0; i < 10; i++)
+88: 			System.out.println(
+89: 					"Value " + i + ": " +
+90: 							rf.readDouble());
+91: 		rf.close();
+92: 	}
+93: } ///:~
