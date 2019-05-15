@@ -4,11 +4,19 @@ public class A2ndMain {
 
 	public static void main(String[] args) {
 		
-		for (int i=0 ; i<args.length ; i++) {
-		System.out.print(args[i] +" ");
+		if (args.length != 0) {
+		
+			for (int i=0 ; i<args.length ; i++) 
+				System.out.print(args[i] +" ");
 			
-		//	System.out.println(args[i] ); //+" "   );
+			String matrixA = args[0];
+			System.out.println("Matrix A: is " + matrixA);
 		}
+		else {
+			System.out.println("Program continues: User will enter all params at runtime.");
+			
+		}
+			
 	}
 
 }
