@@ -1,9 +1,10 @@
-package JM2Test;
+package main.java.com.matrixJava;
 
-public class A2ndMain {
+public class Main {
 
 	public static void main(String[] args) {
-		
+	    // I believe this needs to become a something.  What I don't know.
+		// I wanted this to be a self contained thing that parses input.
 		// Do we have argument
 		if (args.length != 0) {
 			
@@ -11,8 +12,6 @@ public class A2ndMain {
 			String matrixA = args[0].replace('x', 'X');
 		
 			evalArg_0(matrixA);// Determine proper first argument format nXn
-			
-			
 			
 			/**********************************************************
 			 *  Get the first char of first Argument  nXn 
@@ -51,11 +50,13 @@ public class A2ndMain {
 			
 			System.out.println("Matrix A: is " + matrixA);
 			
-			int testR, testC, A, B, C, D, E, F, G, H;
-			testR=3; testC=4; A=22; B=33; C=12; D=13; E=17; F=11;
-			
-			Matrix testMatrix = new Matrix(i, j, A, B, C, D );
-			Matrix secTestM = new Matrix (i,j,i*A,j*B,i*C,j*D);
+			/*
+			 * int testR, testC, A, B, C, D, E, F, G, H; testR=3; testC=4; A=22; B=33; C=12;
+			 * D=13; E=17; F=11;
+			 * 
+			 * Matrix testMatrix = new Matrix(i, j, A, B, C, D ); Matrix secTestM = new
+			 * Matrix (i,j,i*A,j*B,i*C,j*D);
+			 */
 
 		} // first half of if (args.length != 0)
 		else {

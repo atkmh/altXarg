@@ -1,4 +1,4 @@
-package JM2Test;
+package main.java.com.matrixJava;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ public class Matrix {
 	A0=2; A1=4; B0=3; B1=7;
 	Matrix myNewMatrix = new Matrix(mainRow, mainCol);
 	Matrix myOtherMatrix = new Matrix(mainRow, mainCol, A0,A1,B0,B1);
-		
+	myNewMatrix.Add(myOtherMatrix);	
 	}
 
 	
@@ -29,7 +29,7 @@ public class Matrix {
 
 	
 	// Contstructor
-	Matrix( int n, int m, int A1, int A2, int B1, int B2    ){
+	public Matrix( int n, int m, int A1, int A2, int B1, int B2    ){
 		this.mRows = n;
 		this.mCols = m;
 		int [][] m_data = new int[n][m];
@@ -62,8 +62,8 @@ public class Matrix {
 	
 	
 	
-	public static void Add() {
-		
+	public static void Add(Matrix B) {
+		System.out.println("We are inside the Matrix.Add() method");
 	}
 }
 	

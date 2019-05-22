@@ -11,6 +11,9 @@ public class ParseCmdLine {
         String arg;
         char flag;
         boolean vflag = false;
+        boolean fFlag = false;
+        boolean cFlag = false;
+        
         String outputfile = "";
 
         while (i < args.length && args[i].startsWith("-")) {
@@ -22,6 +25,14 @@ public class ParseCmdLine {
                 vflag = true;
             }
 
+    // use this type of check for "file" arguments
+            if (arg.equals("-f")) {
+                System.out.println("file mode on");
+                fFlag = true;
+            }
+
+            
+            
     // use this type of check for arguments that require arguments
             else if (arg.equals("-output")) {
                 if (i < args.length)
