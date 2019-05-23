@@ -8,6 +8,7 @@
 // https://coderanch.com/t/658338/engineering/write-unit-test-passing-argumentso
 // Issue:  System.exit() in main will stop testMain cus the JVM is shut down on exit
 // So I commented out my exits for the command line testing.
+/*                                                                 */
 
 
 package test.java.com.matrixJava;
