@@ -25,8 +25,7 @@ public class Main {
 			System.out.println("the value of i multiply by 6 is: " +i*6);
 		    k=0 ; // reset index
 		    
-		    // The following is a little bit of a trick using  k++ inside as the charAt(argument)
-		    // but it keeps you from having to write it inside the Loop, and once after the loop
+		    // The following is a little bit of a trick using  k++ inside as the charAt(argument) // but it keeps you from having to write it inside the Loop, and once after the loop
 		    //
 
 		  while ( ( k < matrixA.length() ) && (matrixA.charAt(k++) !='X')  ) 
@@ -58,7 +57,7 @@ public class Main {
 			 * Matrix (i,j,i*A,j*B,i*C,j*D);
 			 */
 
-		} // first half of if (args.length != 0)
+		} //  end of first half of if (args.length != 0)
 		else {
 			System.out.println("Program continues: User will enter all params at runtime.");
 			
@@ -70,7 +69,7 @@ public class Main {
 			System.out.println("The Input length was: " +theArgs.length );
 			displayInput(theArgs);
 			System.out.println("exiting input to short ");
-			System.exit(0);
+			//System.exit(0);
 		}
 		
 	}
@@ -98,7 +97,7 @@ public class Main {
 			System.out.println("As the first argument, " +argument_0 +" does not conform to mXn .");
 			System.out.println("A key char 'X' was missing from arg[0]");
 			System.out.println("EXITING");
-			System.exit(0);
+			//System.exit(0);
 		}
 		for (int i=0 ; i<argument_0.length(); i++) {
 			char ch = argument_0.charAt(i);
@@ -110,7 +109,7 @@ public class Main {
 				System.out.println("As the first argument, " +argument_0 +" does not conform to mXn .");
 				System.out.println("At least one char was not a ditgit in the correct locaion");
 				System.out.println("EXITING");
-				System.exit(0);
+				//System.exit(0);
 			}
 		}	
 		

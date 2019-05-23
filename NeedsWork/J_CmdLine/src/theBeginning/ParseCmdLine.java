@@ -31,8 +31,6 @@ public class ParseCmdLine {
                 fFlag = true;
             }
 
-            
-            
     // use this type of check for arguments that require arguments
             else if (arg.equals("-output")) {
                 if (i < args.length)
@@ -54,13 +52,16 @@ public class ParseCmdLine {
                     case 'n':
                         if (vflag) System.out.println("Option n");
                         break;
+                    case 'f':
+                        if (vflag) System.out.println("Option f");
+                        break;
                     default:
                         System.err.println("ParseCmdLine: illegal option " + flag);
                         break;
                     }
                 }
             }
-        }
+        }// end while (i < args.length && args[i].startsWith("-")
         if (i == args.length)
             System.err.println("Usage: ParseCmdLine [-verbose] [-xn] [-output afile] filename");
         else
