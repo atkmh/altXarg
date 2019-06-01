@@ -12,6 +12,20 @@ public class TestMatrix {
 		
 		Matrix testMatrix = new Matrix(i, j, A, B, C, D );
 		Matrix secTestM = new Matrix (i,j,i*A,j*B,i*C,j*D);
+		System.out.println("*********************");
+		System.out.println("*********************");
+		System.out.println("*********************");
+		System.out.println("*********************");
+		System.out.println("*********************");
+		secTestM.displayDeepString(secTestM);
+		
 	}
 
 }
+/*
+ * int testR, testC, A, B, C, D, E, F, G, H; testR=3; testC=4; A=22; B=33; C=12;
+ * D=13; E=17; F=11;
+ * 
+ * Matrix testMatrix = new Matrix(i, j, A, B, C, D ); Matrix secTestM = new
+ * Matrix (i,j,i*A,j*B,i*C,j*D);
+ */

@@ -9,6 +9,7 @@
 // Issue:  System.exit() in main will stop testMain cus the JVM is shut down on exit
 // So I commented out my exits for the command line testing.
 /*                                                                 */
+//http://www.nathanbak.com/?p=388   may have a solution to system.exit
 
 
 package test.java.com.matrixJava;
@@ -18,24 +19,30 @@ import main.java.com.matrixJava.Main;
 public class TestMain {
 
 	public static void main(String[] args) {
-		
-	Main.main(new String[] {});
-	System.out.println("");
-	Main.main(new String[] {"2x2","1", "3", "4", "4"});
-	System.out.println("");
+		 String[] emptyArgs = {};	
+		 String[] dumyInput = new String[0];
+		  Main.main(emptyArgs);
 
-	Main.main(new String[]{"2x2", "4", "4","5", "5"});
-System.out.println("");
-	Main.main(new String[] {"2x3", "4", "4","5", "5"});
-
-System.out.println("");
-	Main.main(new String[] {"2x0", "4", "4","5", "5"});
-
-System.out.println("");
-	Main.main(new String[] {"2b 3", "4", "4","5", "5"});
-
-System.out.println("");
-	Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
+		  Main.main(new String[] {"debug"});  System.out.println(""); System.out.println(""); System.out.println(""); 
+		  Main.main(new String[] {"debug","2x2","1", "3", "4", "4"}); System.out.println("");System.out.println("");
+		  Main.main(new String[] {"2x2","1", "3", "4", "4"}); System.out.println("");System.out.println("");System.out.println("");
+		  
+		  
+		/*
+		 * Main.main(new String[] {}); System.out.println("");
+		 * 
+		 * 
+		 * Main.main(new String[] {"2x2","1", "3", "4", "4"}); System.out.println("");
+		 * 
+		 * Main.main(new String[]{"2x2", "4", "4","5", "5"}); System.out.println("");
+		 * Main.main(new String[] {"2x3", "4", "4","5", "5"});
+		 * 
+		 * System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
+		 * 
+		 * System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
+		 * 
+		 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
+		 */
 	
 	
 	

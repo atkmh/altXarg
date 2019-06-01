@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Matrix {
 
     int mRows, mCols;
-	//int [][] m_data;
+	int [][] m_data;
 	
 
 	
@@ -20,15 +20,16 @@ public class Matrix {
 	}
 
 	
-	// Contstructor
+	// Contstructor just the size / order
 	Matrix( int n, int m){
 		this.mRows = n;
 		this.mCols = m;
 		System.out.println("this is the only current contructor");
 	}
 
-	
-	// Contstructor
+	// Fixed size known at compile time 2X2 is dimension this has.
+	// * Trying to figure out if this arch could make me a 1X4 or a 4X1 as well.
+	// Contstructor Size, order , and all values
 	public Matrix( int n, int m, int A1, int A2, int B1, int B2    ){
 		this.mRows = n;
 		this.mCols = m;
@@ -52,18 +53,32 @@ public class Matrix {
 				board[i][j] = i + j; 
 			} 
 		}
-		System.out.println(Arrays.deepToString(board));
 		System.out.println("this is the other contructor with data");
 		for (int[] a : board) { 
 			for (int i : a) { 
-				System.out.print(i + "\t"); } 
-			System.out.println("\n"); }
+				System.out.print(String.format("%5d", i*i*i)); 
+			} 
+			System.out.println(); //System.out.println("\n"); //System.out.print("\n"); 
+		}
 	}
 	
+	public static void displayDeepString(Matrix m) {
+		System.out.println(Arrays.deepToString(m.m_data));
+	}
+
 	
+
 	
 	public static void Add(Matrix B) {
 		System.out.println("We are inside the Matrix.Add() method");
+	}
+
+	public static void Sub(Matrix B) {  // Sub for Subtract
+		System.out.println("We are inside the Matrix.Sub() method");
+	}
+
+	public static void Mult(Matrix B) {  // Mult for multiply
+		System.out.println("We are inside the Matrix.Sub() method");
 	}
 }
 	
