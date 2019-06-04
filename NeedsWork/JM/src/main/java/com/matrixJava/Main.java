@@ -9,7 +9,11 @@ public class Main {
 		if (args.length==0) {
 			System.out.println("absolutely no input");
 		} else {  
-			parseCmdLineInput(args);
+			ParseInput myPI = new ParseInput();
+			myPI.PI(args,mydebug);
+			
+			
+			//parseCmdLineInput(args);
 		}
 	}// end void main(String[] args )
 	
@@ -98,7 +102,7 @@ public class Main {
 	}// end of ???
 		
 	
-	private static void chkArgsLength(String[] theArgs, int row, int col) {
+	public static void chkArgsLength(String[] theArgs, int row, int col) {
 		if ( theArgs.length < (row*col)+1 ) {
 			System.out.println("The Input length was: " +theArgs.length );
 			displayInput(theArgs);
@@ -108,14 +112,14 @@ public class Main {
 	}
 	
 	
-	private static void displayInput(String[] input) {
+	public static void displayInput(String[] input) {
 		System.out.print("Input data: ");
 		for (int x=0 ; x<input.length ; x++) 
 			System.out.print(input[x] +" ");
 		System.out.println("");
 	}
 	
-	private static void evalArg_0(String argument_0) {
+	public static void evalArg_0(String argument_0) {
 		
 	 /* [ late: I've decided not to compltely use this the way originally implemtned.
 	  * [ late: if input is less then product of MxN  then complete fill with zeros
