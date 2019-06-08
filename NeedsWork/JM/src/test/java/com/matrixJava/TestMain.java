@@ -21,32 +21,56 @@ public class TestMain {
 	public static void main(String[] args) {
 		 String[] emptyArgs = {};	
 		 String[] dumyInput = new String[0];
+		 System.out.println("TestMain:  call Main.main() with String[] emptyArgs = {};");
 		  Main.main(emptyArgs);
+		  evalInternals();
+		  outputInterval();
+		  
 
-		  Main.main(new String[] {"debug"});  System.out.println(""); System.out.println(""); System.out.println(""); 
-		  Main.main(new String[] {"debug","2x2","1", "3", "4", "4"}); System.out.println("");System.out.println("");
-		  Main.main(new String[] {"2x2","1", "3", "4", "4"}); System.out.println("");System.out.println("");System.out.println("");
+		  System.out.println("TestMain:  call Main.main() with String[] {debug};");
+		  Main.main(new String[] {"debug"}); 
+		  evalInternals();
+		  outputInterval();
+//		  System.out.println("evaluate debug setting");
+//		  System.out.println(Main.get_debug());
 		  
+		  System.out.println("TestMain:  call Main.main() with String[] {2x0, 4, 4,5, 5};");
+		  Main.main(new String[] {"2x0", "4", "4","5", "5"});
+		  evalInternals();
+		  outputInterval();
+
 		  
-		/*
-		 * Main.main(new String[] {}); System.out.println("");
-		 * 
-		 * 
-		 * Main.main(new String[] {"2x2","1", "3", "4", "4"}); System.out.println("");
-		 * 
-		 * Main.main(new String[]{"2x2", "4", "4","5", "5"}); System.out.println("");
-		 * Main.main(new String[] {"2x3", "4", "4","5", "5"});
-		 * 
+		  System.out.println("TestMain:  call Main.main() with String[] {{2345XXx2654, 1, 3, 4, 4};");
+		  Main.main(new String[] {"2345XXx2654","1", "3", "4", "4"}); 
+		  evalInternals();	  
+		  outputInterval();
+		  
+		  System.out.println("TestMain:  call Main.main() with String[] {{debug, 2345XXx2654, 1, 3, 4, 4};");
+		  Main.main(new String[] {"debug","2345XXx2654","1", "3", "4", "4"});
+		  evalInternals();	  
+		  outputInterval();
+	  
+		 /* 
 		 * System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
 		 * 
 		 * System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
 		 * 
 		 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
 		 */
+	}// end  void main(String[] args)
 	
-	
-	
-	
-	}
+	  public static void evalInternals() {
+		  System.out.print("get_m: ");
+		  System.out.println(Main.get_m());
+		  System.out.print("get_n: ");
+		  System.out.println(Main.get_n());	
+		  System.out.print("get_prod: ");
+		  System.out.println(Main.get_prod());
+	  }
+	  public static void outputInterval() {
+		 System.out.println("");
+		 System.out.println("");
+		  
+	  }
 
 }
