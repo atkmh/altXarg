@@ -30,8 +30,8 @@ public class TestMain {
 		 String[] emptyArgs = {};	
 		 
 
-		  System.out.println("TestMain:  call Main.main() with String[] {{3x4, 12, 32, 43, 44};");
-		  Main.main(new String[] {"3x4","12", "32", "43", "44"});
+		  System.out.println("TestMain:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		  evalInternals();
 		  printSeperation(); 
 		 
@@ -60,24 +60,8 @@ public class TestMain {
 		  evalInternals();
 		  printSeperation();
 		  
-		  System.out.println("TestMain:  call Main.main() with String[] {debug};");
-		  Main.main(new String[] {"debug"}); 
-		  if (args.length!=0)evalInternals();
-		  if (args.length!=0)printSeperation(); 
-		  
 		  System.out.println("TestMain:  call Main.main() with String[] {{2345XXx2654, 11, 31, 41, 44};");
 		  Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); 
-		  if (args.length!=0)evalInternals();
-		  if (args.length!=0)printSeperation();
-		  
-		  
-		  System.out.println("TestMain:  call Main.main() with String[] {debug, 2x0, 4, 4, 5, 5};");
-		  Main.main(new String[] {"debug", "2x0", "4", "4","5", "5"});
-		  if (args.length!=0)evalInternals();
-		  if (args.length!=0)printSeperation();
-
-		  System.out.println("TestMain:  call Main.main() with String[] {2x0, 4, 4,5, 5};");
-		  Main.main(new String[] {"2x0", "4", "4","5", "5"});
 		  if (args.length!=0)evalInternals();
 		  if (args.length!=0)printSeperation();
 		  

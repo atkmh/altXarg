@@ -7,16 +7,15 @@ public class Main {
 	private static int col_n = 0;
 	private static String rawOrder = null;
 	private static int orderProduct = 0;
-	//private static int allRowsData[];
 
 	public static void main(String[] args) {
 		//ParseInput myPI = new ParseInput();	This was the first pass at parsing input
 
-	int loopCount = 0, allRowsData_index = 0;
-	int allRowsData[] = null; 
-	int tempInt = 0 ;
-	boolean debugRead = false;
-	boolean orderLowXFixed = false; // not sure I can/should use: do I ever know if it was x vs X
+//	int loopCount = 0, allRowsData_index = 0;
+//	int allRowsData[] = null; 
+//	int tempInt = 0 ;
+	int x = 0;
+//	boolean orderLowXFixed = false; // not sure I can/should use: do I ever know if it was x vs X
 	mydebug = false;
 	orderSet= false;	
 	row_m = 0;
@@ -24,9 +23,13 @@ public class Main {
 	rawOrder = null;
 	orderProduct = 0;
 	
-		if (args.length==0) {
+	if (args.length==0) 
+{
 			System.out.println("absolutely no input");
-		} else {  
+		
+} // end of if (args.length==0) 
+	else 
+{  
 		//	myPI.PI(args,mydebug);  Call to ParsInput.java
 
 /*		System.out.println("Printing Out the Input Data:");
@@ -37,69 +40,127 @@ public class Main {
 */			
 	
 		//New for loop replacing for each	
-		for (int x = 0 ; x < args.length; x++) {
-			/*
-			 *  debug only lives at 0
-			 *  Contains X only lives at 0 or 1
-			 * 
-			 */
-			if ( x == 0) {
-				if ( args[x].equals("debug") ) {// cuz it gives me much more exact location in the array of str
-					debugRead = true;
+	int loc = 0;			
+	if(mydebug) 
+	{// ended Yes
+		if (( (loc = args[1].indexOf('x')  ) < 0) &&  (( loc = args[1].indexOf('X')) < 0) ) 
+		{// ended yes
+			System.out.println("should mean I didn't fine and X or and x ");
+			System.out.println("Also by now I should have found debug if it were there");
+			System.out.println("This should be a total Order entry failure ");
+			System.out.println("Usage:"); Usage();
+		}// end if (( (loc = args[0].indexOf('x')  ) < 0) &&  (( loc = args[0].indexOf('X')) < 0) )  
+
+	}//end if !mydebug		
+		
+	OUTER_LOOP:
+	for ( x = 0 ; x < args.length; x++) 
+	{// ended yes
+		if (x == 0 ) 
+		{// ended Yes
+			String firstArg = args[0];
+			switch (firstArg) 
+			{// ended yes
+				case "-h":
+				case "--h":
+				case "-help":
+				case "--help":
+				Usage();
+					continue ;
+				case "-u":
+				case "--u":
+				case "-usage":
+				case "--usage":
+					Usage();
+					continue ;
+				case "debug":
 					mydebug = true;
 					if(mydebug)System.out.println("debugset");
-					if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
-				}
-			}
-			
-			if( x == 0 || x == 1) {
-				if (args[x].contains("x")||args[x].contains("X")) {
-					// Fixing input: If its a lower x we fix. 
+				//	if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
+					System.out.println("Using continue to outer loop");
+					//break ;
+					continue;
+				default:
 					rawOrder = args[x].replace('x', 'X');
-					//
-					//  rawOrder is now in the form of MXN
-					//
-					if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
 					parseOrder(rawOrder);
 					orderSet=true;
-				}
-			}
+					continue ;
 
-			
-			if (x > 0 && orderSet) {
-				if(mydebug)System.out.print("Rows data is: ");
-				if (orderSet) { // order is only set after parsing order of MxN
-					//allRowsData[allRowsData_index++] = Integer.parseInt(input);
-					if(mydebug)System.out.println("x is : " +x +" args[x] is: " +args[x]);
-					//System.out.print(args[x]);
-						tempInt = Integer.parseInt(args[x]);
-						//allRowsData[allRowsData_index] = Integer.parseInt(args[x]);
-						//allRowsData_index =+ 1;
-						System.out.print("Capture Int: ");
-						System.out.println(tempInt);
-				}
-			}
-
-			//System.out.println("");
+			}//end Switch firstArg
+		}// end if(x==0
+	
 		
+	/*
+		int loc = 0;	
+		if(!mydebug) 
+		{// ended Yes
+			if (( (loc = args[0].indexOf('x')  ) < 0) &&  (( loc = args[0].indexOf('X')) < 0) ) 
+			{// ended yes
+				System.out.println("should mean I didn't fine and X or and x ");
+				System.out.println("Also by now I should have found debug if it were there");
+				System.out.println("This should be a total Order entry failure ");
+				System.out.println("Usage:"); Usage();
+			}// end if (( (loc = args[0].indexOf('x')  ) < 0) &&  (( loc = args[0].indexOf('X')) < 0) )  
+
+		}//end if !mydebug
+	*/
+
+//		if( x == 0 || x == 1) 
+		if( (x == 1) && mydebug  ) // I only come here if arg 0 was debug
+		{// ended yes
+				if (args[x].contains("x")||args[x].contains("X")) 
+				{// ended yes
+					// Fixing input: If its a lower x we fix. 
+					rawOrder = args[x].replace('x', 'X');
+				//	if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
+					parseOrder(rawOrder);
+					orderSet=true;
+				}// end of if (args[x].contains("x")||args[x].contains("X")) 
+				else {System.out.println("There's a big Problem.  No Exxes.  USAGE... ");Usage(); }
+				continue;
+		}// end of if( x == 0 || x == 1) 
+
 			
-		}// end of for (int x = 0 ; x <= args.length; x++) {
+		if (x > 0 && orderSet)   // then this means WHAT ???  Where am I ??
+		{// ended No
+			if (args[0].contentEquals("debug"))	//	This check cuz we need to know cuantos to loop
+			{// ended Yes							
+				for (int i = 2 ; i <= (args.length)-1 ; i++) 
+				{// ended Yes
+					System.out.print(". ");System.out.print(args[i]);
+				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
+			}// end of if (args[0].contentEquals("debug"))	{
+			else if (args[0].contains("x")||args[0].contains("X")) 
+			{// ended yes
+				System.out.println("noDebug");
+
+				for (int i = 1 ; i < (args.length) ; i++) 
+				{// ended Yes
+					System.out.print(". ");System.out.print(args[i]);
+				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
+
+			}// en of else if (args[0].contains("x")||args[0].contains("X"))  
+			// else {  logic should idenfity that not debug or NXM offered }
+			System.out.println("");
+			x=args.length;
+					
+			
+		}// end of if (x > 0 && orderSet)
+
+	System.out.print("");
+	}//end of for ( x = 0 ; x < args.length; x++)   OUTER_LOOP
 
 
-		}// end else args.length != 0
+}// end for ( x = 0 ; x < args.length; x++) else 
 
 		 
 		 
-	//	 int get_line_number() {
-	//		    List<StackFrame> stack = StackWalker.getInstance(StackWalker.Option.SHOW_HIDDEN_FRAMES).walk((s) -> s.skip(1).collect(Collectors.toList()));
-	//		    return stack.get(0).getLineNumber();
-			//}
-		 
-		// mydebug=false;
-		 loopCount = 0;
-		 allRowsData_index = 0;	 
-		 
-	}// end void main(String[] args )
+System.out.println("");
+System.out.println("Last couple of things coming out of method Main");	 
+System.out.println("----------------------------------------------------------");	 
+System.out.println("");
+
+}// end void main(String[] args )
 
 	public static void parseOrder(String order) {
 		if (mydebug)
@@ -108,57 +169,63 @@ public class Main {
 		int first_xLoc = 0, last_xLoc = 0;
 		first_xLoc = order.indexOf('X');
 		last_xLoc = order.lastIndexOf('X');
-		if (mydebug)
-			System.out.println("First and last X recorded");
+		if (mydebug) System.out.println("First and last X recorded");
 
 		if (first_xLoc != last_xLoc) // if != there was more than one X
-			if (mydebug)
-				System.out.println("houston:  We Have An XXXXXXXX Problem");
+			if (mydebug) System.out.println("houston:  We Have An XXXXXXXX Problem");
 
 		row_m = Integer.parseInt((order.substring(0, first_xLoc /* spacer */ )));
-		if (row_m < 1) {
+
+		if (row_m < 1) {// error condition
 			System.out.println("Value less that 1 detected: ");
 			Usage();
 			System.out.println("Exiting");
-			System.exit(1);
+			System.out.println("but were not really going to exit rt now");
+			//System.exit(1);  // cold make this if(myExit) where exit is passed in to test ???
 		}
 
-		if (mydebug)
-			System.out.println("Let See if we have row integer: " + row_m);
+		if (mydebug) System.out.println("Let See if we have row integer: " + row_m);
+
 		col_n = Integer.parseInt((order.substring((last_xLoc + 1), order.length())));
+
 		if (col_n < 1) {
 			System.out.println("Value less that 1 detected: ");
 			Usage();
 			System.out.println("Exiting");
-			System.exit(1);
+			System.out.println("but were not really going to exit rt now");
+			//System.exit(1);
 		}
 		
-		
-		
-		if (mydebug)
-			System.out.println("Let See if we have col integer: " + col_n);
+		if (mydebug) System.out.println("Let See if we have col integer: " + col_n);
 
 		orderProduct = row_m * col_n;
+
 		if (mydebug)
 			System.out.println("orderProduct just set at: " + orderProduct);
-
 	}
 
+	
+	
 	public static String get_order() {
 		return rawOrder;
 	}
+	
+	
 	public static int get_prod() {
 		return orderProduct;
 	}
 
+	
 	public static int get_m() {
 		return row_m;
 	}
 
+	
 	public static int get_n() {
 		return col_n;
 	}
 
+	
 	public static String get_debug() {
 		//String result = "set";
 		if (mydebug)
@@ -166,9 +233,12 @@ public class Main {
 		else
 			return "unset";
 	}
+	
+	
 	public static void Usage() {
 		
 		System.out.println("Usage:  MXN N N N N where MXN values are greater then 0");
+		System.exit(-1);
 	}
 	
 	
@@ -193,3 +263,22 @@ public class Main {
  * 
  * 
  */
+//	 int get_line_number() {
+//		    List<StackFrame> stack = StackWalker.getInstance(StackWalker.Option.SHOW_HIDDEN_FRAMES).walk((s) -> s.skip(1).collect(Collectors.toList()));
+//		    return stack.get(0).getLineNumber();
+		//}
+
+
+
+/*			switch loc {
+case 0:
+	System.out.println("");
+	break;
+case 1;
+	break;
+	System.out.println("");
+default;
+	break;
+	System.out.println("");
+
+	} */
