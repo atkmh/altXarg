@@ -238,7 +238,7 @@ System.out.println("");
 	public static void Usage() {
 		
 		System.out.println("Usage:  MXN N N N N where MXN values are greater then 0");
-		System.exit(-1);
+	//	System.exit(-1);
 	}
 	
 	

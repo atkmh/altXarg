@@ -4,8 +4,16 @@ import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
 
-	public static void main(String[] args) {
-		System.out.println("Testing from within TestMatrix Class");
+//	public static void main(String[] args) {
+	public void main(String[] args) {
+		System.out.println();
+		System.out.println("________________________________________________________________");
+		System.out.println("****************************************************************");	
+		System.out.print("** ");
+		System.out.println("Test Running Class: " +this.getClass()  ) ;	
+		System.out.println();
+		
+	//	System.out.println("Testing from within TestMatrix Class");
 
 		int i=3,j=4;
 		int testR=3, testC=4, A=22, B=33, C=12, D=13, E=17, F=11;

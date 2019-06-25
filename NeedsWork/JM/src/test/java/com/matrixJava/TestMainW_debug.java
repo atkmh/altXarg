@@ -4,8 +4,14 @@ public class TestMainW_debug {
 
 		private static boolean thisDebug = false;
 		
-		public static void main(String[] args) {
-			
+//		public static void main(String[] args) {
+		public  void main(String[] args) {
+			printSeperation();
+			System.out.println("________________________________________________________________");
+			System.out.println("****************************************************************");	
+			System.out.print("** ");
+			System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
+			printSeperation();	
 			if (args.length!=0)
 				if ( args[0] == "debug")  {
 					thisDebug = true;
@@ -33,7 +39,7 @@ public class TestMainW_debug {
 			  if (args.length!=0)printSeperation();
 			  System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
 			 
-			 System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
+			//System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
 			 /*  * * 
 			 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
 			 */
