@@ -1,5 +1,7 @@
 package main.java.com.matrixJava;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	static boolean mydebug = false, orderSet = false;
@@ -7,12 +9,15 @@ public class Main {
 	private static int col_n = 0;
 	private static String rawOrder = null;
 	private static int orderProduct = 0;
+	private static ArrayList<Integer> allRowsData = new ArrayList<Integer>();
 
 	public static void main(String[] args) {
 		//ParseInput myPI = new ParseInput();	This was the first pass at parsing input
 
-//	int loopCount = 0, allRowsData_index = 0;
-//	int allRowsData[] = null; 
+//	int loopCount = 0, 
+	int allRowsData_index = 0;
+//	ArrayList<Integer> allRowsData = new ArrayList<Integer>();
+//	int[] allRowsData = null; 
 //	int tempInt = 0 ;
 	int x = 0;
 //	boolean orderLowXFixed = false; // not sure I can/should use: do I ever know if it was x vs X
@@ -32,14 +37,6 @@ public class Main {
 {  
 		//	myPI.PI(args,mydebug);  Call to ParsInput.java
 
-/*		System.out.println("Printing Out the Input Data:");
-		for (String dataOut: args)	{
-
-			System.out.print(dataOut +" ");
-		} System.out.println("---------------------------------------");
-*/			
-	
-		//New for loop replacing for each	
 	int loc = 0;			
 	if(mydebug) 
 	{// ended Yes
@@ -53,7 +50,9 @@ public class Main {
 
 	}//end if !mydebug		
 		
-	OUTER_LOOP:
+
+//  Don't think I"m using OUTER_LOOP any longer	6/28/19
+//	OUTER_LOOP:
 	for ( x = 0 ; x < args.length; x++) 
 	{// ended yes
 		if (x == 0 ) 
@@ -74,6 +73,7 @@ public class Main {
 					Usage();
 					continue ;
 				case "debug":
+					if (args.length < 2 )  Usage(); // Means all that was passed was "debug" 
 					mydebug = true;
 					if(mydebug)System.out.println("debugset");
 				//	if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
@@ -81,10 +81,31 @@ public class Main {
 					//break ;
 					continue;
 				default:
+					//System.out.println("DebutPrintOutof XXXXX: " +x);
+					//
+					boolean charTestBool = false;
+					char firstChar = 0;
+					try {// start of try
+					firstChar = args[x].charAt(0);
+				/* end of try*/	} catch (IndexOutOfBoundsException e) { // start of catch
+					System.out.println("Exception" +e );
+							Usage();
+						} // endof Catch
+					charTestBool = Character.isDigit(firstChar);
+					if (!charTestBool) 
+						Usage();
+					else {
+
+					try {// start of try
 					rawOrder = args[x].replace('x', 'X');
 					parseOrder(rawOrder);
 					orderSet=true;
-					continue ;
+				/* end of try*/	} catch (IndexOutOfBoundsException e) { // start of catch
+					System.out.println("Exception" +e );
+							Usage();
+						} // endof Catch
+					continue ; 
+					}
 
 			}//end Switch firstArg
 		}// end if(x==0
@@ -105,7 +126,6 @@ public class Main {
 		}//end if !mydebug
 	*/
 
-//		if( x == 0 || x == 1) 
 		if( (x == 1) && mydebug  ) // I only come here if arg 0 was debug
 		{// ended yes
 				if (args[x].contains("x")||args[x].contains("X")) 
@@ -120,23 +140,29 @@ public class Main {
 				continue;
 		}// end of if( x == 0 || x == 1) 
 
-			
+		// Prior to entry 
+		allRowsData_index = 0;
+		
 		if (x > 0 && orderSet)   // then this means WHAT ???  Where am I ??
 		{// ended No
 			if (args[0].contentEquals("debug"))	//	This check cuz we need to know cuantos to loop
 			{// ended Yes							
-				for (int i = 2 ; i <= (args.length)-1 ; i++) 
+				for (int i = 2 ; i <= (args.length)-1 ; i++ , allRowsData_index++ ) 
 				{// ended Yes
-					System.out.print(". ");System.out.print(args[i]);
+					allRowsData.add( Integer.parseInt(args[i]) );
+					//System.out.print(". ");System.out.print(args[i]);
 				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
 			}// end of if (args[0].contentEquals("debug"))	{
 			else if (args[0].contains("x")||args[0].contains("X")) 
 			{// ended yes
 				System.out.println("noDebug");
 
-				for (int i = 1 ; i < (args.length) ; i++) 
+				for (int i = 1 ; i < (args.length) ; i++, allRowsData_index++ ) 
 				{// ended Yes
-					System.out.print(". ");System.out.print(args[i]);
+
+					allRowsData.add( Integer.parseInt(args[i]) );
+					//System.out.print(". ");System.out.print(args[i]);
+
 				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
 
 			}// en of else if (args[0].contains("x")||args[0].contains("X"))  
@@ -147,7 +173,7 @@ public class Main {
 			
 		}// end of if (x > 0 && orderSet)
 
-	System.out.print("");
+	//System.out.print("");
 	}//end of for ( x = 0 ; x < args.length; x++)   OUTER_LOOP
 
 
@@ -155,10 +181,8 @@ public class Main {
 
 		 
 		 
-System.out.println("");
-System.out.println("Last couple of things coming out of method Main");	 
-System.out.println("----------------------------------------------------------");	 
-System.out.println("");
+if(mydebug)System.out.println("Last couple of things coming out of method Main");	 
+
 
 }// end void main(String[] args )
 
@@ -204,7 +228,14 @@ System.out.println("");
 			System.out.println("orderProduct just set at: " + orderProduct);
 	}
 
+	public static void clear_inputData(){
+		allRowsData.clear();
+		return;
+	}
 	
+	public static ArrayList<Integer> get_InputData() {
+		return allRowsData ;
+	}
 	
 	public static String get_order() {
 		return rawOrder;
@@ -238,10 +269,12 @@ System.out.println("");
 	public static void Usage() {
 		
 		System.out.println("Usage:  MXN N N N N where MXN values are greater then 0");
+		System.out.println("Production would Exit on the usage Call");
 	//	System.exit(-1);
 	}
 	
-	
+//	System.out.println("Clearing out the ArrayList<Integer>                       ");
+//	allRowsData.clear();	
 } // End of class Main
 
 /********************************************************************************

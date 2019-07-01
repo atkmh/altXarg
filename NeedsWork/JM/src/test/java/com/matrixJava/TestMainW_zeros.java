@@ -7,32 +7,30 @@ public class TestMainW_zeros {
 	
 		private static boolean thisDebug = false;
 		
-//		public static void main(String[] args) {
-		public void main(String[] args) {
-			printSeperation();
-			System.out.println("________________________________________________________________");
-			System.out.println("****************************************************************");	
-			System.out.print("** ");
-			System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
-			printSeperation();
+		public static void main(String[] args) {
+//		public void main(String[] args) {
+			
+			TestUtilsMeth.testHeader("TestMainW_zeros.java");
+
+			
 			if (args.length!=0)
 				if ( args[0] == "debug")  {
 					thisDebug = true;
 				}
 				
-			 String[] emptyArgs = {};	
+			 String[] emptyArgs = {};
 			 
 			  
 			  
-			  System.out.println("TestMain:  call Main.main() with String[] { 2x03, 4, 4, 5, 5};");
+			  System.out.println("Test Main with String[]\n{ 2x03, 4, 4, 5, 5};");
 			  Main.main(new String[] { "2x03", "4", "4","5", "5"});
-			  if (args.length!=0)evalInternals();
-			  if (args.length!=0)printSeperation();
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
 
-			  System.out.println("TestMain:  call Main.main() with String[] {2x0, 4, 4,5, 5};");
+			  System.out.println("Test Main with String[]\n{2x0, 4, 4,5, 5};");
 			  Main.main(new String[] {"2x0", "4", "4","5", "5"});
-			  if (args.length!=0)evalInternals();
-			  if (args.length!=0)printSeperation();
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
 		
 		//	  System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
 			 
@@ -42,22 +40,4 @@ public class TestMainW_zeros {
 			 */
 		}// end  void main(String[] args)
 		
-		  public static void evalInternals() {
-			  System.out.print("get_m: ");
-			  System.out.println(Main.get_m());
-			  System.out.print("get_n: ");
-			  System.out.println(Main.get_n());	
-			  System.out.print("get_prod: ");
-			  System.out.println(Main.get_prod());
-			  System.out.print("get_debug: ");
-			  System.out.println(Main.get_debug());
-			  System.out.print("get_rawOrder: ");
-			  System.out.println(Main.get_order());
-		  }
-		  public static void printSeperation(){
-			 System.out.println("");
-			 System.out.println("");
-			  
-		  }
-	
 }
