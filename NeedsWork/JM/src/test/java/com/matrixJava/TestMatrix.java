@@ -1,31 +1,39 @@
 package test.java.com.matrixJava;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
 
-//	public static void main(String[] args) {
-	public void main(String[] args) {
-		System.out.println();
-		System.out.println("________________________________________________________________");
-		System.out.println("****************************************************************");	
-		System.out.print("** ");
-		System.out.println("Test Running Class: " +this.getClass()  ) ;	
-		System.out.println();
+	public static void main(String[] args) {
+	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
 		
-	//	System.out.println("Testing from within TestMatrix Class");
+		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
+		inputTestData.add(11);
+		inputTestData.add(2);
+		inputTestData.add(3);
+		inputTestData.add(6);
+		inputTestData.add(11);
+		inputTestData.add(88);
 
-		int i=3,j=4;
-		int testR=3, testC=4, A=22, B=33, C=12, D=13, E=17, F=11;
+		System.out.println();
+		System.out.println(inputTestData.toString());
+//		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 		
-		Matrix testMatrix = new Matrix(i, j, A, B, C, D );
-		Matrix secTestM = new Matrix (i,j,i*A,j*B,i*C,j*D);
+		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
+
+
+		
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
-		secTestM.displayDeepString(secTestM);
+		
+		//System.out.println(testRunMatrix.toString());
+		//secTestM.displayDeepString(secTestM);
 		
 	}
 

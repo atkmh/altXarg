@@ -8,14 +8,14 @@ package main.java.com.matrixJava;
  *
  ******************************************************************************/
 
-final public class MatrixPrin {
+final public class MatrixPrin { // Mark:  Called MatrixPrin for Princeton where I found this EXAMPLE`
     private final int M;             // number of rows
     private final int N;             // number of columns
     private final double[][] data;   // M-by-N array
     private String m_VarName;
 
-    // create M-by-N matrix of 0's
-    public MatrixPrin(int M, int N) {
+    // create M-by-N matrix of 0's  //		Mark: I think this is an inherent Java thing 
+    public MatrixPrin(int M, int N) {//		on initialization all are set to Zeros(0)
         this.M = M;
         this.N = N;
         data = new double[M][N];
