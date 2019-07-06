@@ -6,12 +6,12 @@ import java.util.ListIterator;
 
 final public class Matrix {
 
-   private final int mRows;
-   private final int nCols;
-   private final int m_data [][];
-	
+ /*  private int mRows;
+   private int nCols;
+   private int m_data[0][0] = (int)21;
+*/	
   
-	public Matrix( int m, int n ,ArrayList data   ){
+/*	public Matrix( int m, int n, ArrayList<Integer> data   ){
 		this.mRows = m;
 		this.nCols = n;
 		int[][] m_data = new int[n][m];
@@ -26,18 +26,16 @@ final public class Matrix {
 				m_data[i][j] = 0;
 			} 
 		}
-	}
+	} */
   
 	
-	
+/*	
    // Contstructor just the size / order
    Matrix( int n, int m ){ // Shold be zero filled
 		this.mRows = n;
 		this.nCols = m;
 		m_data = new int[mRows][nCols];
-		
-		
-	}
+	}  */
 
 
 		
@@ -46,6 +44,7 @@ final public class Matrix {
    public static void main(String args[]) {
 
 		System.out.println("in Matrix.java main");
+		
 
 	}	
 	

@@ -2,14 +2,17 @@ package test.java.com.matrixJava;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import main.java.com.matrixJava.MMatrixx;
 import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
 
 	public static void main(String[] args) {
 	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
-		
+	
+	String[] inputARGNull = null ;
 		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
 		inputTestData.add(11);
 		inputTestData.add(2);
@@ -17,23 +20,30 @@ public class TestMatrix {
 		inputTestData.add(6);
 		inputTestData.add(11);
 		inputTestData.add(88);
-
+  /*
 		System.out.println();
 		System.out.println(inputTestData.toString());
+   */
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 		
-		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
-
-
+//		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
+		MMatrixx testRunMatrix = new MMatrixx();
+		MMatrixx firstRunMatrixParams = new MMatrixx(4,3, inputTestData);
+		firstRunMatrixParams.displayDeepString();
 		
+		
+/*
+
+		System.out.println("From TestMatrix.class");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		System.out.println("*********************");
 		
-		//System.out.println(testRunMatrix.toString());
 		//secTestM.displayDeepString(secTestM);
+ * 
+ */
 		
 	}
 
