@@ -16,15 +16,44 @@ public class MMatrixx {
 	
 	 int mRows;
 	 int nCols;
-	 int m_data[][];
+//	 int m_data[][];
+	 double m_data[][];
 	
 	public MMatrixx(){System.out.println("defualtConstructor MMatrixx class");}
 
+	public MMatrixx(int M, int N, double[] dataArylst) {
+		this.mRows = M; // i: rows
+		this.nCols = N; // j; cols
+//		m_data = new int[mRows][nCols];
+		m_data = new double [mRows][nCols];
+		int inputLen = dataArylst.length;
+		int dataIndex = 0;
+		
+		for (int i=0; i<mRows; i++) { 
+			for (int j=0; j<nCols; j++) {
+				try {
+					if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+					m_data [i][j] = dataArylst[dataIndex++];
+						
+					}else {
+					m_data [i][j] = 0;
+
+					}
+				} catch ( Exception e) {
+						System.out.println("Exception was: " +e);
+				}
+			}
+		}
+		System.out.println("Second Parameterized Constructor double [] completed");
+	}
+	
+	
 	public MMatrixx(int M, int N, ArrayList dataAryLst)
 	{ 
 		this.mRows = M; // i: rows
 		this.nCols = N; // j; cols
-		m_data = new int[mRows][nCols];
+//		m_data = new int[mRows][nCols];
+		m_data = new double [mRows][nCols];
 
 		Iterator<Integer> dataIter = dataAryLst.iterator();
 
@@ -33,9 +62,10 @@ public class MMatrixx {
 				try {
 				if (dataIter.hasNext()) {
 					m_data [i][j] = dataIter.next();
-					System.out.println(m_data[i][j]);
+					System.out.println("i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				} else {
 					m_data [i][j] = 0;
+					System.out.println("i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				}
 				}catch (NullPointerException e) {
 					System.out.print("Exception: " +e +" ");
@@ -45,7 +75,7 @@ public class MMatrixx {
 		}
 		
 		
-		System.out.println("first Parameterized Constructor completed");
+		System.out.println("first Parameterized Constructor ArrayList completed");
 	}
 
 	public static void main(String[] args) {
@@ -59,6 +89,9 @@ public class MMatrixx {
 	
 	
 //	public static void Add() {
+	/**
+	 * 
+	 */
 	public void Add() {
 		System.out.println("We are inside the Matrix.Add() method");
 	}

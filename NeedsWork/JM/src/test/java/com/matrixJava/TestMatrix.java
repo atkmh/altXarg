@@ -11,7 +11,11 @@ public class TestMatrix {
 
 	public static void main(String[] args) {
 	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
-	
+
+		
+		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
+		 double[] condmat = {1.,3.,7.,9.};
+
 	String[] inputARGNull = null ;
 		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
 		inputTestData.add(11);
@@ -28,11 +32,14 @@ public class TestMatrix {
 		
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
 		MMatrixx testRunMatrix = new MMatrixx();
-		MMatrixx firstRunMatrixParams = new MMatrixx(4,3, inputTestData);
+		MMatrixx firstRunMatrixParams = new MMatrixx(5,2, inputTestData);
+		MMatrixx secondRunMatrixParams = new MMatrixx(3,8, columnwise);
+//		MMatrixx secondRunMatrixParams = new MMatrixx(3,8, condmat);
 		firstRunMatrixParams.displayDeepString();
+		secondRunMatrixParams.displayDeepString();
 		
 		
-/*
+/*		
 
 		System.out.println("From TestMatrix.class");
 		System.out.println("*********************");
@@ -43,7 +50,7 @@ public class TestMatrix {
 		
 		//secTestM.displayDeepString(secTestM);
  * 
- */
+ */		
 		
 	}
 
