@@ -20,7 +20,14 @@ public class TestW_Switches {
 
 	private static boolean thisDebug = false;
 	
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+	public void main(String[] args) {
+		printSeperation();
+		System.out.println("________________________________________________________________");
+		System.out.println("****************************************************************");	
+		System.out.print("** ");
+		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
+		printSeperation();
 		
 		if (args.length!=0)
 			if ( args[0] == "debug")  {
