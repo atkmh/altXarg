@@ -144,25 +144,27 @@ public class Main {
 		allRowsData_index = 0;
 		
 		if (x > 0 && orderSet)   // then this means WHAT ???  Where am I ??
-		{// ended No
+		{// ended yet
+			
 			if (args[0].contentEquals("debug"))	//	This check cuz we need to know cuantos to loop
-			{// ended Yes							
+			{// ended Yes			
+				double[] inputDataArray = new double[args.length-1];
 				for (int i = 2 ; i <= (args.length)-1 ; i++ , allRowsData_index++ ) 
 				{// ended Yes
 					allRowsData.add( Integer.parseInt(args[i]) );
+					inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
 					//System.out.print(". ");System.out.print(args[i]);
 				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
 			}// end of if (args[0].contentEquals("debug"))	{
 			else if (args[0].contains("x")||args[0].contains("X")) 
 			{// ended yes
+				double[] inputDataArray = new double[args.length];
 				System.out.println("noDebug");
-
 				for (int i = 1 ; i < (args.length) ; i++, allRowsData_index++ ) 
 				{// ended Yes
-
 					allRowsData.add( Integer.parseInt(args[i]) );
+					inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
 					//System.out.print(". ");System.out.print(args[i]);
-
 				}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
 
 			}// en of else if (args[0].contains("x")||args[0].contains("X"))  
