@@ -11,40 +11,55 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+//  following from JAMA Matrix source
+//  added here cus I want to investigate the Print method
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.StreamTokenizer;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.Locale;
+
+
 public class MMatrixx {
 	
 	
-	 int mRows;
-	 int nCols;
-//	 int m_data[][];
-	 double m_data[][];
+	private int mRows;
+	private int nCols;
+//	int m_data[][];
+	private double m_data[][];  // JAMA names A
+	private String m_varName;
 	
 	public MMatrixx(){System.out.println("defualtConstructor MMatrixx class");}
+	
+	public MMatrixx(int M, int N){
+		//System.out.println("defualtConstructor MMatrixx class");
+		this.mRows = M;
+		this.nCols = N;
+		m_data = new double [mRows][nCols];
+	}
 
+	
+	
 	public MMatrixx(int M, int N, double[] dataArylst) {
 		this.mRows = M; // i: rows
 		this.nCols = N; // j; cols
-//		m_data = new int[mRows][nCols];
 		m_data = new double [mRows][nCols];
-		int inputLen = dataArylst.length;
-		int dataIndex = 0;
+		int inputLen = dataArylst.length, dataIndex = 0;
 		
 		for (int i=0; i<mRows; i++) { 
 			for (int j=0; j<nCols; j++) {
-				try {
-					if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
-					m_data [i][j] = dataArylst[dataIndex++];
-						
-					}else {
-					m_data [i][j] = 0;
-
+				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+						m_data [i][j] = dataArylst[dataIndex++];
+					}else {	m_data [i][j] = 0;
 					}
-				} catch ( Exception e) {
-						System.out.println("Exception was: " +e);
+				} catch ( Exception e) {	System.out.println("Exception was: " +e);
 				}
 			}
-		}
-		System.out.println("Second Parameterized Constructor double [] completed");
+		}   System.out.println("Second Parameterized Constructor double [] completed");
 	}
 	
 	
@@ -62,10 +77,10 @@ public class MMatrixx {
 				try {
 				if (dataIter.hasNext()) {
 					m_data [i][j] = dataIter.next();
-					System.out.println("i:" +i +" j:" +j +" value:" +m_data[i][j]);
+					System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				} else {
 					m_data [i][j] = 0;
-					System.out.println("i:" +i +" j:" +j +" value:" +m_data[i][j]);
+					System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				}
 				}catch (NullPointerException e) {
 					System.out.print("Exception: " +e +" ");
@@ -92,9 +107,25 @@ public class MMatrixx {
 	/**
 	 * 
 	 */
-	public void Add() {
-		System.out.println("We are inside the Matrix.Add() method");
-	}
+
+	
+	 
+	  public MMatrixx Add( MMatrixx B ) {
+		  MMatrixx A = this; 
+		  if (B.mRows != A.mRows || B.nCols !=A.nCols ) {
+			  System.out.println("A serous problem: No Exception at this time Exiting");
+			  System.exit(-1); 
+		  } 
+		  MMatrixx C = new MMatrixx(mRows,nCols);
+		  for (int i = 0 ; i < mRows ; i++)
+			  for (int j = 0; j < nCols ; j++)
+				  C.m_data[i][j] = A.m_data[i][j] + B.m_data[i][j];
+		  
+		  System.out.println("We are finishing from inside the Matrix.Add() method"); 
+		  return C;
+	  }
+	  
+	 
 
 //	public static void Subtract( ) {  // Sub for Subtract
 	public void Subtract( ) {  // Sub for Subtract
@@ -111,4 +142,83 @@ public class MMatrixx {
 	public  void displayDeepString( ) {
 		System.out.println(Arrays.deepToString(m_data));
 	}
+
+	public void display() { // Doesn't need an argument. Method display 
+							// refers to what ever object is in play
+    	System.out.println("Matrix: " +this.m_varName);
+        for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+//                System.out.println("%9.4f ", data[i][j]);
+//                System.out.println( data[i][j]);
+                System.out.printf("%5.2f   ", m_data[i][j] );
+            } System.out.println();
+        }	
+	}
+
+	/////////////////////////////////////////////////////
+	//
+	// The following Print sources comes from the 
+	// JAMA sources  with my own changes to mRows&nCols
+	//
+	/////////////////////////////////////////////////////
+
+	/**
+	 * Get row dimension.
+	 * 
+	 * @return m, the number of rows.
+	 */
+	
+	public int getRowDimension() {
+//		  return m;  // Orig var from JAMA
+		  return mRows; // my var name
+		}
+
+		/**
+		 * Get column dimension.
+		 * 
+		 * @return n, the number of columns.
+		 */
+
+		public int getColumnDimension() {
+//		  return n;   // Orig var from JAMA
+		  return nCols; // my var name
+		}
+	
+	
+	
+	public String getName() {
+		return m_varName;
+	}
+	
+	public void setName(String str) {
+		this.m_varName = str ;
+	}
+	
+	
+	
+	
+	/////////////////////////////////////////////////////
+	//
+	// The following Print sources comes from the 
+	// JAMA sources
+	//
+	/////////////////////////////////////////////////////
+	/**
+	 * Get a single element.
+	 * 
+	 * @param i
+	 *            Row index.
+	 * @param j
+	 *            Column index.
+	 * @return A(i,j)
+	 * @exception ArrayIndexOutOfBoundsException
+	 */
+
+	public double get(int i, int j) {
+//	  return A[i][j];  // currently thinking is that A is m_data
+	  return m_data[i][j];  // currently thinking is that A is m_data
+	}
+	
+	
+
 }

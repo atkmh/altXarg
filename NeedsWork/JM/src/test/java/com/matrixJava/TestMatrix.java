@@ -24,20 +24,26 @@ public class TestMatrix {
 		inputTestData.add(6);
 		inputTestData.add(11);
 		inputTestData.add(88);
-  /*
+  
 		System.out.println();
 		System.out.println(inputTestData.toString());
-   */
+  
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 		
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
 		MMatrixx testRunMatrix = new MMatrixx();
-		MMatrixx firstRunMatrixParams = new MMatrixx(5,2, inputTestData);
-		MMatrixx secondRunMatrixParams = new MMatrixx(3,8, columnwise);
+		MMatrixx firstRunMatrixParams = new MMatrixx(3,3, inputTestData);
+		MMatrixx secondRunMatrixParams = new MMatrixx(3,3, columnwise);
 //		MMatrixx secondRunMatrixParams = new MMatrixx(3,8, condmat);
 		firstRunMatrixParams.displayDeepString();
 		secondRunMatrixParams.displayDeepString();
+	
 		
+		MMatrixx addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
+		addResult.setName("A");
+		addResult.displayDeepString();
+		System.out.println("");
+		addResult.display();
 		
 /*		
 

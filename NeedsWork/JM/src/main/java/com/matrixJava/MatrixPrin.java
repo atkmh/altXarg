@@ -178,7 +178,7 @@ final public class MatrixPrin { // Mark:  Called MatrixPrin for Princeton where 
 
     // test client
     public static void main(String[] args) {
-        double[][] d = { { 1, 2, 3 }, { 4, 5, 6 }, { 9, 1, 3} };
+        double[][] d = { { 11, 2, 3 }, { 4, 15, 6 }, { 9, 1, 23} };
         MatrixPrin D = new MatrixPrin(d);
         D.m_VarName = "D";
         D.show();        
