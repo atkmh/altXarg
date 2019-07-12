@@ -1,10 +1,7 @@
 package test.java.com.matrixJava;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import main.java.com.matrixJava.MMatrixx;
 import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
@@ -31,19 +28,19 @@ public class TestMatrix {
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 		
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
-		MMatrixx testRunMatrix = new MMatrixx();
-		MMatrixx firstRunMatrixParams = new MMatrixx(3,3, inputTestData);
-		MMatrixx secondRunMatrixParams = new MMatrixx(3,3, columnwise);
-//		MMatrixx secondRunMatrixParams = new MMatrixx(3,8, condmat);
+		Matrix testRunMatrix = new Matrix();
+		Matrix firstRunMatrixParams = new Matrix(3,3, inputTestData);
+		Matrix secondRunMatrixParams = new Matrix(3,3, columnwise);
+//		Matrix secondRunMatrixParams = new Matrix(3,8, condmat);
 		firstRunMatrixParams.displayDeepString();
 		secondRunMatrixParams.displayDeepString();
 	
 		
-		MMatrixx addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
+		Matrix addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
 		addResult.setName("A");
 		addResult.displayDeepString();
 		System.out.println("");
-		addResult.display();
+		TestUtilsMeth.display(addResult);
 		
 /*		
 
