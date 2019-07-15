@@ -33,17 +33,7 @@ public class TestUtilsMeth {
 		  
 	  }
 
-	  public static void display(Matrix A) { 
-		  System.out.println("Matrix: " +A.getName());
-		  for (int i = 0; i < A.getRowDimension(); i++) {
-			  for (int j = 0; j < A.getColumnDimension(); j++) {
-				  //System.out.println("%9.4f ", data[i][j]);
-				  //System.out.println( data[i][j]);
-//				  System.out.printf("%5.2f   ", A.m_data[i][j] );// needs to be get value of cells
-				  System.out.printf("%5.2f   ", A.get(  i,j ));// needs to be get value of cells
-			  } System.out.println();
-		  }	
-	  } 
+
 	  
 	  
 	

@@ -40,7 +40,7 @@ public class TestMatrix {
 		addResult.setName("A");
 		addResult.displayDeepString();
 		System.out.println("");
-		TestUtilsMeth.display(addResult);
+		addResult.display();
 		
 /*		
 
