@@ -19,8 +19,6 @@ public class TestMainW_zeros {
 				}
 				
 			 String[] emptyArgs = {};
-			 
-			  
 			  
 			  System.out.println("Test Main with String[]\n{ 2x03, 4, 4, 5, 5};");
 			  Main.main(new String[] { "2x03", "4", "4","5", "5"});
@@ -32,12 +30,9 @@ public class TestMainW_zeros {
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation(); 
 		
-		//	  System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
-			 
+		} // end void main(String[] args)
+}         // end Class Test Main with Zeros
+
+		//	 System.out.println(""); Main.main(new String[] {"2x0", "4", "4","5", "5"});
 		//	 System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
-			 /*  * * 
-			 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
-			 */
-		}// end  void main(String[] args)
-		
-}
+		//	 System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});

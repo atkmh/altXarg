@@ -1,12 +1,21 @@
 package main.java.com.matrixJava;
 
-/******************************************************************************
+/* *****************************************************************************
  *  Compilation:  javac Matrix.java
  *  Execution:    java Matrix
  *
  *  A bare-bones immutable data type for M-by-N matrices.
  *
  ******************************************************************************/
+
+/* *********************************
+ *	Need to do....
+ *	Finish blocking out Constructors, Public methods, etc
+ * 	Write up what we can expect to need for in the way of "R4 + (-3)R1 -> R4"   
+ *	or would this be better explained R4 = R4 + (-3)R1    or even R4 = R4 - 3R1 
+ */
+
+
 
 final public class MatrixPrin { // Mark:  Called MatrixPrin for Princeton where I found this EXAMPLE`
     private final int M;             // number of rows

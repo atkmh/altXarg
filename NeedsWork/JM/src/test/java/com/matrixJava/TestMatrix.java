@@ -6,6 +6,11 @@ import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
 
+	public static void clearScreen() {  
+	    System.out.print("\033[H\033[2J");  
+	    System.out.flush();  
+	}  	
+	
 	public static void main(String[] args) {
 	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
 
@@ -20,28 +25,42 @@ public class TestMatrix {
 		inputTestData.add(3);
 		inputTestData.add(6);
 		inputTestData.add(11);
-		inputTestData.add(88);
+		inputTestData.add(18);
   
-		System.out.println();
-		System.out.println(inputTestData.toString());
-  
+//		System.out.println();
+//		System.out.println(inputTestData.toString());
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
-		
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
+
 		Matrix testRunMatrix = new Matrix();
+		testRunMatrix.setName("testRunMatrix");
+		testRunMatrix.displayC();
+//		clearScreen();
+
 		Matrix firstRunMatrixParams = new Matrix(3,3, inputTestData);
-		Matrix secondRunMatrixParams = new Matrix(3,3, columnwise);
-//		Matrix secondRunMatrixParams = new Matrix(3,8, condmat);
-		firstRunMatrixParams.displayDeepString();
-		secondRunMatrixParams.displayDeepString();
+		firstRunMatrixParams.setName("firstRunMatrixParams");
+		firstRunMatrixParams.displayC();
+//		clearScreen();
+		
+		Matrix secondRunMatrixParams = new Matrix(3,3, columnwise); // or condmat
+		secondRunMatrixParams.setName("secondRunMatrixParams");
+		secondRunMatrixParams.displayC();
+//		clearScreen();
+		
+	//	firstRunMatrixParams.displayDeepString();
+	//	secondRunMatrixParams.displayDeepString();
 	
 		
 		Matrix addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
-		addResult.setName("A");
-		addResult.displayDeepString();
-		System.out.println("");
-		addResult.display();
+		addResult.setName("addResult");
 		
+		addResult.displayC();
+//		clearScreen();
+		
+//		addResult = addResult.Multiply((22/7));
+		addResult = addResult.Multiply(3.623);
+		addResult.displayM();
+//		clearScreen();
 /*		
 
 		System.out.println("From TestMatrix.class");

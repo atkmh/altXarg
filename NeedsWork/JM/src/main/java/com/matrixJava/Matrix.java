@@ -26,23 +26,44 @@ import java.util.Locale;
 
 public class Matrix {
 	
-	
+/* **************************************************
+ * 
+ *  Class Variables
+ *  Private
+ * 	Accessible via Public Functions
+ * **************************************************
+ * 	Taken out of use
+ *	int m_data[][];  // started initially with Int
+ * 
+ */
 	private int mRows;
 	private int nCols;
-//	int m_data[][];
 	private double m_data[][];  // JAMA names A
 	private String m_varName;
+
+/* **************************************************
+ * 
+ *  Constructors
+ *  Default: Does nothing but print. Could go away
+ *	Minimal1: 
+ *     Input: Row dimensions mRows, nCols
+ *     Action:  creates a new Array of dimension 
+ *  Medium1 
+ *  	Input Row Dims, Array of values	
+ *  
+ *  Medium2
+ *  	Input Row dims, ArrayList of values
+ */
 	
-	public Matrix(){System.out.println("defualtConstructor Matrix class");}
+	public Matrix(){System.out.println(/* "defualtConstructor Matrix class" */ );}
 	
 	public Matrix(int M, int N){
 		//System.out.println("defualtConstructor Matrix class");
 		this.mRows = M;
 		this.nCols = N;
 		m_data = new double [mRows][nCols];
-	}
+	} // end of constructor
 
-	
 	
 	public Matrix(int M, int N, double[] dataArylst) {
 		this.mRows = M; // i: rows
@@ -59,15 +80,13 @@ public class Matrix {
 				} catch ( Exception e) {	System.out.println("Exception was: " +e);
 				}
 			}
-		}   System.out.println("Second Parameterized Constructor double [] completed");
+		} // System.out.println("Second Parameterized Constructor double [] completed");
 	}
 	
 	
-	public Matrix(int M, int N, ArrayList dataAryLst)
-	{ 
-		this.mRows = M; // i: rows
+	public Matrix(int M, int N, ArrayList dataAryLst) // Yanked: m_data = new int[mRows][nCols];
+	{   this.mRows = M; // i: rows
 		this.nCols = N; // j; cols
-//		m_data = new int[mRows][nCols];
 		m_data = new double [mRows][nCols];
 
 		Iterator<Integer> dataIter = dataAryLst.iterator();
@@ -77,20 +96,17 @@ public class Matrix {
 				try {
 				if (dataIter.hasNext()) {
 					m_data [i][j] = dataIter.next();
-					System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
+				//	System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				} else {
 					m_data [i][j] = 0;
-					System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
+				//	System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				}
 				}catch (NullPointerException e) {
 					System.out.print("Exception: " +e +" ");
 					System.out.println("i:" +i +" j:"+j +"data: " );
 				}
 			}
-		}
-		
-		
-		System.out.println("first Parameterized Constructor ArrayList completed");
+		} // System.out.println("first Parameterized Constructor ArrayList completed");
 	}
 
 	public static void main(String[] args) {
@@ -129,30 +145,62 @@ public class Matrix {
 		System.out.println("We are inside the Matrix.Sub() method");
 	}
 
+/*	******  Get back to this.  Starting with Scalar 
 	public void Multply(Matrix B ) {  // Mult for multiply
-
 	     if ( B.M != this.nCols ) { 
-	    	 System.out.println);illegal operation on given matrices */
+	    	 System.out.println);//illegal operation on given matrices 
 		       System.out.println("We are inside the Matrix.Sub() method");
 	      }
-	
 	}
+*******  Get back to this.  Starting with Scalar */
+
+	/* *******************************************************************
+	 * Because I"m Performing Ax = B  we know the dimensions
+	 * of A, hence Be will have the same
+	 * 
+	 * @input x is a scalar to multiply against curretn Matrix
+	 * @output Matrix, B.  Result of Ax = B
+	 */
+	
+	public Matrix Multiply(double scalar) {
+		Matrix my_Matrix = new Matrix (mRows, nCols);  
+		double [][] B = my_Matrix.getArray(); // interesting code, go get a pointer to my data
+		
+		// Now in for loops multiply every entry by the Scalar
+		for (int i = 0; i < mRows; i++) {
+			for(int j = 0; j < nCols ; j++) {
+				B[i][j] = scalar*m_data[i][j];
+			}// end inner for loop
+		}// end outer for loop
+	return my_Matrix;	
+	}	
 
 //	public static void displayDeepString( ) {
 	public  void displayDeepString( ) {
 		System.out.println(Arrays.deepToString(m_data));
 	}
 
-	public void display() { // Doesn't need an argument. Method display 
+	public void displayC() { // Display Compact vs DisplayMore
+		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
     	System.out.println("Matrix: " +this.m_varName);
         for (int i = 0; i < mRows; i++) {
             for (int j = 0; j < nCols; j++) {
                 System.out.printf("%5.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
             } System.out.println();
-        }	
+        } System.out.println("");
 	}
 
+	public void displayM() { // DisplayMore
+		// Doesn't need an argument. Method display 
+							// refers to what ever object is in play
+    	System.out.println("Matrix: " +this.m_varName);
+        for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                System.out.printf("%15.8f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+            } System.out.println();
+        }System.out.println("");
+	}
 	/**
 	 * Get row dimension.
 	 * @return m, the number of rows.

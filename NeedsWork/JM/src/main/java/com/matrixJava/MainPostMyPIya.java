@@ -1,8 +1,19 @@
 package main.java.com.matrixJava;
 
 import java.util.ArrayList;
+/* ***********************************************************************
+ *  Ok, so what's the deal with this file.
+ * 
+ *  I wanted to get a copy of main at the time I had commented out the
+ *  body and move it to ParseInputYA.   YA === Yet Again. Take off on YACC
+ *
+ *  Also, I flet I needed a template that worked that I could go back to 
+ *  if necessary
+ *  
+ */
 
-public class Main {
+
+public class MainPostMyPIya {
 
 	static boolean mydebug = false;
 	/*
@@ -299,7 +310,7 @@ public class Main {
 	}
 }
 
-/********************************************************************************
+/* *******************************************************************************
  * Program Input Definition: What are the argument data types at the command
  * line
  * 

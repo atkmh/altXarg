@@ -86,6 +86,8 @@ public class TestMain {
 		  System.out.println("TestMain:  call Main.main() with String[] \n{{ 2x0, 4, 4,5, 5}); ");
 		  Main.main(new String[] {"2x0", "4", "4","5", "5"});
 		 
+		  System.out.println("TestMain:  call Main.main() with String[] \n{{-f somefileName }); ");
+		  Main.main(new String[] {"-f", "someFileName"});
 		// System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
 		 /*  * * 
 		 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
