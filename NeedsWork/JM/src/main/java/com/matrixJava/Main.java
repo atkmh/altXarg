@@ -3,6 +3,20 @@ package main.java.com.matrixJava;
 import java.util.ArrayList;
 
 public class Main {
+	/* *****************************************************************************
+	 *  Having a little mental battle about how this program works
+	 *  From the command line I'm capable of entering and parsing one matrix of data
+	 *  From a File I can see the ablity to put in several matricies
+	 *  
+	 *  Does the Parse input routine return an object that is passed to the matrix routine ?
+	 *  
+	 *  Seems like the file input routine could pass properly formed strings to the ParseINput routine
+	 *  but that would be from the expectation that the parseinput routine would return Matrix Input objects
+	 *  in the manner that Ive been testing with Main.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
+	 *  
+	 * 
+	 * 
+	 */
 
 	static boolean mydebug = false;
 	/*
@@ -14,45 +28,22 @@ public class Main {
 	static String oppMode = null;
 
 	public static void main(String[] args) {
-		//ParseInput myPI = new ParseInput();	This was the first pass at parsing input
-		ParseInputYA myPIya = new ParseInputYA();//	This is the second pass at parsing input
-
-
-//		
-////	int loopCount = 0, 
-//	int allRowsData_index = 0;
-////	ArrayList<Integer> allRowsData = new ArrayList<Integer>();
-////	int[] allRowsData = null; 
-////	int tempInt = 0 ;
-//	int x = 0;
-////	boolean orderLowXFixed = false; // not sure I can/should use: do I ever know if it was x vs X
-//	mydebug = false;
-//	orderSet= false;	
-//	row_m = 0;
-//	col_n = 0;
-//	rawOrder = null;
-//	orderProduct = 0;
-//	
-	if (args.length==0) 
-{
+		                //ParseInput myPI = new ParseInput();	This was the first pass at parsing input Keep Historical Sig
+		ParseInputYA parseCmdLnInput = new ParseInputYA();//	This is the second pass at parsing input
+			if (args.length==0) {
 			System.out.println("No input. See Usage.");
-			myPIya.Usage();
+			parseCmdLnInput.Usage();
 		
-} // end of if (args.length==0) 
-	else 
-{  
-			myPIya.PIYA(args,mydebug); // Call to ParsInput.java
+		} // end of if (args.length==0) 
+		else 
+		{  
+			parseCmdLnInput.PIYA(args,mydebug); // Call to ParsInput.java
 			System.out.println("oppMode is: " +oppMode);
+		}
 			
 			
-
-
-	
-//	System.out.println("Clearing out the ArrayList<Integer>                       ");
-//	allRowsData.clear();	
+	} //end public static void main(String[] args)
 } // End of class Main
-	}
-}
 
 /********************************************************************************
  * Program Input Definition: What are the argument data types at the command

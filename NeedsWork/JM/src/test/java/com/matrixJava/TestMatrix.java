@@ -16,7 +16,8 @@ public class TestMatrix {
 
 		
 		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
-		 double[] condmat = {1.,3.,7.,9.};
+		double[] condmat = {1.,3.,7.,9.};
+		int[] matrixDimension = new int[10]; // dont except to ever use more than 4 cells. would by 99x99
 
 	String[] inputARGNull = null ;
 		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
@@ -49,7 +50,12 @@ public class TestMatrix {
 		
 	//	firstRunMatrixParams.displayDeepString();
 	//	secondRunMatrixParams.displayDeepString();
+		matrixDimension[0]=2;
+		matrixDimension[1]=3;
 	
+		Matrix outOfSeqTestMatrix = new Matrix(matrixDimension, columnwise);
+		secondRunMatrixParams.setName("outOfSeqTestMatrix");
+		secondRunMatrixParams.displayC();
 		
 		Matrix addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
 		addResult.setName("addResult");
@@ -61,7 +67,16 @@ public class TestMatrix {
 		addResult = addResult.Multiply(3.623);
 		addResult.displayM();
 //		clearScreen();
-/*		
+		
+	}// end Main()
+
+}// end Class
+/*
+ * int testR, testC, A, B, C, D, E, F, G, H; testR=3; testC=4; A=22; B=33; C=12;
+ * D=13; E=17; F=11;
+ * 
+ * Matrix testMatrix = new Matrix(i, j, A, B, C, D ); Matrix secTestM = new
+ * Matrix (i,j,i*A,j*B,i*C,j*D);
 
 		System.out.println("From TestMatrix.class");
 		System.out.println("*********************");
@@ -73,14 +88,3 @@ public class TestMatrix {
 		//secTestM.displayDeepString(secTestM);
  * 
  */		
-		
-	}
-
-}
-/*
- * int testR, testC, A, B, C, D, E, F, G, H; testR=3; testC=4; A=22; B=33; C=12;
- * D=13; E=17; F=11;
- * 
- * Matrix testMatrix = new Matrix(i, j, A, B, C, D ); Matrix secTestM = new
- * Matrix (i,j,i*A,j*B,i*C,j*D);
- */

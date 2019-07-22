@@ -64,6 +64,23 @@ public class Matrix {
 		m_data = new double [mRows][nCols];
 	} // end of constructor
 
+	public Matrix(int[]dimension, double[] dataArylst) {
+		this.mRows = dimension[0]; // i: rows
+		this.nCols = dimension[1]; // j; cols
+		m_data = new double [mRows][nCols];
+		int inputLen = dataArylst.length, dataIndex = 0;
+		
+		for (int i=0; i<mRows; i++) { 
+			for (int j=0; j<nCols; j++) {
+				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+						m_data [i][j] = dataArylst[dataIndex++];
+					}else {	m_data [i][j] = 0;
+					}
+				} catch ( Exception e) {	System.out.println("Exception was: " +e);
+				}
+			}
+		} // System.out.println("Second Parameterized Constructor double [] completed");
+	}
 	
 	public Matrix(int M, int N, double[] dataArylst) {
 		this.mRows = M; // i: rows
@@ -109,6 +126,10 @@ public class Matrix {
 		} // System.out.println("first Parameterized Constructor ArrayList completed");
 	}
 
+	
+	
+	
+	
 	public static void main(String[] args) {
 		System.out.println("*****************");
 		System.out.println("From Within Matrix class main method");

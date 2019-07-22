@@ -10,15 +10,15 @@ public class ParseInputYA {
 	private static int col_n = 0;
 	private static String rawOrder = null;
 	private static int orderProduct = 0;
-	private static ArrayList<Integer> allRowsData = new ArrayList<Integer>();
+	private static ArrayList<Integer> arrayListData = new ArrayList<Integer>();
 	
 	
 	public void PIYA(String[] args, boolean mydebug ) { // Parse Input Yet Again
-		String[] myArgs = parseMyInput(args);
-
+		String[] myArgs = normalizeInput(args);
+          //  consider calling the above function normalizeInputString: Strip debug if exist
 		
 
-		int allRowsData_index = 0;
+		int arrayListData_index = 0;
 		int x = 0;
 		mydebug = false;
 		orderSet= false;	
@@ -86,35 +86,47 @@ public class ParseInputYA {
 
 				}//end Switch firstArg
 			}// end if(x==0
-		
+	
 			
-			if( (x == 1) && mydebug  ) // I only come here if arg 0 was debug
-			{// ended yes
-					if (args[x].contains("x")||args[x].contains("X")) 
-					{// ended yes
-						// Fixing input: If its a lower x we fix. 
-						rawOrder = args[x].replace('x', 'X');
-					//	if(mydebug)System.out.println("loopCount is: " +loopCount++ +" "+ args[x]);
-						parseOrder(rawOrder);
-						orderSet=true;
-					}// end of if (args[x].contains("x")||args[x].contains("X")) 
-					else {System.out.println("There's a big Problem.  No Exxes.  USAGE... ");Usage(); }
-					continue;
+			
+			/* *********************************************************************
+			 *	Come here if arg 0 was debug:  impliex 3X4 will be in arg 1  
+			 *  Fix input: If its a lower x we fix. 
+			 *  with uniform dimension string 3X4 now parse dimension to mRows&nCols 
+			 */
+			if( (x == 1) && mydebug  ) {
+				if (args[x].contains("x")||args[x].contains("X")) {// ends with else
+					rawOrder = args[x].replace('x', 'X');
+					parseOrder(rawOrder);
+					orderSet=true;
+				}// end of if (args[x].contains("x")||args[x].contains("X")) 
+				else {	System.out.print("There's a big Problem. ");
+						System.out.println("Dimension is not stated correctly. ");Usage(); 
+				}
+				continue;  // because of the problem we need to bail out of the loop and program
 			}// end of if( x == 0 || x == 1) 
 
-			// Prior to entry 
-			allRowsData_index = 0;
+		
+			// Set to zero prior to entry 
+			arrayListData_index = 0;
 			
+		    /* *********************************************************************
+		     *  We've made it past debug and dimension, so now were on data
+		     *  Orderset ? DimensionSet might be a better var name
+		     * 
+		     * 	If these are true we are looking at data in arg 1 or in arg2 
+		     *  depending if we had a debug or not.	
+		     */
 			if (x > 0 && orderSet)   // then this means WHAT ???  Where am I ??
 			{// ended yet
 				
 				if (args[0].contentEquals("debug"))	//	This check cuz we need to know cuantos to loop
 				{// ended Yes			
 					double[] inputDataArray = new double[args.length-1];
-					for (int i = 2 ; i <= (args.length)-1 ; i++ , allRowsData_index++ ) 
+					for (int i = 2 ; i <= (args.length)-1 ; i++ , arrayListData_index++ ) 
 					{// ended Yes
-						allRowsData.add( Integer.parseInt(args[i]) );
-						inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
+						arrayListData.add( Integer.parseInt(args[i]) );
+						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
 
 					}// end of for ( i <= (args.length)-1 
 				}// end of if (args[0].contentEquals("debug"))
@@ -122,10 +134,10 @@ public class ParseInputYA {
 				{// ended yes
 					double[] inputDataArray = new double[args.length];
 					System.out.println("noDebug");
-					for (int i = 1 ; i < (args.length) ; i++, allRowsData_index++ ) 
+					for (int i = 1 ; i < (args.length) ; i++, arrayListData_index++ ) 
 					{// ended Yes
-						allRowsData.add( Integer.parseInt(args[i]) );
-						inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
+						arrayListData.add( Integer.parseInt(args[i]) );
+						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
 
 					}// end of for ( i <= (args.length)-1 
 				}// end of else if (args[0].contains("x")||args[0].contains("X"))  
@@ -195,10 +207,11 @@ public class ParseInputYA {
 
 	public static void Usage() {
 		System.out.println("Usage: app_name [options] required_input required_input2 ... ");
-		System.out.println("  options:");
-		System.out.println("    -f, --f, -file,  --file:  File supplied with required_input data");
-		System.out.println("    -h, --h, -help,  --help:  Causes this output");
-		System.out.println("    -u, --u, -usage, --usage: Causes this output");
+		System.out.println(" options:");
+		System.out.println("   -r, --r, -runtime, --runtime: signals the app we capture data interactively");
+		System.out.println("   -f, --f, -file,    --file:  File supplied with required_input data");
+		System.out.println("   -h, --h, -help,    --help:  Causes this output");
+		System.out.println("   -u, --u, -usage,   --usage: Causes this output");
 		System.out.println("  required_input:  Matrix diminsions MxN Rows x Columns");
 		System.out.println("  required_input2: List of Matrix values. Space delimiter");
 		System.out.println("");
@@ -208,12 +221,12 @@ public class ParseInputYA {
 		}
 		
 	public static void clear_inputData(){
-		allRowsData.clear();
+		arrayListData.clear();
 		return;
 	}
 		
 	public static ArrayList<Integer> get_InputData() {
-		return allRowsData ;
+		return arrayListData ;
 	}
 		
 	public static String get_order() {
@@ -289,7 +302,7 @@ public class ParseInputYA {
 	} // end public static void switch_default(String[] args, int x)
 
 	
-	public static String[] parseMyInput(String[] args) {
+	public static String[] normalizeInput(String[] args) {
 		// *************************************
 		//  7/17/19 Last thing I did was add the triem if x then y else z
 		//  Idea is to make myArgs Global and available to other methods outside Main well PIYA
