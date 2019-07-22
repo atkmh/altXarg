@@ -14,43 +14,21 @@ public class ParseInputYA {
 	
 	
 	public void PIYA(String[] args, boolean mydebug ) { // Parse Input Yet Again
-	// *************************************
-	//  7/17/19 Last thing I did was add the triem if x then y else z
-	//  Idea is to make myArgs Global and available to other methods outside Main well PIYA
-	//    0     1   2  3  4 5 6 7 8   9
-	//  [ debug 2x4 33 44 4 3 2 8 118 22 ] (i=1; i<9 ; i++i) mA[i-1] = args[i]
-	//  [ 2x4 33 44 4 3 2 8 118 22 ]       (i=0;  )          mA[i] = args[i]
-	//    0   1  2  3 4 5 6 7   8
-	    String[] myArgs = (args[0].equals("debug")) ?  new String[(args.length)-1] : new String[args.length] ;	
-		if (args[0].contentEquals("debug")) {
-			for (int i = 1;  i < args.length;  i++ )
-				myArgs[i-1] = args[i];
-		} else {
-			for (int i = 0;  i < args.length;  i++ )
-				myArgs[i] = args[i];
-		}
+		String[] myArgs = parseMyInput(args);
+
 		
 
-//		int loopCount = 0, 
 		int allRowsData_index = 0;
-//		ArrayList<Integer> allRowsData = new ArrayList<Integer>();
-//		int[] allRowsData = null; 
-//		int tempInt = 0 ;
 		int x = 0;
-//		boolean orderLowXFixed = false; // not sure I can/should use: do I ever know if it was x vs X
 		mydebug = false;
 		orderSet= false;	
 		row_m = 0;
 		col_n = 0;
 		rawOrder = null;
 		orderProduct = 0;
+	
 		
-		if (args.length==0) 
-		{ System.out.println("absolutely no input");
-		} // end of if (args.length==0) 
-		else 
-		{  
-			//	myPI.PI(args,mydebug);  Call to ParsInput.java
+
 
 		int loc = 0;			
 		if(mydebug) 
@@ -65,7 +43,6 @@ public class ParseInputYA {
 		}//end if !mydebug		
 			
 
-	//  Don't think I"m using OUTER_LOOP any longer	6/28/19
 //		OUTER_LOOP:
 		for ( x = 0 ; x < args.length; x++) 
 		{// ended yes
@@ -74,6 +51,14 @@ public class ParseInputYA {
 				String firstArg = args[0];
 				switch (firstArg) 
 				{// ended yes
+				
+					case "-r":
+					case "--r":
+					case "-runtime":
+					case "--runtime":
+					Main.oppMode = "RuntimeEntry";
+					return;
+						//continue;
 					case "-f":
 					case "--f":
 					case "-file":
@@ -130,9 +115,9 @@ public class ParseInputYA {
 					{// ended Yes
 						allRowsData.add( Integer.parseInt(args[i]) );
 						inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
-						//System.out.print(". ");System.out.print(args[i]);
-					}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
-				}// end of if (args[0].contentEquals("debug"))	{
+
+					}// end of for ( i <= (args.length)-1 
+				}// end of if (args[0].contentEquals("debug"))
 				else if (args[0].contains("x")||args[0].contains("X")) 
 				{// ended yes
 					double[] inputDataArray = new double[args.length];
@@ -141,174 +126,195 @@ public class ParseInputYA {
 					{// ended Yes
 						allRowsData.add( Integer.parseInt(args[i]) );
 						inputDataArray[allRowsData_index] = Integer.parseInt(args[i]);
-						//System.out.print(". ");System.out.print(args[i]);
-					}// end of for (int i = 2 ; i <= (args.length)-1 ; i++) {
 
-				}// en of else if (args[0].contains("x")||args[0].contains("X"))  
+					}// end of for ( i <= (args.length)-1 
+				}// end of else if (args[0].contains("x")||args[0].contains("X"))  
 				// else {  logic should idenfity that not debug or NXM offered }
-				System.out.println("");
+
+				System.out.println(""); // do I need this ???
 				x=args.length;
-						
 				
 			}// end of if (x > 0 && orderSet)
 
-		//System.out.print("");
-		}//end of for ( x = 0 ; x < args.length; x++)   OUTER_LOOP
+		}//end of for (  x < args.length;   OUTER_LOOP call unused
 
+		
 
-	}// end for ( x = 0 ; x < args.length; x++) else 
-
-			 
-			 
 	if(mydebug)System.out.println("Last couple of things coming out of method Main");	 
 
 
-	}// end void main(String[] args )
+	}// end public void PIYA(String[] args, boolean mydebug )
+	
+	public static void parseOrder(String order) {
+		if (mydebug)
+			System.out.println("OrderLength is: " + order.length());
 
-		public static void parseOrder(String order) {
-			if (mydebug)
-				System.out.println("OrderLength is: " + order.length());
+		int first_xLoc = 0, last_xLoc = 0;
+		first_xLoc = order.indexOf('X');
+		last_xLoc = order.lastIndexOf('X');
+		if (mydebug) System.out.println("First and last X recorded");
 
-			int first_xLoc = 0, last_xLoc = 0;
-			first_xLoc = order.indexOf('X');
-			last_xLoc = order.lastIndexOf('X');
-			if (mydebug) System.out.println("First and last X recorded");
+		if (first_xLoc != last_xLoc) // if != there was more than one X
+			if (mydebug) System.out.println("houston:  We Have An XXXXXXXX Problem");
 
-			if (first_xLoc != last_xLoc) // if != there was more than one X
-				if (mydebug) System.out.println("houston:  We Have An XXXXXXXX Problem");
+		row_m = Integer.parseInt((order.substring(0, first_xLoc /* spacer */ )));
 
-			row_m = Integer.parseInt((order.substring(0, first_xLoc /* spacer */ )));
+		if (row_m < 1) {// error condition
+			System.out.println("Value less that 1 detected: ");
+			Usage();
+			System.out.println("Exiting");
+			System.out.println("but were not really going to exit rt now");
+			//System.exit(1);  // cold make this if(myExit) where exit is passed in to test ???
+		}
 
-			if (row_m < 1) {// error condition
-				System.out.println("Value less that 1 detected: ");
-				Usage();
-				System.out.println("Exiting");
-				System.out.println("but were not really going to exit rt now");
-				//System.exit(1);  // cold make this if(myExit) where exit is passed in to test ???
-			}
+		if (mydebug) System.out.println("Let See if we have row integer: " + row_m);
 
-			if (mydebug) System.out.println("Let See if we have row integer: " + row_m);
+		col_n = Integer.parseInt((order.substring((last_xLoc + 1), order.length())));
 
-			col_n = Integer.parseInt((order.substring((last_xLoc + 1), order.length())));
-
-			if (col_n < 1) {
-				System.out.println("Value less that 1 detected: ");
-				Usage();
-				System.out.println("Exiting");
-				System.out.println("but were not really going to exit rt now");
-				//System.exit(1);
-			}
+		if (col_n < 1) {
+			System.out.println("Value less that 1 detected: ");
+			Usage();
+			System.out.println("Exiting");
+			System.out.println("but were not really going to exit rt now");
+			//System.exit(1);
+		}
 			
-			if (mydebug) System.out.println("Let See if we have col integer: " + col_n);
+		if (mydebug) System.out.println("Let See if we have col integer: " + col_n);
 
-			orderProduct = row_m * col_n;
+		orderProduct = row_m * col_n;
 
-			if (mydebug)
-				System.out.println("orderProduct just set at: " + orderProduct);
-		}
+		if (mydebug) System.out.println("orderProduct just set at: " + orderProduct);
 
-		public static void Parsefile() {
-			System.out.println("looking for the input file with data");
-			System.out.println("Production would Exit missing data on the parseFile Call");
-		//	System.exit(-1);
-		}
+	} // end public static void parseOrder(String order) 
 
-		public static void Usage() {
-			System.out.println("Usage: app_name [options] required_input required_input2 ... ");
-			System.out.println("  options:");
-			System.out.println("    -f, --f, -file,  --file:  File supplied with required_input data");
-			System.out.println("    -h, --h, -help,  --help:  Causes this output");
-			System.out.println("    -u, --u, -usage, --usage: Causes this output");
-			System.out.println("  required_input:  Matrix diminsions MxN Rows x Columns");
-			System.out.println("  required_input2: List of Matrix values. Space delimiter");
-			System.out.println("");
+	public static void Parsefile() {
+		System.out.println("looking for the input file with data");
+		System.out.println("Production would Exit missing data on the parseFile Call");
+	//	System.exit(-1);
+	}
 
-			System.out.println("Example: app_name 2X3 1 4 11 2 5 0 ");
+	public static void Usage() {
+		System.out.println("Usage: app_name [options] required_input required_input2 ... ");
+		System.out.println("  options:");
+		System.out.println("    -f, --f, -file,  --file:  File supplied with required_input data");
+		System.out.println("    -h, --h, -help,  --help:  Causes this output");
+		System.out.println("    -u, --u, -usage, --usage: Causes this output");
+		System.out.println("  required_input:  Matrix diminsions MxN Rows x Columns");
+		System.out.println("  required_input2: List of Matrix values. Space delimiter");
+		System.out.println("");
+
+		System.out.println("Example: app_name 2X3 1 4 11 2 5 0 ");
 
 		}
 		
-		public static void clear_inputData(){
-			allRowsData.clear();
-			return;
-		}
+	public static void clear_inputData(){
+		allRowsData.clear();
+		return;
+	}
 		
-		public static ArrayList<Integer> get_InputData() {
-			return allRowsData ;
-		}
+	public static ArrayList<Integer> get_InputData() {
+		return allRowsData ;
+	}
 		
-		public static String get_order() {
-			return rawOrder;
-		}
+	public static String get_order() {
+		return rawOrder;
+	}
 		
 		
-		public static int get_prod() {
-			return orderProduct;
-		}
+	public static int get_prod() {
+		return orderProduct;
+	}
 
 		
-		public static int get_m() {
-			return row_m;
-		}
+	public static int get_m() {
+		return row_m;
+	}
 
 		
-		public static int get_n() {
-			return col_n;
-		}
+	public static int get_n() {
+		return col_n;
+	}
 
 		
-		public static String get_debug() {
-			//String result = "set";
-			if (mydebug)
-				return "set";
-			else
-				return "unset";
-		}
+	public static String get_debug() {
+		//String result = "set";
+		if (mydebug)
+			return "set";
+		else
+			return "unset";
+	}
 	
 		
-		// I need the array passed as an argument cuz of the 
-		// test done in the firest line of the method
-		//
-		public static void switch_debug(String[] args) {
-			if (args.length < 2 )  Usage(); // Means all that was passed was "debug" 
-		//  otherwise : set true following the command line option 
-			mydebug = true;
-			if(mydebug)System.out.println("debugset");
-			if(mydebug)System.out.println("Using continue to outer loop");
-		} // end public static void switch_debug(String[] args) 
+	// I need the array passed as an argument cuz of the 
+	// test done in the firest line of the method
+	//
+	public static void switch_debug(String[] args) {
+		if (args.length < 2 )  Usage(); // Means all that was passed was "debug" 
+										// otherwise : set true following the command line option 
+		mydebug = true;
+		if(mydebug)System.out.println("debugset");
+		if(mydebug)System.out.println("Using continue to outer loop");
+	} // end public static void switch_debug(String[] args) 
 
 		
-		public static void switch_default(String[] args, int x) {
-			//System.out.println("DebutPrintOutof XXXXX: " +x);
-			//
-			boolean charTestBool = false;
-			char firstChar = 0;
-			try {// start of try
+	public static void switch_default(String[] args, int x) {
+
+		boolean charTestBool = false;
+		char firstChar = 0;
+
+		try {// start of try
 			firstChar = args[x].charAt(0);
-		/* end of try*/	} catch (IndexOutOfBoundsException e) { // start of catch
-			System.out.println("Exception" +e );
-					Usage();
-				} // endof Catch
-			charTestBool = Character.isDigit(firstChar);
-			if (!charTestBool) 
-				Usage();
-			else {
+		} // end of try	 
 
-			try {// start of try
-			rawOrder = args[x].replace('x', 'X');
-			parseOrder(rawOrder);
-			orderSet=true;
-		    /* end of try*/	} catch (IndexOutOfBoundsException e) { // start of catch
+		catch (IndexOutOfBoundsException e) { // start of catch
 			System.out.println("Exception" +e );
-					Usage();
-				} // endof Catch
-			//continue ; 
-			}	
-		}
+			Usage();
+		} // endof Catch
+
+		charTestBool = Character.isDigit(firstChar);
+
+		if (!charTestBool) 
+			Usage();
+		else {
+			try {// start of try
+				rawOrder = args[x].replace('x', 'X');
+				parseOrder(rawOrder);
+				orderSet=true;
+			} //* end of try
+			catch (IndexOutOfBoundsException e) { // start of catch
+				System.out.println("Exception" +e );
+				Usage();
+			} // endof Catch
+		}  // if (!charTestBool) else 	
+	} // end public static void switch_default(String[] args, int x)
+
+	
+	public static String[] parseMyInput(String[] args) {
+		// *************************************
+		//  7/17/19 Last thing I did was add the triem if x then y else z
+		//  Idea is to make myArgs Global and available to other methods outside Main well PIYA
+		//    0     1   2  3  4 5 6 7 8   9
+		//  [ debug 2x4 33 44 4 3 2 8 118 22 ] (i=1; i<9 ; i++i) mA[i-1] = args[i]
+		//  [ 2x4 33 44 4 3 2 8 118 22 ]       (i=0;  )          mA[i] = args[i]
+		//    0   1  2  3 4 5 6 7   8
+		String[] argumentList = (args[0].equals("debug")) ?  new String[(args.length)-1] : new String[args.length] ;	
+		if (args[0].contentEquals("debug")) {
+			for (int i = 1;  i < args.length;  i++ )
+				argumentList[i-1] = args[i];  // why is this different from the one below: hint skipping the first arg
+		} else {
+			for (int i = 0;  i < args.length;  i++ )
+				argumentList[i] = args[i];    // cus this one didn't have 'debug' and the one above did
+		}	
 		
+		return argumentList;
+	} // end public static void parseMyInput(String[] args)
+	
+	
+	
 	//		
 	//		
 	//		
-	} // end of class
+} // end of class
 		
 
 

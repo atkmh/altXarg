@@ -37,23 +37,23 @@ public class TestW_Switches {
 		 String[] emptyArgs = {};	
 		 
 
-		 // System.out.println("TestMain:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		 // System.out.println("TestMainInput:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
 		 // Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		 // evalInternals();
 		 // printSeperation(); 
 		 
-		  System.out.println("TestMain:  call Main.main() with String[] {2x3, 4, 4, 5, 5, 34523, 34634};");
+		  System.out.println("TestMainInput:  call Main.main() with String[] {2x3, 4, 4, 5, 5, 34523, 34634};");
 		  Main.main(new String[] {"2x3", "4", "4","5", "5","34523", "34634"});
 		  evalInternals();
 		  printSeperation(); 
 		 
-		  System.out.println("TestMain:  call Main.main() with String[] {debug 2x3, 4, 4, 5, 5, 879349};");
+		  System.out.println("TestMainInput:  call Main.main() with String[] {debug 2x3, 4, 4, 5, 5, 879349};");
 		  Main.main(new String[] {"debug", "2X3", "4", "4","5", "5", "879349"});
 		  evalInternals();
 		  printSeperation(); 
 		 
 		 
-			  System.out.println("TestMain:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+			  System.out.println("TestMainInput:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
 			  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 			  evalInternals();
 			  printSeperation(); 

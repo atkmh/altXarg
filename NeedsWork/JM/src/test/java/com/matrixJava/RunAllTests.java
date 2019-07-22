@@ -3,7 +3,7 @@ package test.java.com.matrixJava;
 public class RunAllTests {
 
 	public static void main(String[] args) {
-		TestMain myTestMain = new TestMain();
+		TestMainInput myTestMain = new TestMainInput();
 		TestMainW_debug myTestMainW_debug = new TestMainW_debug();
 		TestMainW_zeros myTestMainW_zeros = new TestMainW_zeros();
 		TestW_Switches	myTestW_Switches = new TestW_Switches();
