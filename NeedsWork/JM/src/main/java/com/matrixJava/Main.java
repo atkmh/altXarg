@@ -26,6 +26,9 @@ public class Main {
 	 * allRowsData = new ArrayList<Integer>();
 	 */
 	static String oppMode = null;
+	static double[] inputValsPassToMatrix = null;
+	static int[] matrixDimensions = new int [2];
+	
 
 	public static void main(String[] args) {
 		                //ParseInput myPI = new ParseInput();	This was the first pass at parsing input Keep Historical Sig
@@ -39,6 +42,10 @@ public class Main {
 		{  
 			parseCmdLnInput.PIYA(args,mydebug); // Call to ParsInput.java
 			System.out.println("oppMode is: " +oppMode);
+			
+			Matrix matrixPOCTest = new Matrix(matrixDimensions[0], matrixDimensions[1],inputValsPassToMatrix);
+			matrixPOCTest.displayC();
+			matrixPOCTest.displayM();
 		}
 			
 			

@@ -73,19 +73,27 @@ public class TestMainInput {
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation();
 		  
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};");
-		  Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); 
-		  if (args.length!=0) TestUtilsMeth.evalInternals();
-		  if (args.length!=0) TestUtilsMeth.printSeperation();
+		/*
+		 * System.out.
+		 * println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
+		 * ); Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
+		 * (args.length!=0) TestUtilsMeth.evalInternals(); if (args.length!=0)
+		 * TestUtilsMeth.printSeperation();
+		 */
 		  
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};");
-		  Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); 
-		  if (args.length!=0) TestUtilsMeth.evalInternals();
-		  if (args.length!=0) TestUtilsMeth.printSeperation();
-	
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{debug, 2345XXx2654, 12, 32, 43, 44};");
-		  Main.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"});
-		  if (args.length!=0) TestUtilsMeth.evalInternals();
+		/*
+		 * System.out.
+		 * println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
+		 * ); Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
+		 * (args.length!=0) TestUtilsMeth.evalInternals(); if (args.length!=0)
+		 * TestUtilsMeth.printSeperation();
+		 */
+		/*
+		 * System.out.
+		 * println("TestMainInput:  call Main.main() with String[] \n{{debug, 2345XXx2654, 12, 32, 43, 44};"
+		 * ); Main.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"}); if
+		 * (args.length!=0) TestUtilsMeth.evalInternals();
+		 */
 		 
 		  
 		  if (args.length!=0) TestUtilsMeth.printSeperation();

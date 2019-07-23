@@ -127,8 +127,11 @@ public class ParseInputYA {
 					{// ended Yes
 						arrayListData.add( Integer.parseInt(args[i]) );
 						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
-
 					}// end of for ( i <= (args.length)-1 
+					Main.inputValsPassToMatrix = inputDataArray;
+					Main.matrixDimensions[0] = row_m;
+					Main.matrixDimensions[1] = col_n;
+					
 				}// end of if (args[0].contentEquals("debug"))
 				else if (args[0].contains("x")||args[0].contains("X")) 
 				{// ended yes
@@ -138,8 +141,11 @@ public class ParseInputYA {
 					{// ended Yes
 						arrayListData.add( Integer.parseInt(args[i]) );
 						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
-
 					}// end of for ( i <= (args.length)-1 
+					Main.inputValsPassToMatrix = inputDataArray;
+					Main.matrixDimensions[0] = row_m;
+					Main.matrixDimensions[1] = col_n;
+					
 				}// end of else if (args[0].contains("x")||args[0].contains("X"))  
 				// else {  logic should idenfity that not debug or NXM offered }
 
