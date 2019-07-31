@@ -72,7 +72,9 @@ public class Matrix {
 		
 		for (int i=0; i<mRows; i++) { 
 			for (int j=0; j<nCols; j++) {
-				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+// inputLen may be 10 but indicies needs to be 0--9  so needs to be < 10 not <=10
+//				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+				try {	if (inputLen > dataIndex   ) { // same as !(dataindex < inputlen)
 						m_data [i][j] = dataArylst[dataIndex++];
 					}else {	m_data [i][j] = 0;
 					}
@@ -90,7 +92,9 @@ public class Matrix {
 		
 		for (int i=0; i<mRows; i++) { 
 			for (int j=0; j<nCols; j++) {
-				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+// inputLen may be 10 but indicies needs to be 0--9  so needs to be < 10 not <=10
+//				try {	if (inputLen >= dataIndex   ) { // same as !(dataindex < inputlen)
+				try {	if (inputLen > dataIndex   ) { // same as !(dataindex < inputlen)
 						m_data [i][j] = dataArylst[dataIndex++];
 					}else {	m_data [i][j] = 0;
 					}
@@ -204,7 +208,8 @@ public class Matrix {
 	public void displayC() { // Display Compact vs DisplayMore
 		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
-    	System.out.println("Matrix: " +this.m_varName);
+		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
         for (int i = 0; i < mRows; i++) {
             for (int j = 0; j < nCols; j++) {
                 System.out.printf("%5.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
@@ -215,7 +220,8 @@ public class Matrix {
 	public void displayM() { // DisplayMore
 		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
-    	System.out.println("Matrix: " +this.m_varName);
+		if (this.m_varName == null) System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
         for (int i = 0; i < mRows; i++) {
             for (int j = 0; j < nCols; j++) {
                 System.out.printf("%15.8f   ", m_data[i][j] );// or "%9.4f ", data[i][j]

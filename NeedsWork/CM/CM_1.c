@@ -59,8 +59,8 @@ int main(int argc, char *argv[]){
 	int limit = atoi(argv[1]);
 	for (int i=1; i<=limit; i++){
    insert(i);
- insert(20);
- insert(30);
+ //insert(20);
+ //insert(30);
 // insert(1);
 // insert(40);
 //  insert(56); 

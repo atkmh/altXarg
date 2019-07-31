@@ -4,14 +4,14 @@ import main.java.com.matrixJava.ParseInput;
 
 public class TestParseInput {
 
-//	public static void main(String[] args) {
-	public void main(String[] args) {
+	public static void main(String[] args) {
+//	public  void main(String[] args) {
 		System.out.println("");
 		System.out.println("");
 		System.out.println("________________________________________________________________");
 		System.out.println("****************************************************************");	
 		System.out.print("** ");
-		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
+	//	System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
 		System.out.println("");
 		System.out.println("");
 		

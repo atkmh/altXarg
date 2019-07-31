@@ -21,27 +21,17 @@ public class TestMainInput {
 	private static boolean thisDebug = false;
 	
 	public static void main(String[] args) { // must be Static to run by itself. is not static when run from RunAllTests.j
-//	public  void main(String[] args) {
 		
-		System.out.println("Test File Running Main Class in Main.java,  Parsing input");
-
-//		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
-		System.out.println("---------------------------------------------------------\n");
+		TestUtilsMeth.testHeader("TestMainInput.java");
 		
 		if (args.length!=0)
 			if ( args[0] == "debug")  {
 				thisDebug = true;
 			}
 			
-		 String[] emptyArgs = {};	
+		 String[] emptyArgs = {};	// making this available but dont really want to use it 
+		 							// emptyArgs causes Usage(); and as such system.exit();
 		 
-
-		  System.out.println("TestMainInput:  call Main.main() with nothing");
-
-		  Main.main(emptyArgs);
-		  TestUtilsMeth.evalInternals();
-		  TestUtilsMeth.printSeperation(); 
-		  
 		  
 		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
 		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
@@ -53,25 +43,31 @@ public class TestMainInput {
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \nemptyArgs = {};");
-		  Main.main(emptyArgs);
+
+
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
+		  Main.main(new String[] {"2x3", "4", "4","5", "5", });
 		  TestUtilsMeth.evalInternals();
-		  TestUtilsMeth.printSeperation();
-		  
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{debug};");
-		  Main.main(new String[] {"debug"}); 
-		  if (args.length!=0)TestUtilsMeth.evalInternals();
-		  if (args.length!=0)TestUtilsMeth.printSeperation();
+		  TestUtilsMeth.printSeperation(); 
+		 
 
 		  System.out.println("TestMainInput:  call Main.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
 		  Main.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \nemptyArgs = {};");
+		  
+/*		  System.out.println("TestMainInput:  call Main.main() with String[] \n{debug};");
+		  Main.main(new String[] {"debug"}); 
+		  if (args.length!=0)TestUtilsMeth.evalInternals();
+		  if (args.length!=0)TestUtilsMeth.printSeperation();
+*/		  
+		  
+/*		  System.out.println("TestMainInput:  call Main.main() with String[] \nemptyArgs = {};");
 		  Main.main(emptyArgs);
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation();
+*/		   
 		  
 		/*
 		 * System.out.
@@ -91,24 +87,11 @@ public class TestMainInput {
 		/*
 		 * System.out.
 		 * println("TestMainInput:  call Main.main() with String[] \n{{debug, 2345XXx2654, 12, 32, 43, 44};"
-		 * ); Main.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"}); if
-		 * (args.length!=0) TestUtilsMeth.evalInternals();
+		 * ); Main.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"}); 
+		 * if(args.length!=0) TestUtilsMeth.evalInternals();
+		 * if (args.length!=0) TestUtilsMeth.printSeperation();
 		 */
 		 
-		  
-		  if (args.length!=0) TestUtilsMeth.printSeperation();
-		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{ 2x0, 4, 4,5, 5}); ");
-		  Main.main(new String[] {"2x0", "4", "4","5", "5"});
-		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-f somefileName }); ");
-		  Main.main(new String[] {"-f", "someFileName"});
-		  
-		  
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-r});  for runtime Data Entry");
-		  Main.main(new String[] {"-r"});
-		  
-		  
 		  
 		// System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
 		 /*  * * 

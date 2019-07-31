@@ -13,11 +13,17 @@ public class TestMainAndMatrix {
 	}  	
 	
 	public static void main(String[] args) {
-	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
-
+//	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
+//
+//		System.out.println("Test File Running Main Class in TestMainAndMatrix.java,  Parsing input");
+//
+//		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
+//		System.out.println("---------------------------------------------------------\n");		
+		
+		TestUtilsMeth.testHeader("TestMainAndMatrix.java");	
 		
 		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
-		 double[] condmat = {1.,3.,7.,9.};
+		double[] condmat = {1.,3.,7.,9.};
 
 	String[] inputARGNull = null ;
 		ArrayList<Integer> inputTestData = new ArrayList<Integer>();

@@ -1,6 +1,7 @@
 package main.java.com.matrixJava;
 
 import java.util.ArrayList;
+import main.java.com.matrixJava.Usage;
 
 public class Main {
 	/* *****************************************************************************
@@ -25,24 +26,27 @@ public class Main {
 	 * private static int orderProduct = 0; private static ArrayList<Integer>
 	 * allRowsData = new ArrayList<Integer>();
 	 */
+	//int size = (args[0].equals("debug")) ? new String[(args.length)-1] : new String[args.length];
 	static String oppMode = null;
-	static double[] inputValsPassToMatrix = null;
+	static double[] inputValsPassToMatrix = new double[100];
 	static int[] matrixDimensions = new int [2];
 	
 
 	public static void main(String[] args) {
 		                //ParseInput myPI = new ParseInput();	This was the first pass at parsing input Keep Historical Sig
-		ParseInputYA parseCmdLnInput = new ParseInputYA();//	This is the second pass at parsing input
+//		ParseInputYA parseCmdLnInput = new ParseInputYA();//	This is the second pass at parsing input
 			if (args.length==0) {
 			System.out.println("No input. See Usage.");
-			parseCmdLnInput.Usage();
+			ParseInputYA parseCmdLnInput = new ParseInputYA();//	This is the second pass at parsing input
+			Usage.Usage();
 		
-		} // end of if (args.length==0) 
-		else 
-		{  
+		} else {  
+				
+			ParseInputYA parseCmdLnInput = new ParseInputYA();//	This is the second pass at parsing input
 			parseCmdLnInput.PIYA(args,mydebug); // Call to ParsInput.java
 			System.out.println("oppMode is: " +oppMode);
-			
+			System.out.println("M, N, and Input is.......");
+			System.out.println("M: " +matrixDimensions[0]   + " N: " +matrixDimensions[1]  +" InVals " +inputValsPassToMatrix.length);
 			Matrix matrixPOCTest = new Matrix(matrixDimensions[0], matrixDimensions[1],inputValsPassToMatrix);
 			matrixPOCTest.displayC();
 			matrixPOCTest.displayM();
@@ -50,6 +54,11 @@ public class Main {
 			
 			
 	} //end public static void main(String[] args)
+	
+	
+
+	
+	
 } // End of class Main
 
 /********************************************************************************

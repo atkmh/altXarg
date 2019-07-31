@@ -13,22 +13,48 @@ public class TestMainW_zeros {
 			TestUtilsMeth.testHeader("TestMainW_zeros.java");
 
 			
-			if (args.length!=0)
-				if ( args[0] == "debug")  {
-					thisDebug = true;
-				}
-				
-			 String[] emptyArgs = {};
+		/*
+		 * if (args.length!=0) if ( args[0] == "debug") { thisDebug = true; }
+		 * 
+		 * String[] emptyArgs = {};
+		 */
 			  
 			  System.out.println("Test Main with String[]\n{ 2x03, 4, 4, 5, 5};");
 			  Main.main(new String[] { "2x03", "4", "4","5", "5"});
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation(); 
 
+			  System.out.println("Test Main with String[]\n{ 2x03, 4, 4, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0};");
+			  Main.main(new String[] { "2x03", "4", "4","5", "5","0", "0","0","0","0","0","0","0","0",});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
+
+			  System.out.println("Test Main with String[]\n{ 2x03, 0, 0, 0, 4, 4, 5, 5, 0, 0, };");
+			  Main.main(new String[] { "2x03", "0", "0", "0", "4", "4","5", "5","0", "0","0",});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
+
+			  System.out.println("Test Main with String[]\n{ 02x03, 4, 4, 5, 5};");
+			  Main.main(new String[] { "02x03", "4", "4","5", "5"});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
+
+			  System.out.println("Test Main with String[]\n{12x18, 4, 4,5, 5}; Will result in lots of zeros");
+			  Main.main(new String[] {"12x18", "4", "4","5", "5"});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
+
+			  System.out.println("Test Main with String[]\n{12x018, 4, 4,5, 5}; Will result in lots of zeros");
+			  Main.main(new String[] {"12x018", "4", "4","5", "5"});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation(); 
+		
+
 			  System.out.println("Test Main with String[]\n{2x0, 4, 4,5, 5};");
 			  Main.main(new String[] {"2x0", "4", "4","5", "5"});
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation(); 
+	
 		
 		} // end void main(String[] args)
 }         // end Class Test Main with Zeros

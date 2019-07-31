@@ -20,64 +20,51 @@ public class TestW_Switches {
 
 	private static boolean thisDebug = false;
 	
-//	public static void main(String[] args) {
-	public void main(String[] args) {
-		printSeperation();
-		System.out.println("________________________________________________________________");
-		System.out.println("****************************************************************");	
-		System.out.print("** ");
-		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
-		printSeperation();
-		
-		if (args.length!=0)
-			if ( args[0] == "debug")  {
-				thisDebug = true;
-			}
-			
-		 String[] emptyArgs = {};	
-		 
+	public static void main(String[] args) {
+	
+		TestUtilsMeth.testHeader("TestMainW_Switches.java");
 
-		 // System.out.println("TestMainInput:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		 // Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
-		 // evalInternals();
-		 // printSeperation(); 
-		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] {2x3, 4, 4, 5, 5, 34523, 34634};");
+			
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{-f somefileName }); ");
+		  Main.main(new String[] {"-f", "someFileName"});
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{--f somefileName }); ");
+		  Main.main(new String[] {"--f", "someFileName"});
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{-file somefileName }); ");
+		  Main.main(new String[] {"-file", "someFileName"});
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{--file somefileName }); ");
+		  Main.main(new String[] {"--file", "someFileName"});
+		  //TestUtilsMeth.evalInternals();
+		  //TestUtilsMeth.printSeperation(); 
+
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-r});  for runtime Data Entry");
+		  Main.main(new String[] {"-r"});		 
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{--r});  for runtime Data Entry");
+		  Main.main(new String[] {"--r"});		 
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-runtime});  for runtime Data Entry");
+		  Main.main(new String[] {"-runtime"});		 
+		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{--runtime});  for runtime Data Entry");
+		  Main.main(new String[] {"--runtime"});		 
+		  //TestUtilsMeth.evalInternals();
+		  //TestUtilsMeth.printSeperation();		  
+		  
+		  
+/*		  System.out.println("TestMainInput:  call Main.main() with String[]\n{2x3, 4, 4, 5, 5, 34523, 34634};");
 		  Main.main(new String[] {"2x3", "4", "4","5", "5","34523", "34634"});
-		  evalInternals();
-		  printSeperation(); 
+		  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] {debug 2x3, 4, 4, 5, 5, 879349};");
+		  System.out.println("TestMainInput:  call Main.main() with String[]\n{debug 2x3, 4, 4, 5, 5, 879349};");
 		  Main.main(new String[] {"debug", "2X3", "4", "4","5", "5", "879349"});
-		  evalInternals();
-		  printSeperation(); 
+		  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation(); 
 		 
 		 
-			  System.out.println("TestMainInput:  call Main.main() with String[] {{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-			  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
-			  evalInternals();
-			  printSeperation(); 
-		  /*  * * 
-		 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
-		 */
+		  System.out.println("TestMainInput:  call Main.main() with String[]\n{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation();  */
+
 	}// end  void main(String[] args)
 	
-	  public static void evalInternals() {
-		  System.out.print("get_m: ");
-		  System.out.println(Main.get_m());
-		  System.out.print("get_n: ");
-		  System.out.println(Main.get_n());	
-		  System.out.print("get_prod: ");
-		  System.out.println(Main.get_prod());
-		  System.out.print("get_debug: ");
-		  System.out.println(Main.get_debug());
-		  System.out.print("get_rawOrder: ");
-		  System.out.println(Main.get_order());
-	  }
-	  public static void printSeperation(){
-		 System.out.println("");
-		 System.out.println("");
-		  
-	  }
 
 }

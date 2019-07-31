@@ -7,17 +7,18 @@ import main.java.com.matrixJava.ParseInputYA;
 public class TestUtilsMeth {
 	
 	public static void testHeader(String runnerFileName) {
-		System.out.println("Test run " +runnerFileName +" against Main.java, Parse input");
+		System.out.println("Test file running Main Class in " +runnerFileName +" , Parsing input");
+		System.out.println("------------------------------------------------------------");
 		System.out.println("------------------------------------------------------------\n");
 	}
 	
 	  public static void evalInternals() {
 		  System.out.print("get_m: ");
 //		  System.out.println(Main.get_m());
-		  System.out.println(ParseInputYA.get_m());
+		 // System.out.println(ParseInputYA.get_m());
 		  System.out.print("get_n: ");
 //		  System.out.println(Main.get_n());	
-		  System.out.println(ParseInputYA.get_n());	
+		  //System.out.println(ParseInputYA.get_n());	
 		  System.out.print("get_prod: ");
 //		  System.out.println(Main.get_prod());
 		  System.out.println(ParseInputYA.get_prod());
