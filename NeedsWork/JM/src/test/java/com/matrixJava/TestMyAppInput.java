@@ -14,15 +14,15 @@
 
 package test.java.com.matrixJava;
 
-import main.java.com.matrixJava.Main;
+import main.java.com.matrixJava.MyApp;
 
-public class TestMainInput {
+public class TestMyAppInput {
 
 	private static boolean thisDebug = false;
 	
 	public static void main(String[] args) { // must be Static to run by itself. is not static when run from RunAllTests.j
 		
-		TestUtilsMeth.testHeader("TestMainInput.java");
+		TestUtilsMeth.testHeader("TestMyAppInput.java");
 		
 		if (args.length!=0)
 			if ( args[0] == "debug")  {
@@ -33,69 +33,69 @@ public class TestMainInput {
 		 							// emptyArgs causes Usage(); and as such system.exit();
 		 
 		  
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{2x3, 4, 4, 5, 5};");
-		  Main.main(new String[] {"2x3", "4", "4","5", "5"});
-		  TestUtilsMeth.evalInternals();
-		  TestUtilsMeth.printSeperation(); 
-		 
-
-
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
-		  Main.main(new String[] {"2x3", "4", "4","5", "5", });
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5};");
+		  MyApp.main(new String[] {"2x3", "4", "4","5", "5"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
-		  Main.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
+
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
+		  MyApp.main(new String[] {"2x3", "4", "4","5", "5", });
+		  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation(); 
+		 
+
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
+		  MyApp.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 		  
-/*		  System.out.println("TestMainInput:  call Main.main() with String[] \n{debug};");
-		  Main.main(new String[] {"debug"}); 
+/*		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{debug};");
+		  MyApp.main(new String[] {"debug"}); 
 		  if (args.length!=0)TestUtilsMeth.evalInternals();
 		  if (args.length!=0)TestUtilsMeth.printSeperation();
 */		  
 		  
-/*		  System.out.println("TestMainInput:  call Main.main() with String[] \nemptyArgs = {};");
-		  Main.main(emptyArgs);
+/*		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \nemptyArgs = {};");
+		  MyApp.main(emptyArgs);
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation();
 */		   
 		  
 		/*
 		 * System.out.
-		 * println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
-		 * ); Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
+		 * println("TestMyAppInput:  call MyApp.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
+		 * ); MyApp.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
 		 * (args.length!=0) TestUtilsMeth.evalInternals(); if (args.length!=0)
 		 * TestUtilsMeth.printSeperation();
 		 */
 		  
 		/*
 		 * System.out.
-		 * println("TestMainInput:  call Main.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
-		 * ); Main.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
+		 * println("TestMyAppInput:  call MyApp.main() with String[] \n{{2345XXx2654, 11, 31, 41, 44};"
+		 * ); MyApp.main(new String[] {"2345XXx2654","11", "31", "41", "44"}); if
 		 * (args.length!=0) TestUtilsMeth.evalInternals(); if (args.length!=0)
 		 * TestUtilsMeth.printSeperation();
 		 */
 		/*
 		 * System.out.
-		 * println("TestMainInput:  call Main.main() with String[] \n{{debug, 2345XXx2654, 12, 32, 43, 44};"
-		 * ); Main.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"}); 
+		 * println("TestMyAppInput:  call MyApp.main() with String[] \n{{debug, 2345XXx2654, 12, 32, 43, 44};"
+		 * ); MyApp.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"}); 
 		 * if(args.length!=0) TestUtilsMeth.evalInternals();
 		 * if (args.length!=0) TestUtilsMeth.printSeperation();
 		 */
 		 
 		  
-		// System.out.println(""); Main.main(new String[] {"2b 3", "4", "4","5", "5"});
+		// System.out.println(""); MyApp.main(new String[] {"2b 3", "4", "4","5", "5"});
 		 /*  * * 
-		 * System.out.println(""); Main.main(new String[] {"2 b 3", "4", "4","5", "5"});
+		 * System.out.println(""); MyApp.main(new String[] {"2 b 3", "4", "4","5", "5"});
 		 */
 	}// end  void main(String[] args)
 	

@@ -14,7 +14,7 @@
 
 package test.java.com.matrixJava;
 
-import main.java.com.matrixJava.Main;
+import main.java.com.matrixJava.MyApp;
 
 public class TestW_Switches {
 
@@ -24,43 +24,47 @@ public class TestW_Switches {
 	
 		TestUtilsMeth.testHeader("TestMainW_Switches.java");
 
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c, 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] {"-c", "3xhx4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation(); 
 			
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{-f somefileName }); ");
-		  Main.main(new String[] {"-f", "someFileName"});
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{--f somefileName }); ");
-		  Main.main(new String[] {"--f", "someFileName"});
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{-file somefileName }); ");
-		  Main.main(new String[] {"-file", "someFileName"});
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{--file somefileName }); ");
-		  Main.main(new String[] {"--file", "someFileName"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-f somefileName }); ");
+		  MyApp.main(new String[] {"-f", "someFileName"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{--f somefileName }); ");
+		  MyApp.main(new String[] {"--f", "someFileName"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-file somefileName }); ");
+		  MyApp.main(new String[] {"-file", "someFileName"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{--file somefileName }); ");
+		  MyApp.main(new String[] {"--file", "someFileName"});
 		  //TestUtilsMeth.evalInternals();
 		  //TestUtilsMeth.printSeperation(); 
 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-r});  for runtime Data Entry");
-		  Main.main(new String[] {"-r"});		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{--r});  for runtime Data Entry");
-		  Main.main(new String[] {"--r"});		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{-runtime});  for runtime Data Entry");
-		  Main.main(new String[] {"-runtime"});		 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{--runtime});  for runtime Data Entry");
-		  Main.main(new String[] {"--runtime"});		 
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-r});  for runtime Data Entry");
+		  MyApp.main(new String[] {"-r"});		 
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{--r});  for runtime Data Entry");
+		  MyApp.main(new String[] {"--r"});		 
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-runtime});  for runtime Data Entry");
+		  MyApp.main(new String[] {"-runtime"});		 
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{--runtime});  for runtime Data Entry");
+		  MyApp.main(new String[] {"--runtime"});		 
 		  //TestUtilsMeth.evalInternals();
 		  //TestUtilsMeth.printSeperation();		  
 		  
 		  
-/*		  System.out.println("TestMainInput:  call Main.main() with String[]\n{2x3, 4, 4, 5, 5, 34523, 34634};");
-		  Main.main(new String[] {"2x3", "4", "4","5", "5","34523", "34634"});
+/*		  System.out.println("TestMyAppInput:  call MyApp.main() with String[]\n{2x3, 4, 4, 5, 5, 34523, 34634};");
+		  MyApp.main(new String[] {"2x3", "4", "4","5", "5","34523", "34634"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[]\n{debug 2x3, 4, 4, 5, 5, 879349};");
-		  Main.main(new String[] {"debug", "2X3", "4", "4","5", "5", "879349"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[]\n{debug 2x3, 4, 4, 5, 5, 879349};");
+		  MyApp.main(new String[] {"debug", "2X3", "4", "4","5", "5", "879349"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 		 
-		  System.out.println("TestMainInput:  call Main.main() with String[]\n{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[]\n{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation();  */
 

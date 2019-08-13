@@ -1,6 +1,6 @@
 package main.java.com.matrixJava;
 
-public class ParseInput {
+public class ParseInput_v_one {
 	
 	public void PI(String[] args, boolean mydebug ) {
 	String[] myArgs = (args[0].equals("debug")) ? new String[(args.length)-1] : new String[args.length] ;
@@ -24,7 +24,7 @@ public class ParseInput {
 
 		/************************************************************************	*/
 		/* Determine first argument format nXn for now should limit to 3 chars		*/
-		//Main.evalArg_0(matrixA); // check for x check for digits check for len == 3
+		//MyApp.evalArg_0(matrixA); // check for x check for digits check for len == 3
 		evalArg_0(matrixA); // check for x check for digits check for len == 3
 
 		/************************************************************************	*/
@@ -62,16 +62,16 @@ public class ParseInput {
 		/* After correctly parsing the first argument you can tell if the remaining   *
 		 * arguments are sufficient to fill our the matrix of order you've identified *
 		 *                                                                            */
-		//Main.chkArgsLength(myArgs,i, j);
+		//MyApp.chkArgsLength(myArgs,i, j);
 		chkArgsLength(myArgs,i, j);
-		//Main.displayInput(myArgs);
+		//MyApp.displayInput(myArgs);
 		displayInput(myArgs);
 
 		if (mydebug ) System.out.println("Matrix A: is " + matrixA);
 		if (mydebug ) System.out.println("seems as it here is where I could make a call to matrix to do something with this input");
 
 		} //  end of ???
-	}// end of method PI Primary method of class ParseInput
+	}// end of method PI Primary method of class ParseInput_v_one
 	
 	public static void chkArgsLength(String[] theArgs, int row, int col) {
 		if ( theArgs.length < (row*col)+1 ) {

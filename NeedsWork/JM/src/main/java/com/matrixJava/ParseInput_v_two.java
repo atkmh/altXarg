@@ -2,22 +2,38 @@ package main.java.com.matrixJava;
 
 import java.util.ArrayList;
 
-public class ParseInputYA {
+public class ParseInput_v_two {
 	
-	static boolean mydebug = false; 
-	static boolean orderSet = false;
-//	private static int row_m = 0;
-	private int row_m = 0;
-//	private static int col_n = 0;
-	private int col_n = 0;
-	private static String rawOrder = null;
-	private static int orderProduct = 0;
-	private static ArrayList<Integer> arrayListData = new ArrayList<Integer>();
+		static boolean mydebug = false; 
+		static boolean orderSet = false;
+		//	private static int row_m = 0;
+		//	private static int col_n = 0;
+		private int row_m = 0;
+		private int col_n = 0;
+		
+		private String oppMode = null;
 	
+		private static String rawOrder = null;
+		
+		private static int orderProduct = 0;
 	
+		private static ArrayList<Integer> arrayListData = new ArrayList<Integer>();
+		
+		
+// The following two lines live in the section below
+// Loop #2
+// if (cmdLineArgsIndex > 0 && orderSet) 
+//		double[] inputDataArray = new double[args.length-1];
+//		double[] inputDataArray = new double[args.length];
+
 	public void PIYA(String[] args, boolean mydebug ) { // Parse Input Yet Again
+
+//  The folling is the direction we are likely to go
+//	public ParseInput_v_two PIYA(String[] args, boolean mydebug ) { // Parse Input Yet Again
+		
+		
+    //  consider calling this function normalizeInputString: Strip debug if exist
 		String[] myArgs = normalizeInput(args);
-          //  consider calling the above function normalizeInputString: Strip debug if exist
 		
 
 		int arrayListData_index = 0;
@@ -37,69 +53,83 @@ public class ParseInputYA {
 				System.out.println("should mean I didn't find X or x ");
 				System.out.println("Also by now I should have found debug if it were there");
 				System.out.println("This should be a total Order entry failure ");
-				System.out.println("Usage:"); Usage.Usage();
+				System.out.println("Usage:"); Usage.Usage("");
 			}
 		}//end if !mydebug		
 			
-
-//		OUTER_LOOP:
+// Loop Section #0,  Zero based cus in this zeroth or first secion
+// we are looking at what the value is in Index position zero (0)
 		for ( cmdLineArgsIndex = 0 ; cmdLineArgsIndex < args.length; cmdLineArgsIndex++) 
 		{// ended yes
-			if (cmdLineArgsIndex == 0 ) 
+			if (cmdLineArgsIndex == 0 ) 	// means this section of code is for the first argument
 			{// ended Yes
 				String firstArg = args[0];
-				switch (firstArg) 
-				{// ended yes
+				switch (firstArg)  // this switch statement only analyzes the first argument 
+				{
 					case "-d":
 					case "--d":
 					case "-debug":
 					case "--debug":
 						// I have not re factored for this model
-						continue;
+						continue;  	// Means: We have met the first argument and its time to 
+						      		// iterate in the for loop and get the next argument
 						
 					case "-r":
 					case "--r":
 					case "-runtime":
 					case "--runtime":
-					Main.oppMode = "RuntimeEntry";
-					return;
-						//continue;
+					this.oppMode = "RuntimeEntry";
+					return;  	// I get to return here cus by definition we are only intereested in the
+								// first (and only) argument :  operate in runtime mode
+								// There is no Argument List to parse we're done.
 					case "-f":
 					case "--f":
 					case "-file":
 					case "--file":
 					Parsefile();
-						continue ;
+					this.oppMode = "ParseFileEntry";
+						continue ;// could be this should be a return cuz we're handing off control...
+
 					case "-h":
 					case "--h":
 					case "-help":
 					case "--help":
-					Usage.Usage();
+					Usage.Usage("");
 						continue ;
+
 					case "-u":
 					case "--u":
 					case "-usage":
 					case "--usage":
-						Usage.Usage();
+						Usage.Usage("");
 						continue ;
-					case "debug": 
+
+					case "debug":	// got to fix this and incorporate the other into this debug Model
 						switch_debug(myArgs);
 						continue;
-					default: 
-						switch_default(args, cmdLineArgsIndex);
-				       //return;
-				       continue ; 
 
+					default: 
+						/* ******************************************************************************
+						 *  1: Check if first char of the args string is a digit
+						 *  2: Convert 'x' to 'X' and put dimension string into rawOrder( to be parsed )
+						 *  3:  
+						 */
+						switch_default(args, cmdLineArgsIndex);	// Side effect? set mydebug===true;
+						this.oppMode = "CmdLineEntry";
+				       continue ; 
 				}//end Switch firstArg
+
 			}// end if(cmdLineArgsIndex==0
 	
 			
 			
 			/* *********************************************************************
-			 *	Come here if arg 0 was debug:  impliex 3X4 will be in arg 1  
-			 *  Fix input: If its a lower x we fix. 
+			 *	Come here if arg 0 was debug:  implies Second argument will be dimension string
+			 *  3X4 will be in arg 1 :  Fix input: If its a lower x we fix. 
 			 *  with uniform dimension string 3X4 now parse dimension to mRows&nCols 
 			 */
+// Loop Section #1:  In this section we are checking if we are on the second loop index == 1
+// And we are in a debug condition
 			if( (cmdLineArgsIndex == 1) && mydebug  ) {
 				if (args[cmdLineArgsIndex].contains("x")||args[cmdLineArgsIndex].contains("X")) {// ends with else
 					rawOrder = args[cmdLineArgsIndex].replace('x', 'X');
@@ -107,9 +137,14 @@ public class ParseInputYA {
 					orderSet=true;
 				}// end of if (args[x].contains("x")||args[x].contains("X")) 
 				else {	System.out.print("There's a big Problem. ");
-						System.out.println("Dimension is not stated correctly. ");Usage.Usage(); 
-				}
-				continue;  // because of the problem listed two lines above we need to bail out of the loop and program
+						System.out.println("Dimension is not stated correctly. ");
+						Usage.Usage(""); 
+				} // because of the problem listed the lines above we 
+				  // need to bail out of the loop and program.  This is done with Usage();
+
+				continue;	// Reaching this point all it going ok
+							// We exit the loop session and get back to the top
+				
 			}// end of if( cmdLineArgsIndex == 0 || cmdLineArgsIndex == 1) 
 
 		
@@ -134,9 +169,9 @@ public class ParseInputYA {
 						arrayListData.add( Integer.parseInt(args[i]) );
 						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
 					}// end of for ( i <= (args.length)-1 
-					Main.inputValsPassToMatrix = inputDataArray;
-					Main.matrixDimensions[0] = row_m;
-					Main.matrixDimensions[1] = col_n;
+			//		MyApp.inputValsPassToMatrix = inputDataArray;
+			//		MyApp.matrixDimensions[0] = row_m;
+			//		MyApp.matrixDimensions[1] = col_n;
 					
 				}// end of if (args[0].contentEquals("debug"))
 				else if (args[0].contains("x")||args[0].contains("X")) 
@@ -148,9 +183,9 @@ public class ParseInputYA {
 						arrayListData.add( Integer.parseInt(args[i]) );
 						inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
 					}// end of for ( i <= (args.length)-1 
-					Main.inputValsPassToMatrix = inputDataArray;
-					Main.matrixDimensions[0] = row_m;
-					Main.matrixDimensions[1] = col_n;
+			//		MyApp.inputValsPassToMatrix = inputDataArray;
+			//		MyApp.matrixDimensions[0] = row_m;
+			//		MyApp.matrixDimensions[1] = col_n;
 					
 				}// end of else if (args[0].contains("x")||args[0].contains("X"))  
 				// else {  logic should idenfity that not debug or NXM offered }
@@ -165,7 +200,7 @@ public class ParseInputYA {
 
 		
 
-	if(mydebug)System.out.println("Last couple of things coming out of method Main");	 
+	if(mydebug)System.out.println("Last couple of things coming out of method MyApp");	 
 
 
 	}// end public void PIYA(String[] args, boolean mydebug )
@@ -180,14 +215,16 @@ public class ParseInputYA {
 		last_xLoc = order.lastIndexOf('X');
 		if (mydebug) System.out.println("First and last X recorded");
 
+		// Detection of an input problem "3xxx6" for example
 		if (first_xLoc != last_xLoc) // if != there was more than one X
-			if (mydebug) System.out.println("houston:  We Have An XXXXXXXX Problem");
+		 System.out.println("houston:  We Had a multiple X's input condition   " +order);
 
 		this.row_m = Integer.parseInt((order.substring(0, first_xLoc /* spacer */ )));
 
+		// Error Checking here.... 0x3  type input
 		if (this.row_m < 1) {// error condition
 			System.out.println("Value less that 1 detected: ");
-			Usage.Usage();
+			Usage.Usage("");
 			System.out.println("Exiting");
 			System.out.println("but were not really going to exit rt now");
 			//System.exit(1);  // cold make this if(myExit) where exit is passed in to test ???
@@ -197,9 +234,10 @@ public class ParseInputYA {
 
 		this.col_n = Integer.parseInt((order.substring((last_xLoc + 1), order.length())));
 
+		// Error Checking here.... 4x0  type input
 		if (this.col_n < 1) {
 			System.out.println("Value less that 1 detected: ");
-			Usage.Usage();
+			Usage.Usage("");
 			System.out.println("Exiting");
 			System.out.println("but were not really going to exit rt now");
 			//System.exit(1);
@@ -207,7 +245,7 @@ public class ParseInputYA {
 			
 		if (mydebug) System.out.println("Let See if we have col integer: " + col_n);
 
-		orderProduct = this.row_m * this.col_n;
+		this.orderProduct = this.row_m * this.col_n;
 
 		if (mydebug) System.out.println("orderProduct just set at: " + orderProduct);
 
@@ -236,6 +274,7 @@ public class ParseInputYA {
 		
 		
 	public static int get_prod() {
+//	public int get_prod() {
 		return orderProduct;
 	}
 
@@ -265,7 +304,7 @@ public class ParseInputYA {
 	// test done in the firest line of the method
 	//
 	public static void switch_debug(String[] args) {
-		if (args.length < 2 )  Usage.Usage(); // Means all that was passed was "debug" 
+		if (args.length < 2 )  Usage.Usage(""); // Means all that was passed was "debug" 
 										// otherwise : set true following the command line option 
 		mydebug = true;
 		if(mydebug)System.out.println("debugset");
@@ -285,12 +324,12 @@ public class ParseInputYA {
 
 		catch (IndexOutOfBoundsException e) { // start of catch
 			System.out.println("Exception" +e );
-			Usage.Usage();
+			Usage.Usage("");
 		} // endof Catch
 
 		charTestBool = Character.isDigit(charIndex);
 
-		if (!charTestBool) Usage.Usage();
+		if (!charTestBool) Usage.Usage("");
 		else {
 			try {// start of try
 				rawOrder = args[cmdLineStringIndex].replace('x', 'X');
@@ -299,7 +338,7 @@ public class ParseInputYA {
 			} //* end of try
 			catch (IndexOutOfBoundsException e) { // start of catch
 				System.out.println("Exception" +e );
-				Usage.Usage();
+				Usage.Usage("");
 			} // endof Catch
 		}  // if (!charTestBool) else 	
 	} // end public static void switch_default(String[] args, int x)
@@ -310,7 +349,7 @@ public class ParseInputYA {
 	public static String[] normalizeInput(String[] args) {
 		// *************************************
 		//  7/17/19 Last thing I did was add the triem if x then y else z
-		//  Idea is to make myArgs Global and available to other methods outside Main well PIYA
+		//  Idea is to make myArgs Global and available to other methods outside MyApp well PIYA
 		//    0     1   2  3  4 5 6 7 8   9
 		//  [ debug 2x4 33 44 4 3 2 8 118 22 ] (i=1; i<9 ; i++i) mA[i-1] = args[i]
 		//  [ 2x4 33 44 4 3 2 8 118 22 ]       (i=0;  )          mA[i] = args[i]

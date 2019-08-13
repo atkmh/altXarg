@@ -1,6 +1,6 @@
 package test.java.com.matrixJava;
 
-import main.java.com.matrixJava.ParseInput;
+import main.java.com.matrixJava.ParseInput_v_one;
 
 public class TestParseInput {
 
@@ -18,7 +18,7 @@ public class TestParseInput {
 		String [] testArgs = {"debug","2x4","3" ,"4" ,"66" ,"23","1","34","3" ,"4"};
 		boolean testBool = false;
 		
-		ParseInput inputTest = new ParseInput(  ); 
+		ParseInput_v_one inputTest = new ParseInput_v_one(  ); 
 		inputTest.PI(testArgs, testBool);
 		
 		System.out.println("*********************");

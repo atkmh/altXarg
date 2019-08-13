@@ -68,7 +68,7 @@ public class TestMatrix {
 		addResult.displayM();
 //		clearScreen();
 		
-	}// end Main()
+	}// end MyApp()
 
 }// end Class
 /*

@@ -2,10 +2,13 @@ package main.java.com.matrixJava;
 
 public class Usage {
 
-	public static void Usage() {
+	public static void Usage(String context	) {
+		System.out.println(context);
 		int status = 0;
 		System.out.println("Usage: app_name [options] required_input required_input2 ... ");
 		System.out.println(" options:");
+		System.out.println("What about NO input to me identifying runtime data entry ???               ");
+		System.out.println("   -c, --c, -cmdln,   --cmdln: parse all input variables from commadn line");
 		System.out.println("   -d, --d, -debug,   --debug: only a concept when entering data at command line");
 		System.out.println("   -r, --r, -runtime, --runtime: signals the app we capture data interactively");
 		System.out.println("   -f, --f, -file,    --file:  File supplied with required_input data");

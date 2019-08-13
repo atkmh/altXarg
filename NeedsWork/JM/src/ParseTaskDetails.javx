@@ -1,0 +1,132 @@
+/*
+ 
+[ 
+	something else just occurred to me about operation and how I thought 
+	I might want something to work. 
+	Create two objects,
+	one: object of input strings -b 3x3 32 3 2.2 etc.
+	two: object of values I can use passing to Matrix.
+]  
+ObjOfStrings.first = '-b'  can easily if first arg first char == '-' if not fail
+ObjOfString.second = '2x4' Can easliy check total length to limit array size
+						   Can easily check if first char isDigit
+						   Can easliy check contains x or X 
+						   Can easily check if remaining are all digits or '.'
+						   Can determine if last arg is string for name
+ObjOfString.third = [ 3x3 32 3 2.2 etc. ]
+
+
+Obj.Name = 'what ever'
+Obj.OppMode = "runtime | ParseFile | CmdLine"
+Obj.M = 3
+Ojb.N = 5
+Obj.data[23 32 12 21.5 28 82  0.125   0.333 2.71821 ] 
+Obj.arrayLind[23 32 12 21.5 28 82  0.125   0.333 2.71821 ] 
+
+Int M = 3
+int N = 5
+Array of double 23 32 12 21.5 28 82  0.125   0.333 2.71821
+ 
+ 
+ 
+static boolean myDebug: don't think Im going to continue with debug
+static boolean orderSet:  not such a good name
+ 
+private int row_m = 0;
+private int col_n = 0; 
+ 
+ 
+ 
+private String oppMode = null;
+private static String rawOrder = null;
+private static int orderProduct = 0;
+private static ArrayList<Integer> arrayListData = new ArrayList<Integer>();
+
+
+String[] myArgs = normalizeInput(args);
+int arrayListData_index = 0;
+int cmdLineArgsIndex = 0;
+
+		 
+ 
+arrayListData.add( Integer.parseInt(args[i]) );
+inputDataArray[arrayListData_index] = Integer.parseInt(args[i]);
+
+}// end of for ( i <= (args.length)-1 
+MyApp.inputValsPassToMatrix = inputDataArray;
+MyApp.matrixDimensions[0] = row_m;
+MyApp.matrixDimensions[1] = col_n;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*/

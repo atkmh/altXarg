@@ -2,10 +2,10 @@ package test.java.com.matrixJava;
 
 import java.util.ArrayList;
 
-import main.java.com.matrixJava.Main;
+import main.java.com.matrixJava.MyApp;
 import main.java.com.matrixJava.Matrix;
 
-public class TestMainAndMatrix {
+public class TestMyAppAndMatrix {
 
 	public static void clearScreen() {  
 	    System.out.print("\033[H\033[2J");  
@@ -15,12 +15,12 @@ public class TestMainAndMatrix {
 	public static void main(String[] args) {
 //	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
 //
-//		System.out.println("Test File Running Main Class in TestMainAndMatrix.java,  Parsing input");
+//		System.out.println("Test File Running MyApp Class in TestMyAppAndMatrix.java,  Parsing input");
 //
 //		System.out.println("Test Running Class: " +this.getClass().getSimpleName()  ) ;	
 //		System.out.println("---------------------------------------------------------\n");		
 		
-		TestUtilsMeth.testHeader("TestMainAndMatrix.java");	
+		TestUtilsMeth.testHeader("TestMyAppAndMatrix.java");	
 		
 		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
 		double[] condmat = {1.,3.,7.,9.};
@@ -39,8 +39,8 @@ public class TestMainAndMatrix {
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
 
-		  System.out.println("TestMainInput:  call Main.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  Main.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 	
 		

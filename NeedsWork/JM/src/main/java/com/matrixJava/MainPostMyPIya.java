@@ -5,7 +5,7 @@ import java.util.ArrayList;
  *  Ok, so what's the deal with this file.
  * 
  *  I wanted to get a copy of main at the time I had commented out the
- *  body and move it to ParseInputYA.   YA === Yet Again. Take off on YACC
+ *  body and move it to ParseInput_v_two.   YA === Yet Again. Take off on YACC
  *
  *  Also, I flet I needed a template that worked that I could go back to 
  *  if necessary
@@ -24,8 +24,8 @@ public class MainPostMyPIya {
 	 */
 
 	public static void main(String[] args) {
-		//ParseInput myPI = new ParseInput();	This was the first pass at parsing input
-		ParseInputYA myPIya = new ParseInputYA();//	This is the second pass at parsing input
+		//ParseInput_v_one myPI = new ParseInput_v_one();	This was the first pass at parsing input
+		ParseInput_v_two myPIya = new ParseInput_v_two();//	This is the second pass at parsing input
 
 		
 //		
@@ -205,7 +205,7 @@ public class MainPostMyPIya {
 //
 //		 
 //		 
-//if(mydebug)System.out.println("Last couple of things coming out of method Main");	 
+//if(mydebug)System.out.println("Last couple of things coming out of method MyApp");	 
 //
 //
 //}// end void main(String[] args )
@@ -306,7 +306,7 @@ public class MainPostMyPIya {
 	
 //	System.out.println("Clearing out the ArrayList<Integer>                       ");
 //	allRowsData.clear();	
-} // End of class Main
+} // End of class MyApp
 	}
 }
 

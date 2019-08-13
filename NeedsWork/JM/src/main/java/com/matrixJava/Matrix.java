@@ -40,6 +40,8 @@ public class Matrix {
 	private int nCols;
 	private double m_data[][];  // JAMA names A
 	private String m_varName;
+	private Object dataObject;  // Sort of a place holder for the parsed dataObject that I haven't done yet.Compiles: Runs.
+
 
 /* **************************************************
  * 
