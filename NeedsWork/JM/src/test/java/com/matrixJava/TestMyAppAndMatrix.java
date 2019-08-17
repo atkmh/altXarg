@@ -1,5 +1,6 @@
 package test.java.com.matrixJava;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import main.java.com.matrixJava.MyApp;
@@ -12,7 +13,7 @@ public class TestMyAppAndMatrix {
 	    System.out.flush();  
 	}  	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
 //
 //		System.out.println("Test File Running MyApp Class in TestMyAppAndMatrix.java,  Parsing input");
@@ -39,13 +40,13 @@ public class TestMyAppAndMatrix {
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
 
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  MyApp.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
 		  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 	
 		
 		
-		
+/*		
 		Matrix testRunMatrix = new Matrix();
 		testRunMatrix.setName("testRunMatrix");
 		testRunMatrix.displayC();
@@ -75,7 +76,6 @@ public class TestMyAppAndMatrix {
 		addResult = addResult.Multiply(3.623);
 		addResult.displayM();
 //		clearScreen();
-/*		
 
 		System.out.println("From TestMatrix.class");
 		System.out.println("*********************");

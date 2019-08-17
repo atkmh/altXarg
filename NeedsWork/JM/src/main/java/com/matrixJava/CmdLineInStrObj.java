@@ -20,7 +20,6 @@ public class CmdLineInStrObj {
 		//CmdLineInStrObj myInputObj = null;
 		
 	public CmdLineInStrObj(String[] cmdLineInput) {
-//		String myRegex = "[0123456789X]";
 		
 		if( cmdLineInput[0].charAt(0) != '-'  )
 			Usage.Usage("Problem: Options character wrong \n "+cmdLineInput[0] +" " +cmdLineInput[1] +" some Data");
@@ -37,7 +36,7 @@ public class CmdLineInStrObj {
             /* check every dimensinon char in the list */	
         	for(int i=0; i<this.second.length(); i++)
         		if( ! ( checklist(this.second.charAt(i)) ))
-			Usage.Usage("Problem: illegal char in Dimensions \n"+this.first +" " +this.second +" some Data");
+        			Usage.Usage("Problem: illegal char in Dimensions \n"+this.first +" " +this.second +" some Data");
 
         	/* check if there wsa more and one X in the dimension */		
         	if ( 1 < (this.second.codePoints().filter(ch -> ch =='X').count()) )
@@ -57,27 +56,27 @@ public class CmdLineInStrObj {
                mVals.add(cmdLineInput[x]);
 		}
 	}
-	private boolean checklist(char myChar) {
-		String myRegex = "0123456789X";
-		boolean theAnswer = false; 
-		
-		for(int x=0 ; x < myRegex.length() ; x++)
-			if(myChar == myRegex.charAt(x))
-				theAnswer = true;
-		return theAnswer;
-	}
+//	private boolean checklist(char myChar) {
+//		String myRegex = "0123456789X";
+//		boolean theAnswer = false; 
+//		
+//		for(int x=0 ; x < myRegex.length() ; x++)
+//			if(myChar == myRegex.charAt(x))
+//				theAnswer = true;
+//		return theAnswer;
+//	}
 	
-	public String getFirst() {
-		return this.first;
-	}
+//	public String getFirst() {
+//		return this.first;
+//	}
+//	
+//	public String getSecond() {
+//		return this.second;
+//	}
 	
-	public String getSecond() {
-		return this.second;
-	}
-	
-	public ArrayList getdata() {
-		return this.mVals;
-	}
+//	public ArrayList getdata() {
+//		return this.mVals;
+//	}
 
 	// the one and only constructor that I can think of
 //	public CmdLineInStrObj CmdLineInStrObj (String[] cmdLineInput) {
@@ -85,26 +84,6 @@ public class CmdLineInStrObj {
 //        
 //		
 //		
-//		/*  Checking for proper first char of -b switch*/
-//		if( cmdLineInput[0].charAt(0) != '-'  )
-//			Usage.Usage();
-//	    this.first = cmdLineInput[0];	
-//	    
-//	    
-//		/*  Checking for proper first char of Matrix Dimension */
-//		if( !Character.isDigit(cmdLineInput[1].charAt(0) ))
-//			Usage.Usage();
-//	    this.second = cmdLineInput [1];		
-//
-//		for(int x=2 ; x < cmdLineInput.length ; x++) {
-//			// curious Im not supposed to do this yet
-//			// this.mVals.add( Double.parseDouble( cmdLineInput[x] )); 
-//               mVals.add(testInput[x]);
-//		}
-//		return this;
-//	}
-	
-	// I think setThird shold set an arrayList
-	// cus I don't need to know it's size
+
 
 }

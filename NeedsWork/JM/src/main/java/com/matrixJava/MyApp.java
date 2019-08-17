@@ -35,12 +35,7 @@ public class MyApp {
 	 */
 
 	static boolean mydebug = false;
-	/*
-	 * static boolean mydebug = false, orderSet = false; private static int row_m =
-	 * 0; private static int col_n = 0; private static String rawOrder = null;
-	 * private static int orderProduct = 0; private static ArrayList<Integer>
-	 * allRowsData = new ArrayList<Integer>();
-	 */
+	
 	// int size = (args[0].equals("debug")) ? new String[(args.length)-1] : new
 	// String[args.length];
 
@@ -58,120 +53,99 @@ public class MyApp {
 
 	public static void main(String[] args) throws IOException {
 		String firstArg = "";
-		if (args.length==0) {
-            firstArg = "null";
-            }
-/*			if (args.length==0) {
-				RuntimeInStringObj inputString = new RuntimeInStringObj();
-				System.out.println(inputString.getFirst());
-				System.out.println(inputString.getSecond());
-				System.out.println(inputString.getdata());
-//			System.out.println("................");
-//			System.out.println(inputString.toString());
-		 Launch runtime data input 
+		
+		InputStringObj inputoString = null;
+		
+		
+		if (args.length==0)  	// We want null input at command line to indicate 
+            firstArg = "null"; 	// that we want runTime data input.  Switch on null
+		else   
+			firstArg = args[0];
+		
+		switch (firstArg)  // this switch statement only analyzes the first argument 
+		{
+			case "-d":
+			case "--d":
+			case "-debug":
+			case "--debug":
+				// continue;  	Not continuing
+				// no operation :  dropthrough to next 
+				// go to runtime operation
+			case "-r":
+			case "--r":
+			case "-runtime":
+			case "--runtime":
+			case "null":  // special case: no command line args
+				inputoString = new InputStringObj("-r", null);
+				System.out.println(inputoString.getFirst());
+				System.out.println(inputoString.getSecond());
+				System.out.println(inputoString.getdata());
+				break; 
+
+			case "-c":
+			case "--c":
+			case "-cmdline":
+			case "--cmdline":
+				inputoString = new InputStringObj("-c", args);
+				System.out.println(inputoString.getFirst());
+				System.out.println(inputoString.getSecond());
+				System.out.println(inputoString.getdata());	
+				break;
 				
+			case "-f":
+			case "--f":
+			case "-file":
+			case "--file":
+			//Parsefile();
+		//	this.oppMode = "ParseFileEntry";
+				break ;// could be this should be a return cuz we're handing off control...
+
+			case "-h":
+			case "--h":
+			case "-help":
+			case "--help":
+			case "-u":
+			case "--u":
+			case "-usage":
+			case "--usage":
+				Usage.Usage(" ");
+				break ;
+
+			default: 
+			//Usage.Usage("Problem: see Input  "+args[0] +" " +args[1] +" " +args[2]  +" etc..."             );	
+			String tmp = "";
+			for (String s: args) {tmp = tmp+s +" ";}
+			Usage.Usage("Problem: see Input  " +tmp );	
+		}//end Switch firstArg	
 		
-			} */
-			else   
-				firstArg = args[0];
-		
-			switch (firstArg)  // this switch statement only analyzes the first argument 
-			{
-				case "-d":
-				case "--d":
-				case "-debug":
-				case "--debug":
-					// continue;  	Not continuing
-					// no operation :  dropthrough to next 
-					// go to runtime operation
-				case "-r":
-				case "--r":
-				case "-runtime":
-				case "--runtime":
-				case "null":
-					RuntimeInStringObj inputoString = new RuntimeInStringObj();
-					System.out.println(inputoString.getFirst());
-					System.out.println(inputoString.getSecond());
-					System.out.println(inputoString.getdata());
-					break; 
-
-				case "-c":
-				case "--c":
-				case "-cmdline":
-				case "--cmdline":
-					CmdLineInStrObj myCmdLineInput = new CmdLineInStrObj(args);
-					
-					System.out.println(myCmdLineInput.getFirst());
-					System.out.println(myCmdLineInput.getSecond());
-					System.out.println(myCmdLineInput.getdata());	
-					
-					
-					System.out.println("backFromParsingcommandLineInput:  Done   ");
-					break;
-					
-				case "-f":
-				case "--f":
-				case "-file":
-				case "--file":
-				//Parsefile();
-			//	this.oppMode = "ParseFileEntry";
-					break ;// could be this should be a return cuz we're handing off control...
-
-				case "-h":
-				case "--h":
-				case "-help":
-				case "--help":
-				case "-u":
-				case "--u":
-				case "-usage":
-				case "--usage":
-					Usage.Usage(" ");
-					break ;
-
-				default: 
-					
-			}//end Switch firstArg	
-
+			
+			
+			System.out.println("");
+			System.out.println("............");
+			System.out.println("Program Done");
+	
 			//System.exit(0);
 	} // end public static void main(String[] args)
 
 } // End of class MyApp
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * *****************************************************************************
- * ** Program Input Definition: What are the argument data types at the command
- * line
- * 
- * ProgramName: This ClassName Arg1: String - in form " NXN where N is Positive
- * Integer , X is "X" : To start this project N < 4 otherwise thigs will just be
- * stupid : N and N will be the controlling Row and Column Loop controls Arg2:
- * String - in form N where N is integer Arg-: String - in form N where N is
- * integer Arg-: String - in form N where N is integer Arg-: String - in form N
- * where N is integer Arg-
- * 
- * 
- * https://www.oreilly.com/library/view/java-cookbook/0596001703/ch03s05.html //
- * StrCharAt.java String a = "A quick bronze fox leapt a lazy bovine"; for (int
- * i=0; i < a.length( ); i++) System.out.println("Char " + i + " is " +
- * a.charAt(i));
  * 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * Second half of the if () else ParseInputTest parseCmdLnInput = new
- * ParseInputTest();// This is the second pass at parsing input Object testObj =
- * parseCmdLnInput.buildIt(args); // Call to ParsInput.java
- * System.out.println("oppMode is: " +oppMode);
- * System.out.println("M, N, and Input is......."); System.out.println("M: "
- * +matrixDimensions[0] + " N: " +matrixDimensions[1] +" InVals "
- * +inputValsPassToMatrix.length); Matrix matrixPOCTest = new
- * Matrix(matrixDimensions[0], matrixDimensions[1],inputValsPassToMatrix);
- * matrixPOCTest.displayC(); matrixPOCTest.displayM();
  * 
  */
