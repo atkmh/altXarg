@@ -77,9 +77,16 @@ public class MyApp {
 			case "--runtime":
 			case "null":  // special case: no command line args
 				inputoString = new InputStringObj("-r", null);
+
+//  ?????? why do this
+//      inputoString.getStringArray();
+
 				System.out.println(inputoString.getFirst());
 				System.out.println(inputoString.getSecond());
 				System.out.println(inputoString.getdata());
+				
+				InputNumericObj myNumTest = new InputNumericObj(inputoString);
+// just hold onto this		myNumTest.displayNumMatrixValues();
 				break; 
 
 			case "-c":

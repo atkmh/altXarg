@@ -1,27 +1,48 @@
 package main.java.com.matrixJava;
 
-public class InputObj {
+import java.util.ArrayList;
+
+public class InputNumericObj {
 	
-	private double[] mxValues;
+	private double[] mxValues = null;
+	private ArrayList<Double> mxVals = new ArrayList<Double>();
 	private int M;
 	private int N;
 	private String  itemName;
 	private String opperationalMode;
 
-	
+// so ???  Why isn't my may data carrier an arrayList
+// my parse Srting Obj is 
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public InputNumericObj(InputStringObj strObj) {
+	    int xLoc = strObj.getSecond().indexOf("X");
+	    
+	    this.M = Integer.parseInt((strObj.getSecond().substring(0, xLoc )));
+	    this.N = Integer.parseInt((strObj.getSecond().substring(xLoc+1,strObj.getSecond().length() )));
+		
+	    mxValues = new double[  strObj.getdata().size() ];
+	    
+	    for (int x = 0 ; x < strObj.getdata().size(); x++)
+	    	mxValues[x] = Double.parseDouble(strObj.get(x));
+		
+		return;
 	}
 
 	
-	public void setM(int M) {
-		this.M = M;
+	public int getM() {
+		return this.M;
 	}
 
-	public void setN(int N) {
-		this.N = N;
+	public int getN() {
+		return this.N;
+	}
+	
+	public double get(int index) {
+		return mxValues[index];
+	}
+	
+	public double[] getData() {
+		return this.mxValues;
 	}
 	
 	public void setCell(int index, double val) {
@@ -31,4 +52,18 @@ public class InputObj {
 	public void setOppMode(String mode) {
 		this.opperationalMode = mode;
 	}
+	
+	
+    private void setOrderValues(String dimension) {
+    // maybe I dont' use this....... ?	
+    }
+    
+    public void displayNumMatrixValues() {
+    	System.out.print("numeric Matrix values: ");
+    	for (int x=0 ; x < mxValues.length; x++) 
+    		System.out.print(mxValues[x] +" ");
+    	System.out.println("");
+    	
+    	
+    }
 }

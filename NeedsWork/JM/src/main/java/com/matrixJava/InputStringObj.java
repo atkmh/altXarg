@@ -12,24 +12,27 @@ public class InputStringObj {
 		private String firstRT;
 		private String firstCL;
 		private String second= ""; // 3X6 Must Be ! 
-		private String[] arrayOfStrings;
+//		private String[] arrayOfStrings;
 		private ArrayList<String> mVals = new ArrayList<String>();  // remember this is input
-		
 	
 	public InputStringObj(String switchPassed, String[] cl_Data ) throws IOException {
 		
+		String tmpStr = "";
+		String [] arrayOfStrings;
 		String mValues = "";
 		String mDims = "";
 
 		this.inputSwitch = switchPassed;
 		
-		/* Since we pass a switch in here we check*/
-		/* and operate accordingly                */
-		/* Assumption:  We only send two switches */
+		/* Since we pass a switch in here we check and operate accordingly  */
+		/* Assumption:  We only send two switches                           */
+		/*  --------------------------------------------------------------  */
 		if(switchPassed.equals("-r")) {
+/* Direct the user on how to use the sys   */
+			presentUsage();  
+
 /* Lets do all the -r data gathering first */
 			this.firstRT = switchPassed;
-			presentUsage();
 
 /* Get raw dimensions*/			
 			System.out.print("Enter Dimension: ");
@@ -38,14 +41,37 @@ public class InputStringObj {
 
 /* Get raw matrix values*/			
 			System.out.print("Enter Matrix Values: ");
-			mValues = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
+//			mValues = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
+			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
+/*
+ *  Just to kee the system running temporarily we use hits call */	
+		//mValues = tmpStr;
+/*   this call is only temporary  */
+
+/* **********************************************************
+ *   Putting this call on hold for rt now
+ * 	 This should be done for both runtime and commandline 
+ *   But only once	
+ *			mValues = tmpStr.trim().replaceAll(" +",  " ");
+ */
 		}
-		else if(switchPassed.equals("-c")) { // Finish this with else ( failure ) Usage.Usage("Error message")
-/* 	Lets parse all the command line passed */
-/* 	setting the arg[0] parameter           */
+		else if(switchPassed.equals("-c")) { 
+/*      Finish this with else ( failure ) Usage.Usage("Error message") */
+		
+			
+/* ************************************************************************
+ *  This is the second half of this module.
+ *  First half was the runtime data entry and values check
+ * 
+ * 	This is the second half command line data entry 
+ *  values check		
+ *  */
+			
+/* 	setting the arg[0] parameter === "-c"                                 */
 			this.firstCL = switchPassed;
 		
-/* 	setting the arg[1] parameter           */
+/* 	setting the arg[1]  dimension parameter                               */
+			/* ????  Where's the check ???????                            */
 			mDims = cl_Data[1];
 
 /*  Checking for proper first char of Matrix Dimension */
@@ -59,6 +85,7 @@ public class InputStringObj {
 			}
 		} else Usage.Usage(" Some How the wrong switch was passed!! How I don't know !");
 
+		
 /* ***************************************************************************
  *  Now at this point, I've either read in my data or I've raw parsed my data
  * 	Now I can run the error checks	
@@ -76,9 +103,15 @@ public class InputStringObj {
 /* check if there was more than one X in the dimension */		
         	if ( 1 < (mDims.codePoints().filter(ch -> ch =='X').count()) ) 
         		Usage.Usage("Problem: to many Xs \n" +mDims +" " +mValues +" some Data");
-        }
+        } else Usage.Usage("Proglem: bad character in Dimension \n" +mDims +" " +mValues +"some Data");
 		this.second = mDims ;
 /* mDims Error Checking is done  */
+
+/* Special call:  This takes extra spaces out of the matrix values string */		
+		mValues = tmpStr.trim().replaceAll(" +",  " ");
+
+/* make assignment to array of strings                     */
+/* This step makes assigning to ArrayLins this much easier */		
 
 		arrayOfStrings = mValues.split(" ");
 
@@ -135,15 +168,17 @@ public class InputStringObj {
 		return this.mVals;
 	}
 	
+	public String get(int index ) {
+		return this.mVals.get(index);
+	}
+	
 /*RunTimeCode */	
-	public void displayStringArray(String[] strArray) {
+//	public void displayStringArray(String[] strArray) {
+	public void displayStringArray() {
 		System.out.println("Array Length is "+strArray.length);
 		for (String value:strArray)
 			System.out.println(value);
 		System.out.println(".............");
-	  //System.out.println("Data: "+testJoinStr); 
-	  // Since moving to display this local variable is not valid
-	  // so I wont use it
 	}
 		
 	public void presentUsage() {
@@ -152,10 +187,10 @@ public class InputStringObj {
 		System.out.println("Matrix Values example: 1 3 2.3 4.125");
 	}	
 	
-		public String[] getStringArray() {
-			//System.out.println(debugOutput +"getSringArray");
-			return this.arrayOfStrings;
-		}
+//		public String[] getStringArray() {
+//			//System.out.println(debugOutput +"getSringArray");
+//			return this.arrayOfStrings;
+//		}
 			
 	
 	
