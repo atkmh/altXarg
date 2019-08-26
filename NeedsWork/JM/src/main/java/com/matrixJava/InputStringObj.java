@@ -86,6 +86,7 @@ public class InputStringObj {
 /* check for lower x's in mDims  Error with usage if found */		
 		if (mDims.contains("x") || mDims.contains("X") ) {
 			mDims = mDims.replace('x', 'X');
+			mDims = fixInnerSpace(mDims,0); // integer size of space to leave
 			mDims = mDims.trim(); // take off trailing white space.
 		
 	
@@ -119,13 +120,7 @@ public class InputStringObj {
 /* the data values                         */
 /* *****************************************/
 /*                                         */
-		tmpStr = tmpStr.replace("      ", " ");//6
-		tmpStr = tmpStr.replace("     ", " ");//5
-		tmpStr = tmpStr.replace("    ", " ");//4
-		tmpStr = tmpStr.replace("   ", " ");//3
-		tmpStr = tmpStr.replace("  ", " ");//2
-
-
+		tmpStr = fixInnerSpace(tmpStr,1); // integer size of space to leave
 /* make assignment to array of strings                     */
 /* This step makes assigning to ArrayLins this much easier */		
 
@@ -148,6 +143,10 @@ public class InputStringObj {
 	
 	// Now, I could combine both of these into a single method
 	// but I'd have to pass inthe regEx string:  Will consider this
+	//
+	//  reWrite these two procs.  Two arg proc, String to check and Dim or Val
+	// valRegex = "0123456789.";
+	// dimlRegex = "0123456789X";
 	private boolean check_mValuesChars(char myChar) {
 		String myRegex = "0123456789.";  // We're not allowing neg Number so no "-"
 		boolean thisAnswer = false;
@@ -164,6 +163,18 @@ public class InputStringObj {
 			if(myChar == myRegex.charAt(x))
 				theAnswer = true;
 		return theAnswer;
+	}
+	
+	
+	private String fixInnerSpace(String data, int zeroSpace) {
+		data = data.replace("      ", " ");//6 -> 1
+		data = data.replace("     ", " ");//5 -> 1
+		data = data.replace("    ", " ");//4 -> 1
+		data = data.replace("   ", " ");//3 -> 1
+		data = data.replace("  ", " ");//2 -> 1
+		if (zeroSpace<1)
+			data = data.replace(" ", "");//1 -> 0
+		return data;
 	}
 	
 	public String getFirst() {
