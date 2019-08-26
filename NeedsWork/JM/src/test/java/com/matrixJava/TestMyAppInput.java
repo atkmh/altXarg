@@ -14,46 +14,48 @@
 
 package test.java.com.matrixJava;
 
+import java.io.IOException;
+
 import main.java.com.matrixJava.MyApp;
 
 public class TestMyAppInput {
 
 	private static boolean thisDebug = false;
 	
-	public static void main(String[] args) { // must be Static to run by itself. is not static when run from RunAllTests.j
+	public static void main(String[] args) throws IOException { // must be Static to run by itself. is not static when run from RunAllTests.j
 		
 		TestUtilsMeth.testHeader("TestMyAppInput.java");
 		
-		if (args.length!=0)
-			if ( args[0] == "debug")  {
-				thisDebug = true;
-			}
+//		if (args.length!=0)
+//			if ( args[0] == "debug")  {
+//				thisDebug = true;
+//			}
 			
 		 String[] emptyArgs = {};	// making this available but dont really want to use it 
 		 							// emptyArgs causes Usage(); and as such system.exit();
 		 
 		  
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  MyApp.main(new String[] { "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
-		  TestUtilsMeth.evalInternals();
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c, 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+		  MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+	  //  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5};");
-		  MyApp.main(new String[] {"2x3", "4", "4","5", "5"});
-		  TestUtilsMeth.evalInternals();
-		  TestUtilsMeth.printSeperation(); 
-		 
-
-
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
-		  MyApp.main(new String[] {"2x3", "4", "4","5", "5", });
-		  TestUtilsMeth.evalInternals();
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5};");
+		  MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5"});
+	  //  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{2x3, 4, 4, 5, 5, 879892349};");
-		  MyApp.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
-		  TestUtilsMeth.evalInternals();
+
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5, };");
+		  MyApp.main(new String[] {"-c","2x3", "4", "4 ","5  ", "   5", });
+	 //	  TestUtilsMeth.evalInternals();
+		  TestUtilsMeth.printSeperation(); 
+		 
+
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5, 879892349};");
+		  MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5", "879892349"});
+	 //	  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 		  

@@ -57,7 +57,7 @@ public class MyApp {
 		InputStringObj inputoString = null;
 		
 		
-		if (args.length==0)  	// We want null input at command line to indicate 
+		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
             firstArg = "null"; 	// that we want runTime data input.  Switch on null
 		else   
 			firstArg = args[0];
@@ -84,8 +84,12 @@ public class MyApp {
 				System.out.println(inputoString.getFirst());
 				System.out.println(inputoString.getSecond());
 				System.out.println(inputoString.getdata());
+
+				System.out.println("");
+				System.out.println("call displayArrayList");
+				inputoString.displayArrayList();
 				
-				InputNumericObj myNumTest = new InputNumericObj(inputoString);
+				InputNumericObj myNumTest_rt = new InputNumericObj(inputoString);
 // just hold onto this		myNumTest.displayNumMatrixValues();
 				break; 
 
@@ -97,6 +101,7 @@ public class MyApp {
 				System.out.println(inputoString.getFirst());
 				System.out.println(inputoString.getSecond());
 				System.out.println(inputoString.getdata());	
+				InputNumericObj myNumTest_cl = new InputNumericObj(inputoString);
 				break;
 				
 			case "-f":

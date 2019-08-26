@@ -23,8 +23,8 @@ public class TestMyAppAndMatrix {
 		
 		TestUtilsMeth.testHeader("TestMyAppAndMatrix.java");	
 		
-		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
-		double[] condmat = {1.,3.,7.,9.};
+//		double[] columnwise = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
+//		double[] condmat = {1.,3.,7.,9.};
 
 	String[] inputARGNull = null ;
 		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
@@ -40,10 +40,18 @@ public class TestMyAppAndMatrix {
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
 //		Matrix  testRunMatrix = new Matrix(2, 3, inputTestData  );
 
-		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
+
+		  
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29             };");
 		  MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
-		  TestUtilsMeth.evalInternals();
-		  TestUtilsMeth.printSeperation(); 	
+		  
+		  
+		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12 32  43 44 45 56 47 38 29   };");
+		  MyApp.main(new String[] {"-c", "3x4","12 32 43 44 45 56 47 38 29     "});
+		  
+		  
+		  System.out.println("TestMyAppInput:  Null String[] ");
+		  MyApp.main(inputARGNull);
 		
 		
 /*		

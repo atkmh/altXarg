@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+//import org.apache.commons.lang3.StringUtils;
 
 public class InputStringObj {
 	
@@ -31,7 +32,7 @@ public class InputStringObj {
 /* Direct the user on how to use the sys   */
 			presentUsage();  
 
-/* Lets do all the -r data gathering first */
+          /* setting the arg[0] parameter === "-r"                         */
 			this.firstRT = switchPassed;
 
 /* Get raw dimensions*/			
@@ -39,81 +40,96 @@ public class InputStringObj {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			mDims = br.readLine(); // something like 4x7	
 
-/* Get raw matrix values*/			
+/* Get raw matrix values                              */			
+/* Get all values in a String                         */
 			System.out.print("Enter Matrix Values: ");
 //			mValues = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
 			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
-/*
- *  Just to kee the system running temporarily we use hits call */	
+
+/* Just to kee the system running temporarily we use hits call */	
 		//mValues = tmpStr;
-/*   this call is only temporary  */
-
-/* **********************************************************
- *   Putting this call on hold for rt now
- * 	 This should be done for both runtime and commandline 
- *   But only once	
- *			mValues = tmpStr.trim().replaceAll(" +",  " ");
- */
-		}
-		else if(switchPassed.equals("-c")) { 
-/*      Finish this with else ( failure ) Usage.Usage("Error message") */
+			
+			
+/*      We Are Finish this with runtime Data Entry   */
+		} else if(switchPassed.equals("-c")) { 
 		
+/*                                         */
+/* *****************************************/
+/*      Starting Command Line Data Entry   */
+/* *****************************************/
+/*                                         */
 			
-/* ************************************************************************
- *  This is the second half of this module.
- *  First half was the runtime data entry and values check
- * 
- * 	This is the second half command line data entry 
- *  values check		
- *  */
-			
-/* 	setting the arg[0] parameter === "-c"                                 */
+          /* setting the arg[0] parameter === "-c"                         */
 			this.firstCL = switchPassed;
-		
-/* 	setting the arg[1]  dimension parameter                               */
-			/* ????  Where's the check ???????                            */
-			mDims = cl_Data[1];
 
-/*  Checking for proper first char of Matrix Dimension */
-/* 	Runtime version of this is better.  use it          */
+/* Get raw dimensions*/			
+			mDims = cl_Data[1];   // something like 7x4 
 			
-/* 	get the remaining values. I have to go seriously back and forth on this one */
-/*	but only because I need code to run once on both conditions: -r & -c        */
-			for(int x=2 ; x < cl_Data.length ; x++) {
-	           //mVals.add(cl_Data[x]);  // Cant do this rt now rt here
-				mValues = mValues+cl_Data[x] +" ";
-			}
+			tmpStr = "";
+			for(int x=2 ; x < cl_Data.length ; x++) 
+				tmpStr = tmpStr+cl_Data[x] +" ";
+		
+/*                                         */
+/* *****************************************/
+/*        We are DONE with Data Entry      */
+/* *****************************************/
+/*                                         */
 		} else Usage.Usage(" Some How the wrong switch was passed!! How I don't know !");
 
 		
-/* ***************************************************************************
- *  Now at this point, I've either read in my data or I've raw parsed my data
- * 	Now I can run the error checks	
- */
-		
-/* Evaluate upper and Lower Xs in mDims*/		
+/*                                         */
+/* *****************************************/
+/*       Check and Parse gathered data     */
+/* *****************************************/
+/*                                         */
+
+/* check for lower x's in mDims  Error with usage if found */		
 		if (mDims.contains("x") || mDims.contains("X") ) {
 			mDims = mDims.replace('x', 'X');
+			mDims = mDims.trim(); // take off trailing white space.
+		
 	
-/* check every dimensinon char in the list */	
+/* check all mDims chars in list < 0123456789X > Error: Usage if fail */	
         	for(int i=0; i<mDims.length(); i++)
         		if( ! ( checkDimChars(mDims.charAt(i)) )) 
-        			Usage.Usage("Problem: illegal char in Dimensions \n" +mDims +" " +mValues +" some Data");
+        			Usage.Usage("Problem: illegal char in Dimensions \n" +mDims +" " +tmpStr +" some Data");
         
 /* check if there was more than one X in the dimension */		
         	if ( 1 < (mDims.codePoints().filter(ch -> ch =='X').count()) ) 
-        		Usage.Usage("Problem: to many Xs \n" +mDims +" " +mValues +" some Data");
-        } else Usage.Usage("Proglem: bad character in Dimension \n" +mDims +" " +mValues +"some Data");
-		this.second = mDims ;
-/* mDims Error Checking is done  */
+        		Usage.Usage("Problem: to many Xs \n" +mDims +" " +tmpStr +" some Data");
+        	
+        	
+        } else Usage.Usage("Proglem: bad character in Dimension \n" +mDims +" " +tmpStr +"some Data");
+		
+		
+/*                                         */
+/* *****************************************/
+/*     Make value assignment to object     */
+/* *****************************************/
+/*                                         */
+		this.second = mDims;
 
-/* Special call:  This takes extra spaces out of the matrix values string */		
-		mValues = tmpStr.trim().replaceAll(" +",  " ");
+		
+		
+/*                                         */
+/* *****************************************/
+/* The following some what hacky looking   */
+/* block of code will handla a large number*/
+/* of conditions where space in in between */
+/* the data values                         */
+/* *****************************************/
+/*                                         */
+		tmpStr = tmpStr.replace("      ", " ");//6
+		tmpStr = tmpStr.replace("     ", " ");//5
+		tmpStr = tmpStr.replace("    ", " ");//4
+		tmpStr = tmpStr.replace("   ", " ");//3
+		tmpStr = tmpStr.replace("  ", " ");//2
+
 
 /* make assignment to array of strings                     */
 /* This step makes assigning to ArrayLins this much easier */		
 
-		arrayOfStrings = mValues.split(" ");
+		arrayOfStrings = tmpStr.split(" ");
 
 /* work through the raw matrix string values        */
 /* checking to see if they are all legit num values */
@@ -174,9 +190,10 @@ public class InputStringObj {
 	
 /*RunTimeCode */	
 //	public void displayStringArray(String[] strArray) {
-	public void displayStringArray() {
-		System.out.println("Array Length is "+strArray.length);
-		for (String value:strArray)
+	public void displayArrayList() {
+//		System.out.println("Array Length is "+strArray.length);
+		System.out.println("Array Length is "+mVals.size());
+		for (String value : mVals)
 			System.out.println(value);
 		System.out.println(".............");
 	}
@@ -201,3 +218,11 @@ public class InputStringObj {
 // Keep this until I parse into actual numbers
 				// curious Im not supposed to do this yet
 				// this.mVals.add( Double.parseDouble( cmdLineInput[x] )); 
+/* **********************************************************
+ *   Putting this call on hold for rt now
+ * 	 This should be done for both runtime and commandline 
+ *   But only once	
+ *			mValues = tmpStr.trim().replaceAll(" +",  " ");
+ */
+
+
