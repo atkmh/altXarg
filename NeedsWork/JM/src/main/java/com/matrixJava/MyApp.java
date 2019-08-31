@@ -2,6 +2,7 @@ package main.java.com.matrixJava;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import main.java.com.matrixJava.Usage;
 
 public class MyApp {
@@ -54,7 +55,7 @@ public class MyApp {
 	public static void main(String[] args) throws IOException {
 		String firstArg = "";
 		
-		InputStringObj inputoString = null;
+		InputStringObj myInputStringObj = null;
 		
 		
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
@@ -76,20 +77,25 @@ public class MyApp {
 			case "-runtime":
 			case "--runtime":
 			case "null":  // special case: no command line args
-				inputoString = new InputStringObj("-r", null);
+				myInputStringObj = new InputStringObj("-r", null);
 
 //  ?????? why do this
-//      inputoString.getStringArray();
+//      myInputStringObj.getStringArray();
 
-				System.out.println(inputoString.getFirst());
-				System.out.println(inputoString.getSecond());
-				System.out.println(inputoString.getdata());
+				System.out.println(myInputStringObj.getFirst());
+				System.out.println(myInputStringObj.getSecond());
+				System.out.println(myInputStringObj.getdata());
 
 				System.out.println("");
 				System.out.println("call displayArrayList");
-				inputoString.displayArrayList();
+				myInputStringObj.displayArrayList();
 				
-				InputNumericObj myNumTest_rt = new InputNumericObj(inputoString);
+				InputNumericObj myNumTest_rt = new InputNumericObj(myInputStringObj);
+			//	myNumTest_rt.getArrayListData();
+				Matrix numObjBasedMatrix_rt = new Matrix(myNumTest_rt);
+				numObjBasedMatrix_rt.setName("numObjBasedMatrix_rt");
+				numObjBasedMatrix_rt.displayCompact();
+				numObjBasedMatrix_rt.displayMore();
 // just hold onto this		myNumTest.displayNumMatrixValues();
 				break; 
 
@@ -97,11 +103,19 @@ public class MyApp {
 			case "--c":
 			case "-cmdline":
 			case "--cmdline":
-				inputoString = new InputStringObj("-c", args);
-				System.out.println(inputoString.getFirst());
-				System.out.println(inputoString.getSecond());
-				System.out.println(inputoString.getdata());	
-				InputNumericObj myNumTest_cl = new InputNumericObj(inputoString);
+				myInputStringObj = new InputStringObj("-c", args);
+				System.out.println(myInputStringObj.getFirst());
+				System.out.println(myInputStringObj.getSecond());
+				System.out.println(myInputStringObj.getdata());	
+				InputNumericObj myNumTest_cl = new InputNumericObj(myInputStringObj);
+				
+			//	myNumTest_cl.getArrayListData();
+				Matrix numObjBasedMatrix_cl = new Matrix(myNumTest_cl);
+				numObjBasedMatrix_cl.setName("numObjBasedMatrix_cl");
+				numObjBasedMatrix_cl.displayCompact();	
+				numObjBasedMatrix_cl.displayMore();	
+				
+				
 				break;
 				
 			case "-f":
@@ -129,6 +143,48 @@ public class MyApp {
 			for (String s: args) {tmp = tmp+s +" ";}
 			Usage.Usage("Problem: see Input  " +tmp );	
 		}//end Switch firstArg	
+		
+		Scanner in = new Scanner(System.in);
+		String runTimeCommand;
+		
+		System.out.print("Let's get the first run time command: ");
+	    runTimeCommand = in.nextLine();	
+	    runTimeCommand = runTimeCommand.toLowerCase();
+		
+	    while(!runTimeCommand.contentEquals("quit")){
+	        switch (runTimeCommand) {
+	        
+	        case "new":
+    	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
+    	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
+    	        
+    	        Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
+	        caseMatrixObj.displayCompact();
+	        caseMatrixObj.displayMore();
+	        
+    	        
+	        	break;
+	        case "wow":
+	        	break;
+	        	
+	        case "humm":
+	        	break;
+	        case "pop":
+      	        break;
+	        
+	       default:
+	    	   System.out.println("That command " +runTimeCommand +" was not found, quitting");
+	    	   //runTimeCommand = "quit";
+	    	   break;
+	        }
+
+	        System.out.print("Get another command: ");
+	        runTimeCommand = in.nextLine();	
+	        runTimeCommand = runTimeCommand.toLowerCase();
+	    }
+		
+		
+		
 		
 			
 			

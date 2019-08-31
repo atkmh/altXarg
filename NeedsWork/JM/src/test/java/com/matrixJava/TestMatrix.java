@@ -1,7 +1,11 @@
 package test.java.com.matrixJava;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import main.java.com.matrixJava.InputNumericObj;
+import main.java.com.matrixJava.InputStringObj;
 import main.java.com.matrixJava.Matrix;
 
 public class TestMatrix {
@@ -11,7 +15,7 @@ public class TestMatrix {
 	    System.out.flush();  
 	}  	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 	//	ArrayList <Integer> inputDataArray = (ArrayList<Integer>) Arrays.asList(3, 4, 6, 11, 88);
 
 		
@@ -20,14 +24,8 @@ public class TestMatrix {
 		int[] matrixDimension = new int[10]; // dont except to ever use more than 4 cells. would by 99x99
 
 	String[] inputARGNull = null ;
-		ArrayList<Integer> inputTestData = new ArrayList<Integer>();
-		inputTestData.add(11);
-		inputTestData.add(2);
-		inputTestData.add(3);
-		inputTestData.add(6);
-		inputTestData.add(11);
-		inputTestData.add(18);
-  
+		ArrayList<Integer> inputTestData = new ArrayList<>(Arrays.asList(11,2,3,6,11,18,45,88));
+
 //		System.out.println();
 //		System.out.println(inputTestData.toString());
 //		System.out.println("Test Running Class: " +this.getClass()  ) ;	
@@ -35,17 +33,17 @@ public class TestMatrix {
 
 		Matrix testRunMatrix = new Matrix();
 		testRunMatrix.setName("testRunMatrix");
-		testRunMatrix.displayC();
+		testRunMatrix.displayCompact();
 //		clearScreen();
 
 		Matrix firstRunMatrixParams = new Matrix(3,3, inputTestData);
 		firstRunMatrixParams.setName("firstRunMatrixParams");
-		firstRunMatrixParams.displayC();
+		firstRunMatrixParams.displayCompact();
 //		clearScreen();
 		
 		Matrix secondRunMatrixParams = new Matrix(3,3, columnwise); // or condmat
 		secondRunMatrixParams.setName("secondRunMatrixParams");
-		secondRunMatrixParams.displayC();
+		secondRunMatrixParams.displayCompact();
 //		clearScreen();
 		
 	//	firstRunMatrixParams.displayDeepString();
@@ -55,36 +53,45 @@ public class TestMatrix {
 	
 		Matrix outOfSeqTestMatrix = new Matrix(matrixDimension, columnwise);
 		secondRunMatrixParams.setName("outOfSeqTestMatrix");
-		secondRunMatrixParams.displayC();
+		secondRunMatrixParams.displayCompact();
 		
 		Matrix addResult = firstRunMatrixParams.Add(secondRunMatrixParams);
 		addResult.setName("addResult");
 		
-		addResult.displayC();
+		addResult.displayCompact();
 //		clearScreen();
 		
 //		addResult = addResult.Multiply((22/7));
 		addResult = addResult.Multiply(3.623);
-		addResult.displayM();
+		addResult.displayMore();
+		
+		
+		String[] testInput1 = new String[]{"-c","5x4","12", "32", "43", "44", "5","5","5","4","4",".999999999","0","0","0","9","4","2.71826","3.14159","33","11","0.1136","888","7","6","5"};
+		InputStringObj myTestCase = new InputStringObj("-c", testInput1);
+		InputNumericObj myNumTest = new InputNumericObj(myTestCase);
+		
+		System.out.println("And Now a Matrix from a Numeric Object");
+
+		Matrix numObjBasedMatrix = new Matrix(myNumTest);
+		numObjBasedMatrix.setName("numObjBasedMatrix");
+		numObjBasedMatrix.displayCompact();
+	System.out.println("");
+	System.out.println("");
+		numObjBasedMatrix.displayMore();
+		
+		
 //		clearScreen();
 		
 	}// end MyApp()
 
 }// end Class
-/*
- * int testR, testC, A, B, C, D, E, F, G, H; testR=3; testC=4; A=22; B=33; C=12;
- * D=13; E=17; F=11;
- * 
- * Matrix testMatrix = new Matrix(i, j, A, B, C, D ); Matrix secTestM = new
- * Matrix (i,j,i*A,j*B,i*C,j*D);
 
-		System.out.println("From TestMatrix.class");
-		System.out.println("*********************");
-		System.out.println("*********************");
-		System.out.println("*********************");
-		System.out.println("*********************");
-		System.out.println("*********************");
-		
-		//secTestM.displayDeepString(secTestM);
- * 
- */		
+
+
+
+
+
+
+
+
+

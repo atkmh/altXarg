@@ -1,13 +1,15 @@
 package test.java.com.matrixJava;
 
 
+import java.io.IOException;
+
 import main.java.com.matrixJava.MyApp;
 
 public class TestMyAppW_zeros {
 	
 		private static boolean thisDebug = false;
 		
-		public static void main(String[] args) {
+		public static void main(String[] args) throws IOException {
 //		public void main(String[] args) {
 			
 			TestUtilsMeth.testHeader("TestMyAppW_zeros.java");
@@ -20,7 +22,7 @@ public class TestMyAppW_zeros {
 		 */
 			  
 			  System.out.println("Test MyApp with String[]\n{ 2x03, 4, 4, 5, 5};");
-			  MyApp.main(new String[] { "2x03", "4", "4","5", "5"});
+			  MyApp.main(new String[] { "2x 3", "4", "4","5", "5"});
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation(); 
 

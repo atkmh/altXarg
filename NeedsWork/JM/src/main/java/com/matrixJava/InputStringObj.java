@@ -29,6 +29,7 @@ public class InputStringObj {
 		/* Assumption:  We only send two switches                           */
 		/*  --------------------------------------------------------------  */
 		if(switchPassed.equals("-r")) {
+
 /* Direct the user on how to use the sys   */
 			presentUsage();  
 
@@ -43,12 +44,8 @@ public class InputStringObj {
 /* Get raw matrix values                              */			
 /* Get all values in a String                         */
 			System.out.print("Enter Matrix Values: ");
-//			mValues = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
 			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
 
-/* Just to kee the system running temporarily we use hits call */	
-		//mValues = tmpStr;
-			
 			
 /*      We Are Finish this with runtime Data Entry   */
 		} else if(switchPassed.equals("-c")) { 
@@ -89,10 +86,10 @@ public class InputStringObj {
 			mDims = fixInnerSpace(mDims,0); // integer size of space to leave
 			mDims = mDims.trim(); // take off trailing white space.
 		
-	
+//	if( ! ( checkDimChars(mDims.charAt(i) /*"Dim"  or "Val" */  ) )) 
 /* check all mDims chars in list < 0123456789X > Error: Usage if fail */	
         	for(int i=0; i<mDims.length(); i++)
-        		if( ! ( checkDimChars(mDims.charAt(i)) )) 
+        		if( !validateStringChars(mDims.charAt(i) ,"Dim" ) ) 
         			Usage.Usage("Problem: illegal char in Dimensions \n" +mDims +" " +tmpStr +" some Data");
         
 /* check if there was more than one X in the dimension */		
@@ -105,11 +102,11 @@ public class InputStringObj {
 		
 /*                                         */
 /* *****************************************/
-/*     Make value assignment to object     */
+/* Make value assignment to member variable*/
 /* *****************************************/
 /*                                         */
-		this.second = mDims;
 
+		this.second = mDims;
 		
 		
 /*                                         */
@@ -128,44 +125,38 @@ public class InputStringObj {
 
 /* work through the raw matrix string values        */
 /* checking to see if they are all legit num values */
+/* checking to see if they are multiple decimal pts */
 /* if No Errors then make the assignment to the member variable */		
 
+//				if(!check_mValuesChars(strValue.charAt(x)   /*"Dim"  or "Val" */   ))
 		for (String strValue: arrayOfStrings) {
 			for(int x = 0 ; x < strValue.length() ; x++ ) 
-				if(!check_mValuesChars(strValue.charAt(x)))
+				if(! validateStringChars(strValue.charAt(x),"Val" ))
 					Usage.Usage("Problem: A matrix value was not in [.0-9] ");
-			mVals.add(strValue);
+			
+			if( 1 < (strValue.codePoints().filter(ch -> ch =='.').count()))
+					Usage.Usage("multiple decimal points were found\n"+mDims +" " +tmpStr +"some data" );
+			this.mVals.add(strValue); // member variable assignment
 		}
 		
 	}// Constructor / main method done
 	
-	
-	
-	// Now, I could combine both of these into a single method
-	// but I'd have to pass inthe regEx string:  Will consider this
-	//
-	//  reWrite these two procs.  Two arg proc, String to check and Dim or Val
-	// valRegex = "0123456789.";
-	// dimlRegex = "0123456789X";
-	private boolean check_mValuesChars(char myChar) {
-		String myRegex = "0123456789.";  // We're not allowing neg Number so no "-"
-		boolean thisAnswer = false;
-		for(int x=0 ; x < myRegex.length() ; x++)
-			if(myChar == myRegex.charAt(x))
-				thisAnswer = true;
-		return thisAnswer;	
-	}
-	
-	private boolean checkDimChars(char myChar) {
-		String myRegex = "0123456789X";
-		boolean theAnswer = false; 
-		for(int x=0 ; x < myRegex.length() ; x++)
-			if(myChar == myRegex.charAt(x))
-				theAnswer = true;
+	private boolean validateStringChars(char myChar, String whichOne) {
+          boolean theAnswer = false;
+          String myRegex = "";
+          String dimRegex = "0123456789X";
+          String valRegex = "0123456789.";  // We're not allowing neg Number so no "-"
+          if (whichOne.equals("Dim"))
+               myRegex = dimRegex;
+          else if (whichOne.equals("Val")) 
+               myRegex = valRegex;
+               
+          for(int x=0 ; x < myRegex.length() ; x++)
+			    if(myChar == myRegex.charAt(x))
+				     theAnswer = true;
 		return theAnswer;
-	}
-	
-	
+  }     	
+ 
 	private String fixInnerSpace(String data, int zeroSpace) {
 		data = data.replace("      ", " ");//6 -> 1
 		data = data.replace("     ", " ");//5 -> 1
@@ -200,13 +191,10 @@ public class InputStringObj {
 	}
 	
 /*RunTimeCode */	
-//	public void displayStringArray(String[] strArray) {
 	public void displayArrayList() {
-//		System.out.println("Array Length is "+strArray.length);
 		System.out.println("Array Length is "+mVals.size());
 		for (String value : mVals)
 			System.out.println(value);
-		System.out.println(".............");
 	}
 		
 	public void presentUsage() {
@@ -214,12 +202,6 @@ public class InputStringObj {
 		System.out.println("Dimension example: 3x4");
 		System.out.println("Matrix Values example: 1 3 2.3 4.125");
 	}	
-	
-//		public String[] getStringArray() {
-//			//System.out.println(debugOutput +"getSringArray");
-//			return this.arrayOfStrings;
-//		}
-			
 	
 	
 	

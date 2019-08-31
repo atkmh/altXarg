@@ -1,10 +1,12 @@
 package test.java.com.matrixJava;
+import java.io.IOException;
+
 import main.java.com.matrixJava.MyApp;
 public class TestMyAppW_debug {
 
 		private static boolean thisDebug = false;
 		
-		public static void main(String[] args) {
+		public static void main(String[] args) throws IOException {
 //		public  void main(String[] args) {
 			TestUtilsMeth.testHeader("TestMyAppW_debug.java");
 
@@ -20,6 +22,11 @@ public class TestMyAppW_debug {
 			//  MyApp.main(new String[] {"debug"}); 
 			//  if (args.length!=0)TestUtilsMeth.evalInternals();
 			//  if (args.length!=0)TestUtilsMeth.printSeperation();
+			
+			  System.out.println("Test MyApp with String[]\n{{debug, 2345x2654, 12, 32, 43, 44};");
+			  MyApp.main(new String[] {"debug","2345x2654","12", "32", "43", "44"});
+			  TestUtilsMeth.evalInternals();
+			  TestUtilsMeth.printSeperation();
 
 			  System.out.println("Test MyApp with String[]\n{{debug, 2345XXx2654, 12, 32, 43, 44};");
 			  MyApp.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"});

@@ -112,13 +112,13 @@ public class Matrix {
 		this.nCols = N; // j; cols
 		m_data = new double [mRows][nCols];
 
-		Iterator<Integer> dataIter = dataAryLst.iterator();
+		Iterator<Integer> listIterator = dataAryLst.iterator();
 
 		for (int i=0; i<mRows; i++) { 
 			for (int j=0; j<nCols; j++) {
 				try {
-				if (dataIter.hasNext()) {
-					m_data [i][j] = dataIter.next();
+				if (listIterator.hasNext()) {
+					m_data [i][j] = listIterator.next();
 				//	System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
 				} else {
 					m_data [i][j] = 0;
@@ -132,9 +132,38 @@ public class Matrix {
 		} // System.out.println("first Parameterized Constructor ArrayList completed");
 	}
 
+  	public Matrix(InputNumericObj inputNumObj) {
+        this.mRows = inputNumObj.getM();
+        this.nCols = inputNumObj.getN();
+		m_data = new double [mRows][nCols];
+		
+		ArrayList<Double> localList = inputNumObj.getArrayListData();
+	
+//		Iterator<Integer> listIterator = getArrayListData().iterator();
+		Iterator<Double> listIterator = localList.iterator();
+	
+		for (int i=0; i<mRows; i++) {
+		    for(int j=0; j<nCols; j++)	{
+		    	try {
+		    		if (listIterator.hasNext()) {
+						m_data [i][j] = listIterator.next();
+					//	System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
+					} else {
+						m_data [i][j] = 0;
+					//	System.out.println("debugOut  i:" +i +" j:" +j +" value:" +m_data[i][j]);
+					}  
+		    	} catch(NullPointerException e) {	
+		    		System.out.println("Exception: " +e +" ");
+					System.out.println("i:" +i +" j:"+j +"data: " );
+		    	}//end tryCatch
+		    }
+			
+		}
 	
 	
 	
+    }
+
 	
 	public static void main(String[] args) {
 		System.out.println("*****************");
@@ -207,7 +236,7 @@ public class Matrix {
 		System.out.println(Arrays.deepToString(m_data));
 	}
 
-	public void displayC() { // Display Compact vs DisplayMore
+	public void displayCompact() { // Display Compact vs DisplayMore
 		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
 		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
@@ -219,7 +248,7 @@ public class Matrix {
         } System.out.println("");
 	}
 
-	public void displayM() { // DisplayMore
+	public void displayMore() { // DisplayMore
 		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
 		if (this.m_varName == null) System.out.println("Matrix: \"Unnamed\"");  

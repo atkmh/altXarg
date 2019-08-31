@@ -22,10 +22,12 @@ public class InputNumericObj {
 		
 	    mxValues = new double[  strObj.getdata().size() ];
 	    
-	    for (int x = 0 ; x < strObj.getdata().size(); x++)
+	    for (int x = 0 ; x < strObj.getdata().size(); x++) {
 	    	mxValues[x] = Double.parseDouble(strObj.get(x));
+	    	mxVals.add(Double.parseDouble(strObj.get(x)));
+	    }
 		
-		return;
+		return ;
 	}
 
 	
@@ -41,9 +43,14 @@ public class InputNumericObj {
 		return mxValues[index];
 	}
 	
-	public double[] getData() {
+	public double[] getArrayData() {
 		return this.mxValues;
 	}
+	
+	public ArrayList<Double> getArrayListData() {
+		return this.mxVals;
+	}
+	
 	
 	public void setCell(int index, double val) {
 		this.mxValues[index] = val;
