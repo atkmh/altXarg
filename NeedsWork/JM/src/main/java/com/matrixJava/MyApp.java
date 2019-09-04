@@ -172,6 +172,9 @@ public class MyApp {
 	        case "pop":
       	        break;
 	        
+	        case "List":
+	        	System.out.println("list of commands this program responds to");
+      	        break;
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, quitting");
 	    	   //runTimeCommand = "quit";
