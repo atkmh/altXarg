@@ -1,1 +1,0 @@
-These are the people who got me in front of Steven Hembree at GeneticFinance
