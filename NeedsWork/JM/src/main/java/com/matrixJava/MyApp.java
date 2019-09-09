@@ -174,7 +174,12 @@ public class MyApp {
 	        
 	        case "list":
 	        	System.out.println("list of commands this program responds to");
-	        	System.out.println("Currently: wow, humm, pop, list.  That's it. More to come");
+	        	System.out.println("Currently, commands are.");
+	        	System.out.println("wow");
+	        	System.out.println("humm");
+	        	System.out.println("pop");
+	        	System.out.println("list: this command");
+	        	System.out.println("quit");
       	        break;
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, quitting");
