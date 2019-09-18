@@ -1,4 +1,6 @@
-package main.java.com.matrixJava;
+package 
+
+main.java.com.matrixJava;
 
 public class Usage {
 
@@ -19,7 +21,12 @@ public class Usage {
 		System.out.println("");
 
 		System.out.println("Example: app_name 2X3 1 4 11 2 5 0 ");
-		System.exit(status);
+		
 
+		
+		ProgramShutdownNotice.giveShutDownNotice();
+		
+		System.exit(status);
+		
 		}
 }

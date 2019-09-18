@@ -2,7 +2,11 @@ package main.java.com.matrixJava;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+
 import main.java.com.matrixJava.Usage;
 
 public class MyApp {
@@ -51,12 +55,14 @@ public class MyApp {
 
 	int[] matrixDimensions = new int[2];// 2 values M&N both int
 	double[] inputValsPassToMatrix = new double[100];
+	//Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 
 	public static void main(String[] args) throws IOException {
 		String firstArg = "";
 		
 		InputStringObj myInputStringObj = null;
 		
+		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 		
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
             firstArg = "null"; 	// that we want runTime data input.  Switch on null
@@ -77,6 +83,9 @@ public class MyApp {
 			case "-runtime":
 			case "--runtime":
 			case "null":  // special case: no command line args
+				
+				ProgramNotifications.openingIntroduction();
+/*				
 				myInputStringObj = new InputStringObj("-r", null);
 
 //  ?????? why do this
@@ -97,6 +106,10 @@ public class MyApp {
 				numObjBasedMatrix_rt.displayCompact();
 				numObjBasedMatrix_rt.displayMore();
 // just hold onto this		myNumTest.displayNumMatrixValues();
+ 
+//  9/13/19 We are taking all of null -r runtime and putting on hold
+//  in order ot workout the needs of the runtime part of the progrem 
+          */
 				break; 
 
 			case "-c":
@@ -150,35 +163,75 @@ public class MyApp {
 		System.out.print("Let's get the first run time command: ");
 	    runTimeCommand = in.nextLine();	
 	    runTimeCommand = runTimeCommand.toLowerCase();
-		
-	    while(!runTimeCommand.contentEquals("quit")){
+	 
+	   /*****************
+	    * 
+	    * Char setup A, B, C to be the key and matrix Names 
+	    *  
+	    *****************/
+	   int charRepToIncrement = 65; 
+//	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
+	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
+	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
+	    
+	    
+	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
 	        switch (runTimeCommand) {
 	        
 	        case "new":
     	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
     	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
     	        
-    	        Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
-	        caseMatrixObj.displayCompact();
-	        caseMatrixObj.displayMore();
-	        
+    	   //     Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
+    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
     	        
+    	        
+    	        
+    	     //   caseMatrixObj.displayCompact();
+    	     //   caseMatrixObj.displayMore();
+	        
+    	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
+    	        myCurChar = (char)charRepToIncrement;   
+    	        
+    	       
 	        	break;
-	        case "wow":
+	        case "showmap":
+	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
+	        	
+	        	for(Map.Entry <String,Matrix > me:mySet) {
+	        		System.out.println(me.getKey()+" What suppose to be the matrix");
+	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
+	        	}
+	        	
 	        	break;
+
+	        case "list matrix by name":
+                System.out.println("Working on this.  Currently we're at 'A' " );
+	            break;
+	      
 	        	
 	        case "humm":
 	        	break;
 	        case "pop":
+	        	char charRep;
+	        for (int x = 65 ; x < 80 ; x++) {
+	        	charRep = (char)x;
+	        	System.out.println(" value is : "+charRep);
+	        	
+	        	
+	        }
+	        	
       	        break;
 	        
-	        case "list":
+	        case "list": 
+	        case "listcmd":
 	        	System.out.println("list of commands this program responds to");
 	        	System.out.println("Currently, commands are.");
-	        	System.out.println("wow");
+	        	System.out.println("showmap");
 	        	System.out.println("humm");
 	        	System.out.println("pop");
-	        	System.out.println("list: this command");
+	        	System.out.println("listcmd: this command");
+	        	System.out.println("list matrix by name");
 	        	System.out.println("quit");
       	        break;
 	       default:
@@ -193,13 +246,10 @@ public class MyApp {
 	    }
 		
 		
-		
-		
+	    ProgramNotifications.giveShutDownNotice();
+	
 			
 			
-			System.out.println("");
-			System.out.println("............");
-			System.out.println("Program Done");
 	
 			//System.exit(0);
 	} // end public static void main(String[] args)
