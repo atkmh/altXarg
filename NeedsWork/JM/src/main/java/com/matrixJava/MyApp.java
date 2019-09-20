@@ -11,6 +11,7 @@ import main.java.com.matrixJava.Usage;
 
 public class MyApp {
 	/*
+	 * One Change to cement a branch
 	 * *****************************************************************************
 	 * [8/8/19 thoughts] OK in MyApp we check argument string We need to handle
 	 * -<chcar> or --<char> or --<word> I have a model of that in parseInputYA If
