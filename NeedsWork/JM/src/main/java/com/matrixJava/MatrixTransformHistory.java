@@ -1,9 +1,27 @@
 package main.java.com.matrixJava;
 
-public class MatrixTransformHistory {
+
+import java.util.ArrayList;
+
+
+public class MatrixTransformHistory extends ArrayList {
+	
+/* *************************************
+ * Todo: 
+ * fix this constructor
+ * Add the different fields this object needs
+ * We know:
+ *  - Matrix
+ *  - Some ArrayList of Matrix
+ * 
+ * 
+ * 	
+ */
+
 	
 	
-	MatrixTransformHistory(){
+	
+	public MatrixTransformHistory(){
 		
 		
 	}

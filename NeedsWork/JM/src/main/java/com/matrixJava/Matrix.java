@@ -7,6 +7,7 @@ package main.java.com.matrixJava;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -20,6 +21,7 @@ import java.io.StreamTokenizer;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,6 +38,15 @@ public class Matrix {
  *	int m_data[][];  // started initially with Int
  * 
  */
+	private String creationTS;
+	/* ****************************************
+	 *  modificaitonTC: "HEAD" or a time stamp
+	 *  HEAD Means it is most recent
+	 *  TimeStamp refers to the time it was changed
+	 *  and a new HEAD took it's place
+	 */
+	private String modificationTS;
+
 	private int mRows;
 	private int nCols;
 	private double m_data[][];  // JAMA names A
@@ -64,6 +75,7 @@ public class Matrix {
 		this.mRows = M;
 		this.nCols = N;
 		m_data = new double [mRows][nCols];
+		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	} // end of constructor
 
 	public Matrix(int[]dimension, double[] dataArylst) {
@@ -84,6 +96,7 @@ public class Matrix {
 				}
 			}
 		} // System.out.println("Second Parameterized Constructor double [] completed");
+		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	}
 	
 	public Matrix(int M, int N, double[] dataArylst) {
@@ -104,6 +117,7 @@ public class Matrix {
 				}
 			}
 		} // System.out.println("Second Parameterized Constructor double [] completed");
+		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	}
 	
 	
@@ -130,6 +144,7 @@ public class Matrix {
 				}
 			}
 		} // System.out.println("first Parameterized Constructor ArrayList completed");
+		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	}
 
   	public Matrix(InputNumericObj inputNumObj) {
@@ -161,7 +176,7 @@ public class Matrix {
 		}
 	
 	
-	
+		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());	
     }
 
 	
@@ -191,6 +206,7 @@ public class Matrix {
 		  for (int j = 0; j < nCols ; j++)
 			  C.m_data[i][j] = A.m_data[i][j] + B.m_data[i][j];
 	  System.out.println("We are finishing from inside the Matrix.Add() method"); 
+		modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	  return C;
 	 }
 	  
@@ -228,6 +244,7 @@ public class Matrix {
 				B[i][j] = scalar*m_data[i][j];
 			}// end inner for loop
 		}// end outer for loop
+		modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	return my_Matrix;	
 	}	
 

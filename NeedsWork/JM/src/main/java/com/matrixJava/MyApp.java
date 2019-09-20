@@ -54,7 +54,7 @@ public class MyApp {
 	String oppMode = null;
 
 	int[] matrixDimensions = new int[2];// 2 values M&N both int
-	double[] inputValsPassToMatrix = new double[100];
+	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
 	//Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 
 	public static void main(String[] args) throws IOException {
@@ -62,8 +62,11 @@ public class MyApp {
 		
 		InputStringObj myInputStringObj = null;
 		
+//		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 		
+//		Map <String, MatrixTransformHistotry> myHashMapListOfMatrix = new HashMap<String,MatrixTransformHistory>();
+
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
             firstArg = "null"; 	// that we want runTime data input.  Switch on null
 		else   
@@ -181,58 +184,63 @@ public class MyApp {
 	        case "new":
     	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
     	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
-    	        
     	   //     Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
+    	    
+    	        
+//    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
     	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
-    	        
-    	        
+    	     
+//    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new MatrixTransformHisotry(caseInputNumericObj));
+    	       // something is not right yet. 
     	        
     	     //   caseMatrixObj.displayCompact();
     	     //   caseMatrixObj.displayMore();
-	        
     	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
     	        myCurChar = (char)charRepToIncrement;   
-    	        
-    	       
 	        	break;
+
 	        case "showmap":
+	        case "showMap":
 	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
-	        	
 	        	for(Map.Entry <String,Matrix > me:mySet) {
 	        		System.out.println(me.getKey()+" What suppose to be the matrix");
 	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
 	        	}
-	        	
 	        	break;
 
-	        case "list matrix by name":
+	        case "ls mx":
+	        case "ls mx by name":
+	        case "list matrix name":
                 System.out.println("Working on this.  Currently we're at 'A' " );
 	            break;
-	      
 	        	
 	        case "humm":
 	        	break;
 	        case "pop":
 	        	char charRep;
-	        for (int x = 65 ; x < 80 ; x++) {
-	        	charRep = (char)x;
-	        	System.out.println(" value is : "+charRep);
-	        	
-	        	
-	        }
-	        	
+                for (int x = 65 ; x < 80 ; x++) {
+	        	     charRep = (char)x;
+	        	     System.out.println(" value is : "+charRep);
+	             }
       	        break;
 	        
+	        case "ls": 
 	        case "list": 
-	        case "listcmd":
+	        case "listCmd":
 	        	System.out.println("list of commands this program responds to");
 	        	System.out.println("Currently, commands are.");
-	        	System.out.println("showmap");
-	        	System.out.println("humm");
-	        	System.out.println("pop");
-	        	System.out.println("listcmd: this command");
-	        	System.out.println("list matrix by name");
-	        	System.out.println("quit");
+	        	System.out.println("new:\t\t\tcreate a new Matrix");
+	        	System.out.println("showmap:\t\tprint out the current HashMap of Key:value Pairs");
+	        	System.out.println("humm:\t\t\tdo nothing");
+	        	System.out.println("pop:\t\t\tTest int x cast to char(x)");
+	        	System.out.println("ls:\t\t\tThis command");
+	        	System.out.println("list:\t\t\tThis command");
+	        	System.out.println("listcmd:\t\tThis command");
+	        	System.out.println("ls mx:\t\t\tnot implemented yet");
+	        	System.out.println("ls mx by name:\t\tnot implemented yet");
+	        	System.out.println("list matrix name:\tnot implemented yet");
+	        	System.out.println("quit: but this isn't a switch entry its in the loop control check");
+	        	System.out.println("");
       	        break;
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, quitting");
@@ -242,7 +250,14 @@ public class MyApp {
 
 	        System.out.print("Get another command: ");
 	        runTimeCommand = in.nextLine();	
+	    /* *****************************************************
+	     * Initially this looked like a good idea, but it forces  
+	     * me to only allow lower case switch commands.
+	     * But, there is noting keeping me from codeing things
+	     * with upper case that end up never working...... So....
+	     * Let's remove it allowing all case of chars
 	        runTimeCommand = runTimeCommand.toLowerCase();
+	     */
 	    }
 		
 		
