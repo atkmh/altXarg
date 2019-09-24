@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -60,13 +61,12 @@ public class MyApp {
 
 	public static void main(String[] args) throws IOException {
 		String firstArg = "";
-		
 		InputStringObj myInputStringObj = null;
 		
 //		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
-		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
+		Map <String, ArrayList<Matrix>> myHashMapListOfMatrix = new HashMap<String,ArrayList<Matrix>>();
 		
-//		Map <String, MatrixTransformHistotry> myHashMapListOfMatrix = new HashMap<String,MatrixTransformHistory>();
+        Map<String, ArrayList<Matrix>> myDevHMList = new HashMap<String, ArrayList<Matrix>>();	
 
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
             firstArg = "null"; 	// that we want runTime data input.  Switch on null
@@ -178,7 +178,8 @@ public class MyApp {
 	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
 	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
 	    
-	    
+
+	   
 	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
 	        switch (runTimeCommand) {
 	        
@@ -186,13 +187,22 @@ public class MyApp {
     	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
     	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
     	   //     Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
-    	    
+ 
+    	     /* This was operational code  */   
+    	     /*   ArrayList<Matrix> myArrayList = new ArrayList(new Matrix(caseInputNumericObj)); */
+    	        ArrayList<Matrix> myArrayList = new ArrayList<Matrix>( );
+    	       myArrayList.add( new Matrix(caseInputNumericObj));
     	        
+    	        myDevHMList.put(Character.toString(myCurChar), new ArrayList());
+
+// Original MH(string Matrix)    	        
 //    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
-    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
+
+// firts try of MH (String , Arraylist[i]= Matrix(caseInputNumericObj);    	        
+//    	       myDevHMList.put(Character.toString(myCurChar),new ArrayList( ).add(new Matrix(caseInputNumericObj)));
     	     
-//    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new MatrixTransformHisotry(caseInputNumericObj));
-    	       // something is not right yet. 
+    	        
+    	        
     	        
     	     //   caseMatrixObj.displayCompact();
     	     //   caseMatrixObj.displayMore();
@@ -202,11 +212,16 @@ public class MyApp {
 
 	        case "showmap":
 	        case "showMap":
-	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
-	        	for(Map.Entry <String,Matrix > me:mySet) {
+//	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
+//	        	for(Map.Entry <String,Matrix > me:mySet) {
+//	        		System.out.println(me.getKey()+" What suppose to be the matrix");
+//	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
+//	        	}
+	        Set<Entry<String, ArrayList<Matrix>>> mySet = myDevHMList.entrySet();
+	        for(Entry<String, ArrayList<Matrix>> me:mySet) {
 	        		System.out.println(me.getKey()+" What suppose to be the matrix");
 	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
-	        	}
+	        }
 	        	break;
 
 	        case "ls mx":
