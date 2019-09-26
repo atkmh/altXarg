@@ -147,7 +147,8 @@ public class Matrix {
 		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	}
 
-  	public Matrix(InputNumericObj inputNumObj) {
+  	public Matrix(InputNumericObj inputNumObj,String Name) {
+  		this.m_varName = Name;
         this.mRows = inputNumObj.getM();
         this.nCols = inputNumObj.getN();
 		m_data = new double [mRows][nCols];

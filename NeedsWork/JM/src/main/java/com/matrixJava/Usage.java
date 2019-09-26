@@ -4,7 +4,7 @@ main.java.com.matrixJava;
 
 public class Usage {
 
-	public static void Usage(String context	) {
+	public static void UsageTerminal(String context	) {
 		System.out.println(context);
 		int status = 0;
 		System.out.println("Usage: app_name [options] required_input required_input2 ... ");
@@ -24,9 +24,16 @@ public class Usage {
 		
 
 		
-		ProgramShutdownNotice.giveShutDownNotice();
+		ProgramNotifications.giveShutDownNotice();
 		
 		System.exit(status);
 		
-		}
+	}
+	
+    public static void UsageRecoverable(String context)	{
+    	System.out.println(context);
+    System.out.println(" Hey.  you did something wrong:  Lets' try again if we can"); 
+    return;
+    }
+	
 }

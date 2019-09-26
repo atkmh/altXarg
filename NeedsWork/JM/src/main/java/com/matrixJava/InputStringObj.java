@@ -22,6 +22,7 @@ public class InputStringObj {
 		String [] arrayOfStrings;
 		String mValues = "";
 		String mDims = "";
+		//String strValue;
 
 		this.inputSwitch = switchPassed;
 		
@@ -46,7 +47,6 @@ public class InputStringObj {
 			System.out.print("Enter Matrix Values: ");
 			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
 
-			
 /*      We Are Finish this with runtime Data Entry   */
 		} else if(switchPassed.equals("-c")) { 
 		
@@ -71,9 +71,11 @@ public class InputStringObj {
 /*        We are DONE with Data Entry      */
 /* *****************************************/
 /*                                         */
-		} else Usage.Usage(" Some How the wrong switch was passed!! How I don't know !");
+		} else Usage.UsageTerminal(" Some How the wrong switch was passed!! How I don't know !");
 
 		
+	/*	System.out.println("DebugBreakpoint"); */
+	/*	System.out.println("tmpStr is :" +tmpStr);  */
 /*                                         */
 /* *****************************************/
 /*       Check and Parse gathered data     */
@@ -90,14 +92,14 @@ public class InputStringObj {
 /* check all mDims chars in list < 0123456789X > Error: Usage if fail */	
         	for(int i=0; i<mDims.length(); i++)
         		if( !validateStringChars(mDims.charAt(i) ,"Dim" ) ) 
-        			Usage.Usage("Problem: illegal char in Dimensions \n" +mDims +" " +tmpStr +" some Data");
+        			Usage.UsageTerminal("Problem: illegal char in Dimensions \n" +mDims +" " +tmpStr +" some Data");
         
 /* check if there was more than one X in the dimension */		
         	if ( 1 < (mDims.codePoints().filter(ch -> ch =='X').count()) ) 
-        		Usage.Usage("Problem: to many Xs \n" +mDims +" " +tmpStr +" some Data");
+        		Usage.UsageTerminal("Problem: to many Xs \n" +mDims +" " +tmpStr +" some Data");
         	
         	
-        } else Usage.Usage("Proglem: bad character in Dimension \n" +mDims +" " +tmpStr +"some Data");
+        } else Usage.UsageTerminal("Proglem: bad character in Dimension \n" +mDims +" " +tmpStr +"some Data");
 		
 		
 /*                                         */
@@ -129,23 +131,33 @@ public class InputStringObj {
 /* if No Errors then make the assignment to the member variable */		
 
 //				if(!check_mValuesChars(strValue.charAt(x)   /*"Dim"  or "Val" */   ))
+		// need to test out a try and catch block with a slight different config.....
+//		for (String strValue: arrayOfStrings) {
 		for (String strValue: arrayOfStrings) {
-			for(int x = 0 ; x < strValue.length() ; x++ ) 
-				if(! validateStringChars(strValue.charAt(x),"Val" ))
-					Usage.Usage("Problem: A matrix value was not in [.0-9] ");
-			
+			try {
+			   for(int x = 0 ; x < strValue.length() ; x++ ) 
+				   validateStringChars(strValue.charAt(x),"Val" );
+			   
+/*				if(! validateStringChars(strValue.charAt(x),"Val" )) {
+				//	Usage.UsageTerminal("Problem: A matrix value was not in [.0-9] ");
+					Usage.UsageRecoverable("Problem: A matrix value was not in [.0-9] ");
+					//break;
+				}*/			
+			  } catch (Exception e) {
+            	 Usage.UsageRecoverable("Problem: A matrix value was not in [.0-9] ");
+             }
 			if( 1 < (strValue.codePoints().filter(ch -> ch =='.').count()))
-					Usage.Usage("multiple decimal points were found\n"+mDims +" " +tmpStr +"some data" );
+//					Usage.UsageTerminal("multiple decimal points were found\n"+mDims +" " +tmpStr +"some data" );
+					Usage.UsageRecoverable("multiple decimal points were found\n"+mDims +" " +tmpStr +"some data" );
 			this.mVals.add(strValue); // member variable assignment
-		}
-		
+	}	
 	}// Constructor / main method done
 	
 	private boolean validateStringChars(char myChar, String whichOne) {
           boolean theAnswer = false;
           String myRegex = "";
           String dimRegex = "0123456789X";
-          String valRegex = "0123456789.";  // We're not allowing neg Number so no "-"
+          String valRegex = "0123456789.-"; 
           if (whichOne.equals("Dim"))
                myRegex = dimRegex;
           else if (whichOne.equals("Val")) 
@@ -156,7 +168,13 @@ public class InputStringObj {
 				     theAnswer = true;
 		return theAnswer;
   }     	
- 
+
+	
+	/* **********************************************************
+	 * This is a rather interesting little ditty.  I haven't 
+	 * checked out permutations, but in most cases running all 
+	 * these will remove an infinite number of spaces in a String
+	 */
 	private String fixInnerSpace(String data, int zeroSpace) {
 		data = data.replace("      ", " ");//6 -> 1
 		data = data.replace("     ", " ");//5 -> 1
@@ -166,7 +184,7 @@ public class InputStringObj {
 		if (zeroSpace<1)
 			data = data.replace(" ", "");//1 -> 0
 		return data;
-	}
+	} /*It might be do able with less  */
 	
 	public String getFirst() {
 		String returnVal ="";
@@ -208,14 +226,5 @@ public class InputStringObj {
 }// Class file done
 
 
-// Keep this until I parse into actual numbers
-				// curious Im not supposed to do this yet
-				// this.mVals.add( Double.parseDouble( cmdLineInput[x] )); 
-/* **********************************************************
- *   Putting this call on hold for rt now
- * 	 This should be done for both runtime and commandline 
- *   But only once	
- *			mValues = tmpStr.trim().replaceAll(" +",  " ");
- */
 
 

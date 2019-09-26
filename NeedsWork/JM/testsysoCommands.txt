@@ -1,0 +1,13 @@
+list of commands this program responds to
+Currently, commands are.
+new:			create a new Matrix
+showmap:		print out the current HashMap of Key:value Pairs");
+humm:			do nothing
+pop:			Test int x cast to char(x)
+ls:			This command
+list:			This command
+listcmd:		This command
+ls mx:			not implemented yet
+ls mx by name:		not implemented yet
+list matrix name:	not implemented yet
+quit: but this isn't a switch entry its in the loop control check

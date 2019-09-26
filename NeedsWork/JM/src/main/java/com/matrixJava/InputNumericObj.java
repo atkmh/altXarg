@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class InputNumericObj {
 	
 	private double[] mxValues = null;
+	/* As stated below, is mxVals Array List necessary ???   */
 	private ArrayList<Double> mxVals = new ArrayList<Double>();
 	private int M;
 	private int N;
@@ -23,8 +24,19 @@ public class InputNumericObj {
 	    mxValues = new double[  strObj.getdata().size() ];
 	    
 	    for (int x = 0 ; x < strObj.getdata().size(); x++) {
-	    	mxValues[x] = Double.parseDouble(strObj.get(x));
-	    	mxVals.add(Double.parseDouble(strObj.get(x)));
+	        try {	
+	    	     mxValues[x] = Double.parseDouble(strObj.get(x));
+	    	} catch (Exception e) {
+	    		 Usage.UsageRecoverable("Problem: A matrix value was not in [.0-9]mxValues ");
+	    	}
+
+	 /* OK, Somthing to Figure out.  Do I need to parst and assign to array List mxVals ???  */       
+	        try {	
+	    	     mxVals.add(Double.parseDouble(strObj.get(x)));
+	    	} catch (Exception e) {
+	    		 Usage.UsageRecoverable("Problem: A matrix value was not in [.0-9]mxVals ");
+	    	}
+	    	
 	    }
 		
 		return ;

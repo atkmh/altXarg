@@ -1,10 +1,10 @@
 package main.java.com.matrixJava;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -62,11 +62,8 @@ public class MyApp {
 	public static void main(String[] args) throws IOException {
 		String firstArg = "";
 		InputStringObj myInputStringObj = null;
+        ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
 		
-//		Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
-		Map <String, ArrayList<Matrix>> myHashMapListOfMatrix = new HashMap<String,ArrayList<Matrix>>();
-		
-        Map<String, ArrayList<Matrix>> myDevHMList = new HashMap<String, ArrayList<Matrix>>();	
 
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
             firstArg = "null"; 	// that we want runTime data input.  Switch on null
@@ -87,11 +84,12 @@ public class MyApp {
 			case "-runtime":
 			case "--runtime":
 			case "null":  // special case: no command line args
-				
-				ProgramNotifications.openingIntroduction();
+			
+ /*  Can the following two lines be moved down to start of runtime input ???	*/
+                  ProgramNotifications.openingIntroduction();
+
 /*				
 				myInputStringObj = new InputStringObj("-r", null);
-
 //  ?????? why do this
 //      myInputStringObj.getStringArray();
 
@@ -110,13 +108,12 @@ public class MyApp {
 				numObjBasedMatrix_rt.displayCompact();
 				numObjBasedMatrix_rt.displayMore();
 // just hold onto this		myNumTest.displayNumMatrixValues();
- 
+//
 //  9/13/19 We are taking all of null -r runtime and putting on hold
-//  in order ot workout the needs of the runtime part of the progrem 
-          */
+//  in order ot workout the needs of the runtime part of the progrem */
 				break; 
 
-			case "-c":
+			case "-c": // 
 			case "--c":
 			case "-cmdline":
 			case "--cmdline":
@@ -127,12 +124,10 @@ public class MyApp {
 				InputNumericObj myNumTest_cl = new InputNumericObj(myInputStringObj);
 				
 			//	myNumTest_cl.getArrayListData();
-				Matrix numObjBasedMatrix_cl = new Matrix(myNumTest_cl);
+				Matrix numObjBasedMatrix_cl = new Matrix(myNumTest_cl, "PutInOrder2Compile_NeedsANameVar");
 				numObjBasedMatrix_cl.setName("numObjBasedMatrix_cl");
 				numObjBasedMatrix_cl.displayCompact();	
 				numObjBasedMatrix_cl.displayMore();	
-				
-				
 				break;
 				
 			case "-f":
@@ -151,87 +146,117 @@ public class MyApp {
 			case "--u":
 			case "-usage":
 			case "--usage":
-				Usage.Usage(" ");
+				Usage.UsageTerminal(" ");
 				break ;
 
 			default: 
-			//Usage.Usage("Problem: see Input  "+args[0] +" " +args[1] +" " +args[2]  +" etc..."             );	
+			//Usage.UsageTerminalTerminal("Problem: see Input  "+args[0] +" " +args[1] +" " +args[2]  +" etc..."             );	
 			String tmp = "";
 			for (String s: args) {tmp = tmp+s +" ";}
-			Usage.Usage("Problem: see Input  " +tmp );	
+			Usage.UsageTerminal("Problem: see Input  " +tmp );	
 		}//end Switch firstArg	
+	
 		
+		
+/* ---------------------------------------------
+ *  Start the runtime process
+ *  got to read something in
+ * 		
+ */
 		Scanner in = new Scanner(System.in);
 		String runTimeCommand;
 		
 		System.out.print("Let's get the first run time command: ");
 	    runTimeCommand = in.nextLine();	
 	    runTimeCommand = runTimeCommand.toLowerCase();
-	 
-	   /*****************
+        System.out.println("");
+	    
+	   /* ****************
 	    * 
 	    * Char setup A, B, C to be the key and matrix Names 
 	    *  
-	    *****************/
+	    **********
+	    * Not sure it htis is use or necessary any longer
+	    * I don't have Key:Value Pairs where Char (A ) was the Key
+	    ********/
 	   int charRepToIncrement = 65; 
 //	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
+
 	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
 	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
-	    
-
+	   
+	   Matrix currentMx = null ;
 	   
 	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
 	        switch (runTimeCommand) {
-	        
 	        case "new":
+	        	myCurChar = (char)charRepToIncrement; 	
+	        	String mName = new StringBuilder().append(myCurChar).toString();
     	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
     	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
-    	   //     Matrix caseMatrixObj = new Matrix(caseInputNumericObj);
  
-    	     /* This was operational code  */   
-    	     /*   ArrayList<Matrix> myArrayList = new ArrayList(new Matrix(caseInputNumericObj)); */
-    	        ArrayList<Matrix> myArrayList = new ArrayList<Matrix>( );
-    	       myArrayList.add( new Matrix(caseInputNumericObj));
-    	        
-    	        myDevHMList.put(Character.toString(myCurChar), new ArrayList());
+    	        ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>(); 
+    	        mxHistArray.add(new Matrix(caseInputNumericObj,mName) );
+    	        runTimeALOAL.add(mxHistArray);
 
-// Original MH(string Matrix)    	        
-//    	        myHashMapListOfMatrix.put(Character.toString(myCurChar),new Matrix(caseInputNumericObj));
-
-// firts try of MH (String , Arraylist[i]= Matrix(caseInputNumericObj);    	        
-//    	       myDevHMList.put(Character.toString(myCurChar),new ArrayList( ).add(new Matrix(caseInputNumericObj)));
-    	     
-    	        
-    	        
-    	        
-    	     //   caseMatrixObj.displayCompact();
-    	     //   caseMatrixObj.displayMore();
     	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
-    	        myCurChar = (char)charRepToIncrement;   
 	        	break;
 
 	        case "showmap":
 	        case "showMap":
+	        	Matrix tempshowMap;
+	        	System.out.println("");
+	        	for (int x=0 ; x < runTimeALOAL.size(); x++) {
+	        	     tempshowMap = (Matrix) runTimeALOAL.get(x).get(0);
+	        	     System.out.println(" ----------   ");
+	        	     tempshowMap.displayCompact();
+	        	     System.out.println("");
+	        	     System.out.println(" ----------   ");
+	        	}
+	        	        	
+	        	
 //	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
 //	        	for(Map.Entry <String,Matrix > me:mySet) {
 //	        		System.out.println(me.getKey()+" What suppose to be the matrix");
 //	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
 //	        	}
-	        Set<Entry<String, ArrayList<Matrix>>> mySet = myDevHMList.entrySet();
-	        for(Entry<String, ArrayList<Matrix>> me:mySet) {
-	        		System.out.println(me.getKey()+" What suppose to be the matrix");
-	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
-	        }
+//	        Set<Entry<String, ArrayList<Matrix>>> mySet = myDevHMList.entrySet();
+//	        for(Entry<String, ArrayList<Matrix>> me:mySet) {
+//	        		System.out.println(me.getKey()+" What suppose to be the matrix");
+//	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
+//	        }
 	        	break;
 
+	        case "showmapall":
+	        	Matrix tmpShowMapAll;
+	        	
+	        	System.out.println("");
+	        	System.out.println("main array size: "+runTimeALOAL.size() );
+	        	for (int i=0 ; i < runTimeALOAL.size(); i++) {
+	        		ArrayList tmpAL4Read = runTimeALOAL.get(i);
+                        System.out.println("internal size on main #" +i +" is " +tmpAL4Read.size() );
+	        		for (int j=0; j < tmpAL4Read.size(); j++) {
+	        			tmpShowMapAll = (Matrix) runTimeALOAL.get(i).get(j);
+
+	        	//        System.out.println(" ----------   ");
+	        	//        tmpShowMapAll.displayCompact();
+	        	//        System.out.println("");
+	        	//        System.out.println(" ----------   ");
+	        		}
+
+	        	}
+	        	break;
+	        	
 	        case "ls mx":
 	        case "ls mx by name":
 	        case "list matrix name":
-                System.out.println("Working on this.  Currently we're at 'A' " );
-	            break;
-	        	
-	        case "humm":
+	        	runTimeCommand = "showmap";
+//                System.out.println("Working on this.  Currently we're at 'A' " );
+	            continue;	
+	            
+			case "humm":
 	        	break;
+	        	
 	        case "pop":
 	        	char charRep;
                 for (int x = 65 ; x < 80 ; x++) {
@@ -239,29 +264,77 @@ public class MyApp {
 	        	     System.out.println(" value is : "+charRep);
 	             }
       	        break;
-	        
-	        case "ls": 
+	       
+	        case "pickmatrix":
+	        case "pickmx":
+	        	System.out.print("Enter Matrix Name Char :");
+	        	String nameChar;
+	    	    nameChar = in.nextLine();	
+	    	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
+	    	         ArrayList tempAl = runTimeALOAL.get(x);
+	    	      // Matrix tempMx = (Matrix) tempAl.get(0);
+	    	         currentMx = (Matrix) tempAl.get(0);
+	    	         if (currentMx.getName().equals(nameChar)) {
+	    	        	System.out.println("found it");
+	    	        	break;
+	    	         }
+	    	         else {
+	    	        	 System.out.println("didnt Find it");
+	    	        	 currentMx = null;
+	    	         }
+	    	    }
+	    	    System.out.println("The char entered was :" +nameChar);
+	            break;
+	           
+	        case "currNullCheck":
+	        case "cnc":
+	        	if (currentMx == null)
+	        		System.out.println("yes: current is null");
+	        	else
+	        		System.out.println(currentMx.getName());
+	        	break;
+	           
+	        case "dispCurr":
+	        case "dispcurr":
+	        	if(currentMx == null )
+	        		System.out.println("No Matrix currently selected");
+	        	else
+	        		currentMx.displayCompact();
+	        	break;
+	        	
 	        case "list": 
 	        case "listCmd":
-	        	System.out.println("list of commands this program responds to");
-	        	System.out.println("Currently, commands are.");
-	        	System.out.println("new:\t\t\tcreate a new Matrix");
-	        	System.out.println("showmap:\t\tprint out the current HashMap of Key:value Pairs");
-	        	System.out.println("humm:\t\t\tdo nothing");
-	        	System.out.println("pop:\t\t\tTest int x cast to char(x)");
-	        	System.out.println("ls:\t\t\tThis command");
-	        	System.out.println("list:\t\t\tThis command");
-	        	System.out.println("listcmd:\t\tThis command");
-	        	System.out.println("ls mx:\t\t\tnot implemented yet");
-	        	System.out.println("ls mx by name:\t\tnot implemented yet");
-	        	System.out.println("list matrix name:\tnot implemented yet");
-	        	System.out.println("quit: but this isn't a switch entry its in the loop control check");
-	        	System.out.println("");
+	        	{File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\runnableCommands.txt");
+	        	  BufferedReader br = new BufferedReader(new FileReader(file)); 
+	        	  
+	        	  String st; 
+	        	  while ((st = br.readLine()) != null) 
+	        	    System.out.println(st); 
+	        	 } 
+
       	        break;
+      	        
+	        case "ls":
+	        	System.out.println("");
+	        { 
+	            // pass the path to the file as a parameter 
+	           File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
+	            
+	            Scanner sc = new Scanner(file); 
+	          
+	            while (sc.hasNextLine()) 
+	              System.out.println(sc.nextLine()); 
+	           sc.close();
+	          }
+	        System.out.println("");
+	        	break;
+	        	
 	       default:
-	    	   System.out.println("That command " +runTimeCommand +" was not found, quitting");
+	    	   System.out.println("That command " +runTimeCommand +" was not found, try again");
+	    	   System.out.println("");
+	    	   runTimeCommand = "ls";
 	    	   //runTimeCommand = "quit";
-	    	   break;
+	    	   continue;
 	        }
 
 	        System.out.print("Get another command: ");

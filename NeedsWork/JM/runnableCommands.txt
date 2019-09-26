@@ -1,0 +1,17 @@
+Ok, So now I can add commands at runtime : ) woot^3
+
+
+System.out.println("list of commands this program responds to");
+System.out.println("Currently, commands are.");
+System.out.println("new:\t\t\tcreate a new Matrix");
+System.out.println("showmap:\t\tprint out the current HashMap of Key:value Pairs");
+System.out.println("humm:\t\t\tdo nothing");
+System.out.println("pop:\t\t\tTest int x cast to char(x)");
+System.out.println("ls:\t\t\tThis command");
+System.out.println("list:\t\t\tThis command");
+System.out.println("listcmd:\t\tThis command");
+System.out.println("ls mx:\t\t\tnot implemented yet");
+System.out.println("ls mx by name:\t\tnot implemented yet");
+System.out.println("list matrix name:\tnot implemented yet");
+System.out.println("quit: but this isn't a switch entry its in the loop control check");
+System.out.println("");
