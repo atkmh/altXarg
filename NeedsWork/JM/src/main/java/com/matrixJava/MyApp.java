@@ -186,6 +186,7 @@ public class MyApp {
 	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
 	   
 	   Matrix currentMx = null ;
+	   String currentName = null;
 	   
 	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
 	        switch (runTimeCommand) {
@@ -206,12 +207,14 @@ public class MyApp {
 	        case "showMap":
 	        	Matrix tempshowMap;
 	        	System.out.println("");
-	        	for (int x=0 ; x < runTimeALOAL.size(); x++) {
-	        	     tempshowMap = (Matrix) runTimeALOAL.get(x).get(0);
+	        	for (int i=0 ; i < runTimeALOAL.size(); i++) {
+	        		for(int j=0 ; j < runTimeALOAL.get(i).size(); j++ ) {
+	        	     tempshowMap = (Matrix) runTimeALOAL.get(i).get(j);
 	        	     System.out.println(" ----------   ");
 	        	     tempshowMap.displayCompact();
 	        	     System.out.println("");
 	        	     System.out.println(" ----------   ");
+	        		}
 	        	}
 	        	        	
 	        	
@@ -227,6 +230,7 @@ public class MyApp {
 //	        }
 	        	break;
 
+	        case "showmapAll":
 	        case "showmapall":
 	        	Matrix tmpShowMapAll;
 	        	
@@ -254,7 +258,14 @@ public class MyApp {
 //                System.out.println("Working on this.  Currently we're at 'A' " );
 	            continue;	
 	            
-			case "humm":
+			case "scalerMult":
+			case "scalermult":
+				if (currentMx != null) {
+					currentMx = currentMx.Multiply(3.0);
+				} else
+					System.out.println("Cant Mult current when current is null");
+
+
 	        	break;
 	        	
 	        case "pop":
@@ -264,6 +275,21 @@ public class MyApp {
 	        	     System.out.println(" value is : "+charRep);
 	             }
       	        break;
+
+	        case "setCurrName":
+	        	System.out.println("Set Search Name");
+	        	currentName = in.nextLine();
+	        	
+	    	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
+	    	         ArrayList tempAl = runTimeALOAL.get(x);
+	    	      // Matrix tempMx = (Matrix) tempAl.get(0);
+	    	         currentMx = (Matrix) tempAl.get(0);
+	    	         if (currentMx.getName().equals(currentName)) {
+	    	        	System.out.println("found it");
+	    	         }else System.out.println("didnt find it");
+	    	    }	
+	        	
+	        	break;
 	       
 	        case "pickmatrix":
 	        case "pickmx":
@@ -315,18 +341,14 @@ public class MyApp {
       	        break;
       	        
 	        case "ls":
-	        	System.out.println("");
-	        { 
+	        	System.out.println(""); { 
 	            // pass the path to the file as a parameter 
-	           File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
-	            
+	            File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
 	            Scanner sc = new Scanner(file); 
-	          
 	            while (sc.hasNextLine()) 
-	              System.out.println(sc.nextLine()); 
-	           sc.close();
-	          }
-	        System.out.println("");
+	                 System.out.println(sc.nextLine()); 
+	                 sc.close();           }
+	            System.out.println("");
 	        	break;
 	        	
 	       default:
@@ -339,12 +361,10 @@ public class MyApp {
 
 	        System.out.print("Get another command: ");
 	        runTimeCommand = in.nextLine();	
-	    /* *****************************************************
-	     * Initially this looked like a good idea, but it forces  
-	     * me to only allow lower case switch commands.
-	     * But, there is noting keeping me from codeing things
-	     * with upper case that end up never working...... So....
-	     * Let's remove it allowing all case of chars
+	    /* ***************************************************************************************
+	     * Initially this looked like a good idea, but it forces me to only allow lower case 
+	     * switch commands. But, there is noting keeping me from coding things with upper case 
+	     * that end up never working...... So....  Let's remove it allowing all case of chars
 	        runTimeCommand = runTimeCommand.toLowerCase();
 	     */
 	    }
@@ -364,19 +384,3 @@ public class MyApp {
 
 
 
-
-
-
-
-
-
-
-
-
-/*
- * *****************************************************************************
- * 
- * 
- * 
- * 
- */

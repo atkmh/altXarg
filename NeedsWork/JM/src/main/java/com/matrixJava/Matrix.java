@@ -29,15 +29,11 @@ import java.util.Locale;
 public class Matrix {
 	
 /* **************************************************
- * 
  *  Class Variables
  *  Private
  * 	Accessible via Public Functions
- * **************************************************
- * 	Taken out of use
- *	int m_data[][];  // started initially with Int
- * 
- */
+ * **************************************************/
+
 	private String creationTS;
 	/* ****************************************
 	 *  modificaitonTC: "HEAD" or a time stamp
@@ -231,12 +227,14 @@ public class Matrix {
 	 * Because I"m Performing Ax = B  we know the dimensions
 	 * of A, hence Be will have the same
 	 * 
-	 * @input x is a scalar to multiply against curretn Matrix
+	 * @input x is a scalar to multiply against current Matrix
 	 * @output Matrix, B.  Result of Ax = B
 	 */
 	
 	public Matrix Multiply(double scalar) {
-		Matrix my_Matrix = new Matrix (mRows, nCols);  
+		Matrix my_Matrix = new Matrix (mRows, nCols); 
+		my_Matrix.m_varName = this.m_varName;
+		
 		double [][] B = my_Matrix.getArray(); // interesting code, go get a pointer to my data
 		
 		// Now in for loops multiply every entry by the Scalar
@@ -245,7 +243,7 @@ public class Matrix {
 				B[i][j] = scalar*m_data[i][j];
 			}// end inner for loop
 		}// end outer for loop
-		modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		my_Matrix.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	return my_Matrix;	
 	}	
 
