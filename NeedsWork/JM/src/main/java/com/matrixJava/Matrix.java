@@ -42,7 +42,7 @@ public class Matrix {
 	 *  and a new HEAD took it's place
 	 */
 	private String modificationTS;
-
+    private String modificationCommand;
 	private int mRows;
 	private int nCols;
 	private double m_data[][];  // JAMA names A
@@ -174,6 +174,8 @@ public class Matrix {
 	
 	
 		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());	
+		modificationCommand = "Creation";
+		modificationTS = "None Yet";
     }
 
 	
@@ -303,6 +305,21 @@ public class Matrix {
 		this.m_varName = str ;
 	}
 	
+	public void setModifyingCommand (String str) {
+		this.modificationCommand = str;
+	}
+	
+	public String getModCmd() {
+		return modificationCommand;
+	}
+
+	public String getModTimeStamp() {
+		return modificationTS;
+	}
+	
+	public String getCreationTimeStamp() {
+		return creationTS;
+	}
 	
 	/**
 	* Get a single element.

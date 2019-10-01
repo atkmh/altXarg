@@ -2,67 +2,40 @@ package main.java.com.matrixJava;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.Executors;
 
 import main.java.com.matrixJava.Usage;
 
 public class MyApp {
-	/*
-	 * One Change to cement a branch
-	 * *****************************************************************************
-	 * [8/8/19 thoughts] OK in MyApp we check argument string We need to handle
-	 * -<chcar> or --<char> or --<word> I have a model of that in parseInputYA If
-	 * null we go to run time data entry and operation. this is it's own class to
-	 * capture data and return back the same way as CmdLineStrObj
-	 * 
-	 * Follow that with case statement for switches From each case block we make a
-	 * processing parse input routine -c <bla bla bla > goes off to the
-	 * CmdLineStrObj -r would be same as no arguments, go to runtime parsing routine
-	 * -f would be file based input -h is for help. Currently this is just usage -u
-	 * is same: Usage
-	 * 
-	 * Having a little mental battle about how this program works From the command
-	 * line I'm capable of entering and parsing one matrix of data From a File I can
-	 * see the ablity to put in several matricies
-	 * 
-	 * Does the Parse input routine return an object that is passed to the matrix
-	 * routine ?
-	 * 
-	 * Seems like the file input routine could pass properly formed strings to the
-	 * ParseINput routine but that would be from the expectation that the parseinput
-	 * routine would return Matrix Input objects in the manner that Ive been testing
-	 * with MyApp.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
-	 * 
-	 * 
-	 * 
-	 */
 
 	static boolean mydebug = false;
 	
-	// int size = (args[0].equals("debug")) ? new String[(args.length)-1] : new
-	// String[args.length];
-
-	/*
-	 * [Late 8/8/19 Thinging]
-	 * 
-	 * This stuff is going away to be replaced with and object that should be come
-	 * part of the matrix Object.
-	 */
-	String name = null;
-	String oppMode = null;
+	//String name = null;
+	//String oppMode = null;
+	
+	static String runTimeCommand;
+    static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
+    static Matrix currentMx = null ;
+    static String currentName = null;
+    static Scanner in = new Scanner(System.in);
+    static double scalerValue;
 
 	int[] matrixDimensions = new int[2];// 2 values M&N both int
 	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
 	//Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		String firstArg = "";
 		InputStringObj myInputStringObj = null;
-        ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
+
 		
 
 		if ( args==null  ||args.length==0)  	// We want null input at command line to indicate 
@@ -88,29 +61,7 @@ public class MyApp {
  /*  Can the following two lines be moved down to start of runtime input ???	*/
                   ProgramNotifications.openingIntroduction();
 
-/*				
-				myInputStringObj = new InputStringObj("-r", null);
-//  ?????? why do this
-//      myInputStringObj.getStringArray();
 
-				System.out.println(myInputStringObj.getFirst());
-				System.out.println(myInputStringObj.getSecond());
-				System.out.println(myInputStringObj.getdata());
-
-				System.out.println("");
-				System.out.println("call displayArrayList");
-				myInputStringObj.displayArrayList();
-				
-				InputNumericObj myNumTest_rt = new InputNumericObj(myInputStringObj);
-			//	myNumTest_rt.getArrayListData();
-				Matrix numObjBasedMatrix_rt = new Matrix(myNumTest_rt);
-				numObjBasedMatrix_rt.setName("numObjBasedMatrix_rt");
-				numObjBasedMatrix_rt.displayCompact();
-				numObjBasedMatrix_rt.displayMore();
-// just hold onto this		myNumTest.displayNumMatrixValues();
-//
-//  9/13/19 We are taking all of null -r runtime and putting on hold
-//  in order ot workout the needs of the runtime part of the progrem */
 				break; 
 
 			case "-c": // 
@@ -163,8 +114,8 @@ public class MyApp {
  *  got to read something in
  * 		
  */
-		Scanner in = new Scanner(System.in);
-		String runTimeCommand;
+
+	//	String runTimeCommand;
 		
 		System.out.print("Let's get the first run time command: ");
 	    runTimeCommand = in.nextLine();	
@@ -172,21 +123,16 @@ public class MyApp {
         System.out.println("");
 	    
 	   /* ****************
-	    * 
-	    * Char setup A, B, C to be the key and matrix Names 
-	    *  
-	    **********
-	    * Not sure it htis is use or necessary any longer
-	    * I don't have Key:Value Pairs where Char (A ) was the Key
+	    * Char setup A, B, C to be the matrix Names 
 	    ********/
+        
 	   int charRepToIncrement = 65; 
 //	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
 
 	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
 	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
 	   
-	   Matrix currentMx = null ;
-	   String currentName = null;
+
 	   
 	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
 	        switch (runTimeCommand) {
@@ -205,33 +151,14 @@ public class MyApp {
 
 	        case "showmap":
 	        case "showMap":
-	        	Matrix tempshowMap;
-	        	System.out.println("");
-	        	for (int i=0 ; i < runTimeALOAL.size(); i++) {
-	        		for(int j=0 ; j < runTimeALOAL.get(i).size(); j++ ) {
-	        	     tempshowMap = (Matrix) runTimeALOAL.get(i).get(j);
-	        	     System.out.println(" ----------   ");
-	        	     tempshowMap.displayCompact();
-	        	     System.out.println("");
-	        	     System.out.println(" ----------   ");
-	        		}
-	        	}
-	        	        	
-	        	
-//	        	Set<Map.Entry <String,Matrix> > mySet = myHashMapListOfMatrix.entrySet();
-//	        	for(Map.Entry <String,Matrix > me:mySet) {
-//	        		System.out.println(me.getKey()+" What suppose to be the matrix");
-//	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
-//	        	}
-//	        Set<Entry<String, ArrayList<Matrix>>> mySet = myDevHMList.entrySet();
-//	        for(Entry<String, ArrayList<Matrix>> me:mySet) {
-//	        		System.out.println(me.getKey()+" What suppose to be the matrix");
-//	        		System.out.println("Not making the me.getValue(a Matrix ) call here");
-//	        }
+	        	showmap();
 	        	break;
 
-	        case "showmapAll":
-	        case "showmapall":
+	        case "showListSpecs":
+	        case "showlistspecs":
+	        case "showlistmain":
+	        case "showmainlist":
+	        
 	        	Matrix tmpShowMapAll;
 	        	
 	        	System.out.println("");
@@ -241,13 +168,7 @@ public class MyApp {
                         System.out.println("internal size on main #" +i +" is " +tmpAL4Read.size() );
 	        		for (int j=0; j < tmpAL4Read.size(); j++) {
 	        			tmpShowMapAll = (Matrix) runTimeALOAL.get(i).get(j);
-
-	        	//        System.out.println(" ----------   ");
-	        	//        tmpShowMapAll.displayCompact();
-	        	//        System.out.println("");
-	        	//        System.out.println(" ----------   ");
 	        		}
-
 	        	}
 	        	break;
 	        	
@@ -258,15 +179,29 @@ public class MyApp {
 //                System.out.println("Working on this.  Currently we're at 'A' " );
 	            continue;	
 	            
-			case "scalerMult":
-			case "scalermult":
+			case "scalerMultx":
+			case "scalermultx":
+
+				System.out.println("Enter Scaler Value");
+				scalerValue =  Double.parseDouble( in.nextLine());
+				System.out.println("Scaler Value entered: "+scalerValue);
 				if (currentMx != null) {
-					currentMx = currentMx.Multiply(3.0);
+					currentMx = currentMx.Multiply(scalerValue);
 				} else
 					System.out.println("Cant Mult current when current is null");
 
 
 	        	break;
+	        /* Entry Requirement:  */	
+			case "devmult":
+			case "multDev":
+			case "multdev":
+			case "scalerMult":
+			case "scalermult":
+				MatrixScalerMultiplication();
+
+			
+				break;
 	        	
 	        case "pop":
 	        	char charRep;
@@ -276,80 +211,36 @@ public class MyApp {
 	             }
       	        break;
 
-	        case "setCurrName":
-	        	System.out.println("Set Search Name");
-	        	currentName = in.nextLine();
-	        	
-	    	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
-	    	         ArrayList tempAl = runTimeALOAL.get(x);
-	    	      // Matrix tempMx = (Matrix) tempAl.get(0);
-	    	         currentMx = (Matrix) tempAl.get(0);
-	    	         if (currentMx.getName().equals(currentName)) {
-	    	        	System.out.println("found it");
-	    	         }else System.out.println("didnt find it");
-	    	    }	
-	        	
-	        	break;
 	       
 	        case "pickmatrix":
 	        case "pickmx":
-	        	System.out.print("Enter Matrix Name Char :");
-	        	String nameChar;
-	    	    nameChar = in.nextLine();	
-	    	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
-	    	         ArrayList tempAl = runTimeALOAL.get(x);
-	    	      // Matrix tempMx = (Matrix) tempAl.get(0);
-	    	         currentMx = (Matrix) tempAl.get(0);
-	    	         if (currentMx.getName().equals(nameChar)) {
-	    	        	System.out.println("found it");
-	    	        	break;
-	    	         }
-	    	         else {
-	    	        	 System.out.println("didnt Find it");
-	    	        	 currentMx = null;
-	    	         }
-	    	    }
-	    	    System.out.println("The char entered was :" +nameChar);
+	        case "setCurrName":
+	        case "setcurrname":
+	        	PickMatrixFromMainList();
 	            break;
 	           
 	        case "currNullCheck":
+	        case "currnullcheck":
+	        case "curnulck":
 	        case "cnc":
-	        	if (currentMx == null)
-	        		System.out.println("yes: current is null");
-	        	else
-	        		System.out.println(currentMx.getName());
+	        	CurrentNullCheck();
 	        	break;
 	           
 	        case "dispCurr":
 	        case "dispcurr":
-	        	if(currentMx == null )
-	        		System.out.println("No Matrix currently selected");
-	        	else
-	        		currentMx.displayCompact();
+	        	 DisplayCurrentMatrix();
 	        	break;
 	        	
+	        case "ls":
 	        case "list": 
 	        case "listCmd":
-	        	{File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\runnableCommands.txt");
-	        	  BufferedReader br = new BufferedReader(new FileReader(file)); 
-	        	  
-	        	  String st; 
-	        	  while ((st = br.readLine()) != null) 
-	        	    System.out.println(st); 
-	        	 } 
-
-      	        break;
-      	        
-	        case "ls":
-	        	System.out.println(""); { 
-	            // pass the path to the file as a parameter 
-	            File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
-	            Scanner sc = new Scanner(file); 
-	            while (sc.hasNextLine()) 
-	                 System.out.println(sc.nextLine()); 
-	                 sc.close();           }
-	            System.out.println("");
+	        	ListRunTimeCommands();
 	        	break;
+	        	
+	        case "cls":	
+	        	ClearScreen();
+                 break;
+                 
 	        	
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, try again");
@@ -368,19 +259,231 @@ public class MyApp {
 	        runTimeCommand = runTimeCommand.toLowerCase();
 	     */
 	    }
-		
-		
+	    
 	    ProgramNotifications.giveShutDownNotice();
 	
-			
-			
-	
-			//System.exit(0);
 	} // end public static void main(String[] args)
+
+  public static void newMatrix() {
+	  
+  }
+	
+
+  
+  
+  public static void showmap() {
+  	Matrix tempshowListMx;
+  	System.out.println("");
+  	for (int i=0 ; i < runTimeALOAL.size(); i++) {
+  		for(int j=0 ; j < runTimeALOAL.get(i).size(); j++ ) {
+  			tempshowListMx = (Matrix) runTimeALOAL.get(i).get(j);
+  	     System.out.println(" ----------   ");
+  	     System.out.println("Modification Command\t :" +tempshowListMx.getModCmd()  );
+  	     System.out.println("Modification TimeStamp\t :" +tempshowListMx.getModTimeStamp()  );
+  	     System.out.println("Creation Time Stamp\t :" +tempshowListMx.getCreationTimeStamp()  );
+  	     tempshowListMx.displayCompact();
+  	     System.out.println("");
+  	     System.out.println(" ----------   ");
+  		}
+  	}	 
+	  
+  }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void MatrixScalerMultiplication() {
+		// Check if we are pointing at a current Matrix if so, get scaler value.  Echo the scaler entered
+		// multiply current*Scaler. prepare a temporary Matrix so we can search for new current home
+		// get the name of the current Mx. Prepare a var for array index of name. start the search.
+        // when found - put CurrentMx away 
+
+			if (currentMx == null) {
+				System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+				return;	
+			}
+
+			System.out.println("Enter Scaler Value");
+			scalerValue =  Double.parseDouble( in.nextLine());
+			System.out.println("Scaler Value entered: "+scalerValue);
+			currentMx = currentMx.Multiply(scalerValue);
+
+			String currentMxName = currentMx.getName();
+			currentMx.setModifyingCommand(currentMxName +"="+currentMxName +"x where x == " +scalerValue);
+			Matrix tempMx;
+//			String currentMxName = currentMx.getName();
+			int rtALOAL_Index = 0;
+			
+			for (int i=0 ; i < runTimeALOAL.size(); i++) {
+				tempMx = (Matrix)runTimeALOAL.get(i).get(0);
+                 if( currentMxName == tempMx.getName() ) {
+                	 rtALOAL_Index = i;
+                	 i = runTimeALOAL.size();  // this should break us out
+                 }	
+            }
+		
+		     System.out.println("The index of the name is :" +rtALOAL_Index);
+		// ???
+		// Will this all work by reference ???  What do I mean ???
+		// set tempAL to runTimeALOAL.get(rtALOAL_Index)
+		// now do my size and push down on tempAl... Will this affect the AL in rTALOAL[rtALOAL_Index] ???
+		
+		// Prepare a temp ArrayList to work on
+		ArrayList<Matrix> tempAL = runTimeALOAL.get(rtALOAL_Index);
+
+		// lets iterate thought the history array copying N to N+1  
+		// this has to be done backwards
+		for (int x=tempAL.size(); x < 0 ; x--) {
+			tempAL.add((x+1), tempAL.get(x));
+			System.out.println("copied into "+(x+1) +"from " +x);
+		}
+		// and for the zeroth entry
+		tempAL.add(0, currentMx );
+		
+		
+	}
+	
+	
+	
+	
+	public static void PickMatrixFromMainList() {
+    	System.out.print("Enter Matrix Name Char :");
+    	currentName = in.nextLine();	
+	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
+	         ArrayList tempAl = runTimeALOAL.get(x);
+	         currentMx = (Matrix) tempAl.get(0);
+	         if (currentMx.getName().equals(currentName)) {
+	        	 x=runTimeALOAL.size();
+	        	//System.out.println("found it");
+	        	break;
+	         }
+	         else currentMx = null;
+	         
+	    }
+//	    System.out.println("The char entered was :" +nameChar);
+	    System.out.println("The Mx Name entered was :" +currentName);
+	    if (currentMx==null) System.out.println("But, "+currentName +" wasnt found. Current Mx is still null");
+	}
+	
+	
+	//****************************************************************************
+	// Current represents a 'Named' Matrix pulled out of the main List
+	// if Current is null the tempMx has not yet been copied out of the main list
+       public static void CurrentNullCheck() {
+       	if (currentMx == null)
+    		System.out.println("yes: current is null");
+    	else
+    		System.out.println(currentMx.getName()); 
+       }
+	
+	   public static void DisplayCurrentMatrix() {
+       	if(currentMx == null )
+    		System.out.println("No Matrix currently selected");
+    	else
+    		currentMx.displayCompact();
+		   
+	   }
+	
+	
+	   public static void ListRunTimeCommands() throws IOException 	{
+	       	System.out.println(""); { 
+	            // pass the path to the file as a parameter 
+	            File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
+	            Scanner sc = new Scanner(file); 
+	            while (sc.hasNextLine()) 
+	                 System.out.println(sc.nextLine()); 
+	                 sc.close();           }
+	            System.out.println("");
+			   
+		   }
+	   
+	   
+	   public static void ClearScreen() throws InterruptedException, IOException {
+       	ProcessBuilder builder = new ProcessBuilder();
+        if( System.getProperty( "os.name" ).startsWith( "Window" ) )
+        	builder.command("cmd", "/c", "cls").inheritIO().start().waitFor();
+        //	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        //	 exitCode = Runtime.getRuntime().exec("cls");
+		else
+		   Runtime.getRuntime().exec("clear"); 
+	   }
+	   
+
+	
 
 } // End of class MyApp
 
+/*
+ * One Change to cement a branch
+ * *****************************************************************************
+ * [8/8/19 thoughts] OK in MyApp we check argument string We need to handle
+ * -<chcar> or --<char> or --<word> I have a model of that in parseInputYA If
+ * null we go to run time data entry and operation. this is it's own class to
+ * capture data and return back the same way as CmdLineStrObj
+ * 
+ * Follow that with case statement for switches From each case block we make a
+ * processing parse input routine -c <bla bla bla > goes off to the
+ * CmdLineStrObj -r would be same as no arguments, go to runtime parsing routine
+ * -f would be file based input -h is for help. Currently this is just usage -u
+ * is same: Usage
+ * 
+ * Having a little mental battle about how this program works From the command
+ * line I'm capable of entering and parsing one matrix of data From a File I can
+ * see the ablity to put in several matricies
+ * 
+ * Does the Parse input routine return an object that is passed to the matrix
+ * routine ?
+ * 
+ * Seems like the file input routine could pass properly formed strings to the
+ * ParseINput routine but that would be from the expectation that the parseinput
+ * routine would return Matrix Input objects in the manner that Ive been testing
+ * with MyApp.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
+ * 
+ * 
+ * 
+ */
 
 
+
+
+
+/*				
+ *	Formerly of the main body switch -r for runtime. This was active but 
+ *	it was not interactive. 
+ * 
+myInputStringObj = new InputStringObj("-r", null);
+//?????? why do this
+//myInputStringObj.getStringArray();
+
+System.out.println(myInputStringObj.getFirst());
+System.out.println(myInputStringObj.getSecond());
+System.out.println(myInputStringObj.getdata());
+
+System.out.println("");
+System.out.println("call displayArrayList");
+myInputStringObj.displayArrayList();
+
+InputNumericObj myNumTest_rt = new InputNumericObj(myInputStringObj);
+//	myNumTest_rt.getArrayListData();
+Matrix numObjBasedMatrix_rt = new Matrix(myNumTest_rt);
+numObjBasedMatrix_rt.setName("numObjBasedMatrix_rt");
+numObjBasedMatrix_rt.displayCompact();
+numObjBasedMatrix_rt.displayMore();
+//just hold onto this		myNumTest.displayNumMatrixValues();
+//
+//9/13/19 We are taking all of null -r runtime and putting on hold
+//in order ot workout the needs of the runtime part of the progrem */
 
 
