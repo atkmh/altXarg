@@ -1,0 +1,50 @@
+****************************************************************
+****************************************************************
+list of commands this program responds to
+Currently, commands are.
+****************************************************************
+new:			create a new Matrix
+
+showmap:                Iterate through main and each entry..........
+showMap:                Disp each Mx with ModCmd, ModTS, & Create TS	
+
+showListSpecs           iterate through main and show size of each item
+showlistspecs           iterate through main and show size of each item
+
+ls mx                   ** Still working on this
+ls mx by name           Same As Above
+list matrix name        Same As Above
+
+scalerMult              Get a scaler value: Multiply currentMx by Scaler
+scalermult              Same As Above
+
+devmult                 Get a scaler value: Multiply currentMx by Scaler...
+multDev                 Find where the change MX goes.....
+multdev                 Put the new MX value away.
+
+pop:			Test int x cast to char(x)
+
+pickmatrix              Get usr name string input.....
+pickmx                  compare matrix name values with input....
+setCurrName             set currentMatrix variable to matrix from the list....
+setcurrname             with that same name.  This is not ideal name for this operation
+
+setCurrentName          Get a Mx Name Char: Find that entry: Make it current
+
+ls:			This command
+list:			This command
+listcmd:		This command
+
+ls mx:			coded to run 'showmap'
+ls mx by name:		coded to run 'showmap'
+list matrix name:	coded to run 'showmap'
+
+cls:        currently this will clear Screen in a windows session
+            the Linux/Git Bash do not respond.
+
+default: fall through to default in the switch statement....
+         echo that cmd 'X' was not found ....
+         try Again.  Then 'ls' cmd is primed into processor
+         and allowed to run naturally.
+
+quit: but this isn't a switch entry its in the loop control check

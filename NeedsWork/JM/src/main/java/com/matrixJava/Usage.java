@@ -1,6 +1,4 @@
-package 
-
-main.java.com.matrixJava;
+package main.java.com.matrixJava;
 
 public class Usage {
 

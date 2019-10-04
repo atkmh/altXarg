@@ -701,7 +701,8 @@ public Matrix plus(Matrix B) {
   return X;
 }
 
-/**
+/**    // Mark is not going to implement this
+ *     // this breaks immutability
  * A = A + B
  * 
  * @param B

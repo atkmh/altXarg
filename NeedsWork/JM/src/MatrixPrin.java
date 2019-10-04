@@ -1,4 +1,4 @@
-package main.java.com.matrixJava;
+// package main.java.com.matrixJava;
 
 /* *****************************************************************************
  *  Compilation:  javac Matrix.java

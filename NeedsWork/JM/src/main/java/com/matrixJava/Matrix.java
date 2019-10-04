@@ -51,20 +51,15 @@ public class Matrix {
 
 
 /* **************************************************
- * 
  *  Constructors
  *  Default: Does nothing but print. Could go away
- *	Minimal1: 
- *     Input: Row dimensions mRows, nCols
- *     Action:  creates a new Array of dimension 
- *  Medium1 
- *  	Input Row Dims, Array of values	
- *  
- *  Medium2
- *  	Input Row dims, ArrayList of values
+ *	Minimal1: Input: Row dimensions mRows, nCols   Action:  creates a new Array of dimension 
+ *  Medium1   Input Row Dims, Array of values	
+ *  Medium2   Input Row dims, ArrayList of values
  */
 	
 	public Matrix(){System.out.println(/* "defualtConstructor Matrix class" */ );}
+	
 	
 	public Matrix(int M, int N){
 		//System.out.println("defualtConstructor Matrix class");
@@ -74,6 +69,8 @@ public class Matrix {
 		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	} // end of constructor
 
+	
+	
 	public Matrix(int[]dimension, double[] dataArylst) {
 		this.mRows = dimension[0]; // i: rows
 		this.nCols = dimension[1]; // j; cols
@@ -117,6 +114,7 @@ public class Matrix {
 	}
 	
 	
+	
 	public Matrix(int M, int N, ArrayList dataAryLst) // Yanked: m_data = new int[mRows][nCols];
 	{   this.mRows = M; // i: rows
 		this.nCols = N; // j; cols
@@ -143,7 +141,7 @@ public class Matrix {
 		creationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	}
 
-  	public Matrix(InputNumericObj inputNumObj,String Name) {
+	public Matrix(InputNumericObj inputNumObj,String Name) {
   		this.m_varName = Name;
         this.mRows = inputNumObj.getM();
         this.nCols = inputNumObj.getN();
@@ -179,6 +177,8 @@ public class Matrix {
     }
 
 	
+	
+	
 	public static void main(String[] args) {
 		System.out.println("*****************");
 		System.out.println("From Within Matrix class main method");
@@ -193,23 +193,40 @@ public class Matrix {
 		      return m_data;
 		   }	
 	
-	
-	 public Matrix Add( Matrix B ) {
-	  Matrix A = this; 
-	  if (B.mRows != A.mRows || B.nCols !=A.nCols ) {
-		  System.out.println("A serous problem: No Exception at this time Exiting");
-		  System.exit(-1); 
-	  } 
-	  Matrix C = new Matrix(mRows,nCols);
-	  for (int i = 0 ; i < mRows ; i++)
-		  for (int j = 0; j < nCols ; j++)
-			  C.m_data[i][j] = A.m_data[i][j] + B.m_data[i][j];
-	  System.out.println("We are finishing from inside the Matrix.Add() method"); 
-		modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-	  return C;
-	 }
-	  
-	 
+
+	   
+	public Matrix Add(Matrix B) {
+		Matrix A = this;
+		if (B.mRows != A.mRows || B.nCols != A.nCols) {
+			System.out.println("A serous problem: Matrix dimensions were not equal.  Done");
+			return null;
+		}
+		Matrix C = new Matrix(mRows, nCols);
+		for (int i = 0; i < mRows; i++)
+			for (int j = 0; j < nCols; j++)
+				C.m_data[i][j] = A.m_data[i][j] + B.m_data[i][j];
+		System.out.println("We are finishing from inside the Matrix.Add() method");
+		//modificationTS = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		return C;
+	}
+
+	/**
+	 * C = A + B
+	 * 
+	 * @param B another matrix
+	 * @return A + B
+	 */
+	public Matrix MxAdd(Matrix B) {
+		checkMxDims(B); // are rows and cols the same ?
+		Matrix X = new Matrix(mRows, nCols);
+		double[][] C = X.getArray();
+		for (int i = 0; i < mRows; i++) {
+			for (int j = 0; j < nCols; j++) {
+				C[i][j] = this.m_data[i][j] + B.m_data[i][j];
+			}
+		}
+		return X;
+	}
 
 //	public static void Subtract( ) {  // Sub for Subtract
 	public void Subtract( ) {  // Sub for Subtract
@@ -234,6 +251,7 @@ public class Matrix {
 	 */
 	
 	public Matrix Multiply(double scalar) {
+	    String tmpTS  = this.creationTS;	
 		Matrix my_Matrix = new Matrix (mRows, nCols); 
 		my_Matrix.m_varName = this.m_varName;
 		
@@ -246,8 +264,15 @@ public class Matrix {
 			}// end inner for loop
 		}// end outer for loop
 		my_Matrix.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		// I'm doing the following so that I capture the ornginal matrix creation time, not this new one.
+		my_Matrix.creationTS = tmpTS;  
 	return my_Matrix;	
 	}	
+
+	
+	
+
+	
 
 //	public static void displayDeepString( ) {
 	public  void displayDeepString( ) {
@@ -266,6 +291,10 @@ public class Matrix {
         } System.out.println("");
 	}
 
+	
+	
+	
+	
 	public void displayMore() { // DisplayMore
 		// Doesn't need an argument. Method display 
 							// refers to what ever object is in play
@@ -281,6 +310,14 @@ public class Matrix {
 	 * Get row dimension.
 	 * @return m, the number of rows.
 	 */
+
+   private void checkMxDims(Matrix B) {
+	  if ( B.mRows != this.mRows || B.nCols != this.nCols  ) {
+		  throw new IllegalArgumentException("Matrix Dimensions must Be Equal.");
+	  }
+   }
+	
+	
 	
 	public int getRowDimension() {
 //	  return m;  // Orig var from JAMA
@@ -292,6 +329,8 @@ public class Matrix {
 	 * @return n, the number of columns.
 	 */
 
+
+	
 	public int getColumnDimension() {
 //	  return n;   // Orig var from JAMA
 	  return nCols; // my var name

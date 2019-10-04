@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.Executors;
@@ -24,6 +28,8 @@ public class MyApp {
 	static String runTimeCommand;
     static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
     static Matrix currentMx = null ;
+    static String addendName1, addendName2 = null;
+    static Matrix addendMx1, addendMx2 = null;
     static String currentName = null;
     static Scanner in = new Scanner(System.in);
     static double scalerValue;
@@ -32,7 +38,7 @@ public class MyApp {
 	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
 	//Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws Exception {
 		String firstArg = "";
 		InputStringObj myInputStringObj = null;
 
@@ -119,7 +125,7 @@ public class MyApp {
 		
 		System.out.print("Let's get the first run time command: ");
 	    runTimeCommand = in.nextLine();	
-	    runTimeCommand = runTimeCommand.toLowerCase();
+	    //runTimeCommand = runTimeCommand.toLowerCase();
         System.out.println("");
 	    
 	   /* ****************
@@ -149,18 +155,59 @@ public class MyApp {
     	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
 	        	break;
 
-	        case "showmap":
-	        case "showMap":
-	        	showmap();
+	        case "add2mx":
+	        	System.out.println("We'll need the name of two Existing Matrices...");
+	        	System.out.println("Enter name of first matrix");
+	        	addendName1 =  in.nextLine();
+	        	System.out.println("Enter name of second matrix");
+	        	addendName2 =  in.nextLine();
+	    	    int found = 0; 
+	    	    	
+	    	    // Need to turn this into a function that returns a Matrix given a name
+	        	for (int x=0 ; x < runTimeALOAL.size(); x++) {
+	                ArrayList tempAl = runTimeALOAL.get(x);
+                    System.out.println("");
+                    addendMx1 = (Matrix) tempAl.get(0);
+                    if (addendMx1.getName().equals(addendName1)) {
+                      System.out.println("Debug: First Mx found at :"+x);
+                      x=runTimeALOAL.size();
+                      found++;
+	   	        	  
+	   	         }
+	   	         else { System.out.println("First Mx Name was not found: breaking out");
+	   	        // break; 
+	   	         }
+               }
+	        for (int y=0 ; y < runTimeALOAL.size(); y++) {
+	                ArrayList tempAl = runTimeALOAL.get(y);
+                    System.out.println("");
+                    addendMx2= (Matrix) tempAl.get(0);
+                    if (addendMx2.getName().equals(addendName2)) {
+                      System.out.println("Debug: Second Mx found at :"+y);
+                      y=runTimeALOAL.size();
+                      found++;
+	   	        	  
+	   	         }
+	   	         else { System.out.println("First Mx Name was not found: breaking out");
+	   	        // break; 
+	   	         }
+               }
+	        System.out.println("number found: "+found);
+	        addendMx1.displayCompact();
+	        addendMx2.displayCompact();
+	        currentMx=addendMx1.Add(addendMx2);
+	        currentMx.setName(addendName1 +"+"+addendName2);	
+	        ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>(); 
+	        mxTempArray.add( currentMx); 
+	        runTimeALOAL.add(mxTempArray);
 	        	break;
 
-	        case "showListSpecs":
-	        case "showlistspecs":
-	        case "showlistmain":
-	        case "showmainlist":
 	        
+	        case "showList": 
+	        case "showlist": 
+	        case "showlistmain": 
+	        case "showmainlist":
 	        	Matrix tmpShowMapAll;
-	        	
 	        	System.out.println("");
 	        	System.out.println("main array size: "+runTimeALOAL.size() );
 	        	for (int i=0 ; i < runTimeALOAL.size(); i++) {
@@ -172,35 +219,24 @@ public class MyApp {
 	        	}
 	        	break;
 	        	
-	        case "ls mx":
-	        case "ls mx by name":
-	        case "list matrix name":
-	        	runTimeCommand = "showmap";
-//                System.out.println("Working on this.  Currently we're at 'A' " );
-	            continue;	
-	            
-			case "scalerMultx":
-			case "scalermultx":
+	        case "ls mx": 
+	        case "ls mx by name": 
+	        case "list matrix name":   
+	       		showmap(); 
+	       		break;
+	       
+	        case "showmap":
+	        case "showMap":
+	        	showmap(); 
+	        	break;   
 
-				System.out.println("Enter Scaler Value");
-				scalerValue =  Double.parseDouble( in.nextLine());
-				System.out.println("Scaler Value entered: "+scalerValue);
-				if (currentMx != null) {
-					currentMx = currentMx.Multiply(scalerValue);
-				} else
-					System.out.println("Cant Mult current when current is null");
-
-
-	        	break;
 	        /* Entry Requirement:  */	
+			case "scalerMult":
+			case "scalermult":
 			case "devmult":
 			case "multDev":
 			case "multdev":
-			case "scalerMult":
-			case "scalermult":
 				MatrixScalerMultiplication();
-
-			
 				break;
 	        	
 	        case "pop":
@@ -210,37 +246,73 @@ public class MyApp {
 	        	     System.out.println(" value is : "+charRep);
 	             }
       	        break;
+      	        
+	        case "wowowo": 
+	        //	Properties p = System.getProperties();
+	        //	p.list(System.out);
+	        //	System.out.println("");
+	        /*
+	         *  Key to what I got out of this.  Eclipse and wincmdline
+	         * represent different info.   
+	         * in Eclipse the console show java.class.path=C:\atkmhDev\NeedsWork\JM\bin
+	         * in Win cmd Line it shows java.class.path=MyApp.jar
+	         * 
+	         * So, if I put my commands.txt file in the bin directory will it show up
+	         * next to MyApp.jar in the command window?
+	         */
+	        //	Properties XXX = System.getProperties();
+	        	Properties propsss = new Properties();
+	        	String myJCP = System.getProperty("java.class.path"); 
+	        	System.out.println(" myJCP is " +myJCP);
+	        	
+	        	String myJCP_Value = System.getProperty(myJCP);
+	        	
+	        	System.out.println("and the value is :" +myJCP_Value);
+	        	break;
 
 	       
-	        case "pickmatrix":
-	        case "pickmx":
-	        case "setCurrName":
-	        case "setcurrname":
-	        	PickMatrixFromMainList();
+	        case "pk1": 
+	        case "pickmatrix": 
+	        case "pickmx":  
+	        	PickMatrixFromMainList(); 
+	        	break;
+	        
+	        case "setCurrName": 
+	       	case "setcurrname": 
+	        	PickMatrixFromMainList(); 
 	            break;
 	           
-	        case "currNullCheck":
-	        case "currnullcheck":
-	        case "curnulck":
+	        case "currNullCheck": 
+	        case "currnullcheck": 
+	        case "curnulck": 
 	        case "cnc":
 	        	CurrentNullCheck();
 	        	break;
 	           
-	        case "dispCurr":
-	        case "dispcurr":
-	        	 DisplayCurrentMatrix();
+	        case "dispCurrc": 
+	        case "dispcurrc": 
+	        case "viewsm": 
+	        case "dispCurrm":
+	        case "dispcurrm":
+	        case "viewmed":
+	        	DisplayCurrentMatrixM();
 	        	break;
-	        	
+
+	        case "dispCurrz":
+	        case "dispcurrz":
+	        case "viewtostr":
+	        	DisplayCurrentMatrixZ();
+	        	break;
+	        
 	        case "ls":
-	        case "list": 
+	        case "list":
 	        case "listCmd":
-	        	ListRunTimeCommands();
+	        	TestRunTimeCommands();
 	        	break;
 	        	
-	        case "cls":	
+	        case "cls":
 	        	ClearScreen();
-                 break;
-                 
+	        	break;
 	        	
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, try again");
@@ -290,20 +362,6 @@ public class MyApp {
   }
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static void MatrixScalerMultiplication() {
 		// Check if we are pointing at a current Matrix if so, get scaler value.  Echo the scaler entered
 		// multiply current*Scaler. prepare a temporary Matrix so we can search for new current home
@@ -351,10 +409,7 @@ public class MyApp {
 		}
 		// and for the zeroth entry
 		tempAL.add(0, currentMx );
-		
-		
 	}
-	
 	
 	
 	
@@ -363,6 +418,7 @@ public class MyApp {
     	currentName = in.nextLine();	
 	    for (int x=0 ; x < runTimeALOAL.size(); x++) {
 	         ArrayList tempAl = runTimeALOAL.get(x);
+	         System.out.println("");
 	         currentMx = (Matrix) tempAl.get(0);
 	         if (currentMx.getName().equals(currentName)) {
 	        	 x=runTimeALOAL.size();
@@ -377,37 +433,81 @@ public class MyApp {
 	    if (currentMx==null) System.out.println("But, "+currentName +" wasnt found. Current Mx is still null");
 	}
 	
-	
-	//****************************************************************************
-	// Current represents a 'Named' Matrix pulled out of the main List
-	// if Current is null the tempMx has not yet been copied out of the main list
-       public static void CurrentNullCheck() {
+/* ***************************************************************************
+* Current represents a 'Named' Matrix pulled out of the main List
+* if Current is null the tempMx has not yet been copied out of the main list 
+******************************************************************************/
+     public static void CurrentNullCheck() {
        	if (currentMx == null)
     		System.out.println("yes: current is null");
     	else
     		System.out.println(currentMx.getName()); 
        }
 	
-	   public static void DisplayCurrentMatrix() {
+
+     
+     public static void DisplayCurrentMatrixC() {
        	if(currentMx == null )
     		System.out.println("No Matrix currently selected");
     	else
     		currentMx.displayCompact();
-		   
+	   }
+     
+     public static void DisplayCurrentMatrixM() {
+       	if(currentMx == null )
+    		System.out.println("No Matrix currently selected");
+    	else
+    		currentMx.displayMore();
+	   }
+     
+     public static void DisplayCurrentMatrixZ() {
+       	if(currentMx == null )
+    		System.out.println("No Matrix currently selected");
+    	else
+    		currentMx.displayDeepString();
 	   }
 	
 	
-	   public static void ListRunTimeCommands() throws IOException 	{
-	       	System.out.println(""); { 
+	
+     public static void TestRunTimeCommands() throws Exception {
+         String winCmdFileLocation = "C:\\Temp\\DoNotRemoveFromThisLocation__MyAppLsCmds.txt" ;
+	    /* System.out.println("");*/ { 
 	            // pass the path to the file as a parameter 
-	            File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
-	            Scanner sc = new Scanner(file); 
+	           // File file = new File("testsysoCommands.txt");
+	       	  if( System.getProperty( "os.name" ).startsWith( "Window" ) ) {
+	       		  try { Scanner sc = new Scanner( new File(winCmdFileLocation));
 	            while (sc.hasNextLine()) 
 	                 System.out.println(sc.nextLine()); 
-	                 sc.close();           }
+	            sc.close(); 
+	       		  }catch (FileNotFoundException e) {
+	       			  System.out.println("The following Exception was thrown");
+	       			  System.out.println(e);
+	       			  System.out.println("There was some problem with the file like name or existance"); 
+	       		  } // end of try catch block
+	       	  }else {
+	            Scanner sc = new Scanner(new File("/tmp/testsysoCommands.txt")); 
+	            while (sc.hasNextLine()) 
+	                 System.out.println(sc.nextLine()); 
+	            sc.close();          
+	            }
 	            System.out.println("");
-			   
-		   }
+	   	  } 
+	            
+	            
+	            
+    	   
+       }
+//	   public static void ListRunTimeCommands() throws IOException 	{
+//	       	System.out.println(""); { 
+//	            // pass the path to the file as a parameter 
+//	            File file = new File("C:\\atkmhDev\\NeedsWork\\JM\\testsysoCommands.txt");
+//	            Scanner sc = new Scanner(file); 
+//	            while (sc.hasNextLine()) 
+//	                 System.out.println(sc.nextLine()); 
+//	                 sc.close();           }
+//	            System.out.println("");
+//			   
+//		   }
 	   
 	   
 	   public static void ClearScreen() throws InterruptedException, IOException {
