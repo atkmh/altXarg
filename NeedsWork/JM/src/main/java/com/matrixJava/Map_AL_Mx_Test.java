@@ -36,7 +36,7 @@ public class Map_AL_Mx_Test {
 		
 		System.out.println("");
 		
-        myArrayList.add( new Matrix(caseInputNumericObj));	
+        myArrayList.add( new Matrix(caseInputNumericObj,"Map_AL_Mx_Test-string"));	
 	
 		
 System.out.println("");

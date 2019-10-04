@@ -24,17 +24,32 @@ public class TestMyAppW_debug {
 			//  if (args.length!=0)TestUtilsMeth.printSeperation();
 			
 			  System.out.println("Test MyApp with String[]\n{{debug, 2345x2654, 12, 32, 43, 44};");
-			  MyApp.main(new String[] {"debug","2345x2654","12", "32", "43", "44"});
+			  try {
+				MyApp.main(new String[] {"debug","2345x2654","12", "32", "43", "44"});
+			} catch (Exception e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation();
 
 			  System.out.println("Test MyApp with String[]\n{{debug, 2345XXx2654, 12, 32, 43, 44};");
-			  MyApp.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"});
+			  try {
+				MyApp.main(new String[] {"debug","2345XXx2654","12", "32", "43", "44"});
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation();
 			 
 			  System.out.println("Test MyApp with String[]\n{debug, 2x02, 4, 4, 5, 5};");
-			  MyApp.main(new String[] {"debug", "2x02", "4", "4","5", "5"});
+			  try {
+				MyApp.main(new String[] {"debug", "2x02", "4", "4","5", "5"});
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation();
 			

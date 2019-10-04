@@ -20,13 +20,23 @@ public class TestMyAppW_debugh {
 //			  System.out.println("Test MyApp with String[]\n{{debuxh 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
 			  System.out.println("Test MyApp with String[]");
 			  System.out.println(Arrays.toString(testArgs1));
-			  MyApp.main(new String[] {"debuxh", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+			  try {
+				MyApp.main(new String[] {"debuxh", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			  TestUtilsMeth.evalInternals();
 			  TestUtilsMeth.printSeperation(); 
 			 
 		
-		 System.out.println("Test MyApp with String[]\n {debuxh};"); MyApp.main(new
-		 String[] {"debuxh"}); TestUtilsMeth.evalInternals();
+		 System.out.println("Test MyApp with String[]\n {debuxh};"); try {
+			MyApp.main(new
+			 String[] {"debuxh"});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} TestUtilsMeth.evalInternals();
 		 TestUtilsMeth.printSeperation();
 		 
 		/* System.out.

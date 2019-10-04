@@ -72,7 +72,7 @@ public class TestMatrix {
 		
 		System.out.println("And Now a Matrix from a Numeric Object");
 
-		Matrix numObjBasedMatrix = new Matrix(myNumTest);
+		Matrix numObjBasedMatrix = new Matrix(myNumTest,"TestMatrix.java_string");
 		numObjBasedMatrix.setName("numObjBasedMatrix");
 		numObjBasedMatrix.displayCompact();
 	System.out.println("");

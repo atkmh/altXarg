@@ -36,25 +36,45 @@ public class TestMyAppInput {
 		 
 		  
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c, 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29};");
-		  MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  try {
+			MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		} catch (Exception e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
 	  //  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5};");
-		  MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5"});
+		  try {
+			MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5"});
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 	  //  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 
 
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5, };");
-		  MyApp.main(new String[] {"-c","2x3", "4", "4 ","5  ", "   5", });
+		  try {
+			MyApp.main(new String[] {"-c","2x3", "4", "4 ","5  ", "   5", });
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	 //	  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 
 
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{-c, 2x3, 4, 4, 5, 5, 879892349};");
-		  MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5", "879892349"});
+		  try {
+			MyApp.main(new String[] {"-c","2x3", "4", "4","5", "5", "879892349"});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	 //	  TestUtilsMeth.evalInternals();
 		  TestUtilsMeth.printSeperation(); 
 		 

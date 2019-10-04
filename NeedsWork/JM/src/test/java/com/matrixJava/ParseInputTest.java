@@ -1,4 +1,4 @@
-package main.java.com.matrixJava;
+package test.java.com.matrixJava;
 
 public class ParseInputTest {
 /*
@@ -16,15 +16,15 @@ public class ParseInputTest {
 
 //	public MatrixInputObj buildIt(String[] args) {
 	public Object buildIt(String[] args) {
-		CmdLineInStrObj stringObject = new CmdLineInStrObj(args);
+//		CmdLineInStrObj stringObject = new CmdLineInStrObj(args);
 	
-		System.out.println(stringObject.getFirst());
-		System.out.println(stringObject.getSecond());
-		System.out.println(stringObject.getdata());
+//		System.out.println(stringObject.getFirst());
+//		System.out.println(stringObject.getSecond());
+//		System.out.println(stringObject.getdata());
 
-		return stringObject;	
+//		return stringObject;	
 		
 		
-//		return 
+		return args ;
 	}// end buildIt()
 }

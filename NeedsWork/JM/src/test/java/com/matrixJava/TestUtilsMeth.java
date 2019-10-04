@@ -2,7 +2,6 @@ package test.java.com.matrixJava;
 
 import main.java.com.matrixJava.MyApp;
 import main.java.com.matrixJava.Matrix;
-import main.java.com.matrixJava.ParseInput_v_two;
 
 public class TestUtilsMeth {
 	
@@ -21,19 +20,19 @@ public class TestUtilsMeth {
 		  //System.out.println(ParseInput_v_two.get_n());	
 		  System.out.print("get_prod: ");
 //		  System.out.println(MyApp.get_prod());
-		  System.out.println(ParseInput_v_two.get_prod());
+//		  System.out.println(ParseInput_v_two.get_prod());
 		  System.out.print("get_debug: ");
 //		  System.out.println(MyApp.get_debug());
-		  System.out.println(ParseInput_v_two.get_debug());
+//		  System.out.println(ParseInput_v_two.get_debug());
 		  System.out.print("get_rawOrder: ");
 //		  System.out.println(MyApp.get_order());
-		  System.out.println(ParseInput_v_two.get_order());
+//		  System.out.println(ParseInput_v_two.get_order());
 		  System.out.print("get_InputData: ");
 //		  System.out.println(MyApp.get_InputData());
-		  System.out.println(ParseInput_v_two.get_InputData());
+//		  System.out.println(ParseInput_v_two.get_InputData());
 		  System.out.println("-----------------------------------------------");	 
 //		  MyApp.clear_inputData();
-		  ParseInput_v_two.clear_inputData();
+//		  ParseInput_v_two.clear_inputData();
 
 	  }
 	  public static void printSeperation(){

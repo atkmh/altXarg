@@ -43,15 +43,30 @@ public class TestMyAppAndMatrix {
 
 		  
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12, 32, 43, 44, 45, 56, 47, 38, 29             };");
-		  MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		  try {
+			MyApp.main(new String[] {"-c", "3x4","12", "32", "43", "44","45", "56", "47","38","29"});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		  
 		  
 		  System.out.println("TestMyAppInput:  call MyApp.main() with String[] \n{{-c 3x4, 12 32  43 44 45 56 47 38 29   };");
-		  MyApp.main(new String[] {"-c", "3x4","12 32 43 44 45 56 47 38 29     "});
+		  try {
+			MyApp.main(new String[] {"-c", "3x4","12 32 43 44 45 56 47 38 29     "});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		  
 		  
 		  System.out.println("TestMyAppInput:  Null String[] ");
-		  MyApp.main(inputARGNull);
+		  try {
+			MyApp.main(inputARGNull);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 /*		

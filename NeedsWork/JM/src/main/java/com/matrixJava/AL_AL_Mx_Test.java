@@ -55,7 +55,7 @@ public class AL_AL_Mx_Test {
 		 * 
 		 */
 	
-        	matrixHistory.add(new Matrix(caseInputNumericObj) );
+        	matrixHistory.add(new Matrix(caseInputNumericObj,"TestMatrix") );
         	
         	myArrayList.add(matrixHistory);
         	

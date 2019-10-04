@@ -2,7 +2,6 @@ package test.java.com.matrixJava;
 
 import java.io.IOException;
 
-import main.java.com.matrixJava.CmdLineInStrObj;
 import main.java.com.matrixJava.InputStringObj;
 
 public class TestInputStringObj {

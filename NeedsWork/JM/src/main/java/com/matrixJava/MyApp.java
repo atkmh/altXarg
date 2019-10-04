@@ -525,65 +525,11 @@ public class MyApp {
 
 } // End of class MyApp
 
-/*
- * One Change to cement a branch
- * *****************************************************************************
- * [8/8/19 thoughts] OK in MyApp we check argument string We need to handle
- * -<chcar> or --<char> or --<word> I have a model of that in parseInputYA If
- * null we go to run time data entry and operation. this is it's own class to
- * capture data and return back the same way as CmdLineStrObj
- * 
- * Follow that with case statement for switches From each case block we make a
- * processing parse input routine -c <bla bla bla > goes off to the
- * CmdLineStrObj -r would be same as no arguments, go to runtime parsing routine
- * -f would be file based input -h is for help. Currently this is just usage -u
- * is same: Usage
- * 
- * Having a little mental battle about how this program works From the command
- * line I'm capable of entering and parsing one matrix of data From a File I can
- * see the ablity to put in several matricies
- * 
- * Does the Parse input routine return an object that is passed to the matrix
- * routine ?
- * 
- * Seems like the file input routine could pass properly formed strings to the
- * ParseINput routine but that would be from the expectation that the parseinput
- * routine would return Matrix Input objects in the manner that Ive been testing
- * with MyApp.main(new String[] {"2x3", "4", "4","5", "5", "879892349"});
- * 
- * 
- * 
- */
 
 
 
 
 
-/*				
- *	Formerly of the main body switch -r for runtime. This was active but 
- *	it was not interactive. 
- * 
-myInputStringObj = new InputStringObj("-r", null);
-//?????? why do this
-//myInputStringObj.getStringArray();
 
-System.out.println(myInputStringObj.getFirst());
-System.out.println(myInputStringObj.getSecond());
-System.out.println(myInputStringObj.getdata());
-
-System.out.println("");
-System.out.println("call displayArrayList");
-myInputStringObj.displayArrayList();
-
-InputNumericObj myNumTest_rt = new InputNumericObj(myInputStringObj);
-//	myNumTest_rt.getArrayListData();
-Matrix numObjBasedMatrix_rt = new Matrix(myNumTest_rt);
-numObjBasedMatrix_rt.setName("numObjBasedMatrix_rt");
-numObjBasedMatrix_rt.displayCompact();
-numObjBasedMatrix_rt.displayMore();
-//just hold onto this		myNumTest.displayNumMatrixValues();
-//
-//9/13/19 We are taking all of null -r runtime and putting on hold
-//in order ot workout the needs of the runtime part of the progrem */
 
 

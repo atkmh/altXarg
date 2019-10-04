@@ -1,5 +1,7 @@
 package test.java.com.matrixJava;
 
+import java.io.IOException;
+
 public class RunAllTests {
 
 	public static void main(String[] args) {
@@ -14,9 +16,24 @@ public class RunAllTests {
 		
 		
 //		myTestMain.main(new String[] {});
-		myTMI.main(new String[] {});
-		myTMAM.main(new String[] {});
-		myTMWZ.main(new String[] {});
+		try {
+			myTMI.main(new String[] {});
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		try {
+			myTMAM.main(new String[] {});
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			myTMWZ.main(new String[] {});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 		
 //		myTestMainW_debug.main(new String[] {});
