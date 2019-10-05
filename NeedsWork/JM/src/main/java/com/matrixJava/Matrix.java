@@ -281,7 +281,8 @@ public class Matrix {
 
 	public void displayCompact() { // Display Compact vs DisplayMore
 		// Doesn't need an argument. Method display 
-							// refers to what ever object is in play
+							// refers to what ever object is in plaoy
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
 		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
 		else  System.out.println("Matrix: " +this.m_varName);
         for (int i = 0; i < mRows; i++) {
@@ -297,7 +298,8 @@ public class Matrix {
 	
 	public void displayMore() { // DisplayMore
 		// Doesn't need an argument. Method display 
-							// refers to what ever object is in play
+							// refers to what ever object is oin play
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
 		if (this.m_varName == null) System.out.println("Matrix: \"Unnamed\"");  
 		else  System.out.println("Matrix: " +this.m_varName);
         for (int i = 0; i < mRows; i++) {

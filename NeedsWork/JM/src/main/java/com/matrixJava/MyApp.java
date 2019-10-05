@@ -127,19 +127,8 @@ public class MyApp {
 	    {   switch (runTimeCommand) {
 	        
 	    
-	      case "new":
-	    	  newMatrix();
-//	        	myCurChar = (char)charRepToIncrement; 	
-//	        	String mName = new StringBuilder().append(myCurChar).toString();
-//    	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
-//    	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
-// 
-//    	        ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>(); 
-//    	        mxHistArray.add(new Matrix(caseInputNumericObj,mName) );
-//    	        runTimeALOAL.add(mxHistArray);
-//
-//    	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
-	        	break;
+	      case "new": newMatrix();
+	      break;
 
 	        case "add2mx":
 	        	System.out.println("We'll need the name of two Existing Matrices...");
@@ -190,15 +179,16 @@ public class MyApp {
 
 	        
 	        case "showList": case "showlist": case "showlistmain": case "showmainlist":
-	        	Matrix tmpShowMapAll;
+	       // 	Matrix tmpShowMapAll;
 	        	System.out.println("");
 	        	System.out.println("main array size: "+runTimeALOAL.size() );
 	        	for (int i=0 ; i < runTimeALOAL.size(); i++) {
 	        		ArrayList tmpAL4Read = runTimeALOAL.get(i);
-                        System.out.println("internal size on main #" +i +" is " +tmpAL4Read.size() );
-	        		for (int j=0; j < tmpAL4Read.size(); j++) {
-	        			tmpShowMapAll = (Matrix) runTimeALOAL.get(i).get(j);
-	        		}
+                    System.out.println("internal size on main #" +i +" is " +tmpAL4Read.size() );
+	        		
+//                    for (int j=0; j < tmpAL4Read.size(); j++) {
+//	        			tmpShowMapAll = (Matrix) runTimeALOAL.get(i).get(j);
+//	        		}
 	        	}
 	        	break;
 	        	
@@ -238,10 +228,13 @@ public class MyApp {
 	        case "dispcurrc": 
 	        	
 	        	
-	        case "viewsm": case "dispCurrm": case "dispcurrm": case "viewmed":
+	        case "dispm": 
 	        	DisplayCurrentMatrixM(); break;
-
-	        case "dispCurrz": case "dispcurrz": case "viewtostr":
+	        
+	        case "dispc": DisplayCurrentMatrixC();
+	            break;
+	            
+	        case "dispz": 
 	        	DisplayCurrentMatrixZ();
 	        	break;
 	        
@@ -287,7 +280,6 @@ public class MyApp {
 			System.out.println("Exception " +e);
 			e.printStackTrace();
 		}
-//charRepToIncrement++; // do this at the end so that the value is ready next time in.
 	}
 	
   public static void showmap() {
@@ -307,7 +299,10 @@ public class MyApp {
   	}	 
 	  
   }
-	
+  	public static void showArrayListIndex() {
+  		
+  		
+  	}
 	
 	public static void MatrixScalerMultiplication() {
 		// Check if we are pointing at a current Matrix if so, get scaler value. Echo the scaler entered multiply
@@ -364,13 +359,11 @@ public class MyApp {
 	         currentMx = (Matrix) tempAl.get(0);
 	         if (currentMx.getName().equals(currentName)) {
 	        	 x=runTimeALOAL.size();
-	        	//System.out.println("found it");
 	        	break;
 	         }
 	         else currentMx = null;
 	         
 	    }
-//	    System.out.println("The char entered was :" +nameChar);
 	    System.out.println("The Mx Name entered was :" +currentName);
 	    if (currentMx==null) System.out.println("But, "+currentName +" wasnt found. Current Mx is still null");
 	}
