@@ -38,6 +38,14 @@ public class MyApp {
 	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
 	//Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
 
+
+	static int charRepToIncrement = 65; 
+//	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
+
+	static char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
+	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
+	
+	
 	public static void main(String[] args) throws Exception {
 		String firstArg = "";
 		InputStringObj myInputStringObj = null;
@@ -51,29 +59,14 @@ public class MyApp {
 		
 		switch (firstArg)  // this switch statement only analyzes the first argument 
 		{
-			case "-d":
-			case "--d":
-			case "-debug":
-			case "--debug":
-				// continue;  	Not continuing
-				// no operation :  dropthrough to next 
-				// go to runtime operation
-			case "-r":
-			case "--r":
-			case "-runtime":
-			case "--runtime":
-			case "null":  // special case: no command line args
+			case "-d": case "--d": case "-debug": case "--debug": case "-r": 
+			case "--r": case "-runtime": case "--runtime": case "null":  // special case: no command line args
 			
  /*  Can the following two lines be moved down to start of runtime input ???	*/
-                  ProgramNotifications.openingIntroduction();
-
-
+                ProgramNotifications.openingIntroduction(); // Very Brief, one line
 				break; 
 
-			case "-c": // 
-			case "--c":
-			case "-cmdline":
-			case "--cmdline":
+			case "-c": case "--c": case "-cmdline": case "--cmdline":
 				myInputStringObj = new InputStringObj("-c", args);
 				System.out.println(myInputStringObj.getFirst());
 				System.out.println(myInputStringObj.getSecond());
@@ -81,28 +74,18 @@ public class MyApp {
 				InputNumericObj myNumTest_cl = new InputNumericObj(myInputStringObj);
 				
 			//	myNumTest_cl.getArrayListData();
-				Matrix numObjBasedMatrix_cl = new Matrix(myNumTest_cl, "PutInOrder2Compile_NeedsANameVar");
+				Matrix numObjBasedMatrix_cl = new Matrix(myNumTest_cl, "NameStringForCommandLineOperation");
 				numObjBasedMatrix_cl.setName("numObjBasedMatrix_cl");
 				numObjBasedMatrix_cl.displayCompact();	
 				numObjBasedMatrix_cl.displayMore();	
 				break;
 				
-			case "-f":
-			case "--f":
-			case "-file":
-			case "--file":
+			case "-f": case "--f": case "-file": case "--file":
 			//Parsefile();
 		//	this.oppMode = "ParseFileEntry";
 				break ;// could be this should be a return cuz we're handing off control...
 
-			case "-h":
-			case "--h":
-			case "-help":
-			case "--help":
-			case "-u":
-			case "--u":
-			case "-usage":
-			case "--usage":
+			case "-h": case "--h": case "-help": case "--help": case "-u": case "--u": case "-usage": case "--usage":
 				Usage.UsageTerminal(" ");
 				break ;
 
@@ -113,8 +96,6 @@ public class MyApp {
 			Usage.UsageTerminal("Problem: see Input  " +tmp );	
 		}//end Switch firstArg	
 	
-		
-		
 /* ---------------------------------------------
  *  Start the runtime process
  *  got to read something in
@@ -132,27 +113,32 @@ public class MyApp {
 	    * Char setup A, B, C to be the matrix Names 
 	    ********/
         
-	   int charRepToIncrement = 65; 
+//	   int charRepToIncrement = 65; 
 //	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
 
-	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
+//	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
 	   // I will use String str - Character.toString( matrixMapKeyName)   Actuall I'm going to chang those var names
 	   
 
 	   
-	    while(   !runTimeCommand.contentEquals("quit") && !runTimeCommand.contentEquals("q")){
-	        switch (runTimeCommand) {
-	        case "new":
-	        	myCurChar = (char)charRepToIncrement; 	
-	        	String mName = new StringBuilder().append(myCurChar).toString();
-    	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
-    	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
- 
-    	        ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>(); 
-    	        mxHistArray.add(new Matrix(caseInputNumericObj,mName) );
-    	        runTimeALOAL.add(mxHistArray);
-
-    	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
+	    while(   !runTimeCommand.contentEquals("quit") 
+	    	  && !runTimeCommand.contentEquals(   "q")
+	    	  && !runTimeCommand.contentEquals(   "x"))
+	    {   switch (runTimeCommand) {
+	        
+	    
+	      case "new":
+	    	  newMatrix();
+//	        	myCurChar = (char)charRepToIncrement; 	
+//	        	String mName = new StringBuilder().append(myCurChar).toString();
+//    	        InputStringObj caseInputStringObj = new InputStringObj("-r", null);
+//    	        InputNumericObj caseInputNumericObj = new InputNumericObj(caseInputStringObj);
+// 
+//    	        ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>(); 
+//    	        mxHistArray.add(new Matrix(caseInputNumericObj,mName) );
+//    	        runTimeALOAL.add(mxHistArray);
+//
+//    	        charRepToIncrement++;  // do this at the end so that the value is ready next time in.
 	        	break;
 
 	        case "add2mx":
@@ -203,10 +189,7 @@ public class MyApp {
 	        	break;
 
 	        
-	        case "showList": 
-	        case "showlist": 
-	        case "showlistmain": 
-	        case "showmainlist":
+	        case "showList": case "showlist": case "showlistmain": case "showmainlist":
 	        	Matrix tmpShowMapAll;
 	        	System.out.println("");
 	        	System.out.println("main array size: "+runTimeALOAL.size() );
@@ -219,23 +202,11 @@ public class MyApp {
 	        	}
 	        	break;
 	        	
-	        case "ls mx": 
-	        case "ls mx by name": 
-	        case "list matrix name":   
-	       		showmap(); 
-	       		break;
-	       
-	        case "showmap":
-	        case "showMap":
-	        	showmap(); 
+	        case "showmap": case "showMap": showmap(); 
 	        	break;   
 
 	        /* Entry Requirement:  */	
-			case "scalerMult":
-			case "scalermult":
-			case "devmult":
-			case "multDev":
-			case "multdev":
+			case "scalerMult": case "scalermult": case "devmult": case "multDev": case "multdev":
 				MatrixScalerMultiplication();
 				break;
 	        	
@@ -247,72 +218,38 @@ public class MyApp {
 	             }
       	        break;
       	        
-	        case "wowowo": 
-	        //	Properties p = System.getProperties();
-	        //	p.list(System.out);
-	        //	System.out.println("");
-	        /*
-	         *  Key to what I got out of this.  Eclipse and wincmdline
-	         * represent different info.   
-	         * in Eclipse the console show java.class.path=C:\atkmhDev\NeedsWork\JM\bin
-	         * in Win cmd Line it shows java.class.path=MyApp.jar
-	         * 
-	         * So, if I put my commands.txt file in the bin directory will it show up
-	         * next to MyApp.jar in the command window?
-	         */
-	        //	Properties XXX = System.getProperties();
-	        	Properties propsss = new Properties();
+	        case "classpath": 
+	        /* Key to what I got out of this.  Eclipse and wincmdline
+	         * represent different info.  in Eclipse the console show java.class.path=C:\atkmhDev\NeedsWork\JM\bin
+	         * in Win cmd Line it shows java.class.path=MyApp.jar So, if I put my commands.txt file in the bin 
+	         * directory will it show up next to MyApp.jar in the command window? */
 	        	String myJCP = System.getProperty("java.class.path"); 
 	        	System.out.println(" myJCP is " +myJCP);
-	        	
-	        	String myJCP_Value = System.getProperty(myJCP);
-	        	
-	        	System.out.println("and the value is :" +myJCP_Value);
 	        	break;
 
-	       
-	        case "pk1": 
-	        case "pickmatrix": 
-	        case "pickmx":  
-	        	PickMatrixFromMainList(); 
-	        	break;
-	        
-	        case "setCurrName": 
-	       	case "setcurrname": 
-	        	PickMatrixFromMainList(); 
-	            break;
+	      
+	        case "pick": case "setcur": 
+	        	PickMatrixFromMainList(); break;
 	           
-	        case "currNullCheck": 
-	        case "currnullcheck": 
-	        case "curnulck": 
-	        case "cnc":
-	        	CurrentNullCheck();
-	        	break;
+	        case "currnullcheck": case "cnc": case "currnull?": case "currnull": 
+	        	CurrentNullCheck(); break;
 	           
 	        case "dispCurrc": 
 	        case "dispcurrc": 
-	        case "viewsm": 
-	        case "dispCurrm":
-	        case "dispcurrm":
-	        case "viewmed":
-	        	DisplayCurrentMatrixM();
-	        	break;
+	        	
+	        	
+	        case "viewsm": case "dispCurrm": case "dispcurrm": case "viewmed":
+	        	DisplayCurrentMatrixM(); break;
 
-	        case "dispCurrz":
-	        case "dispcurrz":
-	        case "viewtostr":
+	        case "dispCurrz": case "dispcurrz": case "viewtostr":
 	        	DisplayCurrentMatrixZ();
 	        	break;
 	        
-	        case "ls":
-	        case "list":
-	        case "listCmd":
-	        	TestRunTimeCommands();
-	        	break;
+	        case "ls": case "list": 
+	        	TestRunTimeCommands(); break;
 	        	
 	        case "cls":
-	        	ClearScreen();
-	        	break;
+	        	ClearScreen(); break;
 	        	
 	       default:
 	    	   System.out.println("That command " +runTimeCommand +" was not found, try again");
@@ -336,13 +273,23 @@ public class MyApp {
 	
 	} // end public static void main(String[] args)
 
-  public static void newMatrix() {
-	  
-  }
+	public static void newMatrix() {
+		myCurChar = (char)charRepToIncrement; // Not a declaration ! runtime Conversion of int to Upper Char
+		String mName = new StringBuilder().append(myCurChar).toString();
+		InputStringObj myInputStringObj;
+		try {  myInputStringObj = new InputStringObj("-r", null);
+               InputNumericObj myInputNumericObj = new InputNumericObj(myInputStringObj);
+               ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>();
+               mxHistArray.add(new Matrix(myInputNumericObj, mName));
+               runTimeALOAL.add(mxHistArray);
+               charRepToIncrement++; // do this at the end so that the value is ready next time in.
+		} catch (IOException e) {
+			System.out.println("Exception " +e);
+			e.printStackTrace();
+		}
+//charRepToIncrement++; // do this at the end so that the value is ready next time in.
+	}
 	
-
-  
-  
   public static void showmap() {
   	Matrix tempshowListMx;
   	System.out.println("");
@@ -363,52 +310,47 @@ public class MyApp {
 	
 	
 	public static void MatrixScalerMultiplication() {
-		// Check if we are pointing at a current Matrix if so, get scaler value.  Echo the scaler entered
-		// multiply current*Scaler. prepare a temporary Matrix so we can search for new current home
-		// get the name of the current Mx. Prepare a var for array index of name. start the search.
-        // when found - put CurrentMx away 
+		// Check if we are pointing at a current Matrix if so, get scaler value. Echo the scaler entered multiply
+		// current*Scaler. prepare a temporary Matrix so we can search for new current home get the name of the
+		// current Mx. Prepare a var for array index of name. start the search. when found - put CurrentMx away
 
-			if (currentMx == null) {
-				System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
-				return;	
-			}
+		if (currentMx == null) {
+			System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+			return;
+		}
 
-			System.out.println("Enter Scaler Value");
-			scalerValue =  Double.parseDouble( in.nextLine());
-			System.out.println("Scaler Value entered: "+scalerValue);
-			currentMx = currentMx.Multiply(scalerValue);
+		System.out.println("Enter Scaler Value");
+		scalerValue = Double.parseDouble(in.nextLine());
+		System.out.println("Scaler Value entered: " + scalerValue);
+		currentMx = currentMx.Multiply(scalerValue);
 
-			String currentMxName = currentMx.getName();
-			currentMx.setModifyingCommand(currentMxName +"="+currentMxName +"x where x == " +scalerValue);
-			Matrix tempMx;
+		String currentMxName = currentMx.getName();
+		currentMx.setModifyingCommand(currentMxName + "=" + currentMxName + "x where x == " + scalerValue);
+		Matrix tempMx;
 //			String currentMxName = currentMx.getName();
-			int rtALOAL_Index = 0;
-			
-			for (int i=0 ; i < runTimeALOAL.size(); i++) {
-				tempMx = (Matrix)runTimeALOAL.get(i).get(0);
-                 if( currentMxName == tempMx.getName() ) {
-                	 rtALOAL_Index = i;
-                	 i = runTimeALOAL.size();  // this should break us out
-                 }	
-            }
-		
-		     System.out.println("The index of the name is :" +rtALOAL_Index);
-		// ???
-		// Will this all work by reference ???  What do I mean ???
-		// set tempAL to runTimeALOAL.get(rtALOAL_Index)
-		// now do my size and push down on tempAl... Will this affect the AL in rTALOAL[rtALOAL_Index] ???
-		
-		// Prepare a temp ArrayList to work on
+		int rtALOAL_Index = 0;
+
+		for (int i = 0; i < runTimeALOAL.size(); i++) {
+			tempMx = (Matrix) runTimeALOAL.get(i).get(0);
+			if (currentMxName == tempMx.getName()) {
+				rtALOAL_Index = i;
+				i = runTimeALOAL.size(); // this should break us out
+			}
+		}
+		System.out.println("The index of the name is :" + rtALOAL_Index);
+		// Will this all work by reference ??? set tempAL to runTimeALOAL.get(rtALOAL_Index)
+		// now do my size and push down on tempAl... Will this affect the AL in rTALOAL[rtALOAL_Index]
+
+		// get a temp ArrayList
 		ArrayList<Matrix> tempAL = runTimeALOAL.get(rtALOAL_Index);
 
-		// lets iterate thought the history array copying N to N+1  
-		// this has to be done backwards
-		for (int x=tempAL.size(); x < 0 ; x--) {
-			tempAL.add((x+1), tempAL.get(x));
-			System.out.println("copied into "+(x+1) +"from " +x);
+		// iterate thought history  copying N to N+1 this is done backwards
+		for (int x = tempAL.size(); x < 0; x--) {
+			tempAL.add((x + 1), tempAL.get(x));
+			System.out.println("copied into " + (x + 1) + "from " + x);
 		}
-		// and for the zeroth entry
-		tempAL.add(0, currentMx );
+		// finish with the zeroth entry
+		tempAL.add(0, currentMx);
 	}
 	
 	
