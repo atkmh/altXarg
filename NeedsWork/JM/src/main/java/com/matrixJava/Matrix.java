@@ -24,6 +24,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 
 public class Matrix {
@@ -36,10 +37,8 @@ public class Matrix {
 
 	private String creationTS;
 	/* ****************************************
-	 *  modificaitonTC: "HEAD" or a time stamp
-	 *  HEAD Means it is most recent
-	 *  TimeStamp refers to the time it was changed
-	 *  and a new HEAD took it's place
+	 *  modificaitonTC: "HEAD" or a time stamp *  HEAD Means it is most recent
+	 *  TimeStamp refers to the time it was changed *  and a new HEAD took it's place
 	 */
 	private String modificationTS;
     private String modificationCommand;
@@ -176,8 +175,25 @@ public class Matrix {
 		modificationTS = "None Yet";
     }
 
-	
-	
+/*  
+ *  Copy:
+ *  Deep copy of m_data
+ *  copy varname,
+ *  copy creation time 
+ */
+    public Matrix copy(){
+         Matrix B = new Matrix(this.mRows, this.nCols); 
+         double[][] C = B.getArray();
+         
+         for (int i=0; i < this.mRows; i++) {
+        	 for(int j=0; j < this.nCols ; j++ ) {
+        		 C[i][j]  = this.m_data[i][j];
+        	 }
+         }
+         B.m_varName = this.m_varName;
+         B.creationTS = this.creationTS;
+    return B;	
+    }
 	
 	public static void main(String[] args) {
 		System.out.println("*****************");
@@ -206,7 +222,7 @@ public class Matrix {
 			for (int j = 0; j < nCols; j++)
 				C.m_data[i][j] = A.m_data[i][j] + B.m_data[i][j];
 		System.out.println("We are finishing from inside the Matrix.Add() method");
-		//modificationTS = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		C.creationTS = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		return C;
 	}
 
@@ -319,7 +335,19 @@ public class Matrix {
 	  }
    }
 	
-	
+	public Matrix SwapRows(int i, int j) {
+		if(i < 0 || j < 0 )
+			 throw new IllegalArgumentException("Matrix Dimensions must Be Equal.");
+		if (i> this.mRows || j > this.nCols)
+			 throw new IllegalArgumentException("Matrix Dimensions must Be Equal.");
+        Matrix C = this.copy();
+        double[] temp = C.m_data[i];
+        C.m_data[i] = C.m_data[j];
+        C.m_data[j] = temp;
+        this.modificationCommand="swapRows(" +i +"," +j+")";
+		
+     return C;
+	}
 	
 	public int getRowDimension() {
 //	  return m;  // Orig var from JAMA
@@ -330,9 +358,6 @@ public class Matrix {
 	 * Get column dimension.
 	 * @return n, the number of columns.
 	 */
-
-
-	
 	public int getColumnDimension() {
 //	  return n;   // Orig var from JAMA
 	  return nCols; // my var name
@@ -376,5 +401,29 @@ public class Matrix {
     public double[][] getData(){
       return m_data;
     }	
+    
+    /* ********************************************
+     *  Potentially destructive
+     *  Will write over all existing data
+     */
+    public void setLinearData() {
+         Double value = 1.0;
+         for(int i=0; i < mRows; i++) {
+        	 for(int j=0; j<nCols ; j++) {
+                 m_data[i][j] = value++;
+                 
+        	 }
+         }
+    }
+    public void setRandData() {
+    	Random rData = new Random();
+        for(int i=0; i < mRows; i++) {
+       	 for(int j=0; j<nCols ; j++) {
+                m_data[i][j] = rData.nextDouble();
+                
+       	 }
+        }
+    	
+    }
 
 }
