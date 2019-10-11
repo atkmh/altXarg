@@ -167,9 +167,9 @@ public class MyApp {
                              //   | -------
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
                              //  22/5 = 4R2
-			case "showlist": showArrayListIndex(); break;
+			case "showlist": StaticProcedures.showArrayListIndex(); break;
 
-			case "showmap": case "showMap": showmap(); break;
+			case "showmap": case "showMap": StaticProcedures.showmap(); break;
 
 			case "scalermult": case "devmult": MatrixScalerMultiplication(); break;
 
@@ -273,29 +273,30 @@ public class MyApp {
 		if (currentMx == null)   System.out.println("But, " + currentName + " wasnt found. Current Mx is still null");
 	}
 
-	public static void showmap() {
-		Matrix tempshowListMx;
-		System.out.println("");
-		for (int i = 0; i < runTimeALOAL.size(); i++) {
-			for (int j = 0; j < runTimeALOAL.get(i).size(); j++) {
-				tempshowListMx = (Matrix) runTimeALOAL.get(i).get(j);
-				System.out.println(" ----------   ");
-				System.out.println("Modification Command\t :" + tempshowListMx.getModCmd());
-				System.out.println("Modification TimeStamp\t :" + tempshowListMx.getModTimeStamp());
-				System.out.println("Creation Time Stamp\t :" + tempshowListMx.getCreationTimeStamp());
-				tempshowListMx.displayCompact();
-				System.out.println("\n ----------   ");
-			}
-		}
-	}
-	public static void showArrayListIndex() {
-		System.out.println("");
-		System.out.println("main array size: " + runTimeALOAL.size());
-		for (int i = 0; i < runTimeALOAL.size(); i++) {
-			ArrayList tmpAL4Read = runTimeALOAL.get(i);
-			System.out.println("internal size on main #" + i + " is " + tmpAL4Read.size());
-		}
-	}
+//	public static void showmap() {
+//		Matrix tempshowListMx;
+//		System.out.println("");
+//		for (int i = 0; i < runTimeALOAL.size(); i++) {
+//			for (int j = 0; j < runTimeALOAL.get(i).size(); j++) {
+//				tempshowListMx = (Matrix) runTimeALOAL.get(i).get(j);
+//				System.out.println(" ----------   ");
+//				System.out.println("Modification Command\t :" + tempshowListMx.getModCmd());
+//				System.out.println("Modification TimeStamp\t :" + tempshowListMx.getModTimeStamp());
+//				System.out.println("Creation Time Stamp\t :" + tempshowListMx.getCreationTimeStamp());
+//				tempshowListMx.displayCompact();
+//				System.out.println("\n ----------   ");
+//			}
+//		}
+//	}
+//	public static void showArrayListIndex() {
+//		System.out.println("");
+//		System.out.println("main array size: " + runTimeALOAL.size());
+//		for (int i = 0; i < runTimeALOAL.size(); i++) {
+//			ArrayList tmpAL4Read = runTimeALOAL.get(i);
+//			System.out.println("internal size on main #" + i + " is " + tmpAL4Read.size());
+//		}
+//	}
+//	
 	
     public static void 	swapMxRows() {  // Check :  is this done.  Im not putting away
     	if (currentMx != null) {
