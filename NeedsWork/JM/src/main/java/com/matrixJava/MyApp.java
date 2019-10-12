@@ -145,12 +145,12 @@ public class MyApp {
 				&& !runTimeCommand.contentEquals("x")) {
 			switch (runTimeCommand) {
 
-			case "new": case "new ": newMatrix(); break;
+			case "new": case "new ": StaticProcedures.newMatrix(); break;
 
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
                 try {
-				Add2ReturnNew(); 
+                	StaticProcedures.Add2ReturnNew();
                 } catch (Exception e) {
                 	System.out.println("Problem Exception " +e);
                 	
@@ -173,7 +173,7 @@ public class MyApp {
 
 			case "scalermult": case "devmult": MatrixScalerMultiplication(); break;
 
-			case "pick": case "setcur": PickMatrixFromMainList(); break;
+			case "pick": case "setcur": StaticProcedures.PickMatrixFromMainList(); break;
 
 			case "currnullcheck": case "cnc": case "currnull?":
 			case "currnull": CurrentNullCheck(); break;
@@ -186,7 +186,7 @@ public class MyApp {
 			
 			case "transpose":  break;
 			
-			case "swaprow": case "swap rows": swapMxRows(); break;
+			case "swaprow": case "swap rows": StaticProcedures.swapMxRows(); break;
 
 			case "ls": case "list": ProgramNotifications.TestRunTimeCommands(); break;
 
@@ -242,36 +242,36 @@ public class MyApp {
  * This process puts the new MX away immediately
  * Could factor that out and use elsewhere
  */
-	public static void newMatrix() {
-		myCurChar = (char) charRepToIncrement; // Not a declaration ! runtime Conversion of int to Upper Char
-		String mName = new StringBuilder().append(myCurChar).toString();
-		InputStringObj myInputStringObj;
-		try {
-			myInputStringObj = new InputStringObj("-r", null);
-			InputNumericObj myInputNumericObj = new InputNumericObj(myInputStringObj);
-			ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>();
-			mxHistArray.add(new Matrix(myInputNumericObj, mName));
-			runTimeALOAL.add(mxHistArray);
-			charRepToIncrement++; // do this at the end so that the value is ready next time in.
-		} catch (IOException e) {
-			System.out.println("Exception " + e);
-			e.printStackTrace();
-		}
-	}
+//	public static void newMatrix() {
+//		myCurChar = (char) charRepToIncrement; // Not a declaration ! runtime Conversion of int to Upper Char
+//		String mName = new StringBuilder().append(myCurChar).toString();
+//		InputStringObj myInputStringObj;
+//		try {
+//			myInputStringObj = new InputStringObj("-r", null);
+//			InputNumericObj myInputNumericObj = new InputNumericObj(myInputStringObj);
+//			ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>();
+//			mxHistArray.add(new Matrix(myInputNumericObj, mName));
+//			runTimeALOAL.add(mxHistArray);
+//			charRepToIncrement++; // do this at the end so that the value is ready next time in.
+//		} catch (IOException e) {
+//			System.out.println("Exception " + e);
+//			e.printStackTrace();
+//		}
+//	}
 
-	public static void PickMatrixFromMainList() {
-		System.out.print("Enter Matrix Name Char :");
-		currentName = in.nextLine();
-		for (int x = 0; x < runTimeALOAL.size(); x++) {
-			ArrayList tempAl = runTimeALOAL.get(x);
-			System.out.println("");
-			currentMx = (Matrix) tempAl.get(0);
-			if (currentMx.getName().equals(currentName)) {    x = runTimeALOAL.size(); // we're done  so end the loop
-			} else currentMx = null;
-		}
-		System.out.println("The Mx Name entered was :" + currentName);
-		if (currentMx == null)   System.out.println("But, " + currentName + " wasnt found. Current Mx is still null");
-	}
+//	public static void PickMatrixFromMainList() {
+//		System.out.print("Enter Matrix Name Char :");
+//		currentName = in.nextLine();
+//		for (int x = 0; x < runTimeALOAL.size(); x++) {
+//			ArrayList tempAl = runTimeALOAL.get(x);
+//			System.out.println("");
+//			currentMx = (Matrix) tempAl.get(0);
+//			if (currentMx.getName().equals(currentName)) {    x = runTimeALOAL.size(); // we're done  so end the loop
+//			} else currentMx = null;
+//		}
+//		System.out.println("The Mx Name entered was :" + currentName);
+//		if (currentMx == null)   System.out.println("But, " + currentName + " wasnt found. Current Mx is still null");
+//	}
 
 //	public static void showmap() {
 //		Matrix tempshowListMx;
@@ -298,70 +298,66 @@ public class MyApp {
 //	}
 //	
 	
-    public static void 	swapMxRows() {  // Check :  is this done.  Im not putting away
-    	if (currentMx != null) {
-    	System.out.print("first row: ");
-        int firstRow = Integer.parseInt(in.nextLine());
-    	System.out.print("Swap with Row: ");
-        int swapRow = Integer.parseInt(in.nextLine());
-        Matrix tempMX = new Matrix();
-        tempMX = currentMx.SwapRows( firstRow, swapRow);
-        currentMx = tempMX;
-    	} else {
-    		System.out.println("Must Pick a Matrix ");
-    		System.out.println("Then you can swap rows\n");
-    	}
-    }
+//    public static void 	swapMxRows() {  // Check :  is this done.  Im not putting away
+//    	if (currentMx != null) {
+//    	System.out.print("first row: ");
+//        int firstRow = Integer.parseInt(in.nextLine());
+//    	System.out.print("Swap with Row: ");
+//        int swapRow = Integer.parseInt(in.nextLine());
+//        Matrix tempMX = new Matrix();
+//        tempMX = currentMx.SwapRows( firstRow, swapRow);
+//        currentMx = tempMX;
+//    	} else {
+//    		System.out.println("Must Pick a Matrix ");
+//    		System.out.println("Then you can swap rows\n");
+//    	}
+//    }
 
-	public static void Add2ReturnNew() throws Exception {
-		System.out.println("We'll need the name of two Existing Matrices...");
-		System.out.println("Enter name of first matrix");
-		addendName1 = in.nextLine();
-		System.out.println("Enter name of second matrix");
-		addendName2 = in.nextLine();
-		int found = 0;
-
-		// Need to turn this into a function that returns a Matrix given a name
-
-		for (int x = 0; x < runTimeALOAL.size(); x++) {
-			ArrayList tempAl = runTimeALOAL.get(x);
-			System.out.println("");
-			addendMx1 = (Matrix) tempAl.get(0);
-			if (addendMx1.getName().equals(addendName1)) {// DONE , else
-				System.out.println("Debug: First Mx found at :" + x);
-				x = runTimeALOAL.size();
-				found++;
-			}
-		}
-	
-			
-	if (found < 1) throw new Exception("Matrix Name " +addendName1 +" was not found in Main List");
-			
-			
-			
-		
-		for (int y = 0; y < runTimeALOAL.size(); y++) {
-			ArrayList tempAl = runTimeALOAL.get(y);
-			System.out.println("");
-			addendMx2 = (Matrix) tempAl.get(0);
-			if (addendMx2.getName().equals(addendName2)) { // DONE , else
-				System.out.println("Debug: Second Mx found at :" + y);
-				y = runTimeALOAL.size();
-				found++;
-			} 
-			if (found > 0 && found < 2) throw new Exception("Matrix Name " +addendName2 +" was not found in Main List");
-			
-		}
-		System.out.println("number found: " + found);
-		addendMx1.displayCompact();  // currently this is where the exception is thrown
-		addendMx2.displayCompact();
-		currentMx = addendMx1.Add(addendMx2);
-		currentMx.setName(addendName1 + "+" + addendName2);
-		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
-		mxTempArray.add(currentMx);
-		runTimeALOAL.add(mxTempArray);
-
-	}
+//	public static void Add2ReturnNew() throws Exception {
+//		System.out.println("We'll need the name of two Existing Matrices...");
+//		System.out.println("Enter name of first matrix");
+//		addendName1 = in.nextLine();
+//		System.out.println("Enter name of second matrix");
+//		addendName2 = in.nextLine();
+//		int found = 0;
+//
+//		// Need to turn this into a function that returns a Matrix given a name
+//
+//		for (int x = 0; x < runTimeALOAL.size(); x++) {
+//			ArrayList tempAl = runTimeALOAL.get(x);
+//			System.out.println("");
+//			addendMx1 = (Matrix) tempAl.get(0);
+//			if (addendMx1.getName().equals(addendName1)) {// DONE , else
+//				System.out.println("Debug: First Mx found at :" + x);
+//				x = runTimeALOAL.size();
+//				found++;
+//			}
+//		}
+//			
+//	if (found < 1) throw new Exception("Matrix Name " +addendName1 +" was not found in Main List");
+//		
+//		for (int y = 0; y < runTimeALOAL.size(); y++) {
+//			ArrayList tempAl = runTimeALOAL.get(y);
+//			System.out.println("");
+//			addendMx2 = (Matrix) tempAl.get(0);
+//			if (addendMx2.getName().equals(addendName2)) { // DONE , else
+//				System.out.println("Debug: Second Mx found at :" + y);
+//				y = runTimeALOAL.size();
+//				found++;
+//			} 
+//	if (found > 0 && found < 2) throw new Exception("Matrix Name " +addendName2 +" was not found in Main List");
+//			
+//		}
+//		System.out.println("number found: " + found);
+//		addendMx1.displayCompact();  // currently this is where the exception is thrown
+//		addendMx2.displayCompact();
+//		currentMx = addendMx1.Add(addendMx2);
+//		currentMx.setName(addendName1 + "+" + addendName2);
+//		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
+//		mxTempArray.add(currentMx);
+//		runTimeALOAL.add(mxTempArray);
+//
+//	}
 
 
 
