@@ -25,11 +25,13 @@ public class StaticProcedures {
 	public static void PickMatrixFromMainList() {
 		System.out.print("Enter Matrix Name Char :");
 		MyApp.currentName = MyApp.in.nextLine();
+		ArrayList tempAl;
 		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
-			ArrayList tempAl = MyApp.runTimeALOAL.get(x);
+			tempAl = MyApp.runTimeALOAL.get(x);
 			System.out.println("");
 			MyApp.currentMx = (Matrix) tempAl.get(0);
-			if (MyApp.currentMx.getName().equals(MyApp.currentName)) {    x = MyApp.runTimeALOAL.size(); // we're done  so end the loop
+			if (MyApp.currentMx.getName().equals(MyApp.currentName)) {    
+				x = MyApp.runTimeALOAL.size(); // we're done  so end the loop
 			} else MyApp.currentMx = null;
 		}
 		System.out.println("The Mx Name entered was :" + MyApp.currentName);
@@ -73,6 +75,7 @@ public class StaticProcedures {
         int swapRow = Integer.parseInt(MyApp.in.nextLine());
         Matrix tempMX = new Matrix();
         tempMX = MyApp.currentMx.SwapRows( firstRow, swapRow);
+        // ah..... Need to add this to History
         MyApp.currentMx = tempMX;
     	} else {
     		System.out.println("Must Pick a Matrix ");
@@ -83,8 +86,6 @@ public class StaticProcedures {
 	
 	public static void Add2ReturnNew() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
-		System.out.println("Enter name of first matrix");
-		MyApp.addendName1 = MyApp.in.nextLine();
 		System.out.println("Enter name of second matrix");
 		MyApp.addendName2 = MyApp.in.nextLine();
 		int found = 0;
@@ -127,9 +128,120 @@ public class StaticProcedures {
 
 	}	
 	
+
+	public static void MatrixScalerMultiplication() {
+		// Check if we are pointing at a current Matrix if so, get scaler value. Echo the scaler entered multiply
+		// current*Scaler. prepare a temporary Matrix so we can search for new current home get the name of the
+		// current Mx. Prepare a var for array index of name. start the search. when found - put CurrentMx away
+				if (MyApp.currentMx == null) {
+					System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+					return;
+				}
+				System.out.println("Enter Scaler Value");   MyApp.scalerValue = Double.parseDouble(MyApp.in.nextLine());
+				System.out.println("Scaler Value entered: " + MyApp.scalerValue);   
+				MyApp.currentMx = MyApp.currentMx.Multiply(MyApp.scalerValue);
+				String currentMxName = MyApp.currentMx.getName();   
+				MyApp.currentMx.setModifyingCommand(currentMxName + "=" + currentMxName + "x where x == " + MyApp.scalerValue);
+				
+				Matrix tempMx;
+				int rtALOAL_Index = 0;
+
+				for (int i = 0; i < MyApp.runTimeALOAL.size(); i++) {
+					tempMx = (Matrix) MyApp.runTimeALOAL.get(i).get(0);
+					if (currentMxName == tempMx.getName()) {
+						rtALOAL_Index = i;
+						i = MyApp.runTimeALOAL.size(); // this should break us out
+					}
+				}
+				System.out.println("The index of the name is :" + rtALOAL_Index);
+
+				ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList
+
+				for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
+					tempAL.add((x + 1), tempAL.get(x));
+					System.out.println("copied into " + (x + 1) + "from " + x);
+				}
+				tempAL.add(0, MyApp.currentMx);// finish with the zeroth entry
+			}	
+	public static void singleMatrixHist() {
+		System.out.print("Enter Matrix Name Char :");
+		MyApp.currentName = MyApp.in.nextLine();
+		ArrayList tempAl;
+		Matrix tempMx;
+		int rtALOAL_Index = 0;
+		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
+			tempAl = MyApp.runTimeALOAL.get(x);
+			MyApp.currentMx = (Matrix) tempAl.get(0);
+			if (MyApp.currentMx.getName().equals(MyApp.currentName)) {    
+				rtALOAL_Index = x;   // set the index of the name we're looking for
+				x = MyApp.runTimeALOAL.size(); // we're done  so end the loop
+			} else MyApp.currentMx = null;
+		}	
+		if(MyApp.currentMx == null) {
+		     tempAl = MyApp.runTimeALOAL.get(rtALOAL_Index);
+		     for(int x=0 ; x < tempAl.size(); x++) {
+			     tempMx = (Matrix) tempAl.get(x);
+					System.out.println("Modification Command\t :" + tempMx.getModCmd());
+					System.out.println("Modification TimeStamp\t :" + tempMx.getModTimeStamp());
+					System.out.println("Creation Time Stamp\t :" + tempMx.getCreationTimeStamp());
+			     tempMx.displayCompact();
+		     }
+		}
+		
+	}
+
+public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
+	MyApp.currentMx.setLinearData();    // In my model it is supposed to
+	
+}
 	
 	
 	
+	/*
+	 * ***************************************************************************
+	 * Current represents a 'Named' Matrix pulled out of the main List if Current is
+	 * null the tempMx has not yet been copied out of the main list
+	 ******************************************************************************/
+	public static void CurrentNullCheck() {
+		if (MyApp.currentMx == null) System.out.println("yes: current is null");
+		else  System.out.println(MyApp.currentMx.getName());
+	}
+
+	public static void DisplayCurrentMatrixC() {
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayCompact();
+	}
+
+	public static void DisplayCurrentMatrixM() {
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayMore();
+	}
+
+	public static void DisplayCurrentMatrixZ() {
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayDeepString();
+	}	
+	
+ private static void pushHistory(String mxName, Matrix mx2store ) { 
+    Matrix tempMx;
+	int rtALOAL_Index = 0;
+	for (int i = 0; i < MyApp.runTimeALOAL.size(); i++) {  // look through all of the lists
+		tempMx = (Matrix) MyApp.runTimeALOAL.get(i).get(0);// get the matrix at the Head of each List
+		if (mxName == tempMx.getName()) {  //  is thismMatrix.getName the same as the input value
+			rtALOAL_Index = i;             //  get the index value cuz its true
+			i = MyApp.runTimeALOAL.size(); //  Set the end condition: this should break us out
+		}
+	}
+	ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList 
+	for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
+		tempAL.add((x + 1), tempAL.get(x));
+		System.out.println("copied into " + (x + 1) + "from " + x);
+	}
+	tempAL.add(0, mx2store);// finish with the zeroth entry
+ }
+
+ 
+ 
 /**************************************************************************/
 /*
  *   this procedure represents a  problem child that is in development
