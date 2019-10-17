@@ -345,7 +345,8 @@ public class Matrix {
         C.m_data[i] = C.m_data[j];
         C.m_data[j] = temp;
         this.modificationCommand="swapRows(" +i +"," +j+")";
-		
+	//  Is'nt swapRows supposed to identify the Time this is done ??
+    // On a bigger note does the mod command belong to this or to C ??
      return C;
 	}
 	
@@ -411,19 +412,21 @@ public class Matrix {
          for(int i=0; i < mRows; i++) {
         	 for(int j=0; j<nCols ; j++) {
                  m_data[i][j] = value++;
-                 
         	 }
          }
+         this.modificationCommand = "Set Linear Data";
+		 this.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
     public void setRandData() {
     	Random rData = new Random();
         for(int i=0; i < mRows; i++) {
-       	 for(int j=0; j<nCols ; j++) {
+       	  for(int j=0; j<nCols ; j++) {
                 m_data[i][j] = rData.nextDouble();
                 
-       	 }
+       	  }
         }
-    	
+        this.modificationCommand = "Set Random Data";
+		this.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
 }
