@@ -15,14 +15,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 //import java.util.Set;
 //import java.util.concurrent.Executors;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 
 import main.java.com.matrixJava.Usage;
 
-public class MyApp {
+public class tmpMyAppCopy {
 
 //	static boolean mydebug = false;
 
@@ -37,8 +33,6 @@ public class MyApp {
 	static String currentName = null;
 	static Scanner in = new Scanner(System.in);
 	static double scalerValue;
-	static int roboSequence = 0;
-	static boolean roboSwitch = false;
 
 //	int[] matrixDimensions = new int[2];// 2 values M&N both int
 //	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
@@ -112,10 +106,6 @@ public class MyApp {
 			Usage.UsageTerminal(" ");
 			break;
 
-		case "-robo":
-			roboSwitch = true;
-			break;
-
 		default:
 			// Usage.UsageTerminalTerminal("Problem: see Input "+args[0] +" " +args[1] +" "
 			// +args[2] +" etc..." );
@@ -135,13 +125,7 @@ public class MyApp {
 		// String runTimeCommand;
 
 		System.out.print("Let's get the first run time command: ");
-		if (roboSwitch) {
-		RT0();
-		roboSequence++;
-		}
-		
 		runTimeCommand = in.nextLine();
-
 		// runTimeCommand = runTimeCommand.toLowerCase();
 		System.out.println("");
 
@@ -161,12 +145,12 @@ public class MyApp {
 				&& !runTimeCommand.contentEquals("x")) {
 			switch (runTimeCommand) {
 
-			case "new": case "new ": StaticProcedures.newMatrix(); break;
+			case "new": case "new ": newMatrix(); break;
 
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
                 try {
-                	StaticProcedures.Add2ReturnNew();
+				Add2ReturnNew(); 
                 } catch (Exception e) {
                 	System.out.println("Problem Exception " +e);
                 	
@@ -183,46 +167,49 @@ public class MyApp {
                              //   | -------
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
                              //  22/5 = 4R2
-
-			case "transpose":  break;
-
-			case "swaprow": case "swap rows": StaticProcedures.swapMxRows(); break;
-
-			case "showmap": case "showMap": StaticProcedures.showmap(); break;
-
 			case "showlist": StaticProcedures.showArrayListIndex(); break;
-			
-			case "showhist": StaticProcedures.singleMatrixHist(); break;
 
-			case "scalermult": case "devmult": StaticProcedures.MatrixScalerMultiplication(); break;
+			case "showmap": case "showMap":  StaticProcedures.showmap();break;
 
-			case "pick":  StaticProcedures.PickMatrixFromMainList(); break;
+			case "scalermult": case "devmult": MatrixScalerMultiplication(); break;
+
+			case "pick": case "setcur": PickMatrixFromMainList(); break;
 
 			case "currnullcheck": case "cnc": case "currnull?":
-			case "currnull": StaticProcedures.CurrentNullCheck(); break;
+			case "currnull": CurrentNullCheck(); break;
 
-			case "dispm": StaticProcedures.DisplayCurrentMatrixM(); break;
+			case "dispm": DisplayCurrentMatrixM(); break;
 
-			case "dispc": StaticProcedures.DisplayCurrentMatrixC(); break;
+			case "dispc": DisplayCurrentMatrixC(); break;
 
-			case "dispz": StaticProcedures.DisplayCurrentMatrixZ(); break;
+			case "dispz": DisplayCurrentMatrixZ(); break;
 			
+			case "transpose":  break;
+			
+			case "swaprow": case "swap rows": swapMxRows(); break;
+
 			case "ls": case "list": ProgramNotifications.TestRunTimeCommands(); break;
 
 			case "cls": ProgramNotifications.ClearScreen(); break;
 			
-//			case "setdata": case "set data": currentMx.setLinearData(); break;
 			case "setdata": case "set data": currentMx.setLinearData(); break;
 
 			case "setrandata": currentMx.setRandData(); break;
 		
-			case "pop": break;
+
+			case "pop":
+				char charRep;
+				for (int x = 65; x < 80; x++) {
+					charRep = (char) x;
+					System.out.println(" value is : " + charRep);
+				}
+				break;
 
 			case "classpath":
 				String myJCP = System.getProperty("java.class.path");
 				System.out.println(" myJCP is " + myJCP);
-				break;
 
+				break;
 			default:
 				System.out.println("That command " + runTimeCommand + " was not found, try again");
 				System.out.println("");
@@ -232,18 +219,6 @@ public class MyApp {
 			}
 
 			System.out.print("Get another command: ");
-			if (roboSwitch)
-				switch(roboSequence) {
-				case 0 : RT0(); roboSequence++; break; 
-				case 1 : RT1(); roboSequence++; break; 
-				case 2 : RT2(); roboSequence++; break; 
-				case 3 : RT3(); roboSequence++; break; 
-				case 4 : RT4(); roboSequence++; break; 
-				
-				default: System.out.println("NoRoboSequence Left : enter Manually");
-				break;
-				}
-							
 			runTimeCommand = in.nextLine();
 			/*
 			 * *****************************************************************************
@@ -258,82 +233,6 @@ public class MyApp {
 		ProgramNotifications.giveShutDownNotice();
 
 	} // end public static void main(String[] args)
-
-	
-//  ROBOT TESTING Procs
-	public static void RT0() throws AWTException {
-		Robot myR = new Robot();
-		myR.delay(500);
-        myR.keyPress(KeyEvent.VK_N);
-        myR.keyRelease(KeyEvent.VK_N);
-        myR.keyPress(KeyEvent.VK_E);
-        myR.keyRelease(KeyEvent.VK_E);
-        myR.keyPress(KeyEvent.VK_W);
-        myR.keyRelease(KeyEvent.VK_W);
-		myR.delay(2250);
-        myR.keyPress(KeyEvent.VK_ENTER);
-        myR.keyRelease(KeyEvent.VK_ENTER);
-        
-        
-        int three = 3;
-        int four = 4;
-        
-		myR.delay(8250);
-        myR.keyPress(three);
-        myR.keyRelease(three);
-        myR.keyPress(KeyEvent.VK_X);
-        myR.keyRelease(KeyEvent.VK_X);
-        myR.keyPress(four);
-        myR.keyRelease(four); 
-	}
-
-	
-	public static void RT1() throws AWTException {
-		Robot myR = new Robot();
-		System.out.println("delay 500");
-		myR.delay(500);
-		System.out.println("keypress 3");
-        myR.keyPress(3);
-		System.out.println("keyRelease 3");
-        myR.keyRelease(3);
-        System.out.println("keyPress keyEvent VK_X");
-        myR.keyPress(KeyEvent.VK_X);
-        System.out.println("keyRelease keyEvent VK_X");
-        myR.keyRelease(KeyEvent.VK_X);
-		System.out.println("keypress 4");
-        myR.keyPress(4);
-		System.out.println("keyRelease 4");
-        myR.keyRelease(4);
-	}
-		
-		
-	public static void RT2() throws AWTException {
-
-	}
-		
-		
-		
-	public static void RT3() throws AWTException {
-
-	}
-		
-
-		
-	public static void RT4() throws AWTException {
-
-	}
-		
-		
-		
-	public static void RT5() throws AWTException {
-		
-		
-		
-	}
-
-		
-		
-		
 /*
  * Create a Name Char Var
  * Run the MX input routines, 
@@ -375,6 +274,145 @@ public class MyApp {
 	}
 
 
+//	public static void showArrayListIndex() {
+//		System.out.println("");
+//		System.out.println("main array size: " + runTimeALOAL.size());
+//		for (int i = 0; i < runTimeALOAL.size(); i++) {
+//			ArrayList tmpAL4Read = runTimeALOAL.get(i);
+//			System.out.println("internal size on main #" + i + " is " + tmpAL4Read.size());
+//		}
+//	}
+	
+    public static void 	swapMxRows() {  // Check :  is this done.  Im not putting away
+    	if (currentMx != null) {
+    	System.out.print("first row: ");
+        int firstRow = Integer.parseInt(in.nextLine());
+    	System.out.print("Swap with Row: ");
+        int swapRow = Integer.parseInt(in.nextLine());
+        Matrix tempMX = new Matrix();
+        tempMX = currentMx.SwapRows( firstRow, swapRow);
+        currentMx = tempMX;
+    	} else {
+    		System.out.println("Must Pick a Matrix ");
+    		System.out.println("Then you can swap rows\n");
+    	}
+    }
+
+	public static void Add2ReturnNew() throws Exception {
+		System.out.println("We'll need the name of two Existing Matrices...");
+		System.out.println("Enter name of first matrix");
+		addendName1 = in.nextLine();
+		System.out.println("Enter name of second matrix");
+		addendName2 = in.nextLine();
+		int found = 0;
+
+		// Need to turn this into a function that returns a Matrix given a name
+
+		for (int x = 0; x < runTimeALOAL.size(); x++) {
+			ArrayList tempAl = runTimeALOAL.get(x);
+			System.out.println("");
+			addendMx1 = (Matrix) tempAl.get(0);
+			if (addendMx1.getName().equals(addendName1)) {// DONE , else
+				System.out.println("Debug: First Mx found at :" + x);
+				x = runTimeALOAL.size();
+				found++;
+			}
+		}
+	
+			
+	if (found < 1) throw new Exception("Matrix Name " +addendName1 +" was not found in Main List");
+			
+			
+			
+		
+		for (int y = 0; y < runTimeALOAL.size(); y++) {
+			ArrayList tempAl = runTimeALOAL.get(y);
+			System.out.println("");
+			addendMx2 = (Matrix) tempAl.get(0);
+			if (addendMx2.getName().equals(addendName2)) { // DONE , else
+				System.out.println("Debug: Second Mx found at :" + y);
+				y = runTimeALOAL.size();
+				found++;
+			} 
+			if (found > 0 && found < 2) throw new Exception("Matrix Name " +addendName2 +" was not found in Main List");
+			
+		}
+		System.out.println("number found: " + found);
+		addendMx1.displayCompact();  // currently this is where the exception is thrown
+		addendMx2.displayCompact();
+		currentMx = addendMx1.Add(addendMx2);
+		currentMx.setName(addendName1 + "+" + addendName2);
+		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
+		mxTempArray.add(currentMx);
+		runTimeALOAL.add(mxTempArray);
+
+	}
+
+
+
+
+	public static void MatrixScalerMultiplication() {
+// Check if we are pointing at a current Matrix if so, get scaler value. Echo the scaler entered multiply
+// current*Scaler. prepare a temporary Matrix so we can search for new current home get the name of the
+// current Mx. Prepare a var for array index of name. start the search. when found - put CurrentMx away
+		if (currentMx == null) {
+			System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+			return;
+		}
+
+		System.out.println("Enter Scaler Value");   scalerValue = Double.parseDouble(in.nextLine());
+		System.out.println("Scaler Value entered: " + scalerValue);   
+		currentMx = currentMx.Multiply(scalerValue);
+		String currentMxName = currentMx.getName();   
+		currentMx.setModifyingCommand(currentMxName + "=" + currentMxName + "x where x == " + scalerValue);
+		
+		Matrix tempMx;
+		int rtALOAL_Index = 0;
+
+		for (int i = 0; i < runTimeALOAL.size(); i++) {
+			tempMx = (Matrix) runTimeALOAL.get(i).get(0);
+			if (currentMxName == tempMx.getName()) {
+				rtALOAL_Index = i;
+				i = runTimeALOAL.size(); // this should break us out
+			}
+		}
+		System.out.println("The index of the name is :" + rtALOAL_Index);
+
+		ArrayList<Matrix> tempAL = runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList
+
+		for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
+			tempAL.add((x + 1), tempAL.get(x));
+			System.out.println("copied into " + (x + 1) + "from " + x);
+		}
+		tempAL.add(0, currentMx);// finish with the zeroth entry
+	}
+
+
+
+	/*
+	 * ***************************************************************************
+	 * Current represents a 'Named' Matrix pulled out of the main List if Current is
+	 * null the tempMx has not yet been copied out of the main list
+	 ******************************************************************************/
+	public static void CurrentNullCheck() {
+		if (currentMx == null) System.out.println("yes: current is null");
+		else  System.out.println(currentMx.getName());
+	}
+
+	public static void DisplayCurrentMatrixC() {
+		if (currentMx == null) System.out.println("No Matrix currently selected");
+		else currentMx.displayCompact();
+	}
+
+	public static void DisplayCurrentMatrixM() {
+		if (currentMx == null) System.out.println("No Matrix currently selected");
+		else currentMx.displayMore();
+	}
+
+	public static void DisplayCurrentMatrixZ() {
+		if (currentMx == null) System.out.println("No Matrix currently selected");
+		else currentMx.displayDeepString();
+	}
 
 
 } // End of class MyApp
