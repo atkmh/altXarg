@@ -332,49 +332,6 @@ public class MyApp {
 	}
 
 		
-		
-		
-/*
- * Create a Name Char Var
- * Run the MX input routines, 
- * Process creaes a matrix and adds to the HistArrayList
- * Add the HistArrayList to the Runtime ArrayListOfArrayLists
- * 
- * This process puts the new MX away immediately
- * Could factor that out and use elsewhere
- */
-	public static void newMatrix() {
-		myCurChar = (char) charRepToIncrement; // Not a declaration ! runtime Conversion of int to Upper Char
-		String mName = new StringBuilder().append(myCurChar).toString();
-		InputStringObj myInputStringObj;
-		try {
-			myInputStringObj = new InputStringObj("-r", null);
-			InputNumericObj myInputNumericObj = new InputNumericObj(myInputStringObj);
-			ArrayList<Matrix> mxHistArray = new ArrayList<Matrix>();
-			mxHistArray.add(new Matrix(myInputNumericObj, mName));
-			runTimeALOAL.add(mxHistArray);
-			charRepToIncrement++; // do this at the end so that the value is ready next time in.
-		} catch (IOException e) {
-			System.out.println("Exception " + e);
-			e.printStackTrace();
-		}
-	}
-
-	public static void PickMatrixFromMainList() {
-		System.out.print("Enter Matrix Name Char :");
-		currentName = in.nextLine();
-		for (int x = 0; x < runTimeALOAL.size(); x++) {
-			ArrayList tempAl = runTimeALOAL.get(x);
-			System.out.println("");
-			currentMx = (Matrix) tempAl.get(0);
-			if (currentMx.getName().equals(currentName)) {    x = runTimeALOAL.size(); // we're done  so end the loop
-			} else currentMx = null;
-		}
-		System.out.println("The Mx Name entered was :" + currentName);
-		if (currentMx == null)   System.out.println("But, " + currentName + " wasnt found. Current Mx is still null");
-	}
-
-
 
 
 } // End of class MyApp
