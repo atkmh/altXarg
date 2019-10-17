@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 //import org.apache.commons.lang3.StringUtils;
 
 public class InputStringObj {
@@ -15,40 +16,47 @@ public class InputStringObj {
 		private String second= ""; // 3X6 Must Be ! 
 //		private String[] arrayOfStrings;
 		private ArrayList<String> mVals = new ArrayList<String>();  // remember this is input
-	
-	public InputStringObj(String switchPassed, String[] cl_Data ) throws IOException {
+    //  NOTE: **** 'RT'  means RunTime  ****	
+	public InputStringObj(String rt_operation, String[] cl_Data ) throws IOException {
 		
 		String tmpStr = "";
 		String [] arrayOfStrings;
 		String mValues = "";
 		String mDims = "";
 		//String strValue;
+	
+		// 10/16/19 New input manner
+		Scanner in = new Scanner(System.in);
 
-		this.inputSwitch = switchPassed;
+		this.inputSwitch = rt_operation;
 		
 		/* Since we pass a switch in here we check and operate accordingly  */
 		/* Assumption:  We only send two switches                           */
 		/*  --------------------------------------------------------------  */
-		if(switchPassed.equals("-r")) {
+		if(rt_operation.equals("-r")) {
 
 /* Direct the user on how to use the sys   */
 			presentUsage();  
 
           /* setting the arg[0] parameter === "-r"                         */
-			this.firstRT = switchPassed;
+			this.firstRT = rt_operation;
 
 /* Get raw dimensions*/			
 			System.out.print("Enter Dimension: ");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			mDims = br.readLine(); // something like 4x7	
+//			mDims = br.readLine(); // something like 4x7	
+		// 10/16/19 New input manner
+            mDims = in.nextLine();
 
 /* Get raw matrix values                              */			
 /* Get all values in a String                         */
 			System.out.print("Enter Matrix Values: ");
-			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
+//			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
+		// 10/16/19 New input manner
+			tmpStr = in.nextLine();
 
 /*      We Are Finish this with runtime Data Entry   */
-		} else if(switchPassed.equals("-c")) { 
+		} else if(rt_operation.equals("-c")) { 
 		
 /*                                         */
 /* *****************************************/
@@ -57,7 +65,7 @@ public class InputStringObj {
 /*                                         */
 			
           /* setting the arg[0] parameter === "-c"                         */
-			this.firstCL = switchPassed;
+			this.firstCL = rt_operation;
 
 /* Get raw dimensions*/			
 			mDims = cl_Data[1];   // something like 7x4 

@@ -17,8 +17,10 @@ public class InputNumericObj {
 
 	public InputNumericObj(InputStringObj strObj) {
 	    int xLoc = strObj.getSecond().indexOf("X");
-	    
+	   // Get Rows Value 
 	    this.M = Integer.parseInt((strObj.getSecond().substring(0, xLoc )));
+
+	   // Get Column value
 	    this.N = Integer.parseInt((strObj.getSecond().substring(xLoc+1,strObj.getSecond().length() )));
 		
 	    mxValues = new double[  strObj.getdata().size() ];

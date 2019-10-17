@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 //import java.util.Set;
 //import java.util.concurrent.Executors;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 import main.java.com.matrixJava.Usage;
 
@@ -33,6 +37,8 @@ public class MyApp {
 	static String currentName = null;
 	static Scanner in = new Scanner(System.in);
 	static double scalerValue;
+	static int roboSequence = 0;
+	static boolean roboSwitch = false;
 
 //	int[] matrixDimensions = new int[2];// 2 values M&N both int
 //	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
@@ -106,6 +112,10 @@ public class MyApp {
 			Usage.UsageTerminal(" ");
 			break;
 
+		case "-robo":
+			roboSwitch = true;
+			break;
+
 		default:
 			// Usage.UsageTerminalTerminal("Problem: see Input "+args[0] +" " +args[1] +" "
 			// +args[2] +" etc..." );
@@ -125,7 +135,13 @@ public class MyApp {
 		// String runTimeCommand;
 
 		System.out.print("Let's get the first run time command: ");
+		if (roboSwitch) {
+		RT0();
+		roboSequence++;
+		}
+		
 		runTimeCommand = in.nextLine();
+
 		// runTimeCommand = runTimeCommand.toLowerCase();
 		System.out.println("");
 
@@ -219,6 +235,18 @@ public class MyApp {
 			}
 
 			System.out.print("Get another command: ");
+			if (roboSwitch)
+				switch(roboSequence) {
+				case 0 : RT0(); roboSequence++; break; 
+				case 1 : RT1(); roboSequence++; break; 
+				case 2 : RT2(); roboSequence++; break; 
+				case 3 : RT3(); roboSequence++; break; 
+				case 4 : RT4(); roboSequence++; break; 
+				
+				default: System.out.println("NoRoboSequence Left : enter Manually");
+				break;
+				}
+							
 			runTimeCommand = in.nextLine();
 			/*
 			 * *****************************************************************************
@@ -233,6 +261,81 @@ public class MyApp {
 		ProgramNotifications.giveShutDownNotice();
 
 	} // end public static void main(String[] args)
+	
+//  ROBOT TESTING Procs
+	public static void RT0() throws AWTException {
+		Robot myR = new Robot();
+		myR.delay(500);
+        myR.keyPress(KeyEvent.VK_N);
+        myR.keyRelease(KeyEvent.VK_N);
+        myR.keyPress(KeyEvent.VK_E);
+        myR.keyRelease(KeyEvent.VK_E);
+        myR.keyPress(KeyEvent.VK_W);
+        myR.keyRelease(KeyEvent.VK_W);
+		myR.delay(2250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);
+        
+        
+        int three = 3;
+        int four = 4;
+        
+		myR.delay(8250);
+        myR.keyPress(three);
+        myR.keyRelease(three);
+        myR.keyPress(KeyEvent.VK_X);
+        myR.keyRelease(KeyEvent.VK_X);
+        myR.keyPress(four);
+        myR.keyRelease(four); 
+	}
+
+	
+	public static void RT1() throws AWTException {
+		Robot myR = new Robot();
+		System.out.println("delay 500");
+		myR.delay(500);
+		System.out.println("keypress 3");
+        myR.keyPress(3);
+		System.out.println("keyRelease 3");
+        myR.keyRelease(3);
+        System.out.println("keyPress keyEvent VK_X");
+        myR.keyPress(KeyEvent.VK_X);
+        System.out.println("keyRelease keyEvent VK_X");
+        myR.keyRelease(KeyEvent.VK_X);
+		System.out.println("keypress 4");
+        myR.keyPress(4);
+		System.out.println("keyRelease 4");
+        myR.keyRelease(4);
+	}
+		
+		
+	public static void RT2() throws AWTException {
+
+	}
+		
+		
+		
+	public static void RT3() throws AWTException {
+
+	}
+		
+
+		
+	public static void RT4() throws AWTException {
+
+	}
+		
+		
+		
+	public static void RT5() throws AWTException {
+		
+		
+		
+	}
+
+		
+		
+		
 /*
  * Create a Name Char Var
  * Run the MX input routines, 
