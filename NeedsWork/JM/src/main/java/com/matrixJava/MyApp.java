@@ -31,7 +31,7 @@ public class MyApp {
 
 	static String runTimeCommand;
 	static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
-	static Matrix currentMx = null;
+	static Matrix currentMx, tempMx = null;
 	static String addendName1, addendName2 = null;
 	static Matrix addendMx1, addendMx2 = null;
 	static String currentName = null;
@@ -137,7 +137,7 @@ public class MyApp {
 		System.out.print("Let's get the first run time command: ");
 		if (roboSwitch) {
 		RT0();
-		roboSequence++;
+		//MyApp.roboSequence++;
 		}
 		
 		runTimeCommand = in.nextLine();
@@ -161,7 +161,13 @@ public class MyApp {
 				&& !runTimeCommand.contentEquals("x")) {
 			switch (runTimeCommand) {
 
-			case "new": case "new ": StaticProcedures.newMatrix(); break;
+			case "new": case "new ": 
+                if(MyApp.roboSwitch)
+                StaticProcedures.newMatrix();
+               
+                else 
+                StaticProcedures.newMatrix();
+                break; 
 
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
@@ -212,11 +218,11 @@ public class MyApp {
 			case "cls": ProgramNotifications.ClearScreen(); break;
 			
 //			case "setdata": case "set data": currentMx.setLinearData(); break;
-			case "setdata": case "set data": currentMx.setLinearData(); break;
+			case "setdata": case "set data": StaticProcedures.SetMxDataLinear(); break;
 
 			case "setrandata": currentMx.setRandData(); break;
 		
-			case "pop": break;
+			case "pop": StaticProcedures.pushHistory(currentMx); break;
 
 			case "classpath":
 				String myJCP = System.getProperty("java.class.path");
@@ -234,13 +240,18 @@ public class MyApp {
 			System.out.print("Get another command: ");
 			if (roboSwitch)
 				switch(roboSequence) {
-				case 0 : RT0(); roboSequence++; break; 
-				case 1 : RT1(); roboSequence++; break; 
-				case 2 : RT2(); roboSequence++; break; 
-				case 3 : RT3(); roboSequence++; break; 
-				case 4 : RT4(); roboSequence++; break; 
+				case 0 : MyApp.RT0(); /*MyApp.roboSequence++;*/ break;// 'new' 
+				case 1 : MyApp.RT1(); /*MyApp.roboSequence++;*/ break;// '3x4 <enter>' 
+				case 2 : MyApp.RT2(); /*MyApp.roboSequence++;*/ break;// '3 3.017 3 9' 
+				case 3 : MyApp.RT3(); /*MyApp.roboSequence++;*/ break; 
+				case 4 : MyApp.RT4(); /*MyApp.roboSequence++;*/ break; 
+				case 5 : MyApp.RT5(); /*MyApp.roboSequence++;*/ break; 
+				case 6 : MyApp.RT6(); /*MyApp.roboSequence++;*/ break; 
+				case 7 : MyApp.RT7(); /*MyApp.roboSequence++;*/ break; 
+				case 10 : MyApp.RT10(); break; 
+				case 12 : MyApp.RT12(); break; 
 				
-				default: System.out.println("NoRoboSequence Left : enter Manually");
+				default: System.out.println("NoRoboSequence Left : Seq Val "+MyApp.roboSequence);
 				break;
 				}
 							
@@ -270,50 +281,73 @@ public class MyApp {
         myR.keyRelease(KeyEvent.VK_E);
         myR.keyPress(KeyEvent.VK_W);
         myR.keyRelease(KeyEvent.VK_W);
-		myR.delay(2250);
+		myR.delay(250);
         myR.keyPress(KeyEvent.VK_ENTER);
-        myR.keyRelease(KeyEvent.VK_ENTER);
-        
-        
-        int three = 3;
-        int four = 4;
-        
-		myR.delay(8250);
-        myR.keyPress(three);
-        myR.keyRelease(three);
-        myR.keyPress(KeyEvent.VK_X);
-        myR.keyRelease(KeyEvent.VK_X);
-        myR.keyPress(four);
-        myR.keyRelease(four); 
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 
 	
 	public static void RT1() throws AWTException {
 		Robot myR = new Robot();
-		System.out.println("delay 500");
+		//System.out.println("delay 500");
 		myR.delay(500);
-		System.out.println("keypress 3");
-        myR.keyPress(3);
-		System.out.println("keyRelease 3");
-        myR.keyRelease(3);
-        System.out.println("keyPress keyEvent VK_X");
+        myR.keyPress( KeyEvent.VK_3);
+        myR.keyRelease(KeyEvent.VK_3);
         myR.keyPress(KeyEvent.VK_X);
-        System.out.println("keyRelease keyEvent VK_X");
         myR.keyRelease(KeyEvent.VK_X);
-		System.out.println("keypress 4");
-        myR.keyPress(4);
-		System.out.println("keyRelease 4");
-        myR.keyRelease(4);
+        myR.keyPress( KeyEvent.VK_4);
+        myR.keyRelease(KeyEvent.VK_4);
+		myR.delay(250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 		
 		
 	public static void RT2() throws AWTException {
+		Robot myR = new Robot();
+		myR.delay(500);
+        myR.keyPress( KeyEvent.VK_3);
+        myR.keyRelease(KeyEvent.VK_3);
 
+        myR.keyPress( KeyEvent.VK_SPACE);
+        myR.keyRelease(KeyEvent.VK_SPACE);
+        
+        
+        myR.keyPress( KeyEvent.VK_3);
+        myR.keyRelease(KeyEvent.VK_3);
+        myR.keyPress( KeyEvent.VK_PERIOD);
+        myR.keyRelease(KeyEvent.VK_PERIOD);
+        myR.keyPress( KeyEvent.VK_0);
+        myR.keyRelease(KeyEvent.VK_0);
+        myR.keyPress( KeyEvent.VK_1);
+        myR.keyRelease(KeyEvent.VK_1);
+        myR.keyPress( KeyEvent.VK_7);
+        myR.keyRelease(KeyEvent.VK_7);
+        
+        myR.keyPress( KeyEvent.VK_SPACE);
+        myR.keyRelease(KeyEvent.VK_SPACE);
+
+        myR.keyPress( KeyEvent.VK_3);
+        myR.keyRelease(KeyEvent.VK_3);
+
+        myR.keyPress( KeyEvent.VK_SPACE);
+        myR.keyRelease(KeyEvent.VK_SPACE);
+
+        myR.keyPress( KeyEvent.VK_9);
+        myR.keyRelease(KeyEvent.VK_9);
+
+        myR.keyPress( KeyEvent.VK_SPACE);
+        myR.keyRelease(KeyEvent.VK_SPACE);
+        
+        myR.delay(250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 		
 		
 		
 	public static void RT3() throws AWTException {
+		MyApp.RT0(); //MyApp.roboSequence++;
 
 	}
 		
@@ -321,17 +355,126 @@ public class MyApp {
 		
 	public static void RT4() throws AWTException {
 
+		MyApp.RT1();//MyApp.roboSequence++;
 	}
 		
 		
 		
 	public static void RT5() throws AWTException {
-		
-		
-		
+		MyApp.RT2();//MyApp.roboSequence++;
 	}
 
+	public static void RT6() throws AWTException {
+	//"showmap"	
+		Robot myR = new Robot();
+		myR.delay(500);
+        myR.keyPress(KeyEvent.VK_S);
+        myR.keyRelease(KeyEvent.VK_S);
+        myR.keyPress(KeyEvent.VK_H);
+        myR.keyRelease(KeyEvent.VK_H);
+        myR.keyPress(KeyEvent.VK_O);
+        myR.keyRelease(KeyEvent.VK_O);
+        myR.keyPress(KeyEvent.VK_W);
+        myR.keyRelease(KeyEvent.VK_W);
+        myR.keyPress(KeyEvent.VK_M);
+        myR.keyRelease(KeyEvent.VK_M);
+        myR.keyPress(KeyEvent.VK_A);
+        myR.keyRelease(KeyEvent.VK_A);
+        myR.keyPress(KeyEvent.VK_P);
+        myR.keyRelease(KeyEvent.VK_P);
+		myR.delay(250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
 		
+	public static void RT7() throws AWTException {
+         MyApp.RT0();		
+	}
+
+	public static void RT8() throws AWTException {
+	//MyApp.RT2();//MyApp.roboSequence++;
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+        myR.keyPress( KeyEvent.VK_6);
+        myR.keyRelease(KeyEvent.VK_6);
+        myR.keyPress(KeyEvent.VK_X);
+        myR.keyRelease(KeyEvent.VK_X);
+        myR.keyPress( KeyEvent.VK_6);
+        myR.keyRelease(KeyEvent.VK_6);
+		myR.delay(250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
 
 
+	public static void RT9() throws AWTException {
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+        myR.keyPress( KeyEvent.VK_0);
+        myR.keyRelease(KeyEvent.VK_0);
+		myR.delay(250);
+        myR.keyPress(KeyEvent.VK_ENTER);
+        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
+
+	public static void RT10() throws AWTException {
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+		 myR.keyPress(KeyEvent.VK_P);
+	        myR.keyRelease(KeyEvent.VK_P);
+	        myR.keyPress(KeyEvent.VK_I);
+	        myR.keyRelease(KeyEvent.VK_I);
+	        myR.keyPress(KeyEvent.VK_C);
+	        myR.keyRelease(KeyEvent.VK_C);
+	        myR.keyPress(KeyEvent.VK_K);
+	        myR.keyRelease(KeyEvent.VK_K);
+	        myR.keyPress(KeyEvent.VK_ENTER);
+	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
+	public static void RT11() throws AWTException {
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+	        myR.keyPress(KeyEvent.VK_C);
+	        myR.keyRelease(KeyEvent.VK_C);
+	        myR.keyPress(KeyEvent.VK_ENTER);
+	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
+
+	public static void RT12() throws AWTException {
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+		 myR.keyPress(KeyEvent.VK_S);
+	        myR.keyRelease(KeyEvent.VK_S);
+	        myR.keyPress(KeyEvent.VK_E);
+	        myR.keyRelease(KeyEvent.VK_E);
+	        myR.keyPress(KeyEvent.VK_T);
+	        myR.keyRelease(KeyEvent.VK_T);
+	        myR.keyPress(KeyEvent.VK_D);
+	        myR.keyRelease(KeyEvent.VK_D);
+	        myR.keyPress(KeyEvent.VK_A);
+	        myR.keyRelease(KeyEvent.VK_A);
+	        myR.keyPress(KeyEvent.VK_T);
+	        myR.keyRelease(KeyEvent.VK_T);
+	        myR.keyPress(KeyEvent.VK_A);
+	        myR.keyRelease(KeyEvent.VK_A);
+	        myR.keyPress(KeyEvent.VK_ENTER);
+	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
+	}
+	public static void RT13() throws AWTException {
+	}
+	public static void RT14() throws AWTException {
+	}
+	public static void RT15() throws AWTException {
+	}
+	public static void RT16() throws AWTException {
+	}
+	
+	
+	
+	
 } // End of class MyApp

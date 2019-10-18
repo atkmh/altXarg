@@ -1,11 +1,12 @@
 package main.java.com.matrixJava;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class StaticProcedures {
 
-	public static void newMatrix() {
+	public static void newMatrix() throws AWTException {
 		MyApp.myCurChar = (char) MyApp.charRepToIncrement; // Not a declaration ! runtime Conversion of int to Upper Char
 		String mName = new StringBuilder().append(MyApp.myCurChar).toString();
 		InputStringObj myInputStringObj;
@@ -22,9 +23,16 @@ public class StaticProcedures {
 		}
 	}
 	
-	public static void PickMatrixFromMainList() {
+	public static void PickMatrixFromMainList() throws AWTException {
 		System.out.print("Enter Matrix Name Char :");
-		MyApp.currentName = MyApp.in.nextLine();
+		
+		if(MyApp.roboSwitch)	
+			switch(MyApp.roboSequence) {	
+			case 11: 
+			MyApp.RT11(); break;
+		}		
+		
+		MyApp.currentName = MyApp.in.nextLine().toUpperCase();
 		ArrayList tempAl;
 		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
 			tempAl = MyApp.runTimeALOAL.get(x);
@@ -191,8 +199,11 @@ public class StaticProcedures {
 	}
 
 public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
-	MyApp.currentMx.setLinearData();    // In my model it is supposed to
-	
+//	MyApp.currentMx.setLinearData();    // In my model it is supposed to
+	MyApp.tempMx = MyApp.currentMx.setLinearData();    // In my model it is supposed to
+	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
+	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
+//	System.out.println("tempMx name " +MyApp.tempMx.getName() );
 }
 	
 	
@@ -222,22 +233,26 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 		else MyApp.currentMx.displayDeepString();
 	}	
 	
- private static void pushHistory(String mxName, Matrix mx2store ) { 
+// private static void pushHistory(String mxName, Matrix mx2store ) { 
+    public static void pushHistory(Matrix mx2store ) { 
     Matrix tempMx;
 	int rtALOAL_Index = 0;
+		System.out.println("Mx Names in the List");
 	for (int i = 0; i < MyApp.runTimeALOAL.size(); i++) {  // look through all of the lists
 		tempMx = (Matrix) MyApp.runTimeALOAL.get(i).get(0);// get the matrix at the Head of each List
-		if (mxName == tempMx.getName()) {  //  is thismMatrix.getName the same as the input value
+		System.out.print(tempMx.getName()+" "+i +" " +MyApp.runTimeALOAL.size() +" " );
+
+		if (mx2store.getName() == tempMx.getName()) {  //  is the tempmxName fm array same as mx name passed in
 			rtALOAL_Index = i;             //  get the index value cuz its true
 			i = MyApp.runTimeALOAL.size(); //  Set the end condition: this should break us out
 		}
 	}
-	ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList 
-	for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
-		tempAL.add((x + 1), tempAL.get(x));
-		System.out.println("copied into " + (x + 1) + "from " + x);
-	}
-	tempAL.add(0, mx2store);// finish with the zeroth entry
+//	ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList 
+//	for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
+//		tempAL.add((x + 1), tempAL.get(x));
+//		System.out.println("copied into " + (x + 1) + "from " + x);
+//	}
+//	tempAL.add(0, mx2store);// finish with the zeroth entry
  }
 
  

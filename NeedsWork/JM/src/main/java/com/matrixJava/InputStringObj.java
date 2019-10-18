@@ -1,5 +1,6 @@
 package main.java.com.matrixJava;
 
+import java.awt.AWTException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +18,7 @@ public class InputStringObj {
 //		private String[] arrayOfStrings;
 		private ArrayList<String> mVals = new ArrayList<String>();  // remember this is input
     //  NOTE: **** 'RT'  means RunTime  ****	
-	public InputStringObj(String rt_operation, String[] cl_Data ) throws IOException {
+	public InputStringObj(String rt_operation, String[] cl_Data ) throws IOException, AWTException {
 		
 		String tmpStr = "";
 		String [] arrayOfStrings;
@@ -41,11 +42,38 @@ public class InputStringObj {
           /* setting the arg[0] parameter === "-r"                         */
 			this.firstRT = rt_operation;
 
-/* Get raw dimensions*/			
+/* Get Matrix dimensions*/			
 			System.out.print("Enter Dimension: ");
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//			mDims = br.readLine(); // something like 4x7	
-		// 10/16/19 New input manner
+
+//	See Note: BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//	See Note: mDims = br.readLine(); // something like 4x7	
+// Note: 10/16/19 New input manner below
+			
+	/*
+	 *  If you notice the nature of this section
+	 * 	is about Matrix Dimensions
+	 * mDims = in.nextLine();
+	 * so... only RT procs that deliver mRows and nCols
+	 * should be available here
+	 * Anything else would be an Error.	
+	 */
+		if(MyApp.roboSwitch)	
+			switch(MyApp.roboSequence) {
+			case 1 : 
+				MyApp.RT1(); //MyApp.roboSequence++;// '3x4 <enter>' 
+				break;
+		
+			case 4 : 
+				MyApp.RT4(); //MyApp.roboSequence++;
+				break;
+			case 8 : 
+				MyApp.RT8(); //MyApp.roboSequence++;
+				break;
+				
+			default: System.out.println("NoRoboSequence Left : Seq Val "+MyApp.roboSequence);
+			break;
+				
+			}
             mDims = in.nextLine();
 
 /* Get raw matrix values                              */			
@@ -53,6 +81,18 @@ public class InputStringObj {
 			System.out.print("Enter Matrix Values: ");
 //			tmpStr = br.readLine(); // something like 2.0 2.3 4 5 6.6 7.77 0.888 9.0 10
 		// 10/16/19 New input manner
+
+			if(MyApp.roboSwitch)	
+			switch(MyApp.roboSequence) {
+			case 2: case 5: 
+				MyApp.RT2(); //MyApp.roboSequence++;
+				break;
+			case 9:
+				MyApp.RT9();break;
+			default: System.out.println("NoRoboSequence Left :Seq Val "+MyApp.roboSequence);
+			break;	
+				
+			}
 			tmpStr = in.nextLine();
 
 /*      We Are Finish this with runtime Data Entry   */

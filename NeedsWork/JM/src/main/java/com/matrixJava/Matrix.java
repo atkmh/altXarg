@@ -407,15 +407,18 @@ public class Matrix {
      *  Potentially destructive
      *  Will write over all existing data
      */
-    public void setLinearData() {
+    public Matrix setLinearData() {
+    	Matrix temp = this;
          Double value = 1.0;
          for(int i=0; i < mRows; i++) {
         	 for(int j=0; j<nCols ; j++) {
-                 m_data[i][j] = value++;
+                 temp.m_data[i][j] = value++;
         	 }
          }
          this.modificationCommand = "Set Linear Data";
 		 this.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		 
+		 return temp;
     }
     public void setRandData() {
     	Random rData = new Random();
