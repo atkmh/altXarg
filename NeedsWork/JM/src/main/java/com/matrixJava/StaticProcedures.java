@@ -171,6 +171,8 @@ public class StaticProcedures {
 				}
 				tempAL.add(0, MyApp.currentMx);// finish with the zeroth entry
 			}	
+	// ??  is this a display the matrix history routien  ??
+	//
 	public static void singleMatrixHist() {
 		System.out.print("Enter Matrix Name Char :");
 		MyApp.currentName = MyApp.in.nextLine();
@@ -200,10 +202,17 @@ public class StaticProcedures {
 
 public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
 //	MyApp.currentMx.setLinearData();    // In my model it is supposed to
+	if (MyApp.currentMx == null) {
+		System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+		return;
+	}
 	MyApp.tempMx = MyApp.currentMx.setLinearData();    // In my model it is supposed to
-	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
-	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
-//	System.out.println("tempMx name " +MyApp.tempMx.getName() );
+	MyApp.tempMx.setModifyingCommand("set Linear data" );
+
+//	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
+//	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
+	
+	StaticProcedures.pushHistory(MyApp.tempMx);
 }
 	
 	
@@ -247,12 +256,12 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 			i = MyApp.runTimeALOAL.size(); //  Set the end condition: this should break us out
 		}
 	}
-//	ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList 
-//	for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
-//		tempAL.add((x + 1), tempAL.get(x));
-//		System.out.println("copied into " + (x + 1) + "from " + x);
-//	}
-//	tempAL.add(0, mx2store);// finish with the zeroth entry
+	ArrayList<Matrix> tempAL = MyApp.runTimeALOAL.get(rtALOAL_Index); // get a temp ArrayList 
+	for (int x = tempAL.size(); x < 0; x--) { // iterate thought history copying N to N+1 this is done backwards
+		tempAL.add((x + 1), tempAL.get(x));
+		System.out.println("copied into " + (x + 1) + "from " + x);
+	}
+	tempAL.add(0, mx2store);// finish with the zeroth entry
  }
 
  

@@ -1,25 +1,15 @@
 package main.java.com.matrixJava;
 
-//import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.io.FileReader;
 import java.io.IOException;
-//import java.io.InputStream;
-//import java.io.InputStreamReader;
-//import java.lang.management.ManagementFactory;
-//import java.net.URL;
 import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Properties;
 import java.util.Scanner;
-//import java.util.Set;
-//import java.util.concurrent.Executors;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-
 import main.java.com.matrixJava.Usage;
 
 public class MyApp {
@@ -240,16 +230,18 @@ public class MyApp {
 			System.out.print("Get another command: ");
 			if (roboSwitch)
 				switch(roboSequence) {
-				case 0 : MyApp.RT0(); /*MyApp.roboSequence++;*/ break;// 'new' 
-				case 1 : MyApp.RT1(); /*MyApp.roboSequence++;*/ break;// '3x4 <enter>' 
-				case 2 : MyApp.RT2(); /*MyApp.roboSequence++;*/ break;// '3 3.017 3 9' 
-				case 3 : MyApp.RT3(); /*MyApp.roboSequence++;*/ break; 
-				case 4 : MyApp.RT4(); /*MyApp.roboSequence++;*/ break; 
-				case 5 : MyApp.RT5(); /*MyApp.roboSequence++;*/ break; 
-				case 6 : MyApp.RT6(); /*MyApp.roboSequence++;*/ break; 
-				case 7 : MyApp.RT7(); /*MyApp.roboSequence++;*/ break; 
-				case 10 : MyApp.RT10(); break; 
-				case 12 : MyApp.RT12(); break; 
+				case 0 : MyApp.RT0();  break;// 'new' 
+				case 1 : MyApp.RT1();  break;// '3x4 <enter>' Called from InputStringObj.Dims
+				case 2 : MyApp.RT2();  break;// '3 3.017 3 9'new 
+				case 3 : MyApp.RT3();  break;// call RT0() 
+				case 4 : MyApp.RT4();  break;// called from InputStringObj.Dims  */
+				case 5 : MyApp.RT5();  break;// call RT2()
+				case 6 : MyApp.RT6();  break;// "showmap"
+				case 7 : MyApp.RT7();  break;// call RT0()
+			/*  case 8 : MyApp.RT8();  break;// called from InputStringObj.Dims  */
+			/*  case 9 : MyApp.RT9();  break;// call RT0() */
+				case 10 : MyApp.RT10(); break;  // "c"
+				case 12 : MyApp.RT12(); break;  // "setdata"
 				
 				default: System.out.println("NoRoboSequence Left : Seq Val "+MyApp.roboSequence);
 				break;
@@ -434,7 +426,7 @@ public class MyApp {
 	        myR.keyPress(KeyEvent.VK_ENTER);
 	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
-	public static void RT11() throws AWTException {
+	public static void RT11() throws AWTException { // "c"
 		Robot myR = new Robot();
 		//System.out.println("delay 500");
 		myR.delay(500);
@@ -444,7 +436,7 @@ public class MyApp {
 	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 
-	public static void RT12() throws AWTException {
+	public static void RT12() throws AWTException {//" setdata"
 		Robot myR = new Robot();
 		//System.out.println("delay 500");
 		myR.delay(500);
@@ -466,6 +458,25 @@ public class MyApp {
 	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 	public static void RT13() throws AWTException {
+		Robot myR = new Robot();
+		//System.out.println("delay 500");
+		myR.delay(500);
+		 myR.keyPress(KeyEvent.VK_S);
+	        myR.keyRelease(KeyEvent.VK_S);
+	        myR.keyPress(KeyEvent.VK_H);
+	        myR.keyRelease(KeyEvent.VK_H);
+	        myR.keyPress(KeyEvent.VK_0);
+	        myR.keyRelease(KeyEvent.VK_0);
+	        myR.keyPress(KeyEvent.VK_W);
+	        myR.keyRelease(KeyEvent.VK_W);
+	        myR.keyPress(KeyEvent.VK_M);
+	        myR.keyRelease(KeyEvent.VK_M);
+	        myR.keyPress(KeyEvent.VK_T);
+	        myR.keyRelease(KeyEvent.VK_T);
+	        myR.keyPress(KeyEvent.VK_A);
+	        myR.keyRelease(KeyEvent.VK_A);
+	        myR.keyPress(KeyEvent.VK_ENTER);
+	        myR.keyRelease(KeyEvent.VK_ENTER);MyApp.roboSequence++;
 	}
 	public static void RT14() throws AWTException {
 	}

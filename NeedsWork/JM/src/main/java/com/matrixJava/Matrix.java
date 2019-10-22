@@ -408,28 +408,39 @@ public class Matrix {
      *  Will write over all existing data
      */
     public Matrix setLinearData() {
-    	Matrix temp = this;
+	    String tmpTS  = this.creationTS;	
+		Matrix tempMx = new Matrix (mRows, nCols); 
+		tempMx.m_varName = this.m_varName;
+		double [][] B = tempMx.getArray(); 
+		
          Double value = 1.0;
          for(int i=0; i < mRows; i++) {
         	 for(int j=0; j<nCols ; j++) {
-                 temp.m_data[i][j] = value++;
+         //      temp.m_data[i][j] = value++;
+                 B[i][j] = value++;
         	 }
          }
-         this.modificationCommand = "Set Linear Data";
-		 this.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+         tempMx.modificationCommand = "Set Linear Data";
+         tempMx.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		 
-		 return temp;
+		 return tempMx;
     }
     public void setRandData() {
+	    String tmpTS  = this.creationTS;	
+		Matrix tempMx = new Matrix (mRows, nCols); 
+		tempMx.m_varName = this.m_varName;
+		double [][] B = tempMx.getArray();
+    	
+    	
+    	
     	Random rData = new Random();
         for(int i=0; i < mRows; i++) {
        	  for(int j=0; j<nCols ; j++) {
-                m_data[i][j] = rData.nextDouble();
-                
+                B[i][j] = rData.nextDouble();
        	  }
         }
-        this.modificationCommand = "Set Random Data";
-		this.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        tempMx.modificationCommand = "Set Random Data";
+		tempMx.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
 }
