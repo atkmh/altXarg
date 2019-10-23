@@ -94,6 +94,8 @@ public class StaticProcedures {
 	
 	public static void Add2ReturnNew() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
+		System.out.println("Enter name of first matrix");
+		MyApp.addendName1 = MyApp.in.nextLine();
 		System.out.println("Enter name of second matrix");
 		MyApp.addendName2 = MyApp.in.nextLine();
 		int found = 0;
@@ -122,9 +124,10 @@ public class StaticProcedures {
 				y = MyApp.runTimeALOAL.size();
 				found++;
 			} 
+		}
 	if (found > 0 && found < 2) throw new Exception("Matrix Name " +MyApp.addendName2 +" was not found in Main List");
 			
-		}
+		
 		System.out.println("number found: " + found);
 		MyApp.addendMx1.displayCompact();  // currently this is where the exception is thrown
 		MyApp.addendMx2.displayCompact();
