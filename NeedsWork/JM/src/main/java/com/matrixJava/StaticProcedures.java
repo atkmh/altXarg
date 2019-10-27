@@ -133,6 +133,8 @@ public class StaticProcedures {
 		MyApp.addendMx2.displayCompact();
 		MyApp.currentMx = MyApp.addendMx1.Add(MyApp.addendMx2);
 		MyApp.currentMx.setName(MyApp.addendName1 + "+" + MyApp.addendName2);
+		MyApp.currentMx.setModifyingCommand( MyApp.addendName1 +".Add("+MyApp.addendName2 +")  or "+MyApp.addendName1 +"+" +MyApp.addendName2 );
+		MyApp.currentMx.displayCompact();
 		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
 		mxTempArray.add(MyApp.currentMx);
 		MyApp.runTimeALOAL.add(mxTempArray);
