@@ -22,8 +22,8 @@ public class MyApp {
 	static String runTimeCommand;
 	static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
 	static Matrix currentMx, tempMx = null;
-	static String addendName1, addendName2 = null;
-	static Matrix addendMx1, addendMx2 = null;
+	static String addendName1, addendName2,factor1Name,factor2Name = null;  // 10/29/19 consider addend1Name etc.
+	static Matrix addendMx1, addendMx2, factorMx1,factorMx2= null;
 	static String currentName = null;
 	static Scanner in = new Scanner(System.in);
 	static double scalerValue;
@@ -162,7 +162,7 @@ public class MyApp {
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
                 try {
-                	StaticProcedures.Add2ReturnNew();
+                	StaticProcedures.MatrixAddition();
                 } catch (Exception e) {
                 	System.out.println("Problem Exception " +e);
                 	
@@ -173,7 +173,7 @@ public class MyApp {
 			case "subtractmx":  // Minuend - Subtrahend = Difference
 				break;
 				
-			case "multiplymx" : // Factor X Factor = product
+			case "multiplymx" :StaticProcedures.MatrixMultiply(); // Factor X Factor = product
 				break;
                              //    4  R2
                              //   | -------
@@ -187,6 +187,8 @@ public class MyApp {
 			case "showmap": case "showMap": StaticProcedures.showmap(); break;
 
 			case "showlist": StaticProcedures.showArrayListIndex(); break;
+
+			case "shownames": StaticProcedures.shownames(); break;
 			
 			case "showhist": StaticProcedures.singleMatrixHist(); break;
 
@@ -210,7 +212,7 @@ public class MyApp {
 //			case "setdata": case "set data": currentMx.setLinearData(); break;
 			case "setdata": case "set data": StaticProcedures.SetMxDataLinear(); break;
 
-			case "setrandata": currentMx.setRandData(); break;
+			case "setrandata": StaticProcedures.SetMxRandata(); break;
 		
 			case "pop": StaticProcedures.pushHistory(currentMx); break;
 
