@@ -72,12 +72,12 @@ public class StaticProcedures {
 			for (int j = 0; j < MyApp.runTimeALOAL.get(i).size(); j++) {
 				tempshowListMx = (Matrix) MyApp.runTimeALOAL.get(i).get(j);
 				System.out.println(" ----------   ");
-				System.out.println("Diminsion: "+MyApp.currentMx.mRows +"X"+MyApp.currentMx.nCols  );
+				System.out.println("Name: " +tempshowListMx.getName());
+				System.out.println("Diminsion: "+tempshowListMx.getRowDimension() +"X"+tempshowListMx.getColumnDimension()  );
 				System.out.println("Modification Command\t :" + tempshowListMx.getModCmd());
 				System.out.println("Modification TimeStamp\t :" + tempshowListMx.getModTimeStamp());
 				System.out.println("Creation Time Stamp\t :" + tempshowListMx.getCreationTimeStamp());
-			//	tempshowListMx.displayCompact();
-				System.out.println("\n ----------   ");
+				System.out.println(" ----------   ");
 			}
 		}
 	}
@@ -108,7 +108,6 @@ public class StaticProcedures {
     }
 	
 	
-//	public static void Add2ReturnNew() throws Exception {
 	public static void MatrixAddition() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
@@ -150,6 +149,7 @@ public class StaticProcedures {
 		//MyApp.addendMx2.displayCompact();
 		MyApp.currentMx = MyApp.addendMx1.Add(MyApp.addendMx2);
 		MyApp.currentMx.setName(MyApp.addendName1 + "+" + MyApp.addendName2);
+		MyApp.currentMx.setModifyingCommand("Summation: "+MyApp.addendName1 +"+"+MyApp.addendName2 );
 		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
 		mxTempArray.add(MyApp.currentMx);
 		MyApp.runTimeALOAL.add(mxTempArray);
@@ -242,8 +242,8 @@ public class StaticProcedures {
 			tempAl = MyApp.runTimeALOAL.get(x);
 			MyApp.currentMx = (Matrix) tempAl.get(0);
 			if (MyApp.currentMx.getName().equals(MyApp.currentName)) {    
-				rtALOAL_Index = x;   // set the index of the name we're looking for
-				x = MyApp.runTimeALOAL.size(); // we're done  so end the loop
+				rtALOAL_Index = x;                  // set the index of the name we're looking for
+				x = MyApp.runTimeALOAL.size();      // we're done  so end the loop
 			} else MyApp.currentMx = null;
 		}	
 		if(MyApp.currentMx == null) {
@@ -260,14 +260,14 @@ public class StaticProcedures {
 	}
 
 public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
-//	MyApp.currentMx.setLinearData();    // In my model it is supposed to
+//	                                    // In my model it is supposed to
 	if (MyApp.currentMx == null) {
 		System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
 		return;
 	}
 	MyApp.tempMx = MyApp.currentMx.setLinearData();    // In my model it is supposed to
 	MyApp.tempMx.setModifyingCommand("set Linear data" );
-
+// debug output
 //	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
 //	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
 	
@@ -307,10 +307,18 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 	public static void DisplayCurrentMatrixZ() {
 		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
 		else MyApp.currentMx.displayDeepString();
-	}	
+	}
 	
-// private static void pushHistory(String mxName, Matrix mx2store ) { 
-    public static void pushHistory(Matrix mx2store ) { 
+	
+	// *************************************************************
+    // * This is a storage process.
+	// * what ever is at the head of the array of Matrices 
+	// * needs to be replaced with what is in mx2store
+	// * mx2store now becomes the head.
+	// * newest is always the at the zeroth array index
+	// *************************************************************
+	//
+	public static void pushHistory(Matrix mx2store ) { 
     Matrix tempMx;
 	int rtALOAL_Index = 0;
 		System.out.println("Mx Names in the List");
