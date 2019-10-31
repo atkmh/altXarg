@@ -182,43 +182,49 @@ public class MyApp {
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
                              //  22/5 = 4R2
 
-			case "transpose":  break;
-
-			case "swaprow": case "swap rows": StaticProcedures.swapMxRows(); break;
-
-			case "showmap": case "showMap": StaticProcedures.showmap(); break;
-
-			case "showlist": StaticProcedures.showArrayListIndex(); break;
-			
-			case "showhist": StaticProcedures.singleMatrixHist(); break;
-
-			case "scalermult": case "devmult": StaticProcedures.MatrixScalerMultiplication(); break;
-
-			case "pick":  StaticProcedures.PickMatrixFromMainList(); break;
-
-			case "currnullcheck": case "cnc": case "currnull?":
-			case "currnull": StaticProcedures.CurrentNullCheck(); break;
-
-			case "dispm": StaticProcedures.DisplayCurrentMatrixM(); break;
-
-			case "dispc": StaticProcedures.DisplayCurrentMatrixC(); break;
-
-			case "dispz": StaticProcedures.DisplayCurrentMatrixZ(); break;
-			
-			case "ls": case "list": ProgramNotifications.TestRunTimeCommands(); break;
-
-			case "cls": ProgramNotifications.ClearScreen(); break;
-			
-//			case "setdata": case "set data": currentMx.setLinearData(); break;
-			case "setdata": case "set data": StaticProcedures.SetMxDataLinear(); break;
-
-			case "setrandata": currentMx.setRandData(); break;
-		
-			case "pop": StaticProcedures.pushHistory(currentMx); break;
-
-			case "classpath":
-				String myJCP = System.getProperty("java.class.path");
-				System.out.println(" myJCP is " + myJCP);
+			case "transpose": 	
+				break;
+			case "swaprow": 
+			case "swap rows":     StaticProcedures.swapMxRows(); 
+			    break;
+			case "showmap": 
+			case "showMap":       StaticProcedures.showmap(); 
+			    break;
+			case "showlist":      StaticProcedures.showArrayListIndex(); 
+			    break;
+			case "showhist":      StaticProcedures.singleMatrixHist(); 
+			    break;
+			case "scalermult": 
+			case "devmult":       StaticProcedures.MatrixScalerMultiplication(); 
+			    break;
+			case "pick":          StaticProcedures.PickMatrixFromMainList(); 
+			    break;
+			case "currnullcheck": 
+			case "cnc": 
+			case "currnull?":
+			case "currnull":      StaticProcedures.CurrentNullCheck(); 
+			    break;
+			case "dispm":         StaticProcedures.DisplayCurrentMatrixM(); 
+			    break;
+			case "dispc":         StaticProcedures.DisplayCurrentMatrixC(); 
+			    break;
+			case "dispz":         StaticProcedures.DisplayCurrentMatrixZ(); 
+			    break;
+			case "ls": 
+			case "list":          ProgramNotifications.TestRunTimeCommands(); 
+			    break;
+			case "cls":           ProgramNotifications.ClearScreen(); 
+			    break;
+			case "setdata": 
+			case "set data":      StaticProcedures.SetMxDataLinear(); 
+			    break;
+			case "setrandata": currentMx.setRandData(); 
+			    break;
+			case "pop":           StaticProcedures.pushHistory(currentMx); 
+			    break;
+  
+			case "classpath":     String myJCP = System.getProperty("java.class.path");
+				                  System.out.println(" myJCP is " + myJCP);
 				break;
 
 			default:
@@ -268,10 +274,8 @@ public class MyApp {
 	
 //  ROBOT TESTING Procs
 	public static void RT0() throws AWTException {
-//		Robot myR = new Robot();
 		myRobo.delay(200);
         MyApp.roboType("new");
-	//	myRobo.delay(250);
         MyApp.roboSequence++;
 	}
 
@@ -279,102 +283,69 @@ public class MyApp {
 	public static void RT1() throws AWTException {
 		myRobo.delay(200);
 		MyApp.roboType("3x4");
-	//	myRobo.delay(250);
 		MyApp.roboSequence++;
 	}
 		
 		
 	public static void RT2() throws AWTException {
-		//Robot myR = new Robot();
 		myRobo.delay(200);
 	    String mxInputVals = "3 3.017 3 9 11 19 9.0818 11 5.05 9 18";
 	    MyApp.roboType(mxInputVals);
- //       myRobo.delay(250);
         MyApp.roboSequence++;
 	}
 		
 		
+	public static void RT3() throws AWTException { MyApp.RT0(); }
 		
-	public static void RT3() throws AWTException {
-		MyApp.RT0(); 
+	public static void RT4() throws AWTException { MyApp.RT1(); }
+		
+	public static void RT5() throws AWTException { MyApp.RT2(); }
 
-	}
-		
-
-		
-	public static void RT4() throws AWTException {
-
-		MyApp.RT1();
-	}
-		
-		
-		
-	public static void RT5() throws AWTException {
-		MyApp.RT2();
-	}
-
-	public static void RT6() throws AWTException {
-	//"showmap"	
+	public static void RT6() throws AWTException { //"showmap"	
 		myRobo.delay(200);
 		MyApp.roboType("showmap");
-//		myRobo.delay(250);
         MyApp.roboSequence++;
 	}
 		
-	public static void RT7() throws AWTException {
-         MyApp.RT0();		
-	}
+	public static void RT7() throws AWTException { MyApp.RT0();	}
 
 	public static void RT8() throws AWTException {
-	//MyApp.RT2();//MyApp.roboSequence++;
-		Robot myR = new Robot();
-		myR.delay(200);
+		myRobo.delay(200);
 		MyApp.roboType("6x6");
-//		myR.delay(250);
         MyApp.roboSequence++;
 	}
 
-
 	public static void RT9() throws AWTException {// "0"
-		//Robot myR = new Robot();
 		myRobo.delay(200);
 		MyApp.roboType("0");
-//		myRobo.delay(250);
         MyApp.roboSequence++;
 	}
 
 	public static void RT10() throws AWTException {// "pick"
-		//Robot myR = new Robot();
 		myRobo.delay(200);
 		MyApp.roboType("pick");
 	    MyApp.roboSequence++;
 	}
 	public static void RT11() throws AWTException { // "C"
-		//Robot myR = new Robot();
 		myRobo.delay(200);
 		MyApp.roboType("C");
 	    MyApp.roboSequence++;
 	}
 
 	public static void RT12() throws AWTException {//" setdata"
-		//Robot myR = new Robot();
 		myRobo.delay(200);
 		MyApp.roboType("setdata");
 	    MyApp.roboSequence++;
 	}
-	public static void RT13() throws AWTException {
-		//Robot myR = new Robot();
-		//System.out.println("delay 500");
+	public static void RT13() throws AWTException {// "showmap"
 		myRobo.delay(200);
 		MyApp.roboType("showmap");
 	    MyApp.roboSequence++;
 	}
-	public static void RT14() throws AWTException {
-	}
-	public static void RT15() throws AWTException {
-	}
-	public static void RT16() throws AWTException {
-	}
+
+	public static void RT14() throws AWTException { }
+	public static void RT15() throws AWTException { }
+	public static void RT16() throws AWTException { }
 	
 	private static void roboType(String s)
 	  {
