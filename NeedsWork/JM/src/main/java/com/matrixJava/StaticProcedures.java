@@ -66,6 +66,22 @@ public class StaticProcedures {
 		}
 	}
 	
+	public static void shownames() {
+		Matrix tempshowListMx;
+		for (int i = 0; i < MyApp.runTimeALOAL.size(); i++) {
+			for (int j = 0; j < MyApp.runTimeALOAL.get(i).size(); j++) {
+				tempshowListMx = (Matrix) MyApp.runTimeALOAL.get(i).get(j);
+				System.out.println(" ----------   ");
+				System.out.println("Name: " +tempshowListMx.getName());
+				System.out.println("Diminsion: "+tempshowListMx.getRowDimension() +"X"+tempshowListMx.getColumnDimension()  );
+				System.out.println("Modification Command\t :" + tempshowListMx.getModCmd());
+				System.out.println("Modification TimeStamp\t :" + tempshowListMx.getModTimeStamp());
+				System.out.println("Creation Time Stamp\t :" + tempshowListMx.getCreationTimeStamp());
+				System.out.println(" ----------   ");
+			}
+		}
+	}
+	
 	public static void showArrayListIndex() {
 	System.out.println("");
 	System.out.println("main array size: " + MyApp.runTimeALOAL.size());
@@ -92,7 +108,7 @@ public class StaticProcedures {
     }
 	
 	
-	public static void Add2ReturnNew() throws Exception {
+	public static void MatrixAddition() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
 		MyApp.addendName1 = MyApp.in.nextLine();
@@ -129,18 +145,56 @@ public class StaticProcedures {
 			
 		
 		System.out.println("number found: " + found);
-		MyApp.addendMx1.displayCompact();  // currently this is where the exception is thrown
-		MyApp.addendMx2.displayCompact();
+		//MyApp.addendMx1.displayCompact();  // currently this is where the exception is thrown
+		//MyApp.addendMx2.displayCompact();
 		MyApp.currentMx = MyApp.addendMx1.Add(MyApp.addendMx2);
 		MyApp.currentMx.setName(MyApp.addendName1 + "+" + MyApp.addendName2);
-		MyApp.currentMx.setModifyingCommand( MyApp.addendName1 +".Add("+MyApp.addendName2 +")  or "+MyApp.addendName1 +"+" +MyApp.addendName2 );
-		MyApp.currentMx.displayCompact();
+		MyApp.currentMx.setModifyingCommand("Summation: "+MyApp.addendName1 +"+"+MyApp.addendName2 );
 		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
 		mxTempArray.add(MyApp.currentMx);
 		MyApp.runTimeALOAL.add(mxTempArray);
 
 	}	
-	
+
+	public static void MatrixMultiply() throws Exception {
+		System.out.println("We'll need the name of two Existing Matrices...");
+		System.out.println("Enter name of first matrix");
+		MyApp.factor1Name = MyApp.in.nextLine();
+		System.out.println("Enter name of second matrix");
+		MyApp.factor2Name = MyApp.in.nextLine();
+		int found = 0;	
+		
+		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
+			ArrayList tempAl = MyApp.runTimeALOAL.get(x);
+			//System.out.println("");
+			MyApp.factorMx1 =  (Matrix) tempAl.get(0);
+			if (MyApp.factorMx1.getName().equals(MyApp.factor1Name)) {// DONE , else
+				System.out.println("Debug: First Mx found at :" + x);
+				x = MyApp.runTimeALOAL.size();
+				found++;
+			}
+		}
+		if (found < 1) throw new Exception("Matrix Name " +MyApp.addendName1 +" was not found in Main List");
+		for (int y = 0; y < MyApp.runTimeALOAL.size(); y++) {
+			ArrayList tempAl = MyApp.runTimeALOAL.get(y);
+			//System.out.println("");
+			MyApp.factorMx2 = (Matrix) tempAl.get(0);
+			if (MyApp.factorMx2.getName().equals(MyApp.factor2Name)) { // DONE , else
+				System.out.println("Debug: Second Mx found at :" + y);
+				y = MyApp.runTimeALOAL.size();
+				found++;
+			} 
+		}
+	    if (found > 0 && found < 2) throw new Exception("Matrix Name " +MyApp.addendName2 +" was not found in Main List");
+		System.out.println("number found: " + found);
+		//MyApp.factorMx1.displayCompact();  // currently this is where the exception is thrown
+		//MyApp.factorMx2.displayCompact();
+		MyApp.currentMx = MyApp.factorMx1.Multiply(MyApp.factorMx2);
+		MyApp.currentMx.setName(MyApp.factor1Name + "*" + MyApp.factor2Name);
+		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
+		mxTempArray.add(MyApp.currentMx);
+		MyApp.runTimeALOAL.add(mxTempArray);	
+	}
 
 	public static void MatrixScalerMultiplication() {
 		// Check if we are pointing at a current Matrix if so, get scaler value. Echo the scaler entered multiply
@@ -188,8 +242,8 @@ public class StaticProcedures {
 			tempAl = MyApp.runTimeALOAL.get(x);
 			MyApp.currentMx = (Matrix) tempAl.get(0);
 			if (MyApp.currentMx.getName().equals(MyApp.currentName)) {    
-				rtALOAL_Index = x;   // set the index of the name we're looking for
-				x = MyApp.runTimeALOAL.size(); // we're done  so end the loop
+				rtALOAL_Index = x;                  // set the index of the name we're looking for
+				x = MyApp.runTimeALOAL.size();      // we're done  so end the loop
 			} else MyApp.currentMx = null;
 		}	
 		if(MyApp.currentMx == null) {
@@ -206,22 +260,30 @@ public class StaticProcedures {
 	}
 
 public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
-//	MyApp.currentMx.setLinearData();    // In my model it is supposed to
+//	                                    // In my model it is supposed to
 	if (MyApp.currentMx == null) {
 		System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
 		return;
 	}
 	MyApp.tempMx = MyApp.currentMx.setLinearData();    // In my model it is supposed to
 	MyApp.tempMx.setModifyingCommand("set Linear data" );
-
+// debug output
 //	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
 //	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
 	
 	StaticProcedures.pushHistory(MyApp.tempMx);
 }
 	
-	
-	
+     public static void SetMxRandata() {
+    	 if (MyApp.currentMx == null) {
+		 System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
+		 return;
+	     }
+    	 MyApp.tempMx = MyApp.currentMx.setRandData();
+    	 MyApp.tempMx.setModifyingCommand("set Random data");
+    	StaticProcedures.pushHistory(MyApp.tempMx); 
+     }
+
 	/*
 	 * ***************************************************************************
 	 * Current represents a 'Named' Matrix pulled out of the main List if Current is
@@ -245,10 +307,18 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 	public static void DisplayCurrentMatrixZ() {
 		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
 		else MyApp.currentMx.displayDeepString();
-	}	
+	}
 	
-// private static void pushHistory(String mxName, Matrix mx2store ) { 
-    public static void pushHistory(Matrix mx2store ) { 
+	
+	// *************************************************************
+    // * This is a storage process.
+	// * what ever is at the head of the array of Matrices 
+	// * needs to be replaced with what is in mx2store
+	// * mx2store now becomes the head.
+	// * newest is always the at the zeroth array index
+	// *************************************************************
+	//
+	public static void pushHistory(Matrix mx2store ) { 
     Matrix tempMx;
 	int rtALOAL_Index = 0;
 		System.out.println("Mx Names in the List");

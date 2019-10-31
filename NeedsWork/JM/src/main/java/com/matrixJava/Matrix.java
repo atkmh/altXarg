@@ -44,9 +44,11 @@ public class Matrix {
     private String modificationCommand;
 	private int mRows;
 	private int nCols;
+//	public int mRows;
+//	public int nCols;
 	private double m_data[][];  // JAMA names A
 	private String m_varName;
-	private Object dataObject;  // Sort of a place holder for the parsed dataObject that I haven't done yet.Compiles: Runs.
+//	private Object dataObject;  // Sort of a place holder for the parsed dataObject that I haven't done yet.Compiles: Runs.
 
 
 /* **************************************************
@@ -286,6 +288,19 @@ public class Matrix {
 	}	
 
 	
+	public Matrix Multiply(Matrix B) throws IllegalArgumentException {
+		Matrix A = this;
+		if (A.nCols != B.mRows) 
+			throw new IllegalArgumentException("A serous problem: Inner Matrix dimensions were not equal.  Done");
+		Matrix C = new Matrix(A.mRows, B.nCols);
+		for (int i=0; i < C.mRows; i++) 
+			for (int j=0; j < C.nCols; j++) 
+				for (int k=0; k < A.nCols; k++ )
+					C.m_data[i][j] += (A.m_data[i][k] * B.m_data[k][j]);
+		// C.m_varName = "" ;  I don't know the actual factor names. Do this in StaticProcedures
+		C.creationTS = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		return C;
+	}
 	
 
 	
@@ -425,13 +440,11 @@ public class Matrix {
 		 
 		 return tempMx;
     }
-    public void setRandData() {
+    public Matrix setRandData() {
 	    String tmpTS  = this.creationTS;	
 		Matrix tempMx = new Matrix (mRows, nCols); 
 		tempMx.m_varName = this.m_varName;
 		double [][] B = tempMx.getArray();
-    	
-    	
     	
     	Random rData = new Random();
         for(int i=0; i < mRows; i++) {
@@ -441,6 +454,7 @@ public class Matrix {
         }
         tempMx.modificationCommand = "Set Random Data";
 		tempMx.modificationTS =  new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		return tempMx;
     }
 
 }
