@@ -22,8 +22,8 @@ public class MyApp {
 	static String runTimeCommand;
 	static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
 	static Matrix currentMx, tempMx = null;
-	static String addendName1, addendName2,factor1Name,factor2Name = null;  // 10/29/19 consider addend1Name etc.
-	static Matrix addendMx1, addendMx2, factorMx1,factorMx2= null;
+	static String addendName1, addendName2,factor1Name,factor2Name, minuendName,subtrahendName = null;  // 10/29/19 consider addend1Name etc.
+	static Matrix addendMx1, addendMx2, factorMx1,factorMx2, minuMx, subtraMx= null;
 	static String currentName = null;
 	static Scanner in = new Scanner(System.in);
 	static double scalerValue;
@@ -171,6 +171,7 @@ public class MyApp {
 				break;
 			
 			case "subtractmx":  // Minuend - Subtrahend = Difference
+				StaticProcedures.MatrixSubtract();
 				break;
 				
 			case "multiplymx" :StaticProcedures.MatrixMultiply(); // Factor X Factor = product
