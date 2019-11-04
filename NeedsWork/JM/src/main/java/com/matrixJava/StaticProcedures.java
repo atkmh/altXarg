@@ -311,8 +311,8 @@ public class StaticProcedures {
 		
 	}
 
-public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return and new matrix ?
-//	                                    // In my model it is supposed to
+public static void SetMxDataLinear(String debug) {  // is SetMxDataLinear supposed to return and new matrix ?
+//	                                                // In my model it is supposed to
 	if (MyApp.currentMx == null) {
 		System.out.println("Current Matrix is not selected.  Pick-A-Matrix");
 		return;
@@ -323,7 +323,7 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 //	System.out.println("tempMx name " +MyApp.tempMx.getName() +" back from data set.");
 //	System.out.println("currentMx name " +MyApp.currentMx.getName() +" back from data set.");
 	
-	StaticProcedures.pushHistory(MyApp.tempMx);
+	StaticProcedures.pushHistory(MyApp.tempMx,debug);
 }
 	
      public static void SetMxRandata() {
@@ -333,7 +333,7 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 	     }
     	 MyApp.tempMx = MyApp.currentMx.setRandData();
     	 MyApp.tempMx.setModifyingCommand("set Random data");
-    	StaticProcedures.pushHistory(MyApp.tempMx); 
+    	StaticProcedures.pushHistory(MyApp.tempMx, debug); 
      }
 
 	/*
@@ -370,12 +370,13 @@ public static void SetMxDataLinear() {  // is SetMxDataLinear supposed to return
 	// * newest is always the at the zeroth array index
 	// *************************************************************
 	//
-	public static void pushHistory(Matrix mx2store ) { 
+	public static void pushHistory(Matrix mx2store, String debug ) { 
     Matrix tempMx;
 	int rtALOAL_Index = 0;
 		System.out.println("Mx Names in the List");
 	for (int i = 0; i < MyApp.runTimeALOAL.size(); i++) {  // look through all of the lists
 		tempMx = (Matrix) MyApp.runTimeALOAL.get(i).get(0);// get the matrix at the Head of each List
+		if (debug.length() > 0 )
 		System.out.print(tempMx.getName()+" "+i +" " +MyApp.runTimeALOAL.size() +" " );
 
 		if (mx2store.getName() == tempMx.getName()) {  //  is the tempmxName fm array same as mx name passed in

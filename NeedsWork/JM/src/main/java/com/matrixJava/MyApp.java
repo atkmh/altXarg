@@ -16,31 +16,21 @@ public class MyApp {
 
 //	static boolean mydebug = false;
 
-	// String name = null;
-	// String oppMode = null;
-
 	static String runTimeCommand;
-	static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
 	static Matrix currentMx, tempMx = null;
-	static String addendName1, addendName2,factor1Name,factor2Name, minuendName,subtrahendName = null;  // 10/29/19 consider addend1Name etc.
-	static Matrix addendMx1, addendMx2, factorMx1,factorMx2, minuMx, subtraMx= null;
 	static String currentName = null;
-	static Scanner in = new Scanner(System.in);
 	static double scalerValue;
 	static int roboSequence = 0;
 	static boolean roboSwitch = false;
 	static Robot myRobo;
+	static Scanner in = new Scanner(System.in);
 	
-//	int[] matrixDimensions = new int[2];// 2 values M&N both int
-//	double[] inputValsPassToMatrix = new double[100];// 9/19/19 I don't think this is used !!
-	// Map <String, Matrix> myHashMapListOfMatrix = new HashMap<String,Matrix>();
+	static ArrayList<ArrayList> runTimeALOAL = new ArrayList<ArrayList>();
+	static String addendName1, addendName2,factor1Name,factor2Name, minuendName,subtrahendName = null;  // 10/29/19 consider addend1Name etc.
+	static Matrix addendMx1, addendMx2, factorMx1,factorMx2, minuMx, subtraMx= null;
 
 	static int charRepToIncrement = 65;
-//	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
-
 	static char myCurChar = (char) charRepToIncrement; // So this Should equal "A"
-	// I will use String str - Character.toString( matrixMapKeyName) Actuall I'm
-	// going to chang those var names
 
 	public static void main(String[] args) throws Exception {
 		String firstArg = "";
@@ -54,24 +44,15 @@ public class MyApp {
 
 		switch (firstArg) // this switch statement only analyzes the first argument
 		{
-		case "-d":
-		case "--d":
-		case "-debug":
-		case "--debug":
-		case "-r":
-		case "--r":
-		case "-runtime":
-		case "--runtime":
+		case "-d": case "--d": case "-debug": case "--debug":
+		case "-r": case "--r": case "-runtime": case "--runtime":
 		case "null": // special case: no command line args
 
 			/* Can the following two lines be moved down to start of runtime input ??? */
 			ProgramNotifications.openingIntroduction(); // Very Brief, one line
 			break;
 
-		case "-c":
-		case "--c":
-		case "-cmdline":
-		case "--cmdline":
+		case "-c": case "--c": case "-cmdline": case "--cmdline":
 			myInputStringObj = new InputStringObj("-c", args);
 			System.out.println(myInputStringObj.getFirst());
 			System.out.println(myInputStringObj.getSecond());
@@ -85,22 +66,13 @@ public class MyApp {
 			numObjBasedMatrix_cl.displayMore();
 			break;
 
-		case "-f":
-		case "--f":
-		case "-file":
-		case "--file":
+		case "-f": case "--f": case "-file": case "--file":
 			// Parsefile();
 			// this.oppMode = "ParseFileEntry";
 			break;// could be this should be a return cuz we're handing off control...
 
-		case "-h":
-		case "--h":
-		case "-help":
-		case "--help":
-		case "-u":
-		case "--u":
-		case "-usage":
-		case "--usage":
+		case "-h": case "--h": case "-help": case "--help":
+		case "-u": case "--u": case "-usage": case "--usage":
 			Usage.UsageTerminal(" ");
 			break;
 
@@ -129,7 +101,6 @@ public class MyApp {
 		System.out.print("Let's get the first run time command: ");
 		if (roboSwitch) {
 		RT0();
-		//MyApp.roboSequence++;
 		}
 		
 		runTimeCommand = in.nextLine();
@@ -137,16 +108,6 @@ public class MyApp {
 		// runTimeCommand = runTimeCommand.toLowerCase();
 		System.out.println("");
 
-		/*
-		 * **************** Char setup A, B, C to be the matrix Names
-		 ********/
-
-//	   int charRepToIncrement = 65; 
-//	   char matrixMapKeyName = (char)charRepToIncrement;   // So this Should equal "A"
-
-//	   char myCurChar = (char)charRepToIncrement;   // So this Should equal "A"
-		// I will use String str - Character.toString( matrixMapKeyName) Actuall I'm
-		// going to chang those var names
 
 		while (!runTimeCommand.contentEquals("quit") 
 				&& !runTimeCommand.contentEquals("q")
@@ -182,13 +143,13 @@ public class MyApp {
                              //   | -------
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
                              //  22/5 = 4R2
+			case "determinant": break;
 			case "transpose": 	
 				break;
 			case "swaprow": 
 			case "swap rows":     StaticProcedures.swapMxRows(); 
 			    break;
-			case "showmap": 
-			case "showMap":       StaticProcedures.showmap(); 
+			case "showmap":       StaticProcedures.showmap(); 
 			    break;
 			case "showlist":      StaticProcedures.showArrayListIndex(); 
 			    break;
@@ -196,8 +157,7 @@ public class MyApp {
 			    break;
 			case "showhist":      StaticProcedures.singleMatrixHist(); 
 			    break;
-			case "scalermult": 
-			case "devmult":       StaticProcedures.MatrixScalerMultiplication(); 
+			case "scalermult":    StaticProcedures.MatrixScalerMultiplication(); 
 			    break;
 			case "pick":          StaticProcedures.PickMatrixFromMainList(); 
 			    break;
@@ -218,11 +178,13 @@ public class MyApp {
 			case "cls":           ProgramNotifications.ClearScreen(); 
 			    break;
 			case "setdata": 
-			case "set data":      StaticProcedures.SetMxDataLinear(); 
+			case "set data":      StaticProcedures.SetMxDataLinear(""); // sending null 
+			    break;
+			case "setdatad":	  StaticProcedures.SetMxDataLinear("debug");// sending debugg 
 			    break;
 			case "setrandata":    StaticProcedures.SetMxRandata(); 
 			    break;
-			case "pop":           StaticProcedures.pushHistory(currentMx); 
+			case "pop":           StaticProcedures.pushHistory(currentMx, "");// sending null  
 			    break;
   
 			case "classpath":     String myJCP = System.getProperty("java.class.path");
