@@ -247,22 +247,23 @@ public class Matrix {
 	}
 
 //	public static void Subtract( ) {  // Sub for Subtract
-	public void Subtract( ) {  // Sub for Subtract
-		System.out.println("We are inside the Matrix.Sub() method");
+	public Matrix Subtract(Matrix B ) {  // Sub for Subtract
+		checkMxDims(B); // are rows and cols the same ?i
+		Matrix A = this; // just makes it easer to write the equation
+		Matrix X = new Matrix(mRows, nCols);
+		double [][] C = X.getArray();
+		for (int i=0; i < mRows; i++)
+            for (int j=0 ; j < nCols; j++)
+            	X.m_data [i][j] = A.m_data[i][j] - B.m_data[i][j];
+		
+		return X;
 	}
 
-/*	******  Get back to this.  Starting with Scalar 
-	public void Multply(Matrix B ) {  // Mult for multiply
-	     if ( B.M != this.nCols ) { 
-	    	 System.out.println);//illegal operation on given matrices 
-		       System.out.println("We are inside the Matrix.Sub() method");
-	      }
-	}
-*******  Get back to this.  Starting with Scalar */
+
 
 	/* *******************************************************************
 	 * Because I"m Performing Ax = B  we know the dimensions
-	 * of A, hence Be will have the same
+	 * of A, hence B will have the same
 	 * 
 	 * @input x is a scalar to multiply against current Matrix
 	 * @output Matrix, B.  Result of Ax = B

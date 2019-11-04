@@ -144,7 +144,7 @@ public class StaticProcedures {
 	if (found > 0 && found < 2) throw new Exception("Matrix Name " +MyApp.addendName2 +" was not found in Main List");
 			
 		
-		System.out.println("number found: " + found);
+		//System.out.println("number found: " + found);
 		//MyApp.addendMx1.displayCompact();  // currently this is where the exception is thrown
 		//MyApp.addendMx2.displayCompact();
 		MyApp.currentMx = MyApp.addendMx1.Add(MyApp.addendMx2);
@@ -153,9 +153,61 @@ public class StaticProcedures {
 		ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
 		mxTempArray.add(MyApp.currentMx);
 		MyApp.runTimeALOAL.add(mxTempArray);
-
 	}	
 
+    public static void MatrixSubtract() throws Exception {// Minuend - Subtrahend = Difference
+		System.out.println("We'll need the name of two Existing Matrices...");
+		System.out.println("Enter name of first matrix");
+		MyApp.minuendName = MyApp.in.nextLine();
+		System.out.println("Enter name of second matrix");
+		MyApp.subtrahendName = MyApp.in.nextLine();
+		int found = 0;	
+    	
+		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
+			ArrayList tempAl = MyApp.runTimeALOAL.get(x);
+			System.out.println("");
+			MyApp.minuMx = (Matrix) tempAl.get(0);
+			if (MyApp.minuMx.getName().equals(MyApp.minuendName)) {// DONE , else
+				System.out.println("Debug: First Mx found at :" + x);
+				x = MyApp.runTimeALOAL.size();
+				found++;
+			}
+		} 
+		
+		if (found < 1) throw new Exception("Matrix Name " +MyApp.minuendName +" was not found in Main List");
+		
+		for (int y = 0; y < MyApp.runTimeALOAL.size(); y++) {
+			ArrayList tempAl = MyApp.runTimeALOAL.get(y);
+			System.out.println("");
+			MyApp.subtraMx = (Matrix) tempAl.get(0);
+			if (MyApp.subtraMx.getName().equals(MyApp.subtrahendName)) { // DONE , else
+				System.out.println("Debug: Second Mx found at :" + y);
+				y = MyApp.runTimeALOAL.size();
+				found++;
+			} 
+		}
+	if (found > 0 && found < 2) throw new Exception("Matrix Name " +MyApp.addendName2 +" was not found in Main List");
+		
+	//System.out.println("number found: " + found);
+	//MyApp.addendMx1.displayCompact();  // currently this is where the exception is thrown
+	//MyApp.addendMx2.displayCompact();
+	MyApp.currentMx = MyApp.minuMx.Subtract(MyApp.subtraMx);
+	MyApp.currentMx.setName(MyApp.minuendName + "-" + MyApp.subtrahendName);
+	MyApp.currentMx.setModifyingCommand("Difference: "+MyApp.minuendName +"+"+MyApp.subtrahendName );
+	ArrayList<Matrix> mxTempArray = new ArrayList<Matrix>();
+	mxTempArray.add(MyApp.currentMx);
+	MyApp.runTimeALOAL.add(mxTempArray);	
+    }
+    
+    
+	
+    
+    
+    
+    
+    
+    
+    
 	public static void MatrixMultiply() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
