@@ -200,14 +200,6 @@ public class StaticProcedures {
     }
     
     
-	
-    
-    
-    
-    
-    
-    
-    
 	public static void MatrixMultiply() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
@@ -333,9 +325,31 @@ public static void SetMxDataLinear(String debug) {  // is SetMxDataLinear suppos
 	     }
     	 MyApp.tempMx = MyApp.currentMx.setRandData();
     	 MyApp.tempMx.setModifyingCommand("set Random data");
-    	StaticProcedures.pushHistory(MyApp.tempMx, debug); 
+    	StaticProcedures.pushHistory(MyApp.tempMx, ""); // "" represents Null debug string
      }
-
+    
+    public static void alterRowByScalerValue() {
+    	
+    	
+   
+    
+    }
+     
+    public static void alterRowByAddingModifiedRow() throws AWTException {
+    	RowOperation rowOperation = new RowOperation();
+        System.out.println("Pick the Matrix");
+        PickMatrixFromMainList();
+        DisplayCurrentMatrixC();
+        rowOperation.PrepRowScalerForAddToRow();
+        MyApp.tempMx = rowOperation.RsltRowAddedToSrcRowMultbyScaler(MyApp.currentMx);
+    
+    	MyApp.tempMx.setModifyingCommand(MyApp.tempMx.getRowOpp());
+        StaticProcedures.pushHistory(MyApp.tempMx,""); // "" is passing a null char as debut
+        // Modifyts
+        // ModCmd
+    
+    }
+     
 	/*
 	 * ***************************************************************************
 	 * Current represents a 'Named' Matrix pulled out of the main List if Current is
@@ -362,13 +376,11 @@ public static void SetMxDataLinear(String debug) {  // is SetMxDataLinear suppos
 	}
 	
 	
-	// *************************************************************
-    // * This is a storage process.
-	// * what ever is at the head of the array of Matrices 
-	// * needs to be replaced with what is in mx2store
-	// * mx2store now becomes the head.
+	// ********************************************************************************
+    // * This is a storage process.  what ever is at the head of the array of Matrices 
+	// * needs to be replaced with what is in mx2store* mx2store now becomes the head.
 	// * newest is always the at the zeroth array index
-	// *************************************************************
+	// ********************************************************************************
 	//
 	public static void pushHistory(Matrix mx2store, String debug ) { 
     Matrix tempMx;

@@ -40,6 +40,7 @@ public class Matrix {
 	 *  modificaitonTC: "HEAD" or a time stamp *  HEAD Means it is most recent
 	 *  TimeStamp refers to the time it was changed *  and a new HEAD took it's place
 	 */
+	private String rowOperations;
 	private String modificationTS;
     private String modificationCommand;
 	private int mRows;
@@ -391,6 +392,18 @@ public class Matrix {
 	public void setModifyingCommand (String str) {
 		this.modificationCommand = str;
 	}
+	
+	public void setRowOperation (String str) {
+		this.rowOperations = str;
+	}
+	
+	public void setModTimeStamp() {
+		this.modificationTS = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+	}
+	
+    public String getRowOpp() {
+    	return rowOperations;
+    }
 	
 	public String getModCmd() {
 		return modificationCommand;

@@ -124,13 +124,8 @@ public class MyApp {
 
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
-                try {
-                	StaticProcedures.MatrixAddition();
-                } catch (Exception e) {
-                	System.out.println("Problem Exception " +e);
-                	
-                }
-				
+                try { StaticProcedures.MatrixAddition();
+                } catch (Exception e) { System.out.println("Problem Exception " +e); }
 				break;
 			
 			case "subtractmx":  // Minuend - Subtrahend = Difference
@@ -143,6 +138,43 @@ public class MyApp {
                              //   | -------
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
                              //  22/5 = 4R2
+		/*   
+		 * Row Lever Operations 
+		 */		
+				
+				
+			case "row": StaticProcedures.alterRowByAddingModifiedRow(); 
+			/*	
+				         System.out.println("Pick the Matrix"); 
+                         StaticProcedures.PickMatrixFromMainList(); 
+			             StaticProcedures.DisplayCurrentMatrixC();  
+			             
+			             RowOperation thisOperation = new RowOperation();
+
+                        // thisOperation.PrepRowAndScaler(); 
+			             thisOperation.PrepRowScalerForAddToRow();
+			            // tempMx = thisOperation.RsltRowMultbyScaler(currentMx);
+			             tempMx = thisOperation.RsltRowAddedToSrcRowMultbyScaler(currentMx);
+            */
+			            
+
+			   /*       thisOperation.RowPrepScalerForAddToRow();     */
+			   /*       tempMx = thisOperation.RowOpsMultNonZeroConstAdd2Row()     */
+			            
+			/*            tempMx.displayCompact(); */
+//                         System.out.println(thisOperation.rowActedUpon);
+//                         System.out.println(thisOperation.sourceRow);
+//                         System.out.println(thisOperation.scalertoApply);
+//                         System.out.println(thisOperation.strAct);
+				                   
+				                  
+				                   
+		        break;
+				
+				
+				
+
+				
 			case "determinant": break;
 			case "transpose": 	
 				break;
@@ -246,14 +278,14 @@ public class MyApp {
 	
 	public static void RT1() throws AWTException {
 		myRobo.delay(200);
-		MyApp.roboType("3x4");
+		MyApp.roboType("4x3");
 		MyApp.roboSequence++;
 	}
 		
 		
 	public static void RT2() throws AWTException {
 		myRobo.delay(200);
-	    String mxInputVals = "3 3.017 3 9 11 19 9.0818 11 5.05 9 18";
+	    String mxInputVals = "1 3 4 2 -1 1 3 2 5 5 15 20";
 	    MyApp.roboType(mxInputVals);
         MyApp.roboSequence++;
 	}
