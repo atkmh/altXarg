@@ -77,6 +77,11 @@ public class RowOperation {
        double [][] C = newMx.getArray();
        for (int x=0; x < C[this.resultantRow].length; x++ ) 
        	C[this.resultantRow][x] = C[this.resultantRow][x] * scalertoApply;
+       
+       String thisRowOperation;
+       thisRowOperation = "R"+resultantRow+"<-R"+resultantRow+"*"+scalertoApply ;
+       newMx.setRowOperation(thisRowOperation);
+       newMx.setModTimeStamp();
        return newMx;	
    }
 
@@ -87,9 +92,11 @@ public class RowOperation {
        double [][] C = newMx.getArray();
        double tempRowCpy[] = new double[ C[sourceRow].length ];
        
+       // get a copy of the source row and multiply by the scaler
        for (int x=0; x < C[sourceRow].length; x++ ) 
     	   tempRowCpy[x] = ( C[sourceRow][x] )*scalertoApply;
-       
+
+      // Add the scaler modified source row to the resultant row 
        for (int x=0 ; x < tempRowCpy.length ; x++ )
            C[resultantRow][x] = C[resultantRow][x] + tempRowCpy[x];
       

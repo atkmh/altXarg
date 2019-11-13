@@ -328,10 +328,16 @@ public static void SetMxDataLinear(String debug) {  // is SetMxDataLinear suppos
     	StaticProcedures.pushHistory(MyApp.tempMx, ""); // "" represents Null debug string
      }
     
-    public static void alterRowByScalerValue() {
-    	
-    	
+    public static void alterRowByScalerValue() throws AWTException {
+    	RowOperation rowOperation = new RowOperation();
+        System.out.println("Pick the Matrix");
+        PickMatrixFromMainList();
+        DisplayCurrentMatrixC();
+        rowOperation.PrepRowAndScaler();
+        MyApp.tempMx = rowOperation.RsltRowMultbyScaler(MyApp.currentMx);
    
+    	MyApp.tempMx.setModifyingCommand(MyApp.tempMx.getRowOpp());
+        StaticProcedures.pushHistory(MyApp.tempMx,""); // "" is passing a null char as debut
     
     }
      

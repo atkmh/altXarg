@@ -142,38 +142,21 @@ public class MyApp {
 		 * Row Lever Operations 
 		 */		
 				
-				
 			case "row": StaticProcedures.alterRowByAddingModifiedRow(); 
-			/*	
-				         System.out.println("Pick the Matrix"); 
-                         StaticProcedures.PickMatrixFromMainList(); 
-			             StaticProcedures.DisplayCurrentMatrixC();  
-			             
-			             RowOperation thisOperation = new RowOperation();
-
-                        // thisOperation.PrepRowAndScaler(); 
-			             thisOperation.PrepRowScalerForAddToRow();
-			            // tempMx = thisOperation.RsltRowMultbyScaler(currentMx);
-			             tempMx = thisOperation.RsltRowAddedToSrcRowMultbyScaler(currentMx);
-            */
-			            
-
-			   /*       thisOperation.RowPrepScalerForAddToRow();     */
-			   /*       tempMx = thisOperation.RowOpsMultNonZeroConstAdd2Row()     */
-			            
-			/*            tempMx.displayCompact(); */
-//                         System.out.println(thisOperation.rowActedUpon);
-//                         System.out.println(thisOperation.sourceRow);
-//                         System.out.println(thisOperation.scalertoApply);
-//                         System.out.println(thisOperation.strAct);
-				                   
-				                  
-				                   
 		        break;
+		//  Rn<-Rn+(Rx*scaler)	
+			case "R<R+R*S" :
+			case "RRRS":
+			case "rrrs":
+				StaticProcedures.alterRowByAddingModifiedRow(); 
+				break;
 				
-				
-				
-
+		// Rn<-Rn*Scaler		
+			case "R<R*S":
+			case "RRS ":
+			case "rrs":
+				StaticProcedures.alterRowByScalerValue(); 
+				break;
 				
 			case "determinant": break;
 			case "transpose": 	
@@ -181,7 +164,8 @@ public class MyApp {
 			case "swaprow": 
 			case "swap rows":     StaticProcedures.swapMxRows(); 
 			    break;
-			case "showmap":       StaticProcedures.showmap(); 
+			case "showmap": 
+			case "map":           StaticProcedures.showmap(); 
 			    break;
 			case "showlist":      StaticProcedures.showArrayListIndex(); 
 			    break;
@@ -200,7 +184,8 @@ public class MyApp {
 			    break;
 			case "dispm":         StaticProcedures.DisplayCurrentMatrixM(); 
 			    break;
-			case "dispc":         StaticProcedures.DisplayCurrentMatrixC(); 
+			case "dispc":         
+			case "show":          StaticProcedures.DisplayCurrentMatrixC(); 
 			    break;
 			case "dispz":         StaticProcedures.DisplayCurrentMatrixZ(); 
 			    break;
