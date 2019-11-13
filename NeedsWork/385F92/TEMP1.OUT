@@ -1,0 +1,35 @@
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C3E-12EB
+ Directory of C:\dev\mark\385F92\temp1
+
+.              <DIR>        09-03-97  1:49p .
+..             <DIR>        09-03-97  1:49p ..
+X~1      NSE            76  04-30-97  4:39p X.NSE_DEPINFO
+X~1      MAK         4,411  04-30-97  4:39p X.MAKEXSTATE
+UNSAFE~1 H           1,543  04-30-97  4:39p UNSAFEARRAY.H
+UNSAFE~1 CC          1,787  04-30-97  4:39p UNSAFEARRAY.CC
+THING    H             533  04-30-97  4:39p THING.H
+THING    CC             41  04-30-97  4:39p THING.CC
+TEST     CCC         3,510  04-30-97  4:39p TEST.CCC
+SEQUENCE H             830  04-30-97  4:39p SEQUENCE.H
+SEQUENCE CC          1,987  04-30-97  4:39p SEQUENCE.CC
+SAFEAR~1 H           1,298  04-30-97  4:39p SAFEARRAY.H
+SAFEAR~1 CC          1,139  04-30-97  4:39p SAFEARRAY.CC
+MYTYPES  H             104  04-30-97  4:39p MYTYPES.H
+ERROR    H              91  04-30-97  4:39p ERROR.H
+ERROR    CC            173  04-30-97  4:39p ERROR.CC
+EQUATA~1 H             381  04-30-97  4:39p EQUATABLETHING.H
+EQUATA~1 CC             59  04-30-97  4:39p EQUATABLETHING.CC
+COMPLEX  H             956  04-30-97  4:39p COMPLEX.H
+COMPLEX  CC          1,063  04-30-97  4:39p COMPLEX.CC
+COMPAR~1 H             583  04-30-97  4:39p COMPARABLETHING.H
+COMPAR~1 CC             61  04-30-97  4:39p COMPARABLETHING.CC
+CHARAC~1 H             908  04-30-97  4:39p CHARACTER.H
+CHARAC~1 CC            135  04-30-97  4:39p CHARACTER.CC
+AUTOAR~1 H             933  04-30-97  4:39p AUTOARRAY.H
+AUTOAR~1 CC            553  04-30-97  4:39p AUTOARRAY.CC
+ARRAY    H             762  04-30-97  4:39p ARRAY.H
+ARRAY    CC            744  04-30-97  4:39p ARRAY.CC
+        26 file(s)         24,661 bytes
+         2 dir(s)      74,072,064 bytes free

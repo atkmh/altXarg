@@ -1,1 +1,42 @@
 -c 6x5 2.2 3 4  5 5  5.555 6 0.7 8.88 9.0 10.0001
+
+
+
+5 8 1  
+0 2 1
+4 3 -1
+
+R1<R1*0.2
+
+R3<R3+R1*-4
+R2<R2*1/2
+R3<R3+R2*3.4
+R3<R3*-10
+R3 < R3*-10
+R2< R2+R3*-0.5
+R1<R1+R3*-0.2
+R1<R1+R2*-1.6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The determinant of a square matrix A has the following properties:
+ If any row or any column of A is zero, then det (A) = 0.
+ The determinant of A is multiplied by  if the entries of any one row (or any one column) of A are all multiplied by .
+ The determinant of A is unchanged if the entries in one row (respectively, column) are added to those in another row (respectively, column).
+ The determinant of A equals the determinant of AT.
+ The determinant of A is multiplied by - 1 if any two rows (respectively, columns) are exchanged.
+Also, for any square matrices A and B, we have det (AB) = det(A) det(B).

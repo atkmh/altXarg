@@ -1,0 +1,44 @@
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C3E-12EB
+ Directory of C:\dev\mark\385F92\wkdir
+
+.              <DIR>        09-03-97  1:49p .
+..             <DIR>        09-03-97  1:49p ..
+X~1      NSE           150  04-30-97  4:43p X.NSE_DEPINFO
+X~1      MAK         6,117  04-30-97  4:43p X.MAKEXSTATE
+UNSAFE~1 H           1,543  04-30-97  4:43p UNSAFEARRAY.H
+UNSAFE~1 CC          1,787  04-30-97  4:43p UNSAFEARRAY.CC
+THING    H             533  04-30-97  4:43p THING.H
+THING    CC             41  04-30-97  4:43p THING.CC
+TEST     CC          3,700  04-30-97  4:43p TEST.CC
+SET      H           3,032  04-30-97  4:43p SET.H
+SET      CC          1,627  04-30-97  4:43p SET.CC
+SEQ      H             716  04-30-97  4:43p SEQ.H
+SEQ      CC          1,846  04-30-97  4:43p SEQ.CC
+SAFEAR~1 H           1,298  04-30-97  4:43p SAFEARRAY.H
+SAFEAR~1 CC          1,139  04-30-97  4:43p SAFEARRAY.CC
+PP       CC          1,423  04-30-97  4:43p PP.CC
+ORDBUNCH H             349  04-30-97  4:43p ORDBUNCH.H
+ORDBUNCH CC            511  04-30-97  4:43p ORDBUNCH.CC
+MYTYPES  H             104  04-30-97  4:43p MYTYPES.H
+MAKEFILE               418  04-30-97  4:43p MAKEFILE
+MAKE     XX            361  04-30-97  4:43p MAKE.XX
+ERROR    H              91  04-30-97  4:43p ERROR.H
+ERROR    CC            173  04-30-97  4:43p ERROR.CC
+EQTHING  H             325  04-30-97  4:43p EQTHING.H
+EQTHING  CC             45  04-30-97  4:43p EQTHING.CC
+COMPTH~1 H             502  04-30-97  4:43p COMPTHING.H
+COMPTH~1 CC             49  04-30-97  4:43p COMPTHING.CC
+COMPLEX  H             914  04-30-97  4:43p COMPLEX.H
+COMPLEX  CC          1,063  04-30-97  4:43p COMPLEX.CC
+CHARAC~1 H             872  04-30-97  4:43p CHARACTER.H
+CHARAC~1 CC            135  04-30-97  4:43p CHARACTER.CC
+BUNCH    H             777  04-30-97  4:43p BUNCH.H
+BUNCH    CC          2,132  04-30-97  4:43p BUNCH.CC
+AUTOAR~1 H             933  04-30-97  4:43p AUTOARRAY.H
+AUTOAR~1 CC            553  04-30-97  4:43p AUTOARRAY.CC
+ARRAY    H             762  04-30-97  4:43p ARRAY.H
+ARRAY    CC            744  04-30-97  4:43p ARRAY.CC
+        35 file(s)         36,765 bytes
+         2 dir(s)      74,080,256 bytes free

@@ -1,0 +1,1 @@
+#makefile#written by Richard Gordon entered by M.H.Atkinson (atkmh)testcomplex: testcomplex.o complex.o	g++ testcomplex.o complex.o -o testcomplextestcomplex.o: testcomplex.cc complex.h	g++ -g -c testcomplex.cc -o testcomplex.ocomplex.o: complex.cc complex.h	g++ -g -c complex.cc -o complex.oclean:	rm -f testcomplex testcomplex.o complex.o	rm -f *~

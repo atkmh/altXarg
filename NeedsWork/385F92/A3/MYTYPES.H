@@ -1,0 +1,1 @@
+// mytypes.h 10/20/92#ifndef MYTYPES_H#define MYTYPES_Htypedef enum {FALSE, TRUE} boolean;#endif

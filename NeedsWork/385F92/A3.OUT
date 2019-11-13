@@ -1,0 +1,37 @@
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C3E-12EB
+ Directory of C:\dev\mark\385F92\a3
+
+.              <DIR>        09-03-97  1:49p .
+..             <DIR>        09-03-97  1:49p ..
+X~1      NSE           152  04-30-97  4:37p X.NSE_DEPINFO
+X~1      MAK         3,320  04-30-97  4:37p X.MAKEXSTATE
+UNSAFE~1 H           1,531  04-30-97  4:37p UNSAFEARRAY.H
+UNSAFE~1 CC          1,780  04-30-97  4:37p UNSAFEARRAY.CC
+TEMPTEST CC          1,215  04-30-97  4:37p TEMPTEST.CC
+SET      H           1,538  04-30-97  4:37p SET.H
+SET      CC          2,856  04-30-97  4:37p SET.CC
+SEQUENCE H             489  04-30-97  4:37p SEQUENCE.H
+SEQUENCE CC          1,195  04-30-97  4:37p SEQUENCE.CC
+SAFEAR~1 H           1,278  04-30-97  4:37p SAFEARRAY.H
+SAFEAR~1 CC          1,139  04-30-97  4:37p SAFEARRAY.CC
+ORDBUNCH H             964  04-30-97  4:37p ORDBUNCH.H
+ORDBUNCH CC          1,117  04-30-97  4:37p ORDBUNCH.CC
+MYTYPES  H             104  04-30-97  4:37p MYTYPES.H
+MAKEFILE               324  04-30-97  4:37p MAKEFILE
+ERROR    H              91  04-30-97  4:37p ERROR.H
+ERROR    CC            173  04-30-97  4:37p ERROR.CC
+CHARAR~1 H             456  04-30-97  4:37p CHARARRAYASST.H
+CHARAR~1 CC             57  04-30-97  4:37p CHARARRAYASST.CC
+CHARAR~2 H             585  04-30-97  4:37p CHARARRAY.H
+CHARAR~2 CC            920  04-30-97  4:37p CHARARRAY.CC
+BUNCH    H           1,027  04-30-97  4:37p BUNCH.H
+BUNCH    CC          2,175  04-30-97  4:37p BUNCH.CC
+AUTOAR~1 H             864  04-30-97  4:37p AUTOARRAY.H
+AUTOAR~1 CC            661  04-30-97  4:37p AUTOARRAY.CC
+ASSN                 5,103  04-30-97  4:37p ASSN
+ASSIGN~1 V2            919  04-30-97  4:38p ASSIGNMENT.V2
+ASIGN3   CC          1,779  04-30-97  4:38p ASIGN3.CC
+        28 file(s)         33,812 bytes
+         2 dir(s)      74,088,448 bytes free
