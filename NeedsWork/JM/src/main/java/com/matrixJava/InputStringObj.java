@@ -60,14 +60,15 @@ public class InputStringObj {
 		if(MyApp.roboSwitch)	
 			switch(MyApp.roboSequence) {
 			case 1 : 
-				MyApp.RT1(); //MyApp.roboSequence++;// '3x4 <enter>' 
+				MyApp.RT1(); // '3x4 <enter>' 
 				break;
 		
 			case 4 : 
-				MyApp.RT4(); //MyApp.roboSequence++;
+//				MyApp.RT4(); 
+				MyApp.RT1a();
 				break;
 			case 8 : 
-				MyApp.RT8(); //MyApp.roboSequence++;
+				MyApp.RT8(); 
 				break;
 				
 			default: System.out.println("NoRoboSequence Left : Seq Val "+MyApp.roboSequence);
@@ -84,8 +85,13 @@ public class InputStringObj {
 
 			if(MyApp.roboSwitch)	
 			switch(MyApp.roboSequence) {
-			case 2: case 5: 
-				MyApp.RT2(); //MyApp.roboSequence++;
+		  //case 2: case 5: * previously case 2 and 5 did the same thing.
+			case 2: 
+				MyApp.RT2(); 
+				break;
+
+			case 5: 
+				MyApp.RT2a();
 				break;
 			case 9:
 				MyApp.RT9();break;

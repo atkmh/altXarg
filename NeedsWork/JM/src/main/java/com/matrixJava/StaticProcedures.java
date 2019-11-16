@@ -381,6 +381,23 @@ public static void SetMxDataLinear(String debug) {  // is SetMxDataLinear suppos
 		else MyApp.currentMx.displayDeepString();
 	}
 	
+	public static void DisplayCurrentMatrixExp1(){
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayExperimental1();
+	}
+	
+	public static void DisplayCurrentMatrixExp2(){
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayExperimental2();
+	}
+	public static void DisplayCurrentMatrixExp3(){
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayExperimental3();
+	}
+	public static void DisplayCurrentMatrixExpx(){
+		if (MyApp.currentMx == null) System.out.println("No Matrix currently selected");
+		else MyApp.currentMx.displayExperimentalx();
+	}
 	
 	// ********************************************************************************
     // * This is a storage process.  what ever is at the head of the array of Matrices 

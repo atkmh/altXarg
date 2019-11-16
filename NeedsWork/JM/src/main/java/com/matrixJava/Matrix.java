@@ -341,7 +341,115 @@ public class Matrix {
             } System.out.println();
         }System.out.println("");
 	}
-	/**
+	
+   public void displayExperimental1() {
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
+		System.out.println("Modification Command: "+this.modificationCommand);
+		
+		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
+        for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                System.out.printf("%7.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+            } System.out.println();
+        } System.out.println("");
+   }
+   public void displayExperimental2() {
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
+		System.out.println("Modification Command: "+this.modificationCommand);
+		
+		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
+        for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                System.out.printf("%9.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+            } System.out.println();
+        } System.out.println("");
+   }	
+   public void displayExperimental3() {
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
+		System.out.println("Modification Command: "+this.modificationCommand);
+		
+		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
+        for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                System.out.printf("%9.4f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+            } System.out.println();
+        } System.out.println("");
+   }	
+   
+   public void displayExperimentalx() {
+	    int maxValChars = 0;
+	    double mDataValue = 0;
+		System.out.println("Diminsion: "+mRows +"X"+nCols);
+		System.out.println("Modification Command: "+this.modificationCommand);
+		
+		if (this.m_varName == null)  System.out.println("Matrix: \"Unnamed\"");  
+		else  System.out.println("Matrix: " +this.m_varName);
+    
+		for (int i = 0; i < mRows; i++) 
+            for (int j = 0; j < nCols; j++) {
+            	mDataValue=m_data[i][j];
+            	if (mDataValue >= 1 && mDataValue <=99 ) { 
+            		if (2>maxValChars) { maxValChars = 2;	
+            		System.out.print("=2");}
+            		}
+            	if (mDataValue >= 99 && mDataValue <=999 ) { 
+            		if (3>maxValChars) { maxValChars = 3;	
+            		System.out.print("=3");}
+            		}
+            	if (mDataValue >= 999 && mDataValue <=9999 ) { 
+            		if (4>maxValChars) { maxValChars = 4;	
+            		System.out.print("=4");}
+            		}
+            	if (mDataValue >= 9999 && mDataValue <=99999  ) { 
+            		if (5>maxValChars) { maxValChars = 5;	
+            		System.out.print("=5");}
+            		}
+            	if (mDataValue >= 99999 && mDataValue <=999999  ) { 
+            		if (6>maxValChars) { maxValChars = 6;	
+            		System.out.print("=6");}
+            		}
+            	if (mDataValue >= 999999 && mDataValue <=9999999  ) { 
+            		if (7>maxValChars) { maxValChars = 7;	
+            		System.out.print("=7");}
+            		}
+            }
+		System.out.println();	
+		for (int i = 0; i < mRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                switch (maxValChars) {
+                case 1:
+                	System.out.printf("%5.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 2:
+                	System.out.printf("%5.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 3:
+                	System.out.printf("%7.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 4:
+                	System.out.printf("%8.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 5:
+                	System.out.printf("%9.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 6:
+                	System.out.printf("%10.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                case 7:
+                	System.out.printf("%12.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                	break;
+                default:
+                	System.out.printf("%5.2f   ", m_data[i][j] );// or "%9.4f ", data[i][j]
+                }
+            } System.out.println();
+        } System.out.println("");
+   }	
+   
+   
+   /**
 	 * Get row dimension.
 	 * @return m, the number of rows.
 	 */

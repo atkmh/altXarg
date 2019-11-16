@@ -122,18 +122,22 @@ public class MyApp {
                 StaticProcedures.newMatrix();
                 break; 
 
+			case "addmx": // Addend + Addend = sum
 			case "add2mx": // Addend + Addend = sum
 				           // really should be Add2PutSumAway
                 try { StaticProcedures.MatrixAddition();
                 } catch (Exception e) { System.out.println("Problem Exception " +e); }
 				break;
 			
+			case "submx":  // Minuend - Subtrahend = Difference
 			case "subtractmx":  // Minuend - Subtrahend = Difference
 				StaticProcedures.MatrixSubtract();
 				break;
 				
+			case "mmx":
 			case "multiplymx" :StaticProcedures.MatrixMultiply(); // Factor X Factor = product
-				break;
+				break; // bug 11/13/19 does not put the modification explanation at mult time.`:w
+				
                              //    4  R2
                              //   | -------
 			case "division": //  5| 22       5 Divisor  22 Dividend  4Quotient  2 Remainder
@@ -185,6 +189,8 @@ public class MyApp {
 			case "dispm":         StaticProcedures.DisplayCurrentMatrixM(); 
 			    break;
 			case "dispc":         
+			case "showit":
+			case "showme":
 			case "show":          StaticProcedures.DisplayCurrentMatrixC(); 
 			    break;
 			case "dispz":         StaticProcedures.DisplayCurrentMatrixZ(); 
@@ -201,7 +207,13 @@ public class MyApp {
 			    break;
 			case "setrandata":    StaticProcedures.SetMxRandata(); 
 			    break;
-			case "pop":           StaticProcedures.pushHistory(currentMx, "");// sending null  
+			case "pop":          StaticProcedures.DisplayCurrentMatrixExp1();  
+			    break;
+			case "popp":          StaticProcedures.DisplayCurrentMatrixExp2();  
+			    break;
+			case "poppp":          StaticProcedures.DisplayCurrentMatrixExp3();  
+			    break;
+			case "popx":          StaticProcedures.DisplayCurrentMatrixExpx();  
 			    break;
   
 			case "classpath":     String myJCP = System.getProperty("java.class.path");
@@ -266,6 +278,12 @@ public class MyApp {
 		MyApp.roboType("4x3");
 		MyApp.roboSequence++;
 	}
+	public static void RT1a() throws AWTException {
+		myRobo.delay(200);
+		MyApp.roboType("4x6");
+		MyApp.roboSequence++;
+	}
+		
 		
 		
 	public static void RT2() throws AWTException {
@@ -275,12 +293,18 @@ public class MyApp {
         MyApp.roboSequence++;
 	}
 		
-		
+	public static void RT2a() throws AWTException {
+		myRobo.delay(200);
+	    String mxInputVals = "1 3 4 1 0 0 2 -1 1 0 1 0 3 2 5 0 0 1 5 15 20 0 0 0";
+	    MyApp.roboType(mxInputVals);
+        MyApp.roboSequence++;
+	}
+
 	public static void RT3() throws AWTException { MyApp.RT0(); }
 		
 	public static void RT4() throws AWTException { MyApp.RT1(); }
 		
-	public static void RT5() throws AWTException { MyApp.RT2(); }
+	public static void RT5() throws AWTException { MyApp.RT2a(); }
 
 	public static void RT6() throws AWTException { //"showmap"	
 		myRobo.delay(200);

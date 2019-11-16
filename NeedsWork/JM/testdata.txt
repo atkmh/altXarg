@@ -1,6 +1,8 @@
 -c 6x5 2.2 3 4  5 5  5.555 6 0.7 8.88 9.0 10.0001
 
-
+This work out of   Lineer-Algebra2.pdf
+Page 39.
+this is simple row reduction, not Mx Inversion
 
 5 8 1  
 0 2 1
@@ -17,10 +19,26 @@ R2< R2+R3*-0.5
 R1<R1+R3*-0.2
 R1<R1+R2*-1.6
 
+From Lineer-algebra2.pdf Pg 54 - 55
 
-
-
-
+ 5 8 1 1 0 0 
+ 0 2 1 0 1 0
+ 4 3 -1 0 0 1
+ 
+ R1 < R1*0.2
+ R3 < R3+ R1*-4
+ R2 < R2* 0.5
+ R3 < R3 + R2*3.4
+ R3 < R3 * -10
+ ---------------  row reduced by that point
+ R2 < R2 + R3*-0.5
+ R1 < R1 + R3*-0.2
+ R1 < R1 + R2*-1.6
+ 
+ 5 -11 -6
+ -4 9   5
+ 8 -17 -10
+ 
 
 
 
@@ -40,3 +58,19 @@ The determinant of a square matrix A has the following properties:
  The determinant of A equals the determinant of AT.
  The determinant of A is multiplied by - 1 if any two rows (respectively, columns) are exchanged.
 Also, for any square matrices A and B, we have det (AB) = det(A) det(B).
+
+
+
+
+https://math.stackexchange.com/questions/2574905/invertible-4x4-matrix
+
+5 6 6 8
+2 2 2 8
+6 6 2 8
+2 3 6 7
+->
+
+
+
+
+
