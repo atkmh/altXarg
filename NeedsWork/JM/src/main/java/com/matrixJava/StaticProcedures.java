@@ -94,9 +94,9 @@ public class StaticProcedures {
     public static void 	swapMxRows() {  // Check :  is this done.  Im not putting away
     	if (MyApp.currentMx != null) {
     	System.out.print("first row: ");
-        int firstRow = Integer.parseInt(MyApp.in.nextLine());
+        int firstRow = Integer.parseInt(MyApp.in.nextLine().toUpperCase());
     	System.out.print("Swap with Row: ");
-        int swapRow = Integer.parseInt(MyApp.in.nextLine());
+        int swapRow = Integer.parseInt(MyApp.in.nextLine().toUpperCase());
         Matrix tempMX = new Matrix();
         tempMX = MyApp.currentMx.SwapRows( firstRow, swapRow);
         // ah..... Need to add this to History
@@ -111,9 +111,9 @@ public class StaticProcedures {
 	public static void MatrixAddition() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
-		MyApp.addendName1 = MyApp.in.nextLine();
+		MyApp.addendName1 = MyApp.in.nextLine().toUpperCase();
 		System.out.println("Enter name of second matrix");
-		MyApp.addendName2 = MyApp.in.nextLine();
+		MyApp.addendName2 = MyApp.in.nextLine().toUpperCase();
 		int found = 0;
 
 		// Need to turn this into a function that returns a Matrix given a name
@@ -158,9 +158,9 @@ public class StaticProcedures {
     public static void MatrixSubtract() throws Exception {// Minuend - Subtrahend = Difference
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
-		MyApp.minuendName = MyApp.in.nextLine();
+		MyApp.minuendName = MyApp.in.nextLine().toUpperCase();
 		System.out.println("Enter name of second matrix");
-		MyApp.subtrahendName = MyApp.in.nextLine();
+		MyApp.subtrahendName = MyApp.in.nextLine().toUpperCase();
 		int found = 0;	
     	
 		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
@@ -203,9 +203,9 @@ public class StaticProcedures {
 	public static void MatrixMultiply() throws Exception {
 		System.out.println("We'll need the name of two Existing Matrices...");
 		System.out.println("Enter name of first matrix");
-		MyApp.factor1Name = MyApp.in.nextLine();
+		MyApp.factor1Name = MyApp.in.nextLine().toUpperCase();
 		System.out.println("Enter name of second matrix");
-		MyApp.factor2Name = MyApp.in.nextLine();
+		MyApp.factor2Name = MyApp.in.nextLine().toUpperCase();
 		int found = 0;	
 		
 		for (int x = 0; x < MyApp.runTimeALOAL.size(); x++) {
@@ -218,7 +218,7 @@ public class StaticProcedures {
 				found++;
 			}
 		}
-		if (found < 1) throw new Exception("Matrix Name " +MyApp.addendName1 +" was not found in Main List");
+		if (found < 1) throw new Exception("First Matrix Name " +MyApp.addendName1 +" was not found in Main List");
 		for (int y = 0; y < MyApp.runTimeALOAL.size(); y++) {
 			ArrayList tempAl = MyApp.runTimeALOAL.get(y);
 			//System.out.println("");
@@ -229,7 +229,7 @@ public class StaticProcedures {
 				found++;
 			} 
 		}
-	    if (found > 0 && found < 2) throw new Exception("Matrix Name " +MyApp.addendName2 +" was not found in Main List");
+	    if (found > 0 && found < 2) throw new Exception("Second Matrix Name " +MyApp.addendName2 +" was not found in Main List");
 		System.out.println("number found: " + found);
 		//MyApp.factorMx1.displayCompact();  // currently this is where the exception is thrown
 		//MyApp.factorMx2.displayCompact();
@@ -278,7 +278,7 @@ public class StaticProcedures {
 	//
 	public static void singleMatrixHist() {
 		System.out.print("Enter Matrix Name Char :");
-		MyApp.currentName = MyApp.in.nextLine();
+		MyApp.currentName = MyApp.in.nextLine().toUpperCase();
 		ArrayList tempAl;
 		Matrix tempMx;
 		int rtALOAL_Index = 0;

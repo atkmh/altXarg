@@ -191,8 +191,18 @@ public class MyApp {
 			case "dispc":         
 			case "showit":
 			case "showme":
-			case "show":          StaticProcedures.DisplayCurrentMatrixC(); 
+			case "show":          StaticProcedures.DisplayCurrentMatrixExpx(); 
 			    break;
+			    
+			case "showx":          StaticProcedures.DisplayCurrentMatrixExp1(); 
+			    break;
+			    
+			case "showxx":          StaticProcedures.DisplayCurrentMatrixExp2(); 
+			    break;
+			    
+			case "showxxx":          StaticProcedures.DisplayCurrentMatrixExp3(); 
+			    break;
+			    
 			case "dispz":         StaticProcedures.DisplayCurrentMatrixZ(); 
 			    break;
 			case "ls": 
@@ -207,13 +217,7 @@ public class MyApp {
 			    break;
 			case "setrandata":    StaticProcedures.SetMxRandata(); 
 			    break;
-			case "pop":          StaticProcedures.DisplayCurrentMatrixExp1();  
-			    break;
-			case "popp":          StaticProcedures.DisplayCurrentMatrixExp2();  
-			    break;
-			case "poppp":          StaticProcedures.DisplayCurrentMatrixExp3();  
-			    break;
-			case "popx":          StaticProcedures.DisplayCurrentMatrixExpx();  
+			case "pop":          // do nothing
 			    break;
   
 			case "classpath":     String myJCP = System.getProperty("java.class.path");
