@@ -100,7 +100,7 @@ public class MyApp {
 
 		System.out.print("Let's get the first run time command: ");
 		if (roboSwitch) {
-		RT0();
+		RoboAction.RT0();
 		}
 		
 		runTimeCommand = in.nextLine();
@@ -219,7 +219,8 @@ public class MyApp {
 			System.out.print("Get another command: ");
 			if (roboSwitch)
 				switch(roboSequence) {
-				case 0 : MyApp.RT0();  break;// 'new' 
+//				case 0 : MyApp.RT0();  break;// 'new' 
+				case 0 : RoboAction.RT0();  break;// 'new' 
 				case 1 : MyApp.RT1();  break;// '3x4 <enter>' Called from InputStringObj.Dims
 				case 2 : MyApp.RT2();  break;// '3 3.017 3 9'new 
 				case 3 : MyApp.RT3();  break;// call RT0() 
@@ -254,11 +255,11 @@ public class MyApp {
 
 	
 //  ROBOT TESTING Procs
-	public static void RT0() throws AWTException {
-		myRobo.delay(200);
-        MyApp.roboType("new");
-        MyApp.roboSequence++;
-	}
+//	public static void RT0() throws AWTException {
+//		myRobo.delay(200);
+//        MyApp.roboType("new");
+//        MyApp.roboSequence++;
+//	}
 
 	
 	public static void RT1() throws AWTException {
@@ -276,7 +277,8 @@ public class MyApp {
 	}
 		
 		
-	public static void RT3() throws AWTException { MyApp.RT0(); }
+//	public static void RT3() throws AWTException { MyApp.RT0(); }
+	public static void RT3() throws AWTException { RoboAction.RT0(); }
 		
 	public static void RT4() throws AWTException { MyApp.RT1(); }
 		
@@ -288,7 +290,8 @@ public class MyApp {
         MyApp.roboSequence++;
 	}
 		
-	public static void RT7() throws AWTException { MyApp.RT0();	}
+//	public static void RT7() throws AWTException { MyApp.RT0();	}
+	public static void RT7() throws AWTException { RoboAction.RT0();	}
 
 	public static void RT8() throws AWTException {
 		myRobo.delay(200);
